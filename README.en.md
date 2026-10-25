@@ -22,6 +22,7 @@
 - **docs/zlecenia.md** — open problems & directions: replication queue, publication candidates, knot-offshoots, the P₀-AI branch (Polish)
 - **docs/korzenie/** — annotated historical roots (annotations only; source files stay with the author)
 - **GLOSSARY.md** — glossary of workshop terms (PL → EN)
+- **README.es.md** — resumen en español
 
 ## Statuses
 

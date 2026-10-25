@@ -22,7 +22,7 @@
 - **docs/zlecenia.md** — otwarte zlecenia i kierunki: kolejka replikacji, kandydaci publikacji, sęk-odnogi, gałąź P₀-AI
 - **docs/korzenie/** — adnotacje-erratyki do dokumentów pierwotnych (repo trzyma adnotacje, nie pliki źródłowe)
 - **GLOSSARY.md** — glosariusz terminów (pień, słoje, sęki, bramki…)
-- **README.en.md** — English summary
+- **README.en.md** — English summary · **README.es.md** — resumen en español
 
 ## Statusy
 
