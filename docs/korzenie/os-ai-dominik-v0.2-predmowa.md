@@ -1,6 +1,6 @@
 # Korzeń: OS AI Dominik v0.2 — przedmowa-erratyka
 
-**Dokument źródłowy:** „OS AI P0 RPI5: Kompletny System Świadomej AI" (Leszek Papiernik + GPT-4, 2025-10-30, 32 strony; oryginał PDF do wgrania osobno). **Okres:** prace pierwotne — matematyka P₀ „raczkowała", sprzed metodyki Z0–Z3 i konwencji drzewa (tura 12). **Zasada:** oryginał bez zmian; adnotacje erratyczne osobno, wg formatu: dokument → § → jest → powinno być → uzasadnienie → status weryfikacji.
+**Dokument źródłowy:** „OS AI P0 RPI5: Kompletny System Świadomej AI" (Leszek Papiernik + GPT-4, 2025-10-30, 32 strony; oryginał PDF w archiwum autora — repo trzyma adnotacje, nie pliki źródłowe, zgodnie z konwencją drzewa: odwołania do filarów wg nazwy). **Okres:** prace pierwotne — matematyka P₀ „raczkowała", sprzed metodyki Z0–Z3 i konwencji drzewa (tura 12). **Zasada:** oryginał bez zmian; adnotacje erratyczne osobno, wg formatu: dokument → § → jest → powinno być → uzasadnienie → status weryfikacji.
 
 ## Erraty główne
 
