@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="720" height="500" fill="#faf8f2"/>
+  <text x="360" y="38" text-anchor="middle" font-size="22" fill="#3f3222">Konwencja drzewa P₀</text>
+
+  <line x1="60" y1="300" x2="660" y2="300" stroke="#b5a379" stroke-width="2"/>
+
+  <g stroke="#7a5c38" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M 352 300 C 320 335 295 360 270 395"/>
+    <path d="M 360 300 C 358 345 358 375 360 415"/>
+    <path d="M 368 300 C 402 335 425 362 452 395"/>
+    <path d="M 340 300 C 330 325 315 340 295 355"/>
+    <path d="M 380 300 C 392 322 408 338 430 350"/>
+  </g>
+  <text x="360" y="448" text-anchor="middle" font-size="15" fill="#7a5c38">korzenie — intuicje, pytania, hipotezy</text>
+
+  <path d="M 330 300 L 349 118 L 371 118 L 390 300 Z" fill="#b08d57" stroke="#5a4632" stroke-width="2.5"/>
+  <text x="262" y="250" text-anchor="end" font-size="15" fill="#5a4632">pień — SSOT</text>
+  <line x1="268" y1="246" x2="336" y2="252" stroke="#5a4632" stroke-width="1"/>
+
+  <g stroke="#5a4632" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M 352 122 C 310 92 272 78 224 66"/>
+    <path d="M 360 120 C 360 92 360 72 360 52"/>
+    <path d="M 368 122 C 410 92 448 78 496 66"/>
+  </g>
+  <text x="505" y="72" text-anchor="start" font-size="15" fill="#5a4632">gałęzie — operacjonalizacje</text>
+
+  <ellipse cx="368" cy="195" rx="10" ry="8" fill="#4a3826"/>
+  <text x="480" y="188" text-anchor="start" font-size="15" fill="#4a3826">sęk — trwały, nigdy nie usuwany (Z0)</text>
+  <line x1="475" y1="192" x2="379" y2="195" stroke="#4a3826" stroke-width="1"/>
+
+  <path d="M 374 190 C 430 165 480 148 535 135" stroke="#5f7a3a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <circle cx="535" cy="135" r="7" fill="#5f7a3a"/>
+  <text x="548" y="132" text-anchor="start" font-size="15" fill="#5f7a3a">odnoga z sęka (tura 39)</text>
+
+  <text x="398" y="278" text-anchor="start" font-size="13" fill="#8a7a5c">miazga — warsztat</text>
+  <line x1="396" y1="273" x2="386" y2="268" stroke="#8a7a5c" stroke-width="1"/>
+
+  <g transform="translate(120,415)">
+    <circle r="46" fill="none" stroke="#8a6a4a" stroke-width="3"/>
+    <circle r="34" fill="none" stroke="#8a6a4a" stroke-width="2"/>
+    <circle r="22" fill="none" stroke="#8a6a4a" stroke-width="2"/>
+    <circle r="10" fill="none" stroke="#8a6a4a" stroke-width="2"/>
+    <circle r="3" fill="#5a4632"/>
+    <text y="4" text-anchor="middle" font-size="11" fill="#3f3222">P₀</text>
+    <text y="-60" text-anchor="middle" font-size="14" fill="#5a4632">słoje — każdy = jedna</text>
+    <text y="-44" text-anchor="middle" font-size="14" fill="#5a4632">niezależna replikacja (Z1)</text>
+  </g>
+
+  <text x="690" y="490" text-anchor="end" font-size="12" fill="#8a7a5c">P₀ — Punkt Zerowy · konwencja drzewa (tura 12; odnogi — tura 39)</text>
+</svg>
