@@ -14,7 +14,7 @@ Kolejkę stanowią wszystkie wpisy 🔍 w [docs/wyniki.md](wyniki.md) — każdy
 
 ## Sęk-odnogi (💡)
 
-- **Metryka z −1/4** (z korzenia [OS AI Dominik v0.2](korzenie/os-ai-dominik-v0.2-predmowa.md)): widmo i własności geometryczne jako odrębna struktura, niezależnie od simpleksu foremnego.
+- **Metryka z −1/4** (z korzenia [OS AI Dominik v0.2](korzenie/os-ai-dominik-v0.2-predmowa.md)): **odnoga puszczona 2026-11-01** — kandydat-twierdzenie 🔍: metryka = 4 z 5 wierzchołków regularnego 4-simpleksu, brakujący piąty wierzchołek = −kierunek P₀ ([docs/wyniki.md](wyniki.md), luźna sesja 2026-11-01); czeka na drugi, niezależny rachunek (Z1).
 
 ## Gałąź P₀-AI (💡 kierunek, sesja 2026-10-25)
 
@@ -23,3 +23,4 @@ Minimalna specyfikacja sieci urodzonej z P₀: stan na simpleksie z metryką Gra
 ## Laboratoria równoległe
 
 Zgłoszenia przez issue (szablon „Seminarium"). Rejestr prowadzi [ZAPROSZENIE.md](../ZAPROSZENIE.md).
+

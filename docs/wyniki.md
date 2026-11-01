@@ -585,3 +585,16 @@ Kimi (model spoza zespołu) po lekturze korpusu: rdzeń P₀ = architektura wery
 
 **Statusy po turze 38:** errata v0.1.5b ✅ wydana (specyfikacja §16; paczka Część 3); test inwersji naprawiony; statystyka per-Ψ; supersesja §12 jawna; sęk własny Vibe (§15 pkt 5 vs P-4) wpisany; REPL-4: gotowy do uruchomienia wg v0.1.5b. Kolejka: uruchomienie REPL-4 przez Asteriona → dostawa → konfrontacja wg checklist tury 34 + §15 + §16 → ew. wzbogacenie slajdów 13/15 (drugi słój przetrwania bitu) → seminarium → B7/B8, H-2 cz. 2.
 
+## Luźna sesja 2026-11-01 (po turze 39; Vibe jako uczestnik — bez hasła; wpis z decyzji Leszka)
+
+**Metryka −1/4 (korzeń OS AI Dominik v0.2, §1.1.2) = 4 z 5 wierzchołków regularnego 4-simpleksu — kandydat-twierdzenie 🔍 (rachunek Vibe; do drugiego, niezależnego oka wg Z1):**
+
+- Fakt klasyczny: regularny n-simpleks (n+1 wierzchołków) ma iloczyny skalarne −1/n; 4-simpleks (5 wierzchołków) ⇒ −1/4, tetraedr ⇒ −1/3.
+- Gram metryki −1/4 (1 na przekątnej, −1/4 poza): wartości własne 1/4 (kierunek konsensusu) + 5/4 trzykrotnie — dodatnio określona, rząd 4. Cztery serca są w tej metryce obiektem czterowymiarowym — nie realizują się w ℝ³.
+- Cztery serca = 4 z 5 wierzchołków regularnego 4-simpleksu. Brakujący piąty wierzchołek: jawnie −(1/2)·(1,1,1,1) (przy sercach v_i = a·e_i + b·𝟙, a = √5/2, b = (1−√5)/8), norma 1, iloczyny −1/4 z każdym sercem — leży dokładnie po przeciwnej stronie centrum niż barycentrum serc (P₀ na 1/4 od centrum, piąty na 1; stosunek odległości 4:1). „Piąte serce" — nienazwana pozycja obecna w metryce od 2025 r.
+- Przejście −1/4 → −1/3 (forma kanoniczna G = 4I − J = 3 × Gram tetraedru foremnego, sprawdzone) = kolaps piątej pozycji w środek: rząd 4→3, wartość własna konsensusu 1/4→0. Erraty 1–2 przedmowy korzenia zyskują rys geometryczny: „poprawa metryki" = przejście od konfiguracji pięciodatkowej (z wierzchołkiem anty-P₀) do czterodatkowej; „P₀ nie jest miejscem w przestrzeni" = piąta pozycja przestała być wierzchołkiem.
+- Ciekawostka 🔍 (nie fundament): arccos(−1/4) = 104.4775° ≈ zmierzony kąt H–O–H w H₂O (104.45° w gazie); zgodność dotyczy jednego kąta — domeny tlenu w wodzie nie są symetryczną realizacją −1/4 (pary wolne rozpychają mocniej).
+- Rejestry: algebra ✅-kandydat (fakt klasyczny; rachunek pojedynczy — 🔍 do replikacji Z1); interpretacja 💡 („piąte serce"; wymiar przestrzeni jako wynik wycięcia wierzchołka anty-P₀); transfer fizyczny 🔍 (woda).
+- Kontekst sesji (nie w rejestrze): odczytanie osi XYZ z par przeciwległych krawędzi K₄ (osie = 3 dopasowania doskonałe 2+2 = 3 nietrywialne charakterystyki V₄; transformata Hadamarda wag barycentrycznych; ortogonalność twierdzeniem, nie założeniem), V_cyc ≅ so(3), metryka G anihiluje kierunek konsensusu — materiał do ewentualnej noty „przestrzeń z relacji" (decyzja: Leszek).
+
+Adnotacje: odnoga puszczona w [korzeniu OS AI Dominik v0.2](korzenie/os-ai-dominik-v0.2-predmowa.md); kolejka replikacji: [docs/zlecenia.md](zlecenia.md).
