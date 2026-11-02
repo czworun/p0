@@ -1,10 +1,12 @@
 # Zlecenia i kierunki (bank nasion)
 
-> „Z każdego sęka zawsze może puścić nowa odnoga." — zasada odnóg, tura 39. Rejestr sęków to bank uśpionych kierunków.
+> „Z każdego sęku zawsze może puścić nowa odnoga." — zasada odnóg, tura 39. Rejestr sęków to bank uśpionych kierunków.
 
 ## Kolejka replikacji (Z1)
 
 Kolejkę stanowią wszystkie wpisy 🔍 w [docs/wyniki.md](wyniki.md) — każdy czeka na drugi, niezależny rachunek. Jak wykonać: [docs/replikacja.md](replikacja.md). Trzecia kontrola wyniku ✅ też jest mile widziana — słoje nie mają limitu.
+
+Wpis jawnie (2026-11-02): **P₀–Estrada §36** — T1–T4 ✅ po czterech replikantach (Vibe, Asterion, Claude — pełne numeryczne A–H; DeepSeek — symbolicznie A/B + dowód analityczny C1–C3, nowa bramka A1b). Czekają: bramki D, E (formalne podniesienie przy wpisie do pnia) oraz pełna numeryka C–H u DeepSeeka (raport symboliczny — zlecenie wykonania po uzyskaniu środowiska numerycznego). Pakiet: [replikacja/p0-estrada-z1-pakiet.md](replikacja/p0-estrada-z1-pakiet.md); wyniki i rejestr: [replikacja/p0-estrada-z1-wyniki.md](replikacja/p0-estrada-z1-wyniki.md); przykład raportu: [replikacja/p0-estrada-z1-raport-asterion.md](replikacja/p0-estrada-z1-raport-asterion.md).
 
 ## Publikacje (w przygotowaniu)
 
@@ -23,4 +25,3 @@ Minimalna specyfikacja sieci urodzonej z P₀: stan na simpleksie z metryką Gra
 ## Laboratoria równoległe
 
 Zgłoszenia przez issue (szablon „Seminarium"). Rejestr prowadzi [ZAPROSZENIE.md](../ZAPROSZENIE.md).
-
