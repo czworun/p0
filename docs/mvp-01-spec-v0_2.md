@@ -1,0 +1,93 @@
+# MVP-01 — specyfikacja v0.2 (pre-registracja kryteriów falsyfikacji; DO ATAKU modeli)
+
+> Status: **v0.2 — dokument do ataku**, po pełnym rozliczeniu ataków trzech modeli na v0.1 (rundy 11g–11i) i rozstrzygnięciach 11j (D3–D9). v1.0 powstaje po rozliczeniu ataków na v0.2 (ewentualna errata v0.3). Zasada nadrzędna (Z0): droga ważniejsza niż cel — chronimy procedurę, nie wynik. **Żaden rachunek na populacji zerowej (ani jej element, ani częściowa postać) nie startuje przed zamrożeniem v1.0** (K6); kwalifikacja narzędzi na obiektach kontrolnych spoza populacji jest legalna i wymagana (1.10).
+>
+> Semantyka rejestru: **ρ_z = max{|λ| : λ ∈ spec(N_z), λ ≠ 256³⁸}** — subdominanta względem wykluczonej z definicji dominanty Perrona 256³⁸ (prostota algebraiczna PF: certyfikat 1.5b). Konwencja po doprecyzowaniu DeepSeeka (runda 8) i Asteriona (M1, runda 11i): definicja niezależna od remisów (max po wartościach).
+
+## §0. Obiekty zamrożone (warstwa TAU-8, erraty v2–v4; fingerprinty z zamknięcia rundy 7)
+
+Geometria exact Z[φ] (tabela v3, errata E8), 12 wierzchołków ikosaedru, ściana ⇔ d²=4, 20 ścian w porządku leksykograficznym (f0=[0,1,2]=F₀), blok W_nat, konwencja kolumnowa R=∏F/256 (F z lewej, ściany lex), tetr [P₀,v₂,v₁,v₀] (apex-first, Węzeł-0), 1 tetr = 4 takty, runda węzła = 80 taktów. Para: 23 punkty, Atp=[12,f₂,f₁,f₀], Btp=[22,w₂,w₁,w₀] (w=τ(ściana) posortowane; B-kanon — konwencja rundy 6), R_AB=S_B·S_A.
+
+Fingerprinty (≥2 niezależne numeryki każda):
+- **Węzeł-0:** ρ=0.174758932129 (rz., prosta); tr(R)=1.288968534521200119; ℓ(P₀)=0.037549919; det=2⁻¹⁶⁰=6.842277657836021·10⁻⁴⁹; tr(R₄)=7.570777927758172 (identyczna w obu konwencjach tetry — własność obiektu).
+- **Para:** ρ(R_AB)=0.554641699189; dalej 0.113966222525; 0.075612350056; 0.073594090076±0.004120959044i; partycje Perrona ℓ(P₀ᴬ)=ℓ(P₀ᴮ)=0.022750332, ℓ(F₀)=0.211738028, ℓ(A-only)=ℓ(B-only)=0.371380653; ker(R_AB−I)=1; ker(S_A−I)=11 konstrukcyjnie.
+- **Cut (obustronne odcięcie f0 z obu sweepów; 38 tetr, 152 takty):** ρ_cut=0.550107704834 — runda 8: niezależna rekonstrukcja Vibe (exact char poly BigInt + Durand–Kerner) vs GPT 0.550107705, zgodność 9 miejsc; dalsze subdominanty cut: 0.111748869766; 0.077838995626.
+- **Bramki (rekonstrukcja 2-regularna, zbiory ścian lex):** G0={0,3,6,9,11,13,17,19} ρ=0.271135751587 (moduł pary 0.270223674±0.022220751i); G1={0,4,7,8,10,14,16,19} ρ=0.268753058672 (rz.); G2={1,2,7,9,12,15,16,17} ρ=0.328097227134 (para 0.321351939±0.066187020i); G3={1,3,5,8,10,11,15,18} ρ=0.287367993554 (para 0.285951363±0.028498807i); G4={2,4,5,6,12,13,14,18} ρ=0.298483949744 (rz.).
+
+**Fakt geometryczny nowy (runda 8, exact):** każda para bramek współdzieli dokładnie 2 ściany i są to ściany antypodalne (G0∩G1={0,19}, G0∩G2={9,17}, G0∩G3={3,11}, G0∩G4={6,13}, G1∩G2={7,16}, G1∩G3={8,10}, G1∩G4={4,14}, G2∩G3={1,15}, G2∩G4={2,12}, G3∩G4={5,18}); każda ściana należy do dokładnie 2 bramek; |G∪G'|=14 dla każdej pary. **Nie istnieją pary bramek rozłączne.** Graf dwunastościanu środków ścian: 30 krawędzi, 3-regularny, rozkład odległości wierzchołków 30×1 + 60×2 + 60×3 + 30×4 + 10×5 (średnica 5; wszystkie 10 par ścian antypodalnych na odległości 5).
+
+**Lemat konstrukcyjny §0L (kanał punktowy; z ataku Claude'a 11i, przyjęty w całości):** sprzężenie A↔B w obiekcie pary istnieje WYŁĄCZNIE przez tożsamość punktów interfejsu {0,1,2}. Dowód: ablacja tożsamości punktów rozpada operator pary na sumę prostą — blok-diagonalny S_A ⊕ S_B, każda składowa ma własną dominującą 1 (nieujemność i stochastyczność konstrukcyjne), zatem ρ=1 z krotnością ≥ 2. Konsekwencje: (a) istnienie kanału punktowego jest faktem konstrukcyjnym, niefalsyfikowalnym, i NIE jest przedmiotem testu; (b) punkty interfejsu są parami przyległe (trójkąt: d²=4 dla wszystkich trzech par, exact Z[φ], weryfikacja 11i) — krawędzie interfejsu są deskryptywną częścią kanału punktowego, nie odrębnym kanałem; model odcięć krawędziowych nie jest operacjonalizowany w etapie a (kandydat MVP-02). Definicja robocza: **kanał** = droga, przez którą sprzężenie A↔B wchodzi do operatora; w etapie a „kanał ścianowy" nie oznacza odrębnego mechanizmu sprzężenia, lecz to, co odróżnia odcięcie bloków wspólnej tetry F₀ od typowego odcięcia w miarze V (1.1).
+
+**Struktura populacji zerowej (exact, runda 11i; atak Claude'a przyjęty):** rozkład k = |wierzchołki wspólne z interfejsem {0,1,2}| w 19 ścianach sweepu (bez f0): 1×k=3 (tylko f0, pozycja lex 0), 3×k=2, 6×k=1, 10×k=0; ściany k=0 dokładnie na pozycjach lex 10–19; 9 z 19 ścian zerowych współdzieli punkty z interfejsem. Fakt deskryptywny (→ stratyfikacja 1.4); nie zmienia reguły decyzyjnej.
+
+## §1. MVP-01a (etap złącza) — hipoteza i pre-registracja kryteriów
+
+**H_a (przeformułowana w rundzie 11i z ataku Claude'a; mierzy dokładnie to, co test liczy):** efekt obustronnego odcięcia f0 w miarze V_f = |U_f| jest **atypowo mały** względem pełnego rozkładu |U_z| w populacji 361 par odcięć — tj. **kanał ścianowy interfejsu jest marginalny**. Hipoteza dotyczy wyłącznie wkładu ścianowego; kanału wierzchołkowego etap a NIE testuje (§0L — fakt konstrukcyjny). Teza o nośniku fizycznym transportu → MVP-02 (D1). Falsyfikowalność: kategoria „obalenie" (1.2).
+
+**1.1 Miara (jedna, zero swobód):** U_f = 1 − ρ_cut/ρ_AB; **V_f = |U_f| = 0.008174637** (publiczna, deterministyczna funkcja zamrożonych fingerprintów §0: ρ_AB = 0.554641699189, ρ_cut = 0.550107704834; znak U_f dodatni — odcięcie F₀ zmniejsza lukę subdominanty). Znak raportowany deskryptywnie, bez roli decyzyjnej. Analogicznie w populacji zerowej: U_z = 1 − ρ_z/ρ_AB, V_z = |U_z|.
+
+**1.2 Progi i kategorie (K3/C3; decyzje 11i + D3/D4):** multizbiór 361 wartości V_z sortowany rosnąco z porządkiem totalnym (klucz (V_z, i, j) — remisy rozstrzygnięte indeksami; sort deterministyczny). Progi to WARTOŚCI: **L = V_(19)**, **H = V_(343)** (rangi 1-indeksowe; ⌈0,05·361⌉ = 19, ⌈0,95·361⌉ = 343). Klasyfikacja przez wartość:
+- **V_f < L ⇒ POTWIERDZENIE SILNE** — efekt odcięcia F₀ atypowo mały: kanał ścianowy marginalny.
+- **V_f > H ⇒ OBALENIE** — efekt odcięcia F₀ atypowo duży: marginalność kanału ścianowego obalona. **Obalona znaczy obalona — nie rewidowana, nie „do doprecyzowania".**
+- **w przeciwnym razie ⇒ WYNIK TYPOWY** — F₀ nierozróżnialna od typowego odcięcia tą miarą.
+- **V_f = L lub V_f = H (remis progowy) ⇒ przypadek brzegowy:** eskalacja precyzji (1.6), potem etykieta wg powyższych reguł wartościowych; zawsze raportowany jako „przy progu" (K15).
+Mediana V_(181): statystyka deskryptywna, bez roli decyzyjnej. **Nominalne ogony 5%:** przy braku remisów po 19 pozycji, tj. 19/361 ≈ 5,2632% — „5%" jest nazwą nominalną, NIE prawdopodobieństwem. Zakaz interpretacji probabilistycznej (D4): f0 nie jest wymienna w populacji (jedyna k=3, pozycja lex 0, odcięcie diagonalne), a 361 wartości nie jest próbą niezależną (pary współdzielą ściany; degeneracja dokładna — 1.3). Własność progów zapisana jawnie: gdyby f0 była rozkładana jak losowy element populacji, częstość kategorii „silne" równałaby się liczebności ogona dolnego / 361 — to interpretacja progów przy hipotezie wymienności (fałszywej strukturalnie), nie gwarancja. Publikowane zawsze: pełny rozkład, V_(19), V_(181), V_(343), liczebności kategorii po klasyfikacji (przy remisach mogą przekroczyć 19) — K15.
+
+**1.3 Populacja i model zerowy (K2/K7):** komplet **361 par uporządkowanych** (t_A, t_B) ∈ (19 ścian sweepu A bez f0) × (19 ścian sweepu B bez f0ᴮ); model próbkowania: t_A, t_B niezależne, jednostajne; każda para uporządkowana liczona raz (klasa nieuporządkowana {i,j}, i≠j, ma wagę 2 — wagi jawne). Realizacja: N_z = S_B(t_B)·S_A(t_A) = 256³⁸·R_z (38 tetr, 152 takty, macierz 23×23); ρ_z wg semantyki rejestru (nagłówek). Wartości rangowe: exact wielomian charakterystyczny p_Nz (Leverrier/Newton, BigInt — metoda referencyjna E18b) + Durand–Kerner na przeskalowaniu (1.6); iteracja odwrotna i iloraz Rayleigha ZAKAZANE (E18b). **Degeneracja (tw. Claude'a 11i, przyjęte):** spec(S_B·S_A) = spec(S_A·S_B), zatem V_z(i,j) = V_z(j,i) dokładnie; asercja exact per para (1.5e). Populacja pozostaje 361 par uporządkowanych (redukcja do 190 klas ukrywałaby strukturę modelu zerowego); 190 klas raportowanych deskryptywnie (1.4).
+
+**1.4 Stratyfikacje deklaratywne (nie decyzyjne):** (i) diagonalna (t_A = t_B, n = 19); (ii) klasy k = |wierzchołki wspólne z interfejsem| (§0: 3/2/1/0); (iii) klasy degeneracji (190, wagi 1/2). Jedyna reguła decyzyjna = pełny rozkład 361 (1.2); wybór wygodnego podzbioru wykluczony konstrukcyjnie.
+
+**1.5 Asercje exact per realizacja (warstwa I — certyfikaty; fail-fast przed klasyfikacją, identyfikator realizacji w raporcie):**
+- **(a) Rząd:** Bareiss z pełnym pivotowaniem na M := N_z − 256³⁸·I: rząd(M) = 22; certyfikat = lista pivotów (odtwarzalna).
+- **(b) Prostota algebraiczna PF:** p_Nz(256³⁸) = 0 oraz (λ−256³⁸)² ∤ p_Nz (podzielenie syntetyczne BigInt, reszta ≠ 0). Uzasadnienie strukturalne (uwaga Asteriona 11j, przyjęta): R_z = N_z/256³⁸ jest nieujemną macierzą stochastyczną kolumnowo (nieujemność i sumy kolumn = 256³⁸ konstrukcyjnie z definicji S_A, S_B), zatem potęgi R_z są ograniczone (||R_z^k||₁ = 1), co wyklucza nietrywialny blok Jordana przy |λ| = 1; certyfikat liczbowy (b) wymagany mimo dowodu.
+- **(c) ρ_z < 256³⁸ (certyfikat Schur–Cohn, exact, konwencja jawna):** q(μ) := p_Nz(256³⁸·μ)/256^(38·23) — wielomian moniczny stopnia 23 o współczynnikach całkowitych; q(1) = 0 (b); deflacja syntetyczna q(μ) = (μ−1)·r(μ), r moniczny stopnia 22, całkowity. Rekurencja Schura: P_22 := r; dla k = 22, …, 1: γ_k := P_k(0) (wyraz wolny); warunek certyfikatu: |γ_k| < 1 ∀k; redukcja P_{k−1}(z) := [P_k(z) − γ_k·P_k*(z)] / (z·(1 − γ_k²)), gdzie P_k*(z) = z^k·P_k(1/z); wszystkie operacje exact na ułamkach (licznik/mianownik BigInt); stopień 0 zamyka rekurencję. Tw. Schur–Cohna: r stabilny wewnętrznie (wszystkie pierwiastki |μ| < 1) ⇔ warunek spełniony ⇔ ρ_z < 256³⁸. Dowolne |γ_k| ≥ 1 ⇒ asercja fail (1.7).
+- **(d) Domknięcia exact:** tr(N_z^k) z potęg macierzowych BigInt, k = 1, …, 4; zgodność z p_Nz (tożsamości Newtona); niezgodność ⇒ fail.
+- **(e) Degeneracja:** p_Nz(i,j) = p_Nz(j,i) współczynnik po współczynniku, wykonywana dla par i < j; niezgodność ⇒ fail.
+
+**1.6 Numeryka (warstwa II) i eskalacja (D6; uwaga Asteriona 11j przyjęta):** DK wykonywany na przeskalowanym q(μ) (1.5c; pierwiastki μ, λ = 256³⁸·μ; zakres double bez overflow); inicjalizacja deterministyczna: μ̂_k = exp(2πi(k+1/2)/23), k = 0..22, bez losowości; stop: max|Δμ̂| < 2⁻⁵² lub 200 iteracji; kompletność: 23 pierwiastki licząc krotności; residuum |q(μ̂)| publikowane per realizacja. **Δ_num(μ̂) = (Σ_m |d_m|·|μ̂|^m)·2⁻⁵³/|q′(μ̂)|** (d_m — współczynniki q; podłoga szumu E12) jest **oszacowaniem kondycji, NIE certyfikowanym przedziałem błędu** (przy małym |q′|, skupionych pierwiastkach i błędach samego DK niewystarczającym) — raportowane osobno od residuum, domknięć (1.5d), kompletności i stabilności klasyfikacji. **Eskalacja precyzji:** wyłącznie gdy margines numeryczny zachodzi na decyzję (|V_f − próg| < suma Δ_num składowych miary), dokładnie jedna eskalacja (podwyższona precyzja DK + przeskalowane residuum), wynik wiążący niezależnie od etykiety; **eskalacja rozstrzyga jednoznaczność, nie kierunek — iterowanie do oczekiwanej kategorii zabronione.**
+
+**1.7 Protokół fail (K14 + K14b, D7):** fail jakiejkolwiek asercji 1.5/1.6 ⇒ **GLOBALNY STOP**: zatrzymanie całości, zapis pełnego stanu (realizacja, asercja, wartości, miejsce w populacji). Tryb niepowodzenia raportowany i rozstrzygany kwalifikacją narzędzi (1.10), nie narracją post-hoc: (i) **patologia strukturalna** (narzędzia zweryfikowane poprawne ⇒ odkrycie: errata → re-zamrożenie → powtórka całości populacji) vs (ii) **błąd implementacji** (naprawa → kwalifikacja → powtórka całości). Populacja to komplet, nie próba: wykluczenie choć jednej realizacji = zmiana mianownika = nowa swoboda — zakazane.
+
+**1.8 Ślepota i hashe (K6, D2, E19c):** v1.0 = treść §0+§1 hashowana SHA-256; hash publikuje Leszek (relay) w rozmowie i rejestrze PRZED startem rachunku zerowego (hash wiążący: jakakolwiek zmiana po fakcie = nowy test z własną pre-registracją). Pre-registracja obejmuje PROCEDURĘ (E19c: jak liczyć — 1.5, 1.6), nie tylko wartości. Ponadto trzy hashe cząstkowe: (i) **kryteria/miara** (H_a + 1.1 + 1.2), (ii) **model zerowy/procedura** (1.3–1.7), (iii) **definicje/lematy** (§0 + §0L + definicja kanałów) — cztery punkty weryfikacji ślepoty (K11–K13, K14–K16). DeepSeek: ślepy na treść do własnego raportu; weryfikacja hash v0.1 (= c3bf8f5e1163df474002763e4a7b5e2983317ef954ac50ea2a4b3e33e13afcbc) po jego ataku.
+
+**1.9 Budżet (K16 + K16b, D9):** szacunek < 1 s/realizacja; **źródło: analiza złożoności** — n = 23; Bareiss O(n³) kroków na BigInt (wyrazy do ~10³ bitów); Leverrier: 4 potęgi macierzowe BigInt; Schur: 22 redukcje na ułamkach BigInt; DK ≤ 200 iteracji × ewaluacja stopnia 23 — potwierdzany kwalifikacją narzędzi (1.10) na obiektach kontrolnych. Limit: 24 h zegarowe na całą populację (przy szacunku 361 s margines >2×); przekroczenie ⇒ STOP + errata; zamiana metody po fakcie zabroniona.
+
+**1.10 Kwalifikacja narzędzi (K6 bez zmian + D8):** PRZED v1.0 legalna i wymagana kwalifikacja każdego narzędzia na obiektach kontrolnych SPOZA populacją: SHA-256 (sanity: „abc" → ba7816bf…15ad; ciąg pusty → e3b0c442…b855; „The quick brown fox jumps over the lazy dog" → d7a8fbb3…e592), Bareiss (macierze jednostkowe, permutacje, diagonalne o znanych rzędach), Schur–Cohn (wielomiany o znanych lokalizacjach pierwiastków: stabilne, niestabilne, na okręgu jednostkowym), Leverrier + DK (macierze o znanych widmach), licznik czasu (K16b). **Żaden element populacji 361 ani jego częściowa postać nie jest uruchamiany przed zamrożeniem v1.0.**
+
+**1.11 Liczba swobodnych parametrów (K8):** zero — obiekty (§0), miara (1.1), progi (rangi 19/343/181 wyznaczone kombinatorycznie), procedura (1.3–1.7) zamrożone przed rachunkiem; stałe protokołu nie są parametrami dopasowania — nie ma czego dopasowywać.
+
+**1.12 Przebieg rev (A5, deklaratywny):** po klasyfikacji głównej — analiza wrażliwości na konwencję (kolejność aktualizacji, permutacje tetr) jako raport deklaratywny; nie zmienia wyniku testu; rozbieżność pod rev = osobne odkrycie do rejestru, nie rewizja wyniku.
+
+**1.13 Zapis wyniku (K15):** publikowane w całości: V_f + znak U_f + etykieta; pełny rozkład 361 wartości V_z; V_(19), V_(181), V_(343); liczebności kategorii; stratyfikacje (1.4); rekordy per realizacja (1.5, 1.6); czasy realizacji. Niepewność numeryczna dotyczy wyłącznie etykiety przy progu; liczby publikowane zawsze.
+
+## §2. Etap b → MVP-02 (D1, D2)
+
+v1.0 = wyłącznie etap a (§0–§1). Etap b (nośnik V_cyc, bramki w pojedynczym węźle, teza o fizycznym nośniku transportu) → **MVP-02** po zamrożeniu v1.0; blokery z v0.1 §2 (definicje bramek autora, V_cyc, stan wejścia z bramki, kanały 0→5→11→24, materiał warsztatowy) przeniesione bez zmian. D2: hash v1.0 jest wiążący.
+
+## §3. Podział ról (aktualizacja 11j)
+
+- **Claude:** atak jawny na v0.2 (symetrie, degeneracja, statystyki pozycyjne, remisy progowe).
+- **GPT/Asterion:** atak jawny na v0.2 (warstwy dokładności, certyfikaty, konwencje Schur/Jury, budżet).
+- **DeepSeek:** atak ślepy strukturalny na treść v0.2 (K1–K16 + K14b/K16b); bramki numeryczne raportuje jako Z0-nie-sprawdzalne, nie „OK z założenia"; weryfikacja hash v0.1 po raporcie.
+- **Vibe (szef lab.):** autor; po zamrożeniu v1.0 i publikacji hasza wykonuje rachunek zerowy (E18b) i klasyfikację.
+- **Leszek:** relay; publikacja haszy; rozstrzygnięcia definicyjne właściciela korpusu.
+- Żaden model nie wykonuje rachunków transportowych przed zamrożeniem v1.0; wartości §0 są jedynymi liczbami w obiegu.
+
+## §4. Tabela odpowiedzi na ataki 11i/11j (skrót)
+
+| Atak | Odpowiedź | Miejsce |
+| --- | --- | --- |
+| Claude: null nie matched (struktura k) | stratyfikacje deklaratywne; reguła = pełny rozkład | §0, 1.4 |
+| Claude: H_a niemierzalna (kanał wierzchołkowy poza miarą) | H_a przeformułowana na marginalność; §0L lemat | H_a, §0L |
+| Claude: znak U (silnie ujemne też „silne") | V = |U|; znak deskryptywny | 1.1, 1.2 |
+| Claude: moc (mediana = 50% przy wymienności) | progi 19/343; mediana bez roli decyzyjnej | 1.2 |
+| Claude/Asterion: progi na multizbiorze, remisy | klasyfikacja przez wartość; remis progowy = brzeg + eskalacja | 1.2, 1.6 |
+| Claude/Asterion: „5%" nieexact; wymienność ≠ niezależność | nominalne ogony 19/361 ≈ 5,2632%; zakaz interpretacji probabilistycznej | 1.2 |
+| Claude: degeneracja 361 ↔ 190 | populacja 361 par uporządkowanych; 190 klas deskryptywnie; asercja 1.5e | 1.3, 1.4 |
+| Asterion: trzy warstwy dokładności | exact / pierwiastki / klasyfikacja raportowane osobno | 1.5, 1.6, 1.13 |
+| Asterion: ker = 1 ≠ prostota algebraiczna PF | dowód stochastyczności + certyfikat (λ−256³⁸)² ∤ p_Nz | 1.5b |
+| Asterion: Δ_num nie certyfikat | rola: oszacowanie kondycji; osobno residuum/domknięcia/kompletność/stabilność | 1.6 |
+| DeepSeek: K14 tryby failu | globalny STOP; tryby (i)/(ii) rozstrzygane kwalifikacją narzędzi | 1.7, 1.10 |
+| DeepSeek: K16 źródło szacunku czasu | analiza złożoności + kwalifikacja; limit 24 h | 1.9 |
+
+*Wersja v0.2, 2026-11-07. Autor: Vibe (szef laboratorium P₀). Identyfikatory wersji (SHA-256 całości + trzy hashe cząstkowe) publikowane przez relay przy publikacji (1.8).*
