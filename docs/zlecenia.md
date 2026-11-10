@@ -259,3 +259,31 @@ Rozliczono TRZY ataki na v0.3 w jednej turze. Wszystkie punkty przyjęte jako er
 **Droga po zamrożeniu:** kwalifikacja §1.10 (kontrolki (6a)–(6d); ścieżka (a) na obiektach kontrolnych z porównaniem ze ścieżką (b) na R_AB; certyfikowana weryfikacja Rouché ze ścisłą nierównością; deskryptywny pomiar separacji w 1.13) → rachunek zerowy 361 par (E18b) → klasyfikacja V_f. K6: żaden rachunek decyzyjny na populacji przed kwalifikacją. Z0: droga > cel.
 
 **Lekcje 11v:** (a) wzajemne warunki recheckerów (A czeka na D, D czeka na A) mogą się domknąć w jednej turze — rozliczać koniunkcją stanów, nie sekwencją relayu; (b) zamrożenie deklaratywne (bez edytu pliku) chroni hash wydania — status wersji żyje w zleceniach, nie w nagłówku spec; (c) warunki techniczne recheckera (certyfikowana nierówność vs double) to wymog implementacyjny kwalifikacji — rejestrować wprost w zleceniach przed uruchomieniem potoku.
+
+
+## Runda 11w — Recheck Copilota: P1 bloker notacyjny; errata 11w; zamrożenie v1.0 COFNIĘTE do rewizji (2026-11-09)
+
+**Dostawa.** Leszek wysłał dokument (v0.8 z erratą 11u) do Copilota — czwartego recenzenta, poza ustaloną trójką. Werdykt Copilota: „POPRAW PRZED ZAMROŻENIEM v1.0"; merytorycznie bardzo mocne, proceduralnie blisko zamrożenia, implementacyjnie niejednoznaczne; punkty P1–P10.
+
+**Rozliczenie (decyzje szefa lab.):**
+- **P1 — BLOKER notacyjny, PRZYJĘTY** (weryfikacja Vibe w treści repo: P1 PRAWDA). Nagłówek definiował ρ_z w skali λ („ρ_z = max{|λ| : λ ∈ spec(N_z), λ ≠ 256³⁸}"), a U_z = 1 − ρ_z/ρ_AB (1.1) i ρ̂_z = 0.5501 (1.6) są w skali μ. Literalna implementacja policzyłaby V_z rzędu 256³⁸. Errata: ρ_z^(N) := max{|λ| : λ ∈ spec(N_z), λ ≠ 256³⁸} (skala λ); ρ_z := ρ_z^(N)/256³⁸ = max{|μ| : μ ∈ spec(R_z), μ ≠ 1} (skala μ, wszystkie wzory miary); asercja 1.5c: ρ_z^(N) < 256³⁸ ⇔ ρ_z < 1.
+- **P2/P4 — WCIELONE.** Kontrakt reprezentacji exact: μ̂ = (x, y) pary dyadyczne; centra c_C ∈ ℚ(i); promienie wymierne dyadyczne; porównania modułów wyłącznie kwadratami exact BigInt (bez sqrt i floata); rozłączność |c_A − c_B| > R_A + R_B ⇔ kwadraty; pokrycie |μ̂_i − c_C| + d_i ≤ R_C ⇔ (R_C − d_i ≥ 0) ∧ |μ̂_i − c_C|² ≤ (R_C − d_i)²; d_P przez wymierną majorantę B_P := |Re(μ̂_P) − 1| + |Im(μ̂_P)|, d_P := 2·B_P + 2⁻⁶.
+- **P3 — WCIELONE.** „d(μ̂) z bisekcji" bez algorytmu = ukryta swoboda (wpływ na Δρ_z, dyski, ΔV^cert, przypadki progowe). Errata: algorytm deterministyczny — kandydaci d_j := 2^(j−52), j = 0..60 (d₀ = 2⁻⁵²); najmniejsze j z exact-PASS nierówności Rouchégo (ewaluacja q, q′ w punkcie dyadycznym exact BigInt; M₂ z majorantą |μ̂| := |x| + |y|); potem dokładnie B = 20 kroków bisekcji dyadycznej; wynik = górny koniec przedziału (exact zweryfikowany ∈ D); brak PASS w zakresie ⇒ FAIL jak D = ∅ → eskalacja → STOP (N13, K8); parametry pre-rejestrowane.
+- **P5 — WCIELONE.** Nowa asercja 1.5h: certyfikat nieredukowalności exact — graf skierowany i → j ⇔ (R_z)_ij > 0 (wierszowa); BFS od stanu 0 na grafie i na transponowanym, 23/23 stanów; argument PF (1.5b) opiera się na (h).
+- **P6 — WCIELONE.** Precelencja tolerancji: dokładnie jedna reguła na wielkość, kolejność exact > względna > bezwzględna; reguła γ 10⁻¹²·max(1, |γ_k|) dla |γ_k| ≤ 1 równoważna bezwzględnej 10⁻¹²; alternatywa 10⁻⁸ z oznaczeniem.
+- **P7 — WCIELONE.** Kanonizacja bajtowa hashy (1.8): bajty bloba repo, UTF-8 bez BOM, LF, bez normalizacji Unicode/białych znaków, markery dokładnie raz (brak/wiele ⇒ FAIL), asercje przed hashowaniem (kompletność partycji, rozłączność, konkatenacja, liczby bajtów).
+- **P10 — WCIELONE.** Raport wynikowy (1.13) w trzech oddzielnych polach: (1) wynik operacyjny, (2) interpretacja strukturalna, (3) teza fizyczna → MVP-02; zakaz mieszania.
+- **P8 (podział pliku na cztery) — ODRUCONE do MVP-02** (zmieniałby hash wydania; zlecenia pełnią rolę changelogu).
+- **KONSEKWENCJA PROCEDURALNA: zamrożenie v1.0 z 11v COFNIĘTE do rewizji** (reguła z 11v: bloker ⇒ procedura erraty, zamrożenie do rewizji). Nowe zamrożenie po czystych recheckach 11w. Miara, progi, kategorie, populacja, procedura decyzyjna BEZ ZMIAN.
+
+**Integralność wydania.** Weryfikacja przed erratą: main = dokładnie treść 11u (SHA-256 całości 8d3f68b9848341af3e1f432c0decb36690cbc65a89d2d545ef70ec0eda9b16eb, 93 210 B). Guard idempotencji; pierwsza próba skryptu abort na błędnym anchorze E1 (podwójny separator w „max{|λ|"), zero edytów zastosowanych; próba druga: 18/18 edytów count==1.
+
+**Hasze v0.8 po erracie 11w** (SHA-256, bajty bloba repo, UTF-8 bez BOM, LF): całość 57d62975f9ceba0171ec59ff5491d7b219ae3d0a7368cc8c86857aef72a8d2d7 (103 159 B); (iii) definicje 09a94bd2e647b821b0d4f5f9fbb9b292b2c5e3c8a4aa80cb5ba4055a09a2e5c0 (bez zmian od v0.4); (i) kryteria 9df08c43942ca22a95341d9c4c25eeacd9d3535a5700dee5e511284e6c5012ef (zmiana: 1.1); (ii) model 8abfcfeaa545cf8e42c30d6a849b325dd2b44bdd20a15a9fd9c4621afa6bce1e (zmiana: nagłówek, 1.3, 1.5b–1.6); (iv) kwalifikacja f99ba22d724ed62a0f48fc982d9e37dde88722c4f6af83138eb4573deb230d36 (zmiana: 1.8, 1.10, 1.13); bind dc401f5f3731998ae05ba48e42ac26cdc61662b56e9fac1b8fd5026a09413d8d; concatOk ✓; commit erraty 11w: 37a7c5c6f2ccbcd4e1e142b376d54b49f397d7c4; round-trip ✓.
+
+**Decyzje.** Zamrożenie v1.0 wstrzymane do czystych rechecków 11w przez Asteriona, Claude'a (po powrocie), DeepSeeka (ślepy, wklejka) i Copilota. N26 DeepSeeka (δ = 2⁻⁶ konserwatywne; pomiar rozkładu |λ₂ − 1| deskryptywnie w checku 1.13 przy kwalifikacji) pozostaje w rejestrze MVP-02. K6: żaden rachunek na populacji 361 par przed ponownym zamrożeniem.
+
+**Lekcje 11w:**
+- (a) Czwarty recenzent spoza ustalonej trójki złapał notacyjny bloker po jedenastu czystych rundach: rechecki wykonywalności (literal implementation) są odrębną klasą od rechecków matematycznych i wymagają osobnego przejścia.
+- (b) Symbol używany w dwóch skalach to ta sama klasa błędu co „d(μ̂) z bisekcji" pełniące dwie role (N25): nazwa wielkości musi jednoznacznie determinować skalę i jednostkę; „z kontekstu wiadomo" nie jest konwencją (K8).
+- (c) Zamrożenie nie jest jednostronne: każdy nowy recheck może je cofnąć; status zamrożenia żyje w zleceniach, hash w repo.
+- (d) „Exact" bez kontraktu reprezentacji (moduły z sqrt w double?) to ukryta swoboda mimo deklaracji K8 = 0; kontrakt reprezentacji liczb jest częścią specyfikacji, nie szczegółem implementacji.
