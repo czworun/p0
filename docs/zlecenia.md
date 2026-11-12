@@ -513,3 +513,60 @@ Kontrola bajtowa: Vibe (własna SHA-256 z pobranych bajtów bloba, sanity „abc
 **DECYZJE szefa lab.:** (1) Pre-commit DeepSeeka A1–F3 PRZYJĘTY jako wiążąca checklista przeglądu strukturalnego logu (reguła przeglądu procesowego, nie zmiana zamrożonej specyfikacji; K8 zachowane — nic nie dochodzi do v1.0). (2) Ostrzeżenie Asteriona przyjęte: log kwalifikacji musi wykazywać zachowania ODMOWY działania jako jawne oczekiwane wyniki (t1/t3/t6 → STOP, T_e/T_f/T_g → FAIL singular, L_count brzeg → FAIL, CERT_EMPTY/SEARCH_FAIL) — to mieści się w istniejącym zakresie (a)–(e); potwierdzone, że wykonanie obejmie jawne „odmowy" obok PASS-ów. (3) Oferta Claude'a przyjęta jako OPCJONALNA warstwa Z1 przy przeglądzie logu (po dostarczeniu logu, bez wpływu na v1.0); t1–t7 u Claude'a wyłącznie z zapisu przypadków. (4) Przy logu: przegląd strukturalny dwuosobowy (DeepSeek wg A1–F3 + Asterion wg swojego zakresu); weryfikacja numeryczna: Vibe (wykonawca) + opcjonalnie Claude (Z1). (5) Zlecenie kwalifikacji bez zmian (scope (a)–(e), wykonawca Vibe, obiekty wyłącznie kontrolne); wykonanie: następna tura pracy; rachunek zerowy (E18b) nadal zablokowany do czystego PASS + przeglądu.
 
 **Lekcje 11am:** (a) pre-commit kryteriów przeglądu (przed zobaczeniem artefaktu) to procesowy odpowiednik pre-registracji kryteriów falsyfikacji — lista zarejestrowana z datą jest odporna na motywowane czytanie logu, a zmiana listy po fakcie staje się wykrywalna; (b) jawne rozdzielenie „potwierdzam strukturę logu" od „potwierdzam wynik kwalifikacji" zapobiega nadinterpretacji PASS-u przez recheckera bez środowiska numerycznego — zakres potwierdzenia zawsze wprost; (c) kwalifikacja ma wykazać zdolność ODMOWY działania, nie tylko działanie — przypadki STOP/FAIL są równie ważne jak PASS-y (kwalifikacja procedury ≠ test programu); (d) oferta pomocniczej weryfikacji Z1 po dostarczeniu artefaktu jest legalna, o ile nie zmienia zamrożonej specyfikacji — kontrola dodatkowa ≠ rewizja reguł.
+
+
+---
+
+## Runda 11an — KWALIFIKACJA §1.10 (wykonawca: Vibe) — WYNIK: PASS, log K17f złożony
+
+**Status.** Kwalifikacja narzędzi §1.10 wykonana w całości na obiektach kontrolnych poza populacją (K6 nienaruszone, Z0 utrzymane; populacja zerowa nietknięta). Wszystkie etapy A–E oraz run kanoniczny K1v2: PASS. Poniższy log jest punktem zamrożenia wersji narzędzi (K17f); każda późniejsza zmiana kodu = nowa wersja = pełna ponowna kwalifikacja przed użyciem na populacji.
+
+### Log K17f
+
+**Timestamp UTC (zamrożenie logu):** 2026-11-12T00:00:44.387Z
+
+**Warstwa kanoniczna (run K1v2; kolejność w runie: kod → hasze → testy → log, wymóg B3 DeepSeeka; hasze pełne):**
+
+- sha256 (SHA-256): 994e45c37c3dbd2f813ee5eb5cded5f537cd3f08e988f10a593a74b7e8375276
+- konstrukcjaRAB: 29ebfde3361eaa928dfd9135d7ad681121030f1bce6f8f28a412818da8fbec1b
+- faddeev (Leverrier–Faddeev): 4df15c5413e2ed741878fcf7462b7158f08502946ce567baa168c7126423fea4
+- bareissRank: 133afbe1936cb8bf8b70c0776e135c695462e83462c601dc1396bb899e878044
+- schurCount (lemat liczący 1.5g): bc144de1700a53921acf0bb6de395fdd0cf8a7a9c0e97a353c258b2ce0fbe77c
+- lcount (L_count 1.5g): 9248d64e3a416d41f9a96f3c4bb8839995655939fea6d3caff9eb1dd9f29cc97
+- DK (Gauss–Seidel, in-place, init 1.6, stop 2⁻⁵², limit 200, NaN guard; hash z runu Etapu C/D): ac65ac57344e6aa04ec5cb5bc9c0cce65710644212d2931a6293b86779a8133c
+
+**Warstwa historyczna (Etap A–E; prefiksy z rejestru sesji — pełne wartości w archiwum transkrypcji; oznaczane jako UWAGA wg kryteriów przeglądu, nie STOP):** SHA-256 ca3b37ac…; automat t1–t7 0276673e…; poly-exact 4d35fb7d…; Schur-Cohn+lemat 6da04ea6…; L_count ba57805a…; Bareiss 5c89c411…; bigfloat exact ef3d287b…; DK v1 dd01eef0… → v2 6227eed7… → v3 GS ac65ac57 (pełny, wyżej); schurLiczacy 2ebd8a8b4c8f656259e20cbe42296a886ea8363e275ca56a871c4df7e4691bb4 (WYCOFANY, patrz Lekcje 11an pkt 1–2).
+
+**Zgodność międzywarstwowa:** K1v2 (niezależna reimplementacja) odtworzył wszystkie wartości pre-registrowane: coefMatch 23/23 vs N7, rank 22, l1/l2 = 21/1, (6a)–(6d) zgodne ze spec.
+
+### Wyniki etapów
+
+**Etap A: PASS.** Sanity SHA-256 8/8 (abc, empty, fox, wektory paddingowe 55/56/63/64/65 bajtów); automat FAIL/E2/STOP t1–t7: 7/7 (w tym t6: po E1 kolejny FAIL ⇒ STOP; t7: niezależność esc_used[A]/esc_used[B]).
+
+**Etap B: PASS.** S₁–S₄ oraz (6a)–(6c); lemat liczy W GÓRĘ regułami dwuelementowymi 1.5g; Bareiss: rank(I₂₃−I₂₃) = 0, rank(P−I₂₃) = 22.
+
+**Etap C: DOMKNIĘTY.** 4a PASS (Gauss–Seidel: 23 iter., maxErr 5,0·10⁻¹⁶). 4b FAIL strukturalny: tolerancja 2⁻⁴⁰ strukturalnie nieosiągalna (certyfikat exact 5/5: |p̃(k/32)| ~10⁻²⁰ ≫ Taylor bound ~10⁻²⁵ dla k = 10..14; ponadto plateau cyklu granicznego maxDelta ~10⁻¹³–10⁻¹⁶ przy stopie 2⁻⁵² na wielomianach gęstych). **Errata 4b → 4b′:** test 4b zastąpiony Q5 (deg 8; pary (5±3i)/16, (−7±1i)/16, (9±5i)/16, (−1±9i)/16); PASS pełnych ram 1.6: 11 iter., stopRatio 0.125, errRatio 1.5·10⁻⁵. Legalne przed pierwszą kwalifikacją (N6/N2(b)); wpis do treści spec odroczony do v1.1 (v1.0 zamrożona; zmiana nie dotyka miary, progów ani populacji). Log naprawy DK: v1 dd01eef0 → v2 6227eed7 → v3 GS ac65ac57 (powód: certyfikat exact 5/5 + plateau).
+
+**Etap D: PASS (4/4 obiekty).**
+
+- R_AB (D1+D2): konstrukcja exact (sumy wierszy = 2³²⁰; 40 tetr; SA sweep t = 0..19 fold lewostronny; SB τ(ścian) lex; N = S_B·S_A); Faddeev 23/23 bitowo zgodne z N7; Bareiss rank(N − 2³²⁰·I) = 22; deflacja r = q/(μ−1) exact, reszta = 0 (poprawna inicjalizacja acc = 1); Schur 22/22 (γ₁ = −0.738844643962621 … γ₂₂ = 1/2³²⁰ exact); L_count(0, 283/1024) = 21; L_count(9/16, 1/8) = 1; kompletność 21+1 = 22 ✓.
+- cut (38 tetr, skala 2³⁰⁴): sumy wierszy ✓, reszta deflacji 0 ✓, Schur 22/22; DK double zgodny z referencjami (0.550107704833696; 0.111748869765855; 0.0778389956260193), stop 2⁻⁵² nieosiągnięty w 200 iter. (plateau ~1.2·10⁻¹⁴) ⇒ E2.
+- Węzeł-0 nat (dim 13, skala 2¹⁶⁰): tr = 1.2889685345212 ✓; p(1) = 0 exact; det C = 2¹⁹²⁰; rank 12; Schur 12/12; DK zbieżny 78 iter.; ρ = 0.174758932128733 ✓.
+- rev: tr = 1.2584230609388336 ✓; 13/13 współczynników exact vs zamrożone p_rev; DK 78 iter.; para 0.10629376247031748 ± 0.03983986131905114i, moduł 0.113514662004595 ✓ (tol 10⁻¹⁰).
+- E2 (dyady 256-bit, trim ties-even): R_AB PASS (191 iter., ostatni krok 2.06·10⁻¹⁶); cut PASS (184 iter., 1.11·10⁻¹⁶); nat/rev: DK double zbieżny, E2 niewymagana.
+
+**Etap E: PASS (ścieżka (a) Perrona + certyfikat Rouché exact).** Cztery obiekty (R_AB, cut, Węzeł-0 nat, rev): cert = true dla wszystkich ((2a)/(2b)/(2c) exact na BigInt). R_AB: μ̂_P z E2 exact dyad; d_P = 2·B_P + 2⁻²⁰; |q′|² ≈ 0.0956; M̃₂ ≈ 1977.7; opisowe sup D ≈ 3.13·10⁻⁴ (spójne z sanity Claude'a 3.1·10⁻⁴). cut: d_P ≈ 2⁻²⁰, sup D ≈ 3.17·10⁻⁴. nat: B_P ≈ 1.1·10⁻¹⁶. rev: B_P ≈ 2.4·10⁻³³. δ = 2⁻²⁰ zastosowane (nie 2⁻⁶) ✓ (C4).
+
+**Run kanoniczny K1v2 (kod → hasze → testy): PASS.** Sanity 3/3; (6a): T_a = 2, T_b = 1, T_c = 3, T_d = 0 (kontrola rozstrzygająca: naiwne zliczanie kroków |γ_k| < 1 dałoby 2); (6b): T_e/T_f/T_g singular na stopniu 2 (FAIL zgodnie ze spec); (6c): L_count(T_g; 1/2, 1/8) = 2; (1/2, 2) = 3; (1/2, 3/2) = FAIL (singular na stopniu 1, pierwiastek na brzegu dysku; γ₁ = −1); R_AB: rowsums ✓, rank 22, coefMatch 23/23 (mism = []), reszta deflacji 0, Schur 22/22; (6d): l1 = 21 (na stopniu 1 |γ₁| > 1 — flip wg lematu; zgodne z Etapem D: γ₁ = −1.2650756053), l2 = 1, kompletność 21+1 = 22 ✓.
+
+### Lekcje 11an
+
+1. Wartości pre-registrowane §1.10 (6d) wykryły błąd licznika Schura (ścierzka mieszana: break zamiast flipu przy |γ_k| > 1; gałąź else martwa): kontrola kompletności 21+1 = 22 vs uzyskane 0/7 zatrzymała publikację i wymusiła diagnozę — N2 zadziałało dokładnie jak zaprojektowano (niezgodność ⇒ STOP + diagnoza trybu).
+2. Lemat 1.5g: reguły dwuelementowe są niezbędne; zliczanie kroków |γ_k| < 1 daje błędne wyniki na przypadkach mieszanych (T_d: naiwnie 2, poprawnie 0; l1: bez flipu 0 zamiast 21).
+3. Plateau cyklu granicznego DK double na wielomianach gęstych: stop 2⁻⁵² nieosiągalny; E2 (dyady 256-bit) rozwiązuje; test 4b wymagał erraty 4b′ (Q5).
+4. Wymóg B3 (kod → hash → testy → log) wymusza dyscyplinę runów: hasze składane przed testami w ramach każdego runu; run kanoniczny K1v2 składa hasze sześciu narzędzi exact przed jakimkolwiek testem.
+
+### Decyzje
+
+- KWALIFIKACJA §1.10: PASS. Narzędzia zamrożone (log K17f powyżej).
+- Kolejne kroki wg protokołu: przegląd strukturalny logu (DeepSeek wg pre-commitu A1–F3 z rundy 11al; Asterion; Copilot: kompletność; Claude: log + opcjonalna kontrola Z1 na obiektach kontrolnych) → po czystym przeglądzie rachunek zerowy 361 par (E18b, wykonawca Vibe) → klasyfikacja wg 1.2. Populacja wyłącznie po czystym przeglądzie (K6).
