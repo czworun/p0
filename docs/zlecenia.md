@@ -684,3 +684,78 @@ Procedura wg §1.6/§1.10: DK double na q (init 1.6, stop 2^−52, cap 200) → 
 4. E18b (361 par, ścieżka LITERALNA v1.0) pozostaje wstrzymane do czystego przeglądu (K6, 11ap).
 
 ---
+
+## Runda 11ar — REKWALIFIKACJA §1.10: odpowiedzi na przeglądy 11aq (S1–S5, N45), naprawa wariantu DK (Jacobi → Gauss-Seidel), re-kwalifikacja zakresu DK na finalnym kodzie — PASS
+
+**Status.** Runda rozlicza przeglądy 11aq (DeepSeek: PASS warunkowy, S1–S5 + N45; Asterion: HOLD, dziedziczenie K2c vs prerejestracja 11ap, prefiksy haszy, rozdział DK/Rouché; Copilot: PARTIAL, BASE DK R_AB/cut = FAIL przy cap wymaga E2 na finalnym kodzie; Claude: zgodny), naprawia wykryty błąd wariantu dkDouble i wykonuje ponowną kwalifikację zakresu DK (B4) na finalnym kodzie: BASE double-GS na q (4 obiekty), E2 (dyady 256-bit) na R_AB i cut, ścieżka (a) Perrona na 4 obiektach, ścieżka (b) na R_AB. Rachunki exact na BigInt; double/E2 wyłącznie w DK wg §1.6. K6 nienaruszone: populacja 361 nietknięta.
+
+### Zmiana narzędzi (B4) i jej podstawa
+
+- **Błąd wariantu DK (wykryty przy rozliczaniu przeglądów):** dkDouble w K17f-v2-narzedzia.ts był równoczesny (Jacobi): przybliżenia zapisywane do bufora nre/nim i kopiowane po pełnym przebiegu, mimo komentarza deklarującego Gauss-Seidel in-place. Kanon 11an (DK v3, hasz ac65ac57…) = Gauss-Seidel in-place (zapis natychmiastowy, mianownik z najnowszych wartości j<k). Konsekwencja: wyniki zależne od DK w logu 11aq obarczone wariantem Jacobi (nat/rev: 119/117 iter. zamiast 78; μ̂_P, B_P, d_P z 11aq z wariantu Jacobi). Warstwy exact bez zmian; profile 4a/4b′/E2 z 11an pozostały na kanonie GS, zatem 11an nieunieważniony.
+- **Nowa wersja pliku narzędzi (kolejność B3: kod → hasze → testy):** (1) dkDouble naprawiony na GS in-place; (2) NOWE dkDyadic = warstwa E2 (dyady 256-bit, trim ties-even, init 1.6, stop |step|² < 2^−104, limit 200, GS in-place; specyfikacja: e2-dyadic-szkic.md w archiwum sesji); (3) NOWE roucheExactBigInt: warstwy (2a)(2b)(2c) tożsame z roucheExact, wejście X, Y, D bezpośrednio jako BigInt nad 2^s (exact dyady z E2, bez konwersji μ̂_P przez double); (4) eksporty modułowe (wykonanie w Node.js 22, BigInt natywny; zawartość obliczeniowa narzędzi exact bajtowo bez zmian: bgcd, schurNin, composeDisk, deflate, dyadic, bigToNumber, roucheExact, faddeev).
+
+### Log K17f-v2 (wersja 11ar)
+
+**Timestamp UTC (zamrożenie tej wersji):** 2026-11-14T21:44:56Z. Hasz wiążący złożony przed pierwszym uruchomieniem testów (B3 zachowany w pojedynczym runie: sha256 przed komendą testów).
+
+- K17f-v2-narzedzia.ts (kod narzędzi): **f92f8152c417d84baba400188c9027f449adc4f526587330f469c1e7d4d2e2e3** (poprzednia wersja, log 11aq: 4170ef5893d86b6e051b25a718afd3d12193cbd11ded0fa4648856ab534d6e19)
+- driver runu (orchestracja, parsowanie, guardy N45; jawny pomocniczo): run-11ar.ts 33c8bd45664f0d244562fb422a398519c75845a9d8bdb5bed46f80f07b204127
+- wejścia (sha256, artefakty z archiwum k2): cRAB.txt b15812f1e8008700b531c7e5f13fe174d9b9768181d22094f7a462d1545f7040 (zgodny z 11aq); pNat.txt 9862d44492a87a56dc4db2fccb36caa8d6e8df8de82cf4f5c8d15a5380b3194f; pRev.txt 0d47971478824a997a3ab3783d732f9e83040f3f30f20ba77511e9b1f2aa4f93; pCut.txt feb2924424b70847c0c969051edb13bca2459611e002f5bb6eaf98b4a0ae2352
+- **Odnotowanie jawne (rozbieżność haszy):** hasze pNat/pRev/pCut NIE zgadzają się z prefiksami z logu 11aq (176b6666…/ae0a5e79…/522d42a9…); prefiksy 11aq nieodtwarzalne z artefaktów (próbowano również po usunięciu linii komentarzy). Pytanie do przeglądu, na jakim pliku liczył hasze log 11aq (artefakt sesyjny niedostępny?). Tożsamość merytoryczna wejść potwierdzona kontrolami exact tej rundy: q(1) = 0 (suma Aint = 0) na 4 obiektach, γ EQUAL (cross-multiply) z gammasRAB/Nat/Rev/Cut.txt, moduły DK zgodne z N7/11an w tolerancji 10^−10.
+- dziedziczenie bez zmian: automat t1–t7, sanity SHA-256, S₁–S₄, (6a)–(6d), 4a, 4b′ z K17f/11an (zamrożone tam pełnymi haszami) — patrz luka S5 niżej.
+
+### Ponowna kwalifikacja zakresu DK: wyniki na finalnym kodzie
+
+**BASE double-GS na q** (init 1.6, stop 2^−52, cap 200; reprezentant Perrona = argmax|μ̂|, remis → najmniejszy indeks inicjalizacji):
+
+- R_AB: 200 iter. = cap, maxStep 1.87·10^−14, stop nieosiągnięty ⇒ FAIL warstwy double ⇒ E2 (zgodne z 11an Etap D i diagnozą Copilota). Odnotowanie: wartość plateau przy capu nie jest wartością referencyjną (między implementacjami 1.2–2.2·10^−14; 11an ~1.2·10^−14, niezależnie Claude 2.2·10^−14); werdykt FAIL przy cap niezmienny.
+- Węzeł-0 nat: **78 iter., STOP**, maxStep 1.23·10^−16 — zgodne z 11an (78 iter.); wartość 119 iter. z logu 11aq (wariant Jacobi) WYCOFANA.
+- Węzeł-0 rev: **78 iter., STOP**, maxStep 1.60·10^−16 — zgodne z 11an (78); wartości 117/119 iter. z 11aq WYCOFANE.
+- cut: 200 iter. = cap, maxStep 1.28·10^−14 ⇒ FAIL ⇒ E2.
+- Moduły referencyjne (tolerancja kanoniczna 10^−10, N23; BASE): ρ̂ R_AB = 0.554641699189468 (Δ = 0 na 15 cyfrach), nat = 0.174758932128733 (Δ = 4.4·10^−16), rev = 0.113514662004595 (Δ = 3.1·10^−16), cut = 0.550107704833697 (Δ = 1.1·10^−16) — PASS 4/4.
+
+**E2 dyadic GS** (nowe narzędzie dkDyadic; wartości oczekiwane z 11an Etap D pełnią rolę cross-checku wg 11ap, nie podstawy PASS):
+
+- R_AB: **191 iter., STOP**, ostatni krok 2.0636·10^−16 — zgodne z 11an (191 iter., 2.06·10^−16) co do iteracji i rzędu ostatniego kroku.
+- cut: **184 iter., STOP**, ostatni krok 1.1094·10^−16 — zgodne z 11an (184 iter., 1.11·10^−16).
+- μ̂_P(E2), exact dyady: R_AB Re = (2^255 + 1)·2^−255 = 1 + 2^−255, Im = −60746460847778261262973693054104522225442745561792149024012103780137730002566·2^−566 ≈ −2.515·10^−94; cut Re = 1 exact (2^255·2^−255), Im = 68020661176602297124366622664731066095880302515960447325233985038897282059243·2^−575 ≈ 5.500·10^−97.
+- Moduły E2 (malejąco po wyłączeniu reprezentanta Perrona): R_AB 0.554641699189468; 0.113966222525207; 0.0756123500559771; 0.0737093779488845 (para) — zgodne z N7 (mpmath 80 cyfr) na 15 cyfrach; cut 0.550107704833697; 0.111748869765855; 0.0778389956260303; 0.0728292155354960 — zgodne z 11an/Kimi/Claude.
+
+**Ścieżka (a) Perrona** (B_P = |Re(μ̂_P) − 1| + |Im(μ̂_P)| exact dyada; d_P = 2·B_P + 2^−20; JEDNA weryfikacja Rouché exact, warstwy (2a) 4Nc > NA², (2b) Eint > 0, (2c) Eint² > 4·NA²·Nc; X, Y, D jako BigInt nad 2^s bezpośrednio):
+
+- R_AB: B_P = 2^−255 + 2.515·10^−94 = 1.727233711018888950…·10^−77; d_P = 2^−20 + 2·B_P; **(2a)(2b)(2c) PASS** (d_P ∈ D_cert(μ̂_P), Perron zidentyfikowany); opisowo sup D_cert bound = 3.127·10^−4, zapas d_P ≈ 328×.
+- cut: B_P = 5.500388207148813…·10^−97; d_P = 2^−20 + 2·B_P; **PASS**; sup D_cert bound = 3.170·10^−4, zapas ≈ 332×.
+- Węzeł-0 nat: μ̂_P = 1 + 1.268104946871421378…·10^−36i (exact dyada z double); B_P = 1.268…·10^−36; **PASS**; sup D_cert bound = 4.045·10^−3.
+- Węzeł-0 rev: μ̂_P = (1 − 2^−53) − 6.296…·10^−33i; B_P = 2^−53 + 6.296·10^−33 = 1.11022302462516…·10^−16 (człon dominujący 2^−53 exact); d_P = 2^−20 + 2·B_P; **PASS**; sup D_cert bound = 4.300·10^−3.
+- C3/C4: d_P ≈ 2^−20 ≪ sup D_cert na wszystkich 4 obiektach; δ = 2^−20 ✓.
+
+**Ścieżka (b) na R_AB** (exact; obwiednia |μ̂_P| z isqrt: |μ̂_P| ∈ [a·2^−p, (a+1)·2^−p], p = 567; warunki (i)/(ii) weryfikowane konsywnie na obwiedni): **(i) PASS, (ii) PASS**; d_P(b) ≈ 5/32 = 0.15625 (deskrypcja; zgodne z 11aq). Ścieżka (a) pozostaje podstawą PASS (dysk ~164 000× mniejszy).
+
+### Odpowiedzi na S1–S5 (przeglądy 11aq)
+
+- **S1 (korekta konwencji cRAB):** korekta dotyczy wyłącznie konwencji ODTWORZENIA q z cRAB.txt w sesji roboczej PO 11an (formuła A[m] = c_{23−m} << 320·m zamiast błędnej indeksacji); same współczynniki cRAB.txt niezmienione (coefMatch 24/24 vs N7 w 11an; hasz artefaktu zgodny między 11aq i 11ar: b15812f1…). 11an nieunieważniony; kontrola q(1) = 0 złapała błąd konwencji przed jakimkolwiek użyciem wyniku.
+- **S2 (wartość 1.8168):** pochodzi z notatek sesyjnych K2-STAN (2026-11-13, opisane tam jako przybliżenie „do potwierdzenia"), nie z logu 11an; errata liczbowo potwierdzona w kroku 3 (tr(cut)/2^304 = 1.898540828026773170 exact, kontrola niezależna ze śladu macierzy).
+- **S3 (29 vs 23 iter.; profile DK):** diagnoza POTWIERDZONA i rozszerzona w 11ar: rozbieżności iteracji (4a: 29 vs 23; potok: 119/117 vs 78) wynikały z dwóch wariantów DK: równoczesny (Jacobi) w sesjach K2a/kroków 3–4 vs Gauss-Seidel in-place (kanon 11an, DK v3 ac65ac57…). Po naprawie dkDouble na GS: nat/rev zatrzymują się dokładnie na 78 iter. jak w 11an; E2 odtwarza 11an co do liczby iteracji i ostatniego kroka (191/184; 2.06·10^−16/1.11·10^−16). Errata do logu 11aq zarejestrowana (decyzja 2 poniżej).
+- **S4 (dwie ścieżki ewaluacji p):** zarejestrowane w K2a: sparse (iloczyn czynników; 4a, 4b/4b′ na strukturach znanych czynnikowo) i gęsta (fl(exact) + Horner; potok obiektów §0). Rozdział jawny, obie ścieżki kwalifikowane na swoich obiektach.
+- **S5 (luka zakresu K2c):** przyjęta do rejestru jako LUKA JAWNA — patrz sekcja „Luka zakresu K2c" niżej; rozstrzygnięcie otwarte (dwie drogi zamknięcia), nie pakietowane z PASS tej rundy.
+
+### N45 (audyt parserów)
+
+PASS, zgodnie z rejestrem przeglądów: jedyny punkt konwersji BigInt→double = bigToNumber (normalizacja mantysy do 53 bitów); reszta parsowania exact (regex v/2^e, BigInt). Audyt exact: 76/76 współczynników rel err ≤ 2^−51, zero underflow/Inf (RAB 24, nat 14, rev 14, cut 24). W 11ar guardy wbudowane w driver: isFinite na każdym współczynniku double oraz kontrola maxStep > 0 przy STOP (lekcja 11aq (a) wykonawczo domknięta).
+
+### Luka zakresu K2c vs prerejestracja 11ap (S5) — jawny rejestr
+
+K2c wykonano jako kroki 3–4 (potok exact na obiektach §0 + ścieżka (a)) oraz, w tej rundzie, E2 na finalnym kodzie; automat t1–t7, sanity SHA-256, S₁–S₄, (6a)–(6d), 4a, 4b′ odziedziczono z 11an/K17f (tam zamrożone pełnymi haszami, PASS). Prerejestracja 11ap zakładała „pełną kwalifikację od początku na finalnych narzędziach"; wykonanie zawężyło zakres do potoku i ścieżki (a). LUKA zarejestrowana wprost. Dwie drogi zamknięcia: (a) uzupełniający re-run odziedziczonej baterii (t1–t7, S₁–S₄, (6a)–(6d), sanity SHA-256, 4a, 4b′) na finalnym kodzie wersji 11ar; (b) formalna poprawka zakresu K2c: jawne odziedziczenie baterii z K17f jako warunek wejścia K2c, rozliczone OSOBNO (bez pakietowego PASS). Rozstrzygnięcie należy do szefa lab. (w trybie delegacji) / Leszka; przegląd (w szczególności Asterion jako rechecker) proszony o opinię.
+
+### Lekcje 11ar
+
+(a) Komentarz w kodzie deklarujący wariant algorytmu nie jest dowodem wariantu; dowodem jest zachowanie liczbowe względem wartości referencyjnych (119/117 vs 78 iter.) — iteracje zbieżnych obiektów DK są powtarzalne między implementacjami GS co do wartości. (b) Plateau przy capu DK nie jest wartością referencyjną (rozrzut 1.2–2.2·10^−14 między implementacjami); werdykt FAIL przy cap jest niezmienny. (c) E2: specyfikacja (szkic) wystarczyła do odtworzenia zachowania 11an co do iteracji i ostatniego kroku — replikacja na poziomie specyfikacji (Z3) potwierdzona. (d) Konwersja BigInt→double wyłącznie przez bigToNumber z guardem isFinite; μ̂_P nie przechodzi przez double w certyfikacie (roucheExactBigInt przyjmuje exact dyady bezpośrednio). (e) Prefiks haszy w logu bez artefaktu jest nieodtwarzalny — hasze liczyć na artefaktach trwałych (kopia w archiwum k2) i podawać pełne; rozbieżność pNat/pRev/pCut (11aq) odnotowana jawnie.
+
+### Decyzje i wniosek
+
+1. **Ponowna kwalifikacja zakresu DK na finalnym kodzie (K17f-v2 wersja 11ar, hasz f92f8152…): PASS** — BASE double-GS: nat/rev STOP 78/78 zgodne z 11an, R_AB/cut FAIL przy cap zgodnie z oczekiwaniem; E2: R_AB 191 iter., cut 184 iter., STOP, zgodne z 11an; ścieżka (a) PASS 4/4; ścieżka (b) PASS na R_AB.
+2. **Errata do logu 11aq:** wartości zależne od DK w 11aq (119/117 iter. nat/rev; μ̂_P, B_P, d_P wariantu Jacobi) nieważne jako wyniki kwalifikacyjne; zastąpione wynikami tej rundy. Narzędzia i wyniki exact (ślady, Faddeev, deflacja, Schur 22/22 i 12/12, L_count 21+1 / 11+1 / 10+2 / 21+1) bez zmian — nie zależą od DK.
+3. **Luka S5 otwarta** — do rozstrzygnięcia wg sekcji „Luka zakresu K2c"; E18b pozostaje wstrzymane do czystego przeglądu tej rundy ORAZ rozstrzygnięcia S5 (K6, 11ap).
+4. **Wniosek o przegląd 11ar:** DeepSeek (kontynuacja A1–F3 w zakresie tej rundy; rozliczenie S1–S5 i N45), Asterion (recheck niezależny; stanowisko ws. drogi zamknięcia luki S5), Copilot (kompletność; odpowiedź na PARTIAL: BASE i E2 wykonane na finalnym kodzie), Claude (opcjonalna kontrola Z1: E2 191/184 iter. + ostatnie kroki 2.06·10^−16 / 1.11·10^−16 + moduły; referencje sup D_cert: 3.1·10^−4 R_AB / 3.2·10^−4 cut / 4.0·10^−3 nat / 4.3·10^−3 rev, bound tej rundy).
+
+---
