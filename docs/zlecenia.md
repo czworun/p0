@@ -847,3 +847,65 @@ Wykonawca: driver rundy 11at (osadzający K17f-v2 przez import modułowy, bez mo
 Pozostaje HOLD (K6: populacja 361 nietknięta). Start wyłącznie po czystym przeglądzie 11as/11at i rozstrzygnięciu N47 oraz erraty agregacji. Runda 11at (wyniki re-runu per test, format Asteriona) następuje w tej samej sesji, po prerejestracji niniejszej rundy.
 
 ---
+
+## Runda 11at. Re-run baterii S5 droga (a): wyniki per test (24 PASS / 7 FAIL)
+
+**Data (UTC):** 2026-11-14T23:31:49Z (czas wykonania re-runu)
+**Narzędzie:** K17f-v2, hasz wiążący `f92f8152c417d84baba400188c9027f449adc4f526587330f469c1e7d4d2e2e3` (potwierdzony w driverze przed testami, zgodny z 11ar/11as).
+**Driver:** run-11at.ts, sha256 `2ca2055a8997e4faa982ffed2607f21dd390856ccebdb27fcd7812d100602d9c`, zarejestrowany systemowym sha256sum PRZED testami; driver weryfikuje w czasie wykonania zgodność własnego haszu (argv) i haszu artefaktu (B3: kod, hasze, testy — oba ZGODNY).
+**Przebieg techniczny (jawny):** dwie wcześniejsze próby uruchomienia przerwane przez defekt serializacji BigInt po stronie drivera (hasze prób `1e036b3e...`, `cbf5b034...`); każda przerwana PRZED ukończeniem baterii; z tych prób nie rejestruje się wyników. Bateria jest deterministyczna, więc wyniki per test w próbach częściowych były identyczne z poniższymi. Oficjalny, kompletny przebieg: hasz `2ca2055a...`.
+
+### 1. Wyniki per test (kryteria i wartości oczekiwane: prerejestracja 11as; bez dziedziczenia statusów)
+
+| # | Test | Obiekt kontrolny | Kryterium | Oczek. | Rzecz. | Status |
+|---|---|---|---|---|---|---|
+| 1 | sanity SHA-256 | 8 wektorów §1.10 (1), potwierdzonych systemowym sha256sum | 8/8 dokładnych trafień (implementacja TS w driverze) | 8 | 8 | PASS |
+| 2 | t1 | A; FAIL nieeskalowalny | przejście ⇒ STOP, flaga A=0 | STOP, A=0 | STOP, A=0 | PASS |
+| 3 | t2 | A; FAIL eskalowalny, esc_used=0 | ⇒ E2, esc_used:=1 | E2, A=1 | E2, A=1 | PASS |
+| 4 | t3 | A; FAIL eskalowalny, esc_used=1 | ⇒ STOP | STOP | STOP | PASS |
+| 5 | t4 | A,B; E1 przy flagach 0 | globalny rerun, wszystkie flagi:=1 | RERUN_E1, A=1, B=1 | RERUN_E1, A=1, B=1 | PASS |
+| 6 | t5 | A; E1 po wcześniejszym E2 | brak E1, fallback 1.2(ii) | FALLBACK_1.2(ii) | FALLBACK_1.2(ii) | PASS |
+| 7 | t6 | A; po E1 FAIL eskalowalny | GLOBALNY STOP (C28) | GLOBAL_STOP | GLOBAL_STOP | PASS |
+| 8 | t7 | A,B; E2 na A, potem FAIL eskalowalny na B | E2 na B (niezależność flag) | E2, B=1 | E2, B=1 | PASS |
+| 9 | S1 | (2μ−1)³ [−1,6,−12,8] | nin=3, fail=false, γ = −1/8, 4/7, −10/11 | tak | nin=3, γ zgodne | PASS |
+| 10 | S2 | [1,−2,−1,2] | fail=true, γ₂=−1 singularne | tak | tak | PASS |
+| 11 | S3 | [−4,19,−28,12] | nin=2, fail=false, γ₁=−65/61 (flip) | nin=2 | **nin=0** (γ₁=−65/61 zgodne) | **FAIL** |
+| 12 | S4 | [−1,4,−5,2] | fail=true dekretowane przy γ₂=1 (P₂=(z−1)²) | tak | tak | PASS |
+| 13 | (6a) T_a | [−2,15,−31,12] | nin=2 | 2 | **0** | **FAIL** |
+| 14 | (6a) T_b | [−6,29,−21,4] | nin=1 | 1 | 1 | PASS |
+| 15 | (6a) T_c | [−1,12,−47,60] | nin=3 | 3 | 3 | PASS |
+| 16 | (6a) T_d | [−24,26,−9,1] | nin=0 (naiwne 2) | 0 | **2** | **FAIL** |
+| 17 | (6b) T_e | [2,−5,2] | FAIL (γ₂=1) | FAIL | FAIL | PASS |
+| 18 | (6b) T_f | [−1,0,1] | FAIL (γ₂=−1) | FAIL | FAIL | PASS |
+| 19 | (6b) T_g | [−2,9,−12,4] | FAIL (γ₂=1, P₂=T_e) | FAIL | FAIL | PASS |
+| 20 | (6c) (1/2,1/8) | L_count(T_g) | 2 | 2 | **0** | **FAIL** |
+| 21 | (6c) (1/2,2) | L_count(T_g) | 3 | 3 | 3 | PASS |
+| 22 | (6c) (1/2,3/2) | L_count(T_g) | FAIL (γ₁=−1) | FAIL | FAIL | PASS |
+| 23 | (6d) parse | cRAB.txt, A[m]=c₂₃₋ₘ·2^(320m) | A[23]=2^7360, 24 współczynników | tak | tak | PASS |
+| 24 | (6d) deflate | q=(μ−1)r | reszta=0, deg r=22 | tak | tak | PASS |
+| 25 | (6d) schurNin(r) | r | nin=22, fail=false | tak | tak | PASS |
+| 26 | (6d) γ cross-check | gammasRAB.txt, gammas[i]↔gamma₂₂₋ᵢ | 22/22 EQUAL (exact n₁d₂=n₂d₁) | 22/22 | 22/22 | PASS |
+| 27 | (6d) L_count(r;0,283/1024) | r | 21 | 21 | **0** | **FAIL** |
+| 28 | (6d) L_count(r;9/16,1/8) | r | 1 | 1 | **20** | **FAIL** |
+| 29 | (6d) kompletność | 21+1=22=deg r | 22 | 22 | **20** | **FAIL** |
+| 30 | 4a | μ²³−2⁻²³, dkDouble | stopped=true, iters=23, pass40; ref maxErr ~5.0e−16 | tak | stopped, 23 iter, maxErr 5.0037e−16, maxStep 3.6303e−17 | PASS |
+| 31 | 4b′ (ERRATA) | Q5 deg 8 (errata proceduralna 4b→4b′) | stopped=true, iters=11, pass40; ref maxErr ~1.39e−17 | tak | stopped, 11 iter, maxErr 1.3878e−17, maxStep 2.7689e−17 | PASS |
+
+**Podsumowanie: 31 testów, PASS=24, FAIL=7.** FAILy to dokładnie przypadki przewidziane w diagnostyce pre-run 11as: wszystkie i wyłącznie przypadki z flipem (|γ_k|>1) w agregacji N_in schurNin v2 (S3, T_a, T_d, (6c)(1/2,1/8), oba L_count na r, kompletność). Żadnego FAILa poza przewidywanymi; żadnych poprawek kodu ani kryteriów w trakcie re-runu nie wykonano.
+
+### 2. Kontrola root-cause (formalna, w driverze, oznaczona jako diagnostyka poza baterią)
+
+Agregacja poprawiona (iteracja od γ₁ w górę, flip (k−1)−nin) na NIEZMIENIONYCH sekwencjach γ wyprodukowanych przez K17f-v2: T_a=2, T_d=0, S3=2, (6c)(1/2,1/8)=2, L_count(r;0,283/1024)=21, L_count(r;9/16,1/8)=1, kompletność 22=22. Formalnie potwierdza to diagnozę z 11as: warstwa redukcji (sekwencje γ) jest poprawna; błąd dotyczy wyłącznie pętli agregacyjnej (kolejność iteracji), a wartości kanoniczne 11an są matematycznie prawidłowe i odtwarzalne na γ z v2 po skorygowaniu samej agregacji.
+
+### 3. Rozliczenie FAILów (propozycje do przeglądu; decyzja po recenzjach i u Leszka)
+
+1. **Errata v3 (proponowana):** poprawa wyłącznie pętli agregacyjnej schurNin (iteracja od γ₁ w górę; flip (k−1)−nin), nowy hasz wiążący, ponowny re-run tej samej baterii (oczekiwany wynik 31/31 PASS); wg B4 zmiana narzędzia wymaga jawnej ponownej kwalifikacji zakresu dotkniętego, ale warstwa redukcji i wszystkie warstwy niezależne pozostają nietknięte. Nie wykonywana w tej rundzie (protokół: FAIL rozliczany osobno, po przeglądzie).
+2. **Status wartości dziedziczonych z 11an:** wartości kanoniczne (T_a=2, T_d=0, L_count 21/1, kompletność 22) pozostają matematycznie prawidłowe (potwierdzone: spec §1.10, pierwiastki, γ z v2 plus poprawiona agregacja), ale twierdzenie łańcucha kwalifikacji „wartości te zostały wyprodukowane przez schurNin w wersji kwalifikowanej" jest dla przypadków flip nie do utrzymania na obecnym pliku v2. K2c (kompletność 21+1=22) wymaga po erracie v3 powtórzenia formalnego na artefakcie.
+3. **N47 pozostaje otwarte:** kiedy wprowadzono błędną agregację (przebudowa pliku w 11ar mimo adnotacji „bajtowo bez zmian" vs agregacja po stronie drivera w 11an/11aq). Do rozstrzygnięcia porównaniem z plikiem K17f sprzed 11ar w historii repo; nie blokuje erraty v3.
+4. **Zasięg potwierdzony formalnie:** wyniki re-kwalifikacji 11ar (BASE/E2 na q, Perron (a)/(b), N45, ρ̂) nie zależą od agregacji schurNin i pozostają w mocy; automat t1–t7, sanity SHA-256 i warstwa DK przechodzą na finalnym kodzie bez zastrzeżeń.
+
+### 4. E18b
+
+Pozostaje HOLD (K6: populacja 361 nietknięta). Warunki startu: przegląd 11as/11at przez recenzentów, errata v3 agregacji, ponowny re-run baterii z wynikiem 31/31 na nowym haszu, rozliczenie N47.
+
+---
