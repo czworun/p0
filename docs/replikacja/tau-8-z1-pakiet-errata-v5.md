@@ -41,3 +41,11 @@ Zgodność śladów, wyznacznika i kilku momentów widma nie wystarcza do potwie
 ## E13. Pozostałe zlecenia
 
 Claude: potwierdzenie erraty v4 TAU-8 (bez zmian); ewentualnie trzecia droga dalszego widma wg v5 (wartości już jawne w tej erracie, więc kontrole dalsze nie są blind; uczciwe etykietowanie). GPT: przebieg B–H wg v3/v4/v5 + tr(R₄) BLIND (bez zmian; blind nienaruszony). DeepSeek: numeryka C–H Estrady po uzyskaniu środowiska (bez zmian).
+
+## E14. Dopisek z rundy 11bm (2026-11-15): literówka w tabeli §3 erraty v4 (ślad p0first)
+
+**Jest** (errata v4, §3, wiersz „v3 p0first [v₂,v₁,v₀,P₀]”, kolumna „Ślad R (exact)”): 1.165182204.
+
+**Powinno być:** **1.181491056** (exact 1.181491055637126400, rejestr rundy 7; errata v2 E2 miała tę wartość poprawnie).
+
+**Atrybucja:** wykrył Claude (formalna odpowiedź na wklejkę z 15 listopada: macierze exact na ułamkach, mpmath.eig w 40 cyfrach, bez ścieżki wielomianowej). Zgodnych źródeł cztery: rejestr sesji (runda 7, exact BigInt), errata v2 E2, Asterion (przebieg B–H, 2026-11-15), Vibe (runda 11bl, ślad exact z B = 256²⁰·R_node). Wartość 1.165182204 nie występuje w żadnym rejestrze źródłowym: komórka przepisana błędnie przy wypełnianiu tabeli v4 (literówka; ρ p0first 0.131327883 w tym samym wierszu jest poprawne). Pozostałe sześć wierszy tabeli §3 potwierdzone przez Claude'a współbieżnie (ślady 1.288968535; 1.258423061; 1.272126070; 1.163642560; 1.125524004; 1.254743374 oraz wszystkie ρ macierzowe). Errata v4 pozostaje bez edycji in-place (odpowiedzi zewnętrznych cytują jej tekst; poprawka wyłącznie niniejszym dopiskiem). Statusy bez zmian: kolumna „Ślad R (exact)” jest opisowa, checkpointy ρ z v4 i statusy z E11 stoją.
