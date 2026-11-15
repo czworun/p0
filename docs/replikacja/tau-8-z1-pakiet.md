@@ -1,8 +1,8 @@
-# Pakiet replikacji Z1 — sesja TAU-8: sieć węzłów o koordynacji ≤12
+ Pakiet replikacji Z1 — sesja TAU-8: sieć węzłów o koordynacji ≤12
 
 > Zlecenie szefa laboratorium (Vibe), wystawione 2026-11-06 wg delegacji Leszka. Protokół Z1/Z3: specyfikacja bez kodu, rachunek od zera, liczby jawnym tekstem, każda liczba z atrybucją (metoda, solver, residuum). Rozbieg z checkpointem > 1e−5 względnie = STOP + diagnoza (Z0); koncesje wprost. Rejestr sesji: [warsztat/tau-8-siec-12sasiadow.md](../warsztat/tau-8-siec-12sasiadow.md). Macierze ≤ 23×23 — wystarczy dowolny eigensolver z deklarowanymi residuami (lekcje solverowe §36.8: Krylov zalecany, Newton-polishing, p₂ = x²−2ax+|λ|²).
 
-> **Stan errat (aktualizacja 2026-11-07, po incydencie replikacyjnym GPT):** ten plik obowiązuje łącznie z erratami [v2](tau-8-z1-pakiet-errata-v2.md) (konwencja kanoniczna apex-first [P₀,v₂,v₁,v₀], checkpointy B, pełna lista ścian), [v3](tau-8-z1-pakiet-errata-v3.md) (poprawka tabeli wierzchołków — E8, transpozycja 5↔8; tabela poniżej JEST już wersją poprawioną) i [v4](tau-8-z1-pakiet-errata-v4.md) (prawdziwe ρ = wartości macierzowe; ścieżka pierwiastków wielomianu nieważna do cyfr znaczących). Wersja sprzed errat zawierała tabelę przekręconą — kto czyta starszą kopię: permutacja etykiet względem niej = dokładnie swap(5,8).
+> **Stan errat (aktualizacja 2026-11-15, po STOP Asteriona w zadaniu B):** ten plik obowiązuje łącznie z erratami [v2](tau-8-z1-pakiet-errata-v2.md) (konwencja kanoniczna apex-first [P₀,v₂,v₁,v₀], checkpointy B, pełna lista ścian), [v3](tau-8-z1-pakiet-errata-v3.md) (poprawka tabeli wierzchołków — E8, transpozycja 5↔8; tabela poniżej JEST już wersją poprawioną), [v4](tau-8-z1-pakiet-errata-v4.md) (prawdziwe ρ = wartości macierzowe; ścieżka pierwiastków wielomianu nieważna do cyfr znaczących) i [v5](tau-8-z1-pakiet-errata-v5.md) (dalsze widmo nat: wartości E2 z DK na współczynnikach 53-bit były artefaktem; poprawne wartości macierzowe, zgodne z QR sesji i trzema drogami). Wersja sprzed errat zawierała tabelę przekręconą — kto czyta starszą kopię: permutacja etykiet względem niej = dokładnie swap(5,8).
 
 ## 1. Konstrukcja (konwencje jawne)
 
@@ -48,7 +48,7 @@ Krawędź: odległość² = 4 dokładnie. Ściany: wszystkie trójki {i < j < k}
 | SERC R₄ | widmo | 1; 0.153348±0.074039i; 0.134711 (ρ = 0.170286) |
 | SERC R₄ | ślad / det | 369/256 = 1.44140625 / 1/256 |
 | Węzeł nat | ρ (runda) | 0.174759 |
-| Węzeł nat | widmo dalej | 0.074450; 0.045163; para 0.032402±0.015344i; para 0.028504±0.026555i (poprawka wg erraty v2 E2 — pierwotne 0.074479; 0.043097 były chybne) |
+| Węzeł nat | widmo dalej | 0.074479; 0.043097; −0.003728; 0.000790; para −0.000303±0.000375i (poprawka wg erraty v5; wartości v2 z DK/53-bit były artefaktem; QR sesji i eigensolvery macierzowe były poprawne) |
 | Węzeł nat | ker(R−I) | 1 |
 | Węzeł nat | ℓ(P₀) / max wierzchołek / min wierzchołek | 0.037550 / 0.152520 / 0.044702 |
 | Węzeł nat | entropia ℓ | 2.487 (ln 13 = 2.565) |
