@@ -49,3 +49,22 @@ Claude: potwierdzenie erraty v4 TAU-8 (bez zmian); ewentualnie trzecia droga dal
 **Powinno być:** **1.181491056** (exact 1.181491055637126400, rejestr rundy 7; errata v2 E2 miała tę wartość poprawnie).
 
 **Atrybucja:** wykrył Claude (formalna odpowiedź na wklejkę z 15 listopada: macierze exact na ułamkach, mpmath.eig w 40 cyfrach, bez ścieżki wielomianowej). Zgodnych źródeł cztery: rejestr sesji (runda 7, exact BigInt), errata v2 E2, Asterion (przebieg B–H, 2026-11-15), Vibe (runda 11bl, ślad exact z B = 256²⁰·R_node). Wartość 1.165182204 nie występuje w żadnym rejestrze źródłowym: komórka przepisana błędnie przy wypełnianiu tabeli v4 (literówka; ρ p0first 0.131327883 w tym samym wierszu jest poprawne). Pozostałe sześć wierszy tabeli §3 potwierdzone przez Claude'a współbieżnie (ślady 1.288968535; 1.258423061; 1.272126070; 1.163642560; 1.125524004; 1.254743374 oraz wszystkie ρ macierzowe). Errata v4 pozostaje bez edycji in-place (odpowiedzi zewnętrznych cytują jej tekst; poprawka wyłącznie niniejszym dopiskiem). Statusy bez zmian: kolumna „Ślad R (exact)” jest opisowa, checkpointy ρ z v4 i statusy z E11 stoją.
+
+## E15. Dopisek z rundy 11bo (2026-11-15): definicja wariantu p0first (pakiet §1 vs erraty)
+
+**Zarzut (Asterion, pełny przebieg B–H ze ślepym śladem):** pakiet §1 definiuje p0first jako tetrę [12, v₀, v₁, v₂] (P₀ pierwsze w kolejności aktualizacji), a erraty v2 (E2) i v4 (§3) przypisują nazwę p0first kolejności [v₂, v₁, v₀, P₀] (P₀ ostatnie). To różne operatory; jedna nazwa nie może oznaczać obu.
+
+**Rozstrzygnięcie (Vibe, runda 11bo, rachunek exact na ułamkach z konstrukcji v3; sweep 20 ścian lex):**
+
+| kolejność aktualizacji tetry | ślad R (exact) | λ₂ (pierwsza niejednostkowa) | ℓ(P₀) |
+|---|---|---|---|
+| [v₂, v₁, v₀, P₀] (erratowe p0first) | 1.181491055637126400 | 0.131327883 (real) | 0.203979465 (wybraniec) |
+| [v₂, v₁, v₀, P₀], ściany rev | 1.184856839963 | para, moduł 0.090251573 | 0.091528284 |
+| [P₀, v₀, v₁, v₂] (dotychczasowa definicja pakietu §1) | 1.209042058979 | para, moduł 0.100494425 | 0.018406850 |
+| [v₀, v₁, v₂, P₀] | 1.119630707769 | para, moduł 0.066159172 | 0.092225945 |
+
+**Werdykt:** wszystkie wartości checkpointowe (pakiet §2: ρ 0.131328, ℓ(P₀) 0.203979 wybraniec; erraty v2/v4; rejestr rundy 7: p0first 0.131327883367, p0first-rev 0.090251572984, ℓ(P₀) ×4) odpowiadają operatorowi [v₂, v₁, v₀, P₀]. Wartość 1.209042059 z kolumny porównawczej erraty v2 E2 (stara wartość sesyjna) to dokładnie ślad operatora [P₀, v₀, v₁, v₂]; sesyjne ρ 0.100517 z tej samej kolumny to moduł pary tego operatora w rachunkach sprzed errat (exact: 0.100494425). Nazwa p0first pozostaje przypisana do [v₂, v₁, v₀, P₀] (ciągłość z E2, v4 i rejestrem); jest to nazwa historyczna z sesji pierwotnej, semantycznie odwrócona: P₀ jest w tej kolejności ostatnie w porządku aktualizacji, nie pierwsze.
+
+**Poprawka pakietu §1 (jest/powinno być):** jest „p0first: punkty każdej tetry [12, v₀, v₁, v₂] (P₀ pierwsze)"; powinno być „p0first: punkty każdej tetry [v₂, v₁, v₀, P₀] (P₀ ostatnie w porządku aktualizacji; nazwa historyczna)". Poprawka wyłącznie niniejszym dopiskiem, bez edycji in-place pakietu (pakiet §1 cytowany w wklejkach). Checkpointy §2 pakietu bez zmian: dotyczą właściwego operatora. Operator [P₀, v₀, v₁, v₂] otrzymuje nazwę roboczą **p0first-literal** (wartości sesji pierwotnej; nie występuje w checkpointach).
+
+**Zakres i domknięcia:** E15 dotyczy węzła (obiekt v3) i jego wariantów. H3 (przełącznik centrum) bez zmian liczbowych, z przypięciem nazewniczym: rev ℓ(P₀) = 0.018315485, p0first-rev = 0.091528284, oba na kolejności [v₂, v₁, v₀, P₀]. Wszystkie cztery wartości ℓ(P₀) rejestru rundy 7 (0.037549919; 0.018315485; 0.203979465; 0.091528284) odtworzone z konstrukcji v3 co do 9 miejsc. Wiersz „v1 p0first [P₀, v₀, v₁, v₂]" w erracie v4 §3 dotyczy obiektu v1 (własna kolejność bazowa i własne odwrócenie; poza zakresem E15). Statusy bez zmian.
