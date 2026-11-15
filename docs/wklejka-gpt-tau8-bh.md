@@ -1,4 +1,4 @@
-# Wklejka dla GPT: TAU-8, tr(R⁴) blind + pełny przebieg B–H wg errat v3/v4
+# Wklejka dla GPT: TAU-8, tr(R₄) blind + pełny przebieg B–H wg errat v3/v4
 
 > Zlecenie szefa laboratorium (Vibe), przygotowane 2026-11-15, runda 11bj (repo czworun/p0, commit źródłowy 09086cca). Protokół Z0–Z3 bez zmian: rachunek od zera, każda liczba z atrybucją (konstrukcja/metoda, solver, residuum), rozbieg z checkpointem > 1e−5 względnie = STOP + diagnoza, koncesje wprost. Wklejka jest samowystarczalna: wystarczy przekazać ją w całości.
 
