@@ -1188,3 +1188,94 @@ Zgodność z L_count v3 (21/1) i z Z1 Vibe (DK: 21/1). Kimi deklaruje rozstrzygn
 5. Claude: opcjonalnie (przerwa); jego przegląd 11at rozliczony w 11aw, brak otwartych żądań z jego strony.
 
 ---
+## Runda 11ay. Przeglądy 11ax: Copilot kolejka kwalifikacyjna zamknięta (PASS, jedyny warunek literalny cap=200), DeepSeek pełny A1–F3 na wklejce 11as–11ax (PASS z adnotacjami N49/N50/N51), Asterion przyjmuje 11ax jako rundę rejestracyjną (formalny PASS dla Z1 dysku 2 i start E18b wstrzymane do raportu Kimiego)
+
+**Data (UTC):** 2026-11-15T09:15Z
+**Stan wyjściowy:** runda 11ax (commity a289d606 + 1b0662c4) wypchnięta; wklejka docs/wklejka-deepseek-11as-11ax.md (commit c66065eb, md5 048d9a4f9fee6df16b577f5f2dc5267d, 62 264 B; wycinek docs/zlecenia.md od „## Runda 11as." do końca, źródło commit 1b0662c4, md5 7e5fc26cde0bdab066582610a86ea77b, bez zmian treści) dostarczona DeepSeekowi przez Leszka (plik na GitHubie + canvas w rozmowie). DeepSeek wykonał na niej pełny A1–F3. Przeglądy 11ax przekazane w jednym rzucie: Copilot, DeepSeek, Asterion. Kimi przygotowuje raport formalny, Claude w przerwie.
+
+### 1. Rejestracja przeglądu Copilota (PASS; kolejka kwalifikacyjna zamknięta)
+
+**Copilot:** 11ax przyjęte; jego warunki rozliczone, żadne nowe wymagania nie dokładane. Uznaje za zamknięte: K17f-v3 (PASS), pełną baterię 31/31 PASS, schurNin (PASS po minimalnej erracie v3), N47/provenance (rozliczone), t1–t7 (PASS), (6a)–(6d) (PASS), kompletność 21+1=22 (normatywną drogą exact), Perron/Rouché 4/4 (PASS), BASE→E2 dla R_AB/cut (PASS), Z1 Vibe 21/1 (pomocniczo zgodne), populacja 361 (nietknięta, K6/Z0 zachowane). Formalny raport Kimiego i potwierdzenie Asteriona domykają ich własną ścieżkę audytową, ale nie stanowią nowego blokera po jego stronie.
+
+**Jedyny warunek wykonawczy (niezmieniony):** cap_BASE = cap_E2 = 200, literalne v1.0. Semantyka: BASE maks. 200 iteracji, stop osiągnięty ⇒ dalsza procedura, brak stopu ⇒ FAIL ⇒ E2; E2 maks. 200 iteracji, stop ⇒ dalsza procedura, brak stopu ⇒ GLOBALNY STOP. Przebieg diagnostyczny po 200 iteracjach może istnieć, ale nie może zmienić statusu normatywnego; realizacja potrzebująca 201 iteracji to FAIL (201 > 200), nie „prawie przeszła”. Propozycja 400+ pozostaje wycofana do rejestru v1.1.
+
+**Reguły przebiegu E18b (przyjęte do warunków startu, decyzja 5d):** od chwili rozpoczęcia E18b żadne nowe ulepszenia inspirowane zachowaniem populacji; pierwszy obiekt ujawniający problem ⇒ obowiązuje zamrożony automat, nie poprawianie narzędzia w locie. Następny materiał do oceny wyłącznie jeden z dwóch kształtów: 361/361 z pełnym logiem, albo pierwszy normatywny GLOBALNY STOP. Wyniki cząstkowe (37/361, 190/361) nie są przedmiotem interpretacji hipotezy; częściowa populacja nie służy klasyfikacji.
+
+**Konstatacja Copilota (metodologiczna):** największy sukces tych rund jest proceduralny: błąd schurNin znaleziony przed dotknięciem populacji, mimo że istniały już wyniki wyglądające poprawnie. Mocny test tego, czy Z0 faktycznie działa, a nie tylko jest zapisane w nagłówku.
+
+**Wniosek:** warunek startu (4) z 11ax spełniony definitywnie. Copilot: brak blokera do E18b przy cap=200.
+
+### 2. Rejestracja przeglądu DeepSeeka (pełny A1–F3 na wklejce 11as–11ax: PASS z adnotacjami)
+
+**Z0 jawne (DeepSeek):** bez re-runu SHA-256 artefaktów (brak środowiska); weryfikowana struktura, spójność wewnętrzna, matematyka formuły i obecność wymaganych elementów. Ta sama granica co w 11al („potwierdzam strukturę logu, nie wynik kwalifikacji”).
+
+**Sekcja A (kompletność zestawu):** A1 PASS (t1–t7 z wynikami i timestampami; tabela 11av wiersze 2–8: t1→STOP, t2→E2, t3→STOP, t4→RERUN_E1, t5→FALLBACK_1.2(ii), t6→GLOBAL_STOP, t7→E2; jawne stany esc_used[] przed testem; przebieg 2026-11-15T01:03:47.978Z → 01:03:54.090Z). A2 PASS ((6a)–(6d) z wartościami: T_a=2, T_b=1, T_c=3, T_d=0, T_e/T_f/T_g FAIL singular, (6c) 2/3/FAIL brzeg, (6d) parse/deflate/schurNin=22/γ 22/22/L_count 21/1/kompletność 22; zgodne z kanonem 11as). A3 PASS (sanity 8/8 wektorów, zgodne z §1.10 pkt 1).
+
+**Sekcja B (log pierwszej kwalifikacji K17f):** B1 PASS (UTC, konkretny moment). B2 PASS (artefakt 60504f95678221a8d56b26d4ef3cf80a9653d85c333849f78612045f4ed7da86, driver 9f02a462b1867df96ff55fe2761e3b8a6e1910d910e9f327a1ed2058a3e17274, oba pełne, oba z systemowego sha256sum). B3 PASS (kolejność kod → hasze → testy, zgodnie z B3 pre-commitu). B4 PASS (jawny diff v2→v3: dokładnie trzy elementy; warstwy niezależne wymienione z nazwy: bgcd, composeDisk, deflate, dkDouble, dkDyadic, dyadic, bigToNumber, roucheExact, roucheExactBigInt, faddeev, nietknięte).
+
+**Sekcja C (ścieżka (a) Perron):** C1–C4 PASS z uwagą strukturalną (N49, sekcja 4): ścieżka (a) wykonana w 11ar, nie w baterii 11av; 11au jawnie stwierdza jej niezależność od agregacji schurNin (używa roucheExact) i pozostanie w mocy. Uzasadnienie merytoryczne poprawne; fakt bycia poza 31-testową baterią wymaga jawnego zapisu w raporcie K2c.
+
+**Sekcja D (automat FAIL/E2/STOP):** D1 PASS (t1–t7 z jawnymi krokami wejście/wynik), D2 PASS (t6 = C28: po E1 FAIL eskalowalny ⇒ GLOBALNY STOP), D3 PASS (t7: niezależność flag, esc_used[A]=1, esc_used[B]=0 ⇒ E2 na B).
+
+**Sekcja E (K6):** E1–E3 PASS. W 11av wyłącznie obiekty kontrolne (sanity SHA-256, t1–t7, S1–S4, T_a–T_g, Q5, R_AB control object; cut w 11ar); żaden element populacji 361 ani część. K6 nienaruszone.
+
+**Sekcja F (spójność z §1.10):** F1 PASS z adnotacją (mapowanie 31 przypadków na §1.10 pkt 1–7: (1) wiersz 1, (3) wiersze 9–12, (4) wiersze 30–31, (5) wiersze 23–29, (6) wiersze 13–22, (7) wiersze 2–8; (2) Bareiss rank(N−2³²⁰·I)=22 w 11ar, poza baterią, re-run 11ar go nie dotyka; 4b′ jawnie ERRATA z 11an/11ap, autoryzacja §1.10 (4) klauzula wymiany). F2 PASS (brak pominięć: wszystkie 31 przypadków obecne). F3 PASS (brak dodatków: dokładnie 31, te same co 11at).
+
+**Weryfikacja matematyczna (na papierze, niezależna):** formuła erraty v3 sprawdzona na trzech świadkach z γ z 11av (DeepSeek zapisuje γ w kolejności push stopni malejąco, mapowanie na γ_1..γ_k jawne). T_d (γ push: −24, 38/115, −41/51): |γ_1|=41/51<1 ⇒ N=1; |γ_2|=38/115<1 ⇒ N=2; |γ_3|=24>1 ⇒ N=(3−1)−2=0, zgodne z kanonem. T_a (γ push: −1/6, 59/70, −57/43): |γ_1|=57/43>1 ⇒ N=0; |γ_2|=59/70<1 ⇒ N=1; |γ_3|=1/6<1 ⇒ N=2, zgodne. S_3 (γ push: −1/3, 29/32, −65/61): |γ_1|=65/61>1 ⇒ N=0; |γ_2|=29/32<1 ⇒ N=1; |γ_3|=1/3<1 ⇒ N=2, zgodne. Errata v3 odtwarza prawidłowe wartości. N47: evidence chain kompletny (K2-STAN „Schur + ninUp”, osobne hasze modułów schurNin/lcount, lekcja (e) logu 11aq, wynik 11at); provenance chain break potwierdzony dwoma niezależnymi źródłami dokumentacyjnymi, rozstrzygnięcie poprawne.
+
+**N49 (adnotacja do raportu końcowego K2c):** kwalifikacja K2c = 11ar (ścieżka (a) Perron, BASE/E2 na q, N45, ρ̂, δ, sup D, Bareiss) + 11av (bateria 31-testowa na v3); dwa zestawy wyników z dwóch rund połączone jawnym uzasadnieniem „warstwy niezależne”. Właściwe, ale raport końcowy musi zapisywać to jawnie, żeby przyszły audyt nie czytał „31/31 PASS” jako całości kwalifikacji, gdy faktycznie jest „31/31 + 4/4 z wcześniejszej rundy z uzasadnieniem”.
+
+**N50 (adnotacja do raportu końcowego K2c):** dwie erraty w różnych momentach, obie legalne, ale łańcuchy trzeba rozdzielić: (i) 4b → 4b′: FAIL 4b (11ap) → errata 4b → 4b′ (11an/11ap, autoryzacja §1.10 (4) klauzula wymiany analogiczna do (4)) → PASS 4b′ (11at, 11av); (ii) v2 → v3: FAIL 7/31 na v2 (11at) → errata v3 (11au) → PASS 31/31 na v3 (11av). Wiersz 31 w 11av oznacza „4b′ (ERRATA)” bez wskazania, że to errata z 11an/11ap; czytelnik 11av w izolacji może wniść, że 4b′ jest nową erratą z 11au/11av.
+
+**N51 (Z1 dysk 2, wystarczalność):** opinia DeepSeeka utrzymana (wystarczające, mocniejsze niż formalny stop z ciasnym marginesem; formalny stop byłby warunkiem wystarczającym, nie koniecznym). Kolejność bez zmian: raport formalny Kimiego (zamówiony 11ax §5c) → formalne potwierdzenie Asteriona → E18b. Opinia DeepSeeka (wystarczalność) i wymóg Asteriona (formalne potwierdzenie po raporcie) komplementarne, nie sprzeczne.
+
+**Werdykt DeepSeeka:** PASS dla pełnego A1–F3 na logach 11as–11ax (N46 zamknięte, N48 zarejestrowane do v1.1, formuła v3 potwierdzona matematycznie, K6 nienaruszone, cap=200 przyjęte z wycofaniem jego propozycji 500 do rejestru v1.1). Jego warunki do E18b: (1) raport Kimiego zarejestrowany; (2) formalne potwierdzenie Asteriona; (3) cap=200 literal (spełnione decyzją 11ax §5a); (4) jawny zapis N49 w raporcie końcowym; (5) jawny zapis N50 w raporcie końcowym. Punkty 1–2 poza jego kontrolą; punkty 3–5 „tanie, jedna sekcja” raportu K2c. **Wniosek: warunek startu (3) z 11ax spełniony.**
+
+### 3. Rejestracja stanowiska Asteriona (11ax przyjęte jako runda rejestracyjna; HOLD utrzymany)
+
+**Asterion:** deklaracja trzech zgodnych dróg Kimiego to pierwszy przypadek niezależnego rozstrzygnięcia dysku 2 metodami nieopartymi na zbieżności DK. Ale „nie pomylmy trzech zgodnych deklaracji wyników z trzema niezależnymi certyfikatami”. Do czasu pełnego raportu formalnego: dysk 1 i dysk 2: mocne potwierdzenie, oczekuje na formalny raport; kompletność 21+1=22: deklarowana, jeszcze niezamknięta.
+
+**Wymagania na raport Kimiego (rozszerzają zamówienie 11ax §5c):** (a) zasada argumentu: dokładny wielomian, transformacja, kontur, sposób obliczenia winding number i certyfikat, że kontur nie przechodzi przez zero; sama gęsta siatka bez ograniczenia błędu między punktami nie jest dowodem; (b) droga dyskretna: uzasadnienie, czemu dyskretny winding rzeczywiście certyfikuje liczbę zer (zagęszczenie podsiatki i stabilność to diagnostyka, nie dowód); (c) Sturm: wynik 9 rzeczywistych + 6 par sprzężonych = 21 to liczba; trzeba wykazać, jak konstrukcja Sturma po transformacji rozstrzyga przynależność tych pierwiastków do konkretnego dysku; (d) kompletność 21+1=22 dla całego wielomianu, nie tylko zgodność dwóch lokalnych obliczeń: stopień wielomianu i dowód, że nie pominięto pierwiastków na granicy lub w innym obszarze.
+
+**Copilot/cap=200:** decyzja przyjęta (bez zmian). Podwyższenie capa po zobaczeniu wyników 184/191/193 iteracji byłoby zmianą reguły po poznaniu danych; 400/500 zostaje w rejestrze v1.1, nie wolno użyć do ratowania wyniku v1.0.
+
+**Uwaga chronologiczna (warsztatowa):** tabela statusów Asteriona pisana przed wklejką ( DeepSeek: „A1–F3 ⏳ oczekuje na logi”). W tej samej rundzie DeepSeek złożył pełny A1–F3 na wklejce (sekcja 2 powyżej): status DeepSeeka zaktualizowany na PASS z adnotacjami N49/N50/N51. Asterion jawnie zaznaczył, że wklejka do DeepSeeka nie jest warunkiem jego własnego potwierdzenia Z1 (dwa osobne tory kontroli). Jego zastrzeżenie do N47 („wyjaśnione, historia wykonań nie w pełni odtworzona”) utrzymane w mocy.
+
+**Decyzja Asteriona:** 11ax przyjęte jako prawidłowa runda rejestracyjna. Formalny PASS dla Z1 dysku 2 nie przyznany. E18b nie otwarte. Po otrzymaniu raportu Kimiego: jego własna kontrola matematyczna, w szczególności certyfikaty winding number, margines od zera i dowód kompletności.
+
+### 4. N49/N50 przyjęte do raportu końcowego K2c (zapis dokumentacyjny, bateria bez zmian)
+
+Zobowiązania treści raportu końcowego K2 (N6), wynikające z pełnego A1–F3 DeepSeeka:
+
+a. **N49:** raport zapisuje kwalifikację jawnie jako 11ar (ścieżka (a) Perron, BASE/E2, N45, ρ̂, δ, sup D, Bareiss rank=22) + 11av (bateria 31/31 na v3, bez dziedziczenia), z uzasadnieniem niezależności warstw (roucheExact, roucheExactBigInt, bgcd, composeDisk, deflate, dkDouble, dkDyadic, dyadic, bigToNumber, faddeev nietknięte erratą agregacyjną), nigdy w skrócie „31/31 PASS”.
+b. **N50:** raport rozdziela łańcuchy dwóch errat (4b → 4b′ z 11an/11ap; v2 → v3 z 11au/11av) z datami, przyczynami i autoryzacjami (§1.10 (4) klauzula wymiany; N11/K17f modyfikacja przed pierwszą kwalifikacją).
+c. Oba zgodne z zobowiązaniem 11au §6 (chronologia 4b→4b′, N6). Bez żadnych zmian w zamrożonej baterii 11av (PASS; rozszerzenia wyłącznie wg rejestru v1.1 z 11ax §5e).
+
+### 5. Decyzje szefa laboratorium (delegacja Leszka z 11as, wtórna wobec 11ax)
+
+a. Warunki startu E18b (3) i (4) z 11ax: **SPEŁNIONE w 11ay** (pełny A1–F3 DeepSeeka na wklejce; kolejka kwalifikacyjna Copilota zamknięta). Pozostają wyłącznie (1) raport formalny Kimiego i (2) formalne potwierdzenie Asteriona; kolejność zachowana.
+b. N49 i N50 przyjęte jako obowiązkowe elementy raportu końcowego K2c (sekcja 4); zapis dokumentacyjny, bez zmian kwalifikacji.
+c. N51 zarejestrowane: opinia DeepSeeka (wystarczalność Z1 dysku 2) i wymóg Asteriona (formalny certyfikat) komplementarne; rozstrzygnięcie przy rejestracji raportu Kimiego i potwierdzeniu Asteriona.
+d. Reguły przebiegu E18b z przeglądu Copilota przyjęte dosłownie (sekcja 1): zamrożony automat, zero poprawek narzędzia w locie, wyniki cząstkowe bez klasyfikacji hipotezy; następny materiał do oceny wyłącznie 361/361 z pełnym logiem albo pierwszy normatywny GLOBALNY STOP.
+e. E18b HOLD bez zmian; K6: populacja 361 par nietknięta.
+
+### 6. Kolejki
+
+- Kimi: raport formalny Z1 dysk 2 (zamówienie 11ax §5c; wymagania Asteriona z sekcji 3 tej rundy).
+- Asterion: formalne potwierdzenie sufficiency po rejestracji raportu Kimiego (własna kontrola matematyczna).
+- DeepSeek: kolejka pusta (pełny A1–F3 złożony).
+- Copilot: kolejka pusta (kwalifikacja zamknięta).
+- Claude: opcjonalnie (przerwa).
+- Po spełnieniu warunków (1)+(2): raport końcowy K2 (N6 chronologia errat, N49, N50), następnie start E18b (literalne v1.0, cap=200; ścieżka: BASE → FAIL → E2 → drugi FAIL ⇒ GLOBALNY STOP).
+
+### 7. E18b (HOLD, aktualizacja warunków)
+
+1. Raport formalny Kimiego (Z1 dysk 2 trzecią drogą) zarejestrowany w repo i zgodny z 1. (OCZEKUJE)
+2. Formalne potwierdzenie Asteriona (sufficiency Z1 dysku 2 po raporcie Kimiego). (OCZEKUJE)
+3. Pełny A1–F3 DeepSeeka na wklejce 11as–11ax. (SPEŁNIONE w 11ay: PASS z adnotacjami)
+4. Copilot przy literalnym v1.0 cap=200. (SPEŁNIONE w 11ay: kolejka zamknięta)
+5. Claude: opcjonalnie (przerwa). (BEZ ZMIAN)
+
+K6: populacja 361 par nietknięta. HOLD utrzymany do domknięcia punktów 1–2.
+
+---
