@@ -2063,3 +2063,21 @@ Zgodności: rejestr rundy 7 p0first 0.131327883367 ✓, p0first-rev moduł 0.090
 **§5. Kolejka.** (1) Leszek: wklejka v4 → DeepSeek; (2) DeepSeek: skrypt v2; (3) Vibe: zamrożenie sha v2; (4) Leszek: wykonanie mechaniczne + stdout verbatim; (5) DeepSeek: finalny raport §12; (6) rozliczenie i decyzje statusowe; (7) decyzja Leszka o starcie MVP-02; E18c uśpiony; wzmocnienia TAU-8 opcjonalne. Kolejki Asteriona (GPT) i Claude'a puste. K6 zamrożone. H-OPTYKA bez zmian.
 
 ---
+
+## Runda 11bw. PROXY v2: skrypt od DeepSeeka, kontrola zakresu, sanity, zamrożenie
+
+Data: 2026-11-15 (UTC). Init: Vibe (Laboratorium P0). Strony: DeepSeek (autor skryptu), Vibe (kontrola zakresu + sanity), Leszek (wykonawca proxy, wykonanie planowane po zamrożeniu).
+
+1. Receipt. DeepSeek dostarczył skrypt PROXY v2 (poprawiona wersja v1, sha256 0c119cae62babdffb56dc6cfaf623f2c63bfcef778a2c1654040f962d2fa9c88, zamrożonego w 11bt), po rozliczeniu 9 FAILow z raportu §12 (11bu) jako trzech bugow własnej implementacji. Trzy poprawki obliczeniowe zgodne z wklejka v4 §2: (a) wgap() = raw |x_i − x_j| (DOP-2), dotyczy D1/D2/D5; (b) agregacja D5 per-image min nad 6 parami, potem min/max po oknie n in [100,300] i 4 startach (DOP-3); (c) normalizacja z do sumy |z_k|² = 1 przed Gramem w E1, po asercji residuum (asercja niezmienna: iloraz ||B4z − λc z||/||z|| jest niezmienniczy na skale).
+
+2. Kontrola zakresu zmian (B3). Diff v1→v2 skatalogowany w całości (45 linii zmienionych). Zmiany obliczeniowe: DOKLADNIE trzy, zgodne z deklaracja DeepSeeka. Pozostale różnice wyłacznie nieobliczeniowe: docstring z lista zmian; print "PROXY v2 execution" (identyfikacja wersji w stdout); komentarze Δ→Delta i Φ→Phi; usuniety komentarz "# exact"; JEDNA zmiana etykiety wyjsciowej: nazwa bramki "C4 max |Δ| on V_cyc" → "C4 max |D| on V_cyc" (wyłacznie nazwa wiersza w tabeli stdout; expected/actual/dev/tol/status bez zmian). Etykieta odnotowana jawnie mimo kosmetycznego charakteru; zadna inna linia obliczeniowa nietknieta. Kontrole zakresu: PASS.
+
+3. Sanity odtwór Vibe (kontrola wykonania przed wykonaniem proxy Leszka; rachunkiem podstawowym pozostaje wykonanie proxy). Wynik: 107/107 OK, FAIL 0, asercje PASS, stderr puste, 2.7 s (numpy 2.3.3). Byłe 9 FAILow teraz OK: D1 0.0967867837 (dev 2.16e−07), D2 0.1043015021 / 0.2641637148 / 0.0967867837 / 0.3507599754, D5 min 0.0003643543103 (tol 1.8e−05, dev 3.54e−07), D5 max 0.4196646797 (dev 3.20e−07), E1 0.8420076693 / 0.5394655548 (dev 3.31e−07 / 4.45e−07). C4 bez zmian wzgledem v1: 0.09622504486, dev 5.55e−17 (17 cyfr zgodnych z 1/(6√3)). Sanity PASS.
+
+4. Zamrożenie. Skrypt v2 zamrożony w repo jako docs/replikacja/estrada-proxy-deepseek-v2.py, sha256 d652e6d16dc33bf7094feb781f21634083aa78afd6426a6938539560e0c3f02d, 14 458 B, PRZED wykonaniem proxy przez Leszka (B3: kod → hash → testy → wykonanie). Atrybucja: kod i analiza: DeepSeek; kontrola zakresu i sanity: Vibe; wykonanie proxy: Leszek (planowane); stdout verbatim.
+
+5. Decyzje. (a) Kontrola zakresu PASS; (b) sanity PASS; (c) zielone światło dla Leszka na mechaniczne wykonanie v2 bez edycji; (d) statusy C4–H BEZ ZMIAN do doręczenia finalnego raportu §12 (PROXY nadal aktywny; C4–H DeepSeek ⏸ STOP uczciwy z AKTYWNYM PROXY); (e) P6/P7 DeepSeeka odnotowane w 11bu jako DOP-2/DOP-3, weszły do pakietu sha ed719ce0; (f) wynik sanity 107/107 jest informacja kontrolna, nie podstawa statusów; (g) H-C5 (hipoteza P'Q − PQ' ∝ r⁴ − 10r² + 1) pozostaje pozycja badawcza DeepSeeka na po PROXY.
+
+6. Kolejka. (1) Leszek: wykonanie v2 (stdout verbatim do DeepSeeka); (2) DeepSeek: finalny raport §12; (3) Vibe: rozliczenie 11bx (decyzje statusowe C4–H, kumulacja zgodności D/E); (4) archiwizacja stdout v1/v2; (5) decyzja Leszka o starcie MVP-02; E18c uśpiony; wzmocnienia TAU-8 opcjonalne. Kolejki Asteriona (GPT) i Claude'a puste. K6 zamrożone. H-OPTYKA bez zmian.
+
+---
