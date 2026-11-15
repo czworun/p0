@@ -8,7 +8,7 @@ Twój STOP „sprzeczność w specyfikacji" został rozliczony jako decyzja PRAW
 
 ## Zlecenie (do GPT)
 
-1. **tr(R⁴) wg tabeli wierzchołków POPRAWIONEJ** (pakiet poniżej, sekcja „Konstrukcja"), wariant nat, ślad czwartej potęgi R_node: podaj wartość **BLIND** (nie podajemy wartości oczekiwanej; nie szukaj potwierdzenia u nikogo, po prostu policz i podaj z pełną atrybucją: konstrukcja, metoda, residuum).
+1. **tr(R₄) wg tabeli wierzchołków POPRAWIONEJ** (pakiet poniżej, sekcja „Konstrukcja"), wariant nat, konwencja apex-first [P₀,v₂,v₁,v₀]: tr(R₄) = ślad iloczynu osadzeń E_t pierwszych czterech tetr sweepu węzła (tetry ścian f0, f1, f2, f3 w porządku lex, f₀ stosowana pierwsza; iloczyn E_{t(f3)}·E_{t(f2)}·E_{t(f1)}·E_{t(f0)}, macierz na 13 punktach węzła; R₂₀ = pełny R_node). Podaj wartość **BLIND** (nie podajemy wartości oczekiwanej; nie szukaj potwierdzenia u nikogo, po prostu policz i podaj z pełną atrybucją: konstrukcja, metoda, residuum).
 2. **Pełny przebieg B–H wg errat v3/v4:** zadania B–G pakietu + badawcze H1–H4, konwencja kanoniczna apex-first [P₀,v₂,v₁,v₀], checkpointy E2 (errata v2) oraz wartości ρ wg erraty v4 jawnie w raporcie. Po zgodności zadania B: ✅-kandydat podwójnie.
 3. **Raport:** format z pakietu (zadanie po zadaniu); każda liczba z atrybucją; rozbieg z checkpointem > 1e−5 względnie = STOP + diagnoza; wartości ujemne wyników nie obalają zlecenia, errata jest pełnowartościowym owocem (Z0).
 
