@@ -1098,3 +1098,44 @@ Metoda (bez agregacji γ, bez schurNin): własna ekspansja dwumianowa BigInt w d
 Pozostaje **HOLD** (K6: populacja 361 par nietknięta). Warunki startu (11au sekcja 7): czysty przegląd 11au/11av przez recenzentów, w tym pełne A1–F3 DeepSeeka po wklejce logów 11as/11at/11au/11av przez Leszka; dopiero wtedy decyzja o starcie E18b.
 
 ---
+## Runda 11aw. Przegląd Claude'a (powrót z przerwy): niezależne potwierdzenie root cause i wszystkich 5 wartości z 11at; propozycje do baterii zarejestrowane do spec v1.1; stan K2 po 11au/11av bez zmian
+
+**Data (UTC):** 2026-11-15T01:20Z
+**Stan wyjściowy:** runda 11av (commit 800ecc70): errata v3 (K17f-v3, hasz 60504f95) wykonana, pełny re-run baterii 31 testów PASS=31/FAIL=0 bez dziedziczenia, Z1 niezależne zgodne (21/21, 1/1), K2c nowa kwalifikacja na v3. Claude pisał swój przegląd względem stanu po 11at (przed 11au/11av), z uwzględnieniem propozycji erraty v3.
+
+### 1. Rejestracja przeglądu Claude'a
+
+**Claude (Z1 na T_d i agregacji N_in):** zgadza się z diagnozą root cause, potwierdza ją niezależnie, odtwarzając wszystkie 5 błędnych wartości z 11at. K6 zachowane (tylko obiekty kontrolne i toy-wielomiany). T_d=(z−2)(z−3)(z−4): sekwencja γ z redukcji (kolejność produkcji, γ₃ pierwszy): −24, 38/115, −41/51; agregacja od γ₁ w górę daje N_in=0 ✓ (wszystkie trzy pierwiastki poza dyskiem jednostkowym), K17f-v2 dawał 2. Odtworzenie błędu na niezmienionych γ: błędna kolejność (od γ_n) reprodukuje dokładnie wszystkie 5 wartości FAIL z 11at (T_a 0, T_d 2, S₃ 0, L 0, L 20), a przypadki bez flipa (T_b, T_c) zgodne w obu wersjach. Wniosek: wzór flip (k−1)−nin poprawny tylko, gdy k oznacza stopień od P₁ w górę. Zakres erraty v3 właściwy (wyłącznie pętla agregacji). Dwie propozycje do baterii po erracie, bez zmiany progów: (1) przypadek z dwoma niesąsiednimi flipami (obecne toy-przypadki mają ≤1 flip, słabo testują propagację przy wielu zmianach); (2) losowa kontrola krzyżowa na wielomianach toy względem prawdziwej liczby pierwiastków znanej z konstrukcji. Jego implementacja lematu: 620 losowych wielomianów (341 o pierwiastkach rzeczywistych, 279 z parami zespolonymi), 100% zgodność z prawdziwą liczbą. E2 z 11ar: jego DK 256-bit (Gauss–Seidel, init 1.6, stop 2⁻⁵²) zbiega w 193 iteracjach (R_AB) i 186 (cut) wobec naszych 191/184; największe moduły 0.554641699189468 i 0.550107704833697 zgodne; różnica dwóch iteracji mieści się w zaokrągleniach, ale margines względem limitu 200 wąski (ok. 3–7%). Kompletność K2c: 21+1=22 nie może zachować statusu przez kontrolę root-cause, bo L_count jest przedmiotem defektu; formalne powtórzenie na artefakcie po erracie konieczne, nie opcjonalne. Kolejka: pusta do erraty v3 i ponownego re-runu.
+
+### 2. Weryfikacja danych Claude'a na artefakcie v3 (kontrola warsztatu, przed rejestracją)
+
+Sekwencja γ dla T_d z K17f-v3 (kolejność push): −24/1, 38/115, −41/51 — identyczna z podaną przez Claude (co do ułamka). schurNin(T_d) na v3: nin=0, fail=false ✓. Analogicznie T_a: γ = [−1/6, 59/70, −57/43], nin=2 ✓; S₃: γ = [−1/3, 29/32, −65/61], nin=2 ✓ (γ₁=−65/61, zgodne z tabelą 11av). Dane wejściowe przeglądu potwierdzone na kanonicznym artefakcie.
+
+### 3. Rozliczenie: warunki formalne Claude'a spełnione przez 11au/11av
+
+- Errata v3: wykonana (11au sekcja 4), zakres dokładnie zatwierdzany przez Claude (wyłącznie pętla agregacyjna, warstwa redukcji nietknięta), jawny diff, nowy hasz 60504f95, spec rekurencji jednoznaczny z mapowaniem indeksów.
+- Formalne powtórzenie na artefakcie: wykonane (11av): pełna bateria 31 przypadków, identycznych z 11at, PASS=31/FAIL=0, per test, bez dziedziczenia; 11at pozostaje w historii jako 24/7. To jest dokładnie droga, którą Claude wskazał jako konieczną dla kompletności K2c.
+- Stanowisko o kompletności (21+1=22 nie może być ratowane kontrolą root-cause): tożsame z rozstrzygnięciem DeepSeeka i wykonaniem 11av; spójne z całym łańcuchem.
+
+### 4. Propozycje (1) i (2): rejestracja do spec v1.1, poza bieżącą kwalifikacją
+
+Obie propozycje zarejestrowane jako kandydaci do baterii K17f od spec v1.1 (wraz z N48 z 11au sekcja 3):
+
+1. **Toy-przypadek z dwoma niesąsiednimi flipami.** Uzasadnienie Claude (słaba pokrycia propagacji (k−1)−nin przy wielu zmianach) przyjmuję z uzupełnieniem: bateria 11av testuje propagację wielu flipów na obiekcie rzeczywistym ((6d): dysk (0,283/1024) daje 21/22, dysk (9/16,1/8) daje 1/22, czyli sekwencje z wieloma flipami), ale jawnego toy-świadka z rozdzielczymi flipami nie ma; kandydat do v1.1.
+2. **Kontrola krzyżowa na losowych wielomianach.** Wynik Claude (620 wielomianów, 341 rzeczywiste + 279 zespolone, 100% zgodność z liczbą z konstrukcji) rejestruję jako niezależne potwierdzenie poprawności rekurencji v3 poza battery (droga odrębna od root-cause Vibe, rozkładów Asteriona i Z1 przez DK). Do baterii kwalifikacyjnej wchodzi wyłącznie wariant deterministyczny (seeded, wartości oczekiwane z konstrukcji, zapisane jawnie): kwalifikacja nie może zależeć od generatora losowego w czasie wykonania (Z2, determinizm baterii).
+
+**Jawna decyzja szefa lab.:** propozycje NIE wchodzą do bieżącej kwalifikacji K2c. Bateria 11av była zamrożona prerejestracją 11au („identyczne 31 przypadków z 11at"); rozszerzenie baterii po uzyskaniu PASS byłoby złamaniem prerejestracji i Z0 (zmiana pytania po poznaniu odpowiedzi). Domknięcie bieżącej kwalifikacji: status z 11av.
+
+### 5. E2 z 11ar: rozbieżność iteracji zarejestrowana
+
+Claude: 193/186 iteracji (R_AB/cut) wobec 191/184 z 11ar; moduły ρ̂ zgodne co do pełnej precyzji (0.554641699189468, 0.550107704833697); różnica dwóch iteracji spójna z różnicami zaokrągleń niezależnych implementacji. Rejestruję jako niezależne potwierdzenie E2 (trzecia implementacja DK po Vibe i kanonie 11an/11ar). Obserwacja o wąskim marginesie do limitu 200 (ok. 3–7%): przyjmuję; przy prerejestracji E18b cap iteracji DK będzie jawnym parametrem harnessu (analogicznie do limitu kontroli Z1 w 11av: parametr drivera, artefakt i jego kanoniczny limit bez zmian), z marginesem uwzględniającym rozrzut implementacji (proponowany cap ≥ 400 dla rachunku 361, decyzja przy prerejestracji E18b).
+
+### 6. Kolejka Claude'a
+
+Zgodnie z jego deklaracją („pusta do erraty v3 i ponownego re-runu"): oba warunki spełnione, kolejka otwarta. Zadanie: przegląd 11au/11av (rejestracja przeglądów i rozliczenie: errata v3, re-run 31/31, Z1 z jawnym ograniczeniem formalnym dysku 2); opcjonalnie cenne: Z1 trzecią drogą (argument zasady argumentu/Sturm na wielomianu źródłowym po transformacji obu dysków), domykające komplet niezależnych dróg do liczb 21 i 1.
+
+### 7. E18b
+
+Bez zmian: **HOLD** do czystego przeglądu 11au/11av przez wszystkich recenzentów (w tym pełny A1–F3 DeepSeeka po wklejce logów przez Leszka). K6: populacja 361 par nietknięta.
+
+---
