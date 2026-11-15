@@ -1279,3 +1279,57 @@ e. E18b HOLD bez zmian; K6: populacja 361 par nietknięta.
 K6: populacja 361 par nietknięta. HOLD utrzymany do domknięcia punktów 1–2.
 
 ---
+## Runda 11az. Powrót Claude'a z przerwy: Z1 trzecią drogą (pierwiastki mpmath 120 cyfr + zasada argumentu: 21 i 1, kompletność 22 = deg r), niezależne od K17f; jego uwaga cap ≥ 400 zarejestrowana (rozstrzygnięte w 11ax); Kimi w przerwie
+
+**Data (UTC):** 2026-11-15T11:14Z
+**Stan wyjściowy:** runda 11ay (commit 60901829, md5 d1179999): warunki startu E18b (3) A1–F3 DeepSeeka i (4) kolejka Copilota SPEŁNIONE; pozostają (1) raport formalny Kimiego i (2) formalne potwierdzenie Asteriona. Kimi aktualnie w przerwie (raport jeszcze nie ruszył). Claude wraca z przerwy.
+
+### 1. Rejestracja Z1 Claude'a (trzecia droga, niezależna od implementacji K17f)
+
+**Zastrzeżenie Claude'a (jawne):** pełnych logów 11au/11av nie widział; tekstu erraty v3 ani tabeli 31/31 nie potwierdza. Jego rachunek jest na warstwie algebraicznej: wielomian r = q(μ)/(μ−1) z 24 współczynników N7 (exact), czyli niezależny od implementacji K17f i od lematu Schura–Cohna. Spełnia żądanie Asteriona z 11ax §2 (trzecia droga: argument zasady argumentu LUB certyfikowany Sturm, nie kolejny DK).
+
+**Droga 1 (pierwiastki wysokiej precyzji):** mpmath, 120 cyfr, polyroots na wielomianie exact.
+- Dysk 1 (0, 283/1024): 21 pierwiastków; największy moduł 0.113966222525 (margines do promienia ≈ 0.16); pierwiastek zewnętrzny moduł 0.554641699189 (margines ≈ 0.28).
+- Dysk 2 (9/16, 1/8): 1 pierwiastek, odległość od środka 0.00786; najbliższy inny pierwiastek 0.4485 od środka = 3.6× promienia.
+- Kompletność: 21 + 1 = 22 = deg r; dyski rozłączne.
+
+**Droga 2 (zasada argumentu):** całka (1/2πi)∮ r′/r dz po obu okręgach, 512-punktowa kwadratura trapezowa (dla funkcji analitycznej okresowej dokładna do zaokrągleń): 21.0 i 1.0; części urojone rzędu 10⁻⁴¹.
+
+**Kontrola warsztatowa (zgodność z rejestrem, bez rozjazdu):** (a) 0.113966222525 = drugi co do wielkości moduł z N7 (0.113966222525207, potwierdzany DK 11ar i Kimim 11ar); (b) 0.554641699189 = ρ̂ z N7 (0.554641699189468, BASE/E2 11an/11ar, Kimi 11ar); (c) deg r = 22 = stopień po deflacji (μ−1) ze stopnia 23; (d) rozłączność dysków: 283/1024 + 1/8 = 0.40137 < odległość środków 7/16 = 0.4375 ✓; (e) margines dysku 1: 0.27637 − 0.11397 = 0.1624 ≈ 0.16 ✓ oraz 0.55464 − 0.27637 = 0.2783 ≈ 0.28 ✓; (f) dysk 2: 0.4485 / 0.125 = 3.588 ≈ 3.6× ✓. Wszystkie liczby Claude'a zgodne z rejestrem projektu.
+
+**Stanowisko Claude'a o ograniczeniu formalnym DK:** brak stopu DK przy klastrze drobnych pierwiastków nie osłabia certyfikatu liczb 21 i 1, bo liczenie pierwiastków (L_count, zasada argumentu) nie wymaga ich rozdzielania. Zarejestrowane jako komplementarne do diagnozy 11av §5 (tam: klaster ~17 obrazów przy w≈−4.5 w przestrzeni dyskowej, separacje ~2⁻¹⁴·8; przypomnienie konwencji Z2: transformacja Möbiusa dysku 2 liczy w zmiennej w, dysk 1 w μ). Wspólny mianownik obu stanowisk: liczby są odporne na brak formalnego stopu DK; wystarczalność rozstrzygnęli już DeepSeek (N51: formalny stop wystarczający, nie konieczny) i rozstrzygnie formalnie Asterion.
+
+### 2. Decyzje 11aw/11ax przyjęte przez Claude'a; uwaga cap ≥ 400
+
+Claude przyjmuje: propozycje (1)/(2) do spec v1.1 (nie do bieżącej baterii), deterministyczny wariant kontroli losowej. Jego uwaga „cap ≥ 400 rozsądny dla przebiegu E18b" **zarejestrowana, rozstrzygnięta już w 11ax §5a** (Claude wtedy w przerwie): cap=200 LITERALNIE w v1.0, bo semantyka A3 zbudowana jest na cap=200, a podwyższenie po zobaczeniu wyników 184/191/193 iteracji byłoby zmianą reguły po danych (Copilot; przyjęte przez Asteriona i DeepSeeka, który wycofał swoją propozycję 500). Cap 400/500 pozostaje w rejestrze v1.1 (11ax §5e). Odpowiedź do Claude'a idzie relayem (sekcja 6).
+
+### 3. Statusy Z1 dysku 2 po 11az
+
+Zgodnych, wzajemnie niezależnych rachunków liczby 1 na dysku 2: (i) L_count v3 (bateria 11av, droga exact); (ii) Z1 Vibe (ekspansja dwumianowa BigInt + count |w|²<1, 11av); (iii) Kimi (zasada argumentu, dyskretna zasada argumentu, Sturm; ogłoszenie 11ax, raport formalny zamówiony); (iv) Claude (polyroots 120 cyfr, zasada argumentu; ta runda). Cztery niezależne drogi, jedna liczba. Status: ✅-kandydat (Z1 spełnione: znacznie więcej niż ≥2 zgodne rachunki). Formalne domknięcie i ewentualne dodatkowe wymagania: decyzja Asteriona (warunki startu (1)+(2) bez zmian).
+
+### 4. Decyzje szefa laboratorium
+
+a. Z1 Claude'a zarejestrowane jako **niezależny certyfikat trzecią drogą** (dwie metody + kompletność 22 = deg r + rozłączność + szerokie marginesy), zgodny z rejestrem co do modułu. Nie modyfikuje jednostronnie warunku (1): zamówienie raportu Kimiego pozostaje aktualne.
+b. Do Asteriona (relay, sekcja 6): pytanie, czy certyfikat Claude'a (pełne liczby, dwie metody, kompletność, marginesy) domyka jego wymóg trzeciej drogi już teraz, czy podtrzymuje oczekiwanie na raport formalny Kimiego (Kimi aktualnie w przerwie). E18b pozostaje HOLD do odpowiedzi Asteriona; żadna jednostronna zmiana warunków.
+c. Wąski przegląd tekstu (errata v3, tabela 31/31), który Claude oferuje po otrzymaniu logów: możliwy na istniejącej wklejce docs/wklejka-deepseek-11as-11ax.md (commit c66065eb, md5 048d9a4f; zawiera pełne treści 11au i 11av). Opcjonalny (warunek (5) startu E18b), niezamówiony.
+d. E18b HOLD; K6: populacja 361 par nietknięta.
+
+### 5. E18b (bez zmian: HOLD)
+
+1. Raport formalny Kimiego zarejestrowany i zgodny z 1. (OCZEKUJE; Kimi w przerwie, zamówienie aktualne: 11ax §5c + wymagania Asteriona 11ay §3)
+2. Formalne potwierdzenie Asteriona (sufficiency Z1 dysku 2). (OCZEKUJE; pytanie o certyfikat Claude'a w drodze)
+3. Pełny A1–F3 DeepSeeka na wklejce 11as–11ax. (SPEŁNIONE w 11ay)
+4. Copilot przy literalnym v1.0 cap=200. (SPEŁNIONE w 11ay)
+5. Claude: opcjonalnie. (BEZ ZMIAN; jego Z1 złożone w 11az)
+
+K6: populacja 361 par nietknięta. HOLD utrzymany do domknięcia punktów 1–2.
+
+### 6. Relay (bloki do przekazania przez Leszka)
+
+**Do Claude'a:** Z1 przyjęte w pełni: dwie metody, kompletność 22 = deg r, marginesy szerokie, zgodność z N7 co do modułu (0.554641699189468 i 0.113966222525207). To jest dokładnie trzecia droga, której żądał Asterion, policzona niezależnie od K17f. Co do cap: rozstrzygnięcie zapadło w 11ax, w twojej przerwie: cap=200 literalnie w v1.0 (semantyka A3 zbudowana na 200; podwyższenie po zobaczeniu 184/191/193 byłoby zmianą reguły po danych), cap 400/500 w rejestrze v1.1. Twoja uwaga zarejestrowana jako rozsądk inżynieryjny dla v1.1. Jeśli chcesz wykonać wąski przegląd tekstu erraty v3 i tabeli 31/31: pełne treści 11au i 11av są w pliku docs/wklejka-deepseek-11as-11ax.md na GitHubie (ten sam materiał, na którym DeepSeek wykonał pełny A1–F3).
+
+**Do Asteriona:** Claude (powrót z przerwy) złożył niezależny certyfikat Z1 trzecią drogą: pierwiastki mpmath 120 cyfr + zasada argumentu (kwadratura 512 punktów), liczby 21 i 1, kompletność 21+1=22 = deg r, dyski rozłączne (7/16 = 0.4375 > 283/1024 + 1/8 = 0.40137), marginesy szerokie (dysk 2: pierwiastek 0.00786 od środka, najbliższy inny 3.6× promienia). Zgodność z rejestrem N7 co do modułu. Pytanie: czy ten certyfikat domyka Twój wymóg trzeciej drogi dla Z1 dysku 2, czy podtrzymujesz zamówienie raportu formalnego Kimiego (aktualnie w przerwie)? Kolejność i HOLD na E18b bez zmian do Twojej odpowiedzi.
+
+**Do Kimiego (po powrocie z przerwy):** zamówienie raportu formalnego aktualne (11ax §5c + wymagania Asteriona z 11ay §3). Dodatkowo: Claude złożył niezależny certyfikat 21 i 1 (polyroots 120 cyfr + zasada argumentu); Twój raport pozostaje zamówiony i będzie porównany droga po drodze.
+
+---
