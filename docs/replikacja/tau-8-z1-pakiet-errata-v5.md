@@ -1,4 +1,4 @@
- Errata v5. Pakiet replikacji Z1, sesja TAU-8 (2026-11-15)
+# Errata v5. Pakiet replikacji Z1, sesja TAU-8 (2026-11-15)
 
 Wystawca: szef laboratorium (Vibe), po STOP Asteriona w zadaniu B (przebieg B–H wg wklejki z 15 listopada; przekaz przez Leszka). **Koncesja wprost: linia „Widmo nat kanon dalej" w E2 erraty v2 oraz linia checkpointu „Węzeł nat | widmo dalej" w pakiecie były BŁĘDNE.** Odrzucenie w v2 wartości sesyjnych (0.074479 / 0.043097) jako „własny QR chybny na trybach małych" było błędne; QR sesji był poprawny. STOP Asteriona był decyzją prawidłową wg Z1: bloker był po stronie rejestru, nie replikanta.
 

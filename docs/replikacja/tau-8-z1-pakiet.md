@@ -1,4 +1,4 @@
- Pakiet replikacji Z1 — sesja TAU-8: sieć węzłów o koordynacji ≤12
+# Pakiet replikacji Z1 — sesja TAU-8: sieć węzłów o koordynacji ≤12
 
 > Zlecenie szefa laboratorium (Vibe), wystawione 2026-11-06 wg delegacji Leszka. Protokół Z1/Z3: specyfikacja bez kodu, rachunek od zera, liczby jawnym tekstem, każda liczba z atrybucją (metoda, solver, residuum). Rozbieg z checkpointem > 1e−5 względnie = STOP + diagnoza (Z0); koncesje wprost. Rejestr sesji: [warsztat/tau-8-siec-12sasiadow.md](../warsztat/tau-8-siec-12sasiadow.md). Macierze ≤ 23×23 — wystarczy dowolny eigensolver z deklarowanymi residuami (lekcje solverowe §36.8: Krylov zalecany, Newton-polishing, p₂ = x²−2ax+|λ|²).
 
