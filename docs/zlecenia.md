@@ -2047,3 +2047,19 @@ Zgodności: rejestr rundy 7 p0first 0.131327883367 ✓, p0first-rev moduł 0.090
 **§6. Kolejka.** (1) DeepSeek: skrypt v2 (przekaz przez Leszka); (2) Vibe: zamrożenie sha v2 w repo; (3) Leszek: wykonanie mechaniczne, surowy stdout verbatim; (4) DeepSeek: finalny raport §12; (5) rozliczenie i decyzja statusowa; (6) decyzja Leszka o starcie MVP-02; E18c uśpiony; wzmocnienia TAU-8 opcjonalne. Kolejki Asteriona (GPT) i Claude'a puste. K6 zamrożone. H-OPTYKA bez zmian.
 
 ---
+
+## Runda 11bv. Wklejka v4 dla DeepSeeka: akceptacja PROXY v2 z warunkami + definicje DOP-2/DOP-3 verbatim + sekwencja obowiązkowa (zamrożenie przed wykonaniem); JAWNE INSTRUKCJE WYKONAWCZE dla Leszka (jego zlecenie: „co dokładnie mam zrobić; nie chciałbym popełnić błędu")
+
+**Data:** 2026-11-15. **Autor:** Vibe (szef laboratorium, delegacja pełni decyzyjna, rejestr 11i). **Zakres rundy:** przygotowanie materiałów przekazowych (wklejka v4) i instrukcji wykonawczych; bez nowych rachunków. K6 zamrożone.
+
+**§1. Trigger.** Zlecenie Leszka po rundzie 11bu: przygotować materiały i instrukcje tak, żeby wykonanie PROXY v2 przebiegło bez błędu (Leszek prosi o jawny krok po kroku). Decyzja: jedna wklejka dla DeepSeeka (akceptacja v2 + definicje + sekwencja) plus instrukcje dla Leszka (kroki i zakazy), przekazane w odpowiedzi.
+
+**§2. Wklejka v4 (docs/wklejka-deepseek-estrada-ch-v4.md).** Treść: (a) receipt raportu §12 potwierdzony (98/107; 3 bugi implementacji autora; blind convergence diagnozy jawny); (b) odpowiedzi P6/P7 z definicjami verbatim z pakietu (DOP-2: gap_ab(x) = |x_a − x_b|; DOP-3: agregacja D5 per-image; E1: wymóg §2.2 był jawny); (c) akceptacja v2 z warunkami: zakres zmian wyłącznie trzy wskazane, każda inna zmiana wymaga jawnego uzasadnienia; sekwencja obowiązkowa: skrypt v2 → zamrożenie sha256 w repo PRZED wykonaniem (Leszek nie uruchamia nic przed potwierdzeniem) → wykonanie MECHANICZNE → surowy stdout W CAŁOŚCI → finalny raport §12 z linią atrybucji; (d) zachowanie: determinizm LCG, asercje, wartości oczekiwane tylko w kolumnie odchyłki, tolerancje; (e) 107/107 = deklaracja autora, nie podstawa statusów; STOP-rule bez zmian.
+
+**§3. Instrukcje wykonawcze dla Leszka (jawne, w odpowiedzi).** KROK 1: przekazać wklejkę v4 DeepSeekowi w całości. KROK 2: po otrzymaniu skryptu v2 wkleić go NAJPIERW do rozmowy z Vibe (zamrożenie sha w repo) i NIE uruchamiać przed potwierdzeniem; jeśli v2 przyjdzie w paczkach, skleić i pokazać całość do kontroli przed wykonaniem. KROK 3: po potwierdzeniu zamrożenia: zapisać skrypt 1:1 jako estrada_proxy_v2.py bez żadnej edycji, uruchomić python3 estrada_proxy_v2.py > stdout_v2.txt 2> stderr_v2.txt (wymagany numpy), sprawdzić że stdout_v2.txt zawiera tabelę, wkleić DeepSeekowi CAŁY plik verbatim (bez skracania, poprawiania, streszczania; sekcja CANDIDATE ERRATA też w całości; w razie błędu wkleić stdout i stderr tak jak są). KROK 4: zachować pliki stdout_v2.txt, stderr_v2.txt i stdout z v1 (artefakty do archiwizacji po finalnym raporcie). KROK 5: finalny raport §12 od DeepSeeka wkleić do rozmowy z Vibe (rozliczenie i decyzje statusowe). ZAKAZY: nie edytować skryptu (nawet literówek), nie usuwać asercji, nie streszczać stdoutu, nie uruchamiać przed potwierdzeniem zamrożenia, nie przekazywać DeepSeekowi nic „poprawionego".
+
+**§4. Statusy.** Bez zmian (jak 11bu): C4–H ⏸ STOP uczciwy z AKTYWNYM PROXY; podniesienie wyłącznie po finalnym raporcie §12.
+
+**§5. Kolejka.** (1) Leszek: wklejka v4 → DeepSeek; (2) DeepSeek: skrypt v2; (3) Vibe: zamrożenie sha v2; (4) Leszek: wykonanie mechaniczne + stdout verbatim; (5) DeepSeek: finalny raport §12; (6) rozliczenie i decyzje statusowe; (7) decyzja Leszka o starcie MVP-02; E18c uśpiony; wzmocnienia TAU-8 opcjonalne. Kolejki Asteriona (GPT) i Claude'a puste. K6 zamrożone. H-OPTYKA bez zmian.
+
+---
