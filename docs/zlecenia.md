@@ -1472,3 +1472,61 @@ e. E18b HOLD; K6: populacja 361 par nietknięta.
 **Do Kimiego (po powrocie z przerwy):** bez zmian — raport formalny mile widziany, niewymagany; po nadejściu porównany droga po drodze z certyfikatem Claude'a (runda 11bb).
 
 ---
+## Runda 11bc. Asterion przyznaje FORMALNY PASS Z1 dysku 2 (certyfikat Claude'a 11bb wystarczalny, raport Kimiego zdjęty z bramek) i potwierdza warunek (2) E18b; korekta chronologiczna: warunek (3) (pełny A1–F3 DeepSeeka) SPEŁNIONY już w 11ay, nie „nadal otwarty"; wszystkie bramki kwalifikacyjne K2 domknięte; następny krok: raport końcowy K2 (N6, N49, N50)
+
+**Data (UTC):** 2026-11-15T11:39Z
+**Stan wyjściowy:** runda 11bb (commit f83726e9, md5 f2cd4bbc): certyfikat Claude'a kompletny i zweryfikowany warsztatowo, oddany do rechecku Asteriona. Asterion odpowiada: formalny PASS Z1 i potwierdzenie warunku (2).
+
+### 1. Rejestracja werdyktu Asteriona (formalny PASS; zastrzeżenie audytowe zapisane dosłownie)
+
+**Werdykt Z1:** dysk 1: PASS (21 pierwiastków); dysk 2: PASS (1 pierwiastek; wymóg trzeciej drogi spełniony certyfikatem Claude'a z 11bb); kompletność: PASS (21+1=22=deg r). Raport Kimiego przestaje być bramką: może być dodatkowym potwierdzeniem, ale nie jest warunkiem koniecznym.
+
+**Recheck matematyczny Asteriona:** (A) kwadratura: zależność 1/(1−u^N) to właściwy rodzaj analitycznego wyniku; wartość dowodowa ograniczeń 1.3·10⁻¹⁵⁵ i 7.9·10⁻²⁸⁵ wynika z analitycznej formuły i poprawnego ograniczenia, nie z liczby cyfr — zasadniczy blocker usunięty; (B) indeks topologiczny: przy konturze bez zer całka jest liczbą całkowitą, a kwadratura z błędem mniejszym niż odległość od najbliższej innej liczby całkowitej certyfikuje wyznaczenie — „to właśnie rozdziela wynik numeryczny od formalnego count"; (C) bezkwadratowość gcd(r,r′)=1 w ℤ[x] wyklucza pierwiastki wielokrotne; sama suma 21+1=22 nie wystarczyłaby bez wykazania krotności; (D) kompletność: przy poprawności obu indeksów, rozłączności (7/16 − (283/1024 + 1/8) = 37/1024 > 0, arytmetycznie jednoznaczne) i bezkwadratowości nie pozostaje miejsce na dodatkowe pierwiastki.
+
+**Zastrzeżenie audytowe (zapisane dosłownie, wiążące):** PASS Asteriona opiera się na przedstawionym opisie kompletnego certyfikatu 11bb i jego deklarowanych wynikach, NIE oznacza samodzielnego odtworzenia wszystkich obliczeń z pełnego artefaktu. Vibe zachowuje pełne tabele, wzory, konwencje i hasze jako podstawę rozstrzygnięcia; certyfikat nie może być skracany do podsumowania. Wykonanie: pełny certyfikat w 11bb §1 nietknięty (tabela błędu, formuły, konwencje); hasze w rejestrze (cRAB sha256 b15812f1…, K17f-v3 60504f95…, driver 11av 9f02a462…); niniejsza runda niczego nie skraca.
+
+**Warunek (2) startu E18b: SPEŁNIONY** — Asterion niniejszym potwierdza wystarczalność trzeciej drogi Z1 na podstawie raportu 11bb.
+
+### 2. Korekta chronologiczna: warunek (3) jest SPEŁNIONY od 11ay (stanowisko „nadal OTWARTY" odnosi się do listy 11ax)
+
+Asterion pisze „według rejestru 11ax" i wskazuje warunek (3) (pełny A1–F3 DeepSeeka po otrzymaniu logów) jako otwarty. Na liście 11ax warunek (3) rzeczywiście był otwarty (DeepSeek czekał na wklejkę). Ale:
+
+- Wklejka docs/wklejka-deepseek-11as-11ax.md (commit c66065eb, md5 048d9a4f9fee6df16b577f5f2dc5267d; wycinek zleceń.md od 11as do końca, bez zmian treści) została dostarczona DeepSeekowi przez Leszka.
+- DeepSeek wykonał na niej PEŁNY A1–F3: zarejestrowane w rundzie 11ay §2. Werdykt: PASS dla pełnego A1–F3 na logach 11as–11ax. Sekcje A1–A3, B1–B4, C1–C4 (z uwagą N49), D1–D3, E1–E3, F1–F3 wszystkie PASS; formuła erraty v3 zweryfikowana matematycznie na trzech świadkach (T_d=0, T_a=2, S₃=2); N47 evidence chain potwierdzony.
+- Warunki DeepSeeka do E18b (11ay §2): (1) raport Kimiego — zdjęty z bramek decyzją Asteriona (11ba/11bc); (2) formalne potwierdzenie Asteriona — SPEŁNIONE (11bc); (3) cap=200 literal — spełnione (11ax §5a); (4) N49 w raporcie końcowym i (5) N50 w raporcie końcowym — przyjęte jako obowiązkowe elementy raportu K2c (11ay §4).
+
+**Stan rejestru: warunek (3) SPEŁNIONY w 11ay; warunek (4) SPEŁNIONY w 11ay.** Stanowisko Asteriona o „otwartym" (3) jest nieaktualne i zostaje sprostowane niniejszym zapisem. Jego warunek HOLD na E18b („do zakończenia pełnego A1–F3 DeepSeeka") jest spełniony z urzędu, bo A1–F3 zostało zakończone i rozliczone w 11ay. Korekta nie podważa żadnej decyzji Asteriona: jego formalny PASS Z1 i potwierdzenie (2) są bezwarunkowe; korygowany jest wyłącznie stan listy warunków.
+
+### 3. Stan bramek po 11bc
+
+**Kwalifikacja K2: WSZYSTKIE BRAMKI DOMKNIĘTE.**
+1. Formalny certyfikat trzeciej drogi Z1 dysku 2 (4 wymogi): SPEŁNIONE (11bb).
+2. Formalne potwierdzenie Asteriona: SPEŁNIONE (11bc, ta runda).
+3. Pełny A1–F3 DeepSeeka na wklejce 11as–11ax: SPEŁNIONE (11ay; potwierdzone korektą §2).
+4. Copilot przy literalnym v1.0 cap=200: SPEŁNIONE (11ay).
+5. Claude: opcjonalnie; spełnione dobrowolnie (Z1 11az, wąski przegląd 11ba, certyfikat 11bb).
+
+**Z1: dysk 1 PASS (21), dysk 2 PASS (1), kompletność PASS (21+1=22=deg r)** — formalnie (Asterion 11bc), po czterech niezależnych drogach zgodnych (L_count v3, Z1 Vibe, Kimi, Claude) i kompletnym certyfikacie (11bb) zweryfikowanym warsztatowo co do cyfry.
+
+**K2c domknięta:** kwalifikacja = 11ar (ścieżka (a) Perron, BASE/E2 na q, N45, ρ̂, δ, sup D, Bareiss rank=22) + 11av (bateria 31/31 na K17f-v3, hasz 60504f95, bez dziedziczenia) + Z1 formalny PASS (11bb/11bc). Zgodnie z N49 raport końcowy zapisze to jawnie, nigdy w skrócie „31/31 PASS".
+
+**E18b:** HOLD do raportu końcowego K2 (ostatni element ścieżki przed startem); po nim decyzja szefa laboratorium o starcie. K6: populacja 361 par nietknięta; żadnego uruchomienia populacji przed zamknięciem ścieżki (granica Asteriona: kwalifikacja narzędzi to nie wynik eksperymentu).
+
+### 4. Decyzje szefa laboratorium
+
+a. Formalny PASS Z1 dysku 2 i kompletności zarejestrowany; zastrzeżenie audytowe Asteriona zapisane dosłownie i wiążące; pełny certyfikat 11bb pozostaje podstawą rozstrzygnięcia (nie skracać; wzór uzupełniania z 11bb §2 zachowany).
+b. Korekta chronologiczna warunku (3) zapisana (sekcja 2): wszystkie bramki kwalifikacyjne K2 domknięte. Sprostowanie idzie do Asteriona relayem bez zwłoki.
+c. **NASTĘPNY KROK: raport końcowy K2** (następna runda), obowiązkowe elementy: N6 (chronologia dwóch errat z osobnymi łańcuchami: 4b→4b′ z 11an/11ap, autoryzacja §1.10 (4); v2→v3 z 11au/11av, autoryzacja N11/K17f przed pierwszą kwalifikacją), N49 (kwalifikacja jawnie 11ar + 11av + Z1, z uzasadnieniem niezależności warstw), N50 (rozdzielenie łańcuchów), oraz: rejestr prerejestracji i re-runów (11as/11at/11au/11av), bateria 31/31, kierowca (driver) i jego próby, Z1 (cztery drogi, certyfikat 11bb, formalny PASS 11bc), przeglądy wszystkich recenzentów (11as–11bc), K6. Raport do przeglądu recenzentów przed startem E18b.
+d. Decyzja o starcie E18b: po rejestracji raportu K2 i rozliczeniu ewentualnych uwag recenzentów do niego; ścieżka bez zmian (literalne v1.0, cap=200; BASE → FAIL → E2 → drugi FAIL ⇒ GLOBALNY STOP; reguły przebiegu z 11ay §1: zamrożony automat, wyniki cząstkowe bez klasyfikacji, materiał 361/361 z pełnym logiem albo pierwszy normatywny GLOBALNY STOP).
+e. Kimi: raport formalny mile widziany, niewymagany, bez presji; po nadejściu porównany droga po drodze.
+f. E18b HOLD; K6: populacja 361 par nietknięta.
+
+### 5. Relay (bloki do przekazania przez Leszka)
+
+**Do Asteriona:** dziękujemy za formalny PASS Z1 dysku 2 i potwierdzenie warunku (2) — zarejestrowane w rundzie 11bc wraz z Twoim zastrzeżeniem audytowym (pełny certyfikat 11bb pozostaje podstawą, nic nie jest skracane). Jedna korekta chronologiczna, którą rejestrujemy jawnie: warunek (3) (pełny A1–F3 DeepSeeka) jest SPEŁNIONY od 11ay. DeepSeek wykonał pełny A1–F3 na wklejce 11as–11ax, którą Leszek mu dostarczył (rejestr: runda 11ay §2; werdykt PASS; sekcje A–F; formuła erraty v3 zweryfikowana na trzech świadkach). Twoja lista pochodziła z 11ax, gdzie (3) faktycznie był otwarty; w 11ay §7 punkt 3 ma już status SPEŁNIONE. Po tej korekcie wszystkie bramki kwalifikacyjne K2 są domknięte, a Twój warunek HOLD („do zakończenia A1–F3 DeepSeeka") wygasa z urzędu. Zgodnie z Twoją granicą (kwalifikacja ≠ eksperiment) robimy teraz raport końcowy K2 (N6: chronologia errat; N49: kwalifikacja jawnie 11ar+11av+Z1; N50: rozdzielenie łańcuchów), publikujemy do przeglądu i dopiero potem decyzja o starcie E18b. Pytanie: czy po tej korekcie widzisz jeszcze jakikolwiek bloker do raportu K2 albo do startu E18b po nim?
+
+**Do Claude'a, DeepSeeka i Copilota (w skrócie):** Asterion przyznał formalny PASS Z1 dysku 2 (certyfikat Claude'a wystarczalny) i potwierdził swój warunek startu E18b; korekta chronologiczna domknęła A1–F3 DeepSeeka (spełnione od 11ay). Wszystkie bramki kwalifikacyjne domknięte. Następny krok: raport końcowy K2 (N6, N49, N50) do przeglądu Was wszystkich; po nim decyzja o starcie E18b. Wasze kolejki: puste do czasu raportu K2 (mile widziane uwagi do jego treści).
+
+**Do Kimiego (po powrocie):** bez zmian — raport formalny mile widziany, niewymagany; Z1 dysku 2 ma formalny PASS (certyfikat Claude'a 11bb + potwierdzenie Asteriona 11bc); Twój raport pozostanie cennym dodatkowym potwierdzeniem porównanym droga po drodze.
+
+---
