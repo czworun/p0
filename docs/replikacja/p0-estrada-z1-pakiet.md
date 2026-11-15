@@ -42,6 +42,7 @@ Sekwencyjny protokół SERC na K₄ (4 serca-wierzchołki, uśrednianie po jedny
 ### 2.2 Nowe (§36)
 
 - **Ściany:** C_ab = {x ∈ V_cyc : x_a = x_b}, 6 wielkich okręgów, pary (a,b) w porządku leksykograficznym: (0,1),(0,2),(0,3),(1,2),(1,3),(2,3). Wszystkie tabele 6-elementowe stosują ten porządek.
+- **Szczelina ściany (dopisek DOP-2, runda 11bu):** dla pary (a,b) i punktu x: gap_ab(x) = |x_a − x_b| (surowa różnica współrzędnych); znika dokładnie na ścianie C_ab. Dotyczy bramek D1, D2, D5; cięciwa (chord) pozostaje wyłącznie miarą marginesów E. Agregacja D5 (dopisek DOP-3): „własne szczeliny ścian obrazów" = dla każdego obrazu min po 6 parach, następnie min/max po oknie n ∈ [100, 300] i 4 startach.
 - **14 punktów:** v̂_i = (e_i − 𝟙/4) znormalizowane (wierzchołki, 4 szt. + 4 antypody); m̂_ij = (v̂_i + v̂_j) znormalizowane (środki krawędzi, 6 szt., pary antypodalne w środku zestawu: m̂_01 = −m̂_23, m̂_02 = −m̂_13, m̂_03 = −m̂_12).
 - **Dyskryminant:** Δ(x) = iloczyn Vandermonde'a po wszystkich 6 parach: Δ(x) = (x_0−x_1)(x_0−x_2)(x_0−x_3)(x_1−x_2)(x_1−x_3)(x_2−x_3); na bramkach wartość bezwzględna. UWAGA: konwencja pełnego iloczynu 6-czynnikowego (punkt arytmetyczny (−3,−1,1,3)/√20 daje |Δ| = 0.096).
 - **Faza skośna:** α(x) = wᵀx, gdzie w = lewy wektor własny B4 dla wartości własnej λ_c (część urojona dodatnia); α ma wartości zespolone (Re α i Im α to dwa rzeczywiste funkcjonały). Gauge: obrót fazy w tak, że α(v̂_0) jest rzeczywiste i dodatnie; fazą punktu x jest arg(α(x)) w stopniach, zawinięta do (−180, 180].
@@ -180,6 +181,7 @@ Wszystkie wartości: Vibe, rachunek pojedynczy, 2026-11-02, pełna podwójna pre
 | Asterion (GPT) | 2026-11-02 | A–H | A, B co do cyfry (✅-kandydat); C–H zgodne w tolerancjach; residua par własnych ≤ 2e−16, druga droga (SVD) zgodna ≤ 1.3e−15 |
 | Claude | 2026-11-02 | A–H | A, B co do cyfry (✅-kandydat); C–H zgodne w tolerancjach; F4: 40.589° dla E = span(Re z, Im z) — zgodne z erratą; eig + Krylow zgodne ≤ 4e−16 |
 | DeepSeek (raport podpisany „GPT/ChatGPT\"; relay Leszka identyfikuje jako DeepSeek) | 2026-11-02 | A, B symbolicznie; C1–C3 analitycznie | A1–A7, B1–B4 ✅-kandydat (wymierna) — w tym NOWE: jawna macierz W_nat = 1/256·[[64,64,64,64],[16,80,80,80],[20,36,100,100],[25,45,61,125]] (przyjęta jako bramka A1b) oraz niezależna droga A2 przez dzielenie A1/(λ−1) — korzysta z poprawionej lemy spektralnej ERT-1; C1–C3 wyprowadzone ANALITYCZNIE zliczaniem znikających czynników Vandermonde'a (rzędy 2/3/1 — trzecia droga, podniesione do twierdzeń, patrz §6); A3/A4 „warunkowo" (zgodność arytmetyczna z A2: suma 113/256, iloczyn 1/256); C4–H = STOP uczciwe (brak środowiska numerycznego; §0 pkt 3 zachowane) |
+| DeepSeek (PROXY v1; wykonanie proxy: Leszek) | 2026-11-15 | C4–H numeryka przez PROXY | 98/107 PASS; 9 FAIL zdiagnozowanych przez autora jako 3 bugi jego implementacji (gap cięciwowy zamiast |x_a − x_b|; D5 agregacja per-pair; z nienormalizowane w E1), patrz DOP-2/DOP-3; C4 zgodność 5.55e−17; skrypt v1 zamrożony (sha256 0c119cae); v2 zapowiedziana |
 
 **Uwaga atrybucyjna (Z2):** raport DeepSeeka nosił nagłówek „GPT (ChatGPT)" przy treści z niezależnego środowiska DeepSeeka; wg identyfikacji Leszka (relay, 2026-11-02) autor = DeepSeek. Odnotowane tu jako lekcja protokołu: atrybucja należy do pola nadawcy, nie samo-deklaracji modelu.
 
@@ -190,6 +192,8 @@ Wszystkie wartości: Vibe, rachunek pojedynczy, 2026-11-02, pełna podwójna pre
 - ERR-3 (Asterion, Claude): E5 = 0.640676 → 0.640689597602 = ax₂/ax₁ (pełna precyzja).
 - DOP-1 (Asterion): determinizm LCG — uzupełnione w §2.2.
 - R_n (Claude): równoważność startów e_i/v̂_i — uzupełnione w §2.2.
+- DOP-2 (DeepSeek, PROXY v1 2026-11-15, przyjęta w rundzie 11bu): definicja „szczeliny ściany" jawna: gap = |x_a − x_b| (surowa różnica współrzędnych); brzmienie D1/D2/D5 pozwalało na odczyt cięciwowy, przyjęty w PROXY v1 (5 FAILów grupy D); wartości rejestru potwierdzone jako |x_a − x_b| (analiza papierowa DeepSeeka + kontrola Vibe, 11bt/11bu). Uzupełnione w §2.2.
+- DOP-3 (DeepSeek, PROXY v1 2026-11-15, przyjęta w rundzie 11bu): agregacja D5 jawna (per-image: min po parach dla każdego obrazu, potem min/max po oknie); wartości [3.64e−4, 0.419665] odpowiadają tej agregacji; interpretacja per-pair była dopuszczalnym odczytem samego brzmienia (2 FAILy D5). Uzupełnione w §2.2.
 
 **Podniesienie (✅-kandydat):** C4 jako twierdzenie domknięte: max |Δ| na V_cyc = 1/(6√3) = 1/√108 dokładnie, osiągnięte na orbicie S₄ punktu (1, r, −r, −1)/‖·‖ z r = √(5−2√6) ≈ 0.317837245 (warunek krytyczny r⁴ − 10r² + 1 = 0). Drogi: dowód analityczny (Vibe 2026-11-02) + numeryka niezależna (Vibe wspinaczka, Asterion, Claude Nelder–Mead 400 startów) — zgodność do 15 cyfr.
 
