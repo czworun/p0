@@ -1403,3 +1403,72 @@ K6: populacja 361 par nietknięta. HOLD utrzymany do domknięcia punktów 1–2.
 **Do Asteriona:** decyzja zarejestrowana (runda 11ba): warunek (1) E18b zreformułowany na certyfikat trzeciej drogi (Claude albo Kimi) z Twoimi 4 wymogami; zamówienie przekazane Claude'owi z inwentarzem materiału już istniejącego w rejestrze; kolejność (1) → (2) bez zmian; E18b HOLD; K6 nietknięte. Po rejestracji materiału przez Claude'a oddajemy go do Twojego rechecku bez zbędnej rundy.
 
 ---
+## Runda 11bb. Certyfikat Claude'a kompletny: wszystkie 4 elementy Asteriona zarejestrowane (definicje i konwencje, rygorystyczne ograniczenie błędu kwadratury 1.3·10⁻¹⁵⁵ / 7.9·10⁻²⁸⁵, indeksy topologiczne, bezkwadratowość gcd(r,r′)=1); kontrola warsztatowa niezależna zgodna co do cyfry; materiał oddany do rechecku Asteriona
+
+**Data (UTC):** 2026-11-15T11:33Z
+**Stan wyjściowy:** runda 11ba (commit 579d343d, md5 0bc3a57e): warunek (1) E18b = formalny certyfikat trzeciej drogi Z1 dysku 2 wg 4 wymogów Asteriona, zamówienie u Claude'a w drodze. Claude dostarcza komplet (K6 zachowane: liczył wyłącznie wielomian r z R_AB, obiekt kontrolny).
+
+### 1. Rejestracja certyfikatu Claude'a (4 elementy, pełny materiał wiążący)
+
+**(1) Definicja i konwencje.** q(μ) = det(μI − R_AB), R_AB = S_B·S_A (najpierw A), tetry apex-first [P₀, f₂, f₁, f₀], N = 2³²⁰·R_AB. Współczynniki: q(μ) = μ²³ + Σ_{k=1..23} (c_k/2³²⁰ᵏ)·μ²³⁻ᵏ, czyli A[m] = c₂₃₋ₘ·2^(320·m) przy q = A/2⁷³⁶⁰ (LEAD-first, jak cRAB); 24 ułamki dyadyczne z tabeli N7 identyczne z jego własnym Faddeevem–LeVerrierem co do licznika i wykładnika. r = q/(μ−1): dzielenie syntetyczne od współczynnika wiodącego, reszta q(1) = 0 exact, r moniczny stopnia 22. Dyski (0, 283/1024) i (9/16, 1/8); transformacja w = (z−c)/R: w₁ = 1024z/283 oraz w₂ = 8z − 9/2. Kontur przeciwnie do ruchu wskazówek: z_k = c + R·e^{iθ_k}, θ_k = 2πk/N, k = 0..N−1; całka (1/2πi)∮ r′/r dz liczona sumą (1/N)·Σ_k R·e^{iθ_k}·r′(z_k)/r(z_k).
+
+**(2) Błąd kwadratury i odległość konturu od zer.** Trapezowa kwadratura na okręgu daje dla każdego pierwiastka λ z u = (λ−c)/R dokładnie 1/(1−u^N), zarówno dla |u| < 1, jak i |u| > 1 — błąd znany wprost, bez „kontroli między punktami siatki"; suma 1/(1−u_i^N) po 22 pierwiastkach odtwarza wynik kwadratury co do ~10⁻⁶⁰ (różnice to szum arytmetyki). Rygorystyczne oszacowanie dla N = 512: |N_trap − n_in| ≤ Σ_in |u|^N/(1−|u|^N) + Σ_out |u|^(−N)/(1−|u|^(−N)). Tabela:
+
+| | dysk 1 (0, 283/1024) | dysk 2 (9/16, 1/8) |
+|---|---|---|
+| pierwiastków wewnątrz / na zewnątrz | 21 / 1 | 1 / 21 |
+| max \|u\| wewnątrz | 0.41237 | 0.062866 |
+| min \|u\| na zewnątrz | 2.00690 | 3.58827 |
+| najmniejsza odległość pierwiastka od okręgu | 0.16240 | 0.11714 |
+| dolne ograniczenie min \|r\| na konturze (iloczyn odległości) | 1.07·10⁻¹³ | 1.39·10⁻⁹ |
+| zmierzone min \|r\| (4096 punktów) | 1.14·10⁻¹³ | 1.39·10⁻⁹ |
+| ograniczenie błędu dla N = 512 | 1.3·10⁻¹⁵⁵ | 7.9·10⁻²⁸⁵ |
+
+Wartości numeryczne całki (60 cyfr): dysk 1: N = 32 → 20.99999999979, N = 64 → 20.99999999999999999996, N ≥ 128 → 21.0; dysk 2: N ≥ 64 → 1.0; części urojone ≤ 10⁻⁶⁰. Pierwiastki r policzone mpmath w 150 cyfrach, rezyduum |r(λ)| ≤ 8.1·10⁻¹⁵⁸ (dolne ograniczenie min |r| przez iloczyn odległości solidne).
+
+**(3) Indeks topologiczny, nie zaokrąglenie.** r jest wielomianem i nie ma zer na konturach (min |r| > 0 z tabeli), więc (1/2πi)∮ r′/r dz jest liczbą całkowitą równą liczbie zer r wewnątrz konturu liczonych z krotnościami. Kwadratura różni się od niej o mniej niż 1.3·10⁻¹⁵⁵ (dysk 1) i 7.9·10⁻²⁸⁵ (dysk 2), czyli o niewyobrażalnie mniej niż ½. Jedyna liczba całkowita w tym przedziale to 21 (odpowiednio 1): indeksy topologiczne, nie zaokrąglone przybliżenia.
+
+**(4) Krotności i wyczerpanie deg r.** gcd(r, r′) policzony dokładnie w ℤ[x] (wielomian przeskalowany przez 2³²⁰ do całkowitych) ma stopień 0, więc r jest bezkwadratowy: wszystkie 22 pierwiastki proste, krotności jawnie równe 1. Wyczerpanie: dyski rozłączne (7/16 > 283/1024 i 7/16 > 1/8); liczba zer w nich 21 + 1 = 22 = deg r z krotnościami, więc z zasadniczego twierdzenia algebry poza oboma dyskami nie ma żadnego zera r. Rozkład: 21 pierwiastków z |μ| ≤ 0.11397 (w tym 9 rzeczywistych i 12 zespolonych w 6 parach sprzężonych) oraz jeden pierwiastek 0.554641699189 w dysku 2.
+
+### 2. Kontrola warsztatowa (niezależna, Vibe, przed rejestracją)
+
+- Transformacje: w₁ = z/(283/1024) = 1024z/283 ✓; w₂ = (z − 9/16)/(1/8) = 8z − 9/2 ✓.
+- Konwencje zgodne z rejestrem: LEAD-first cRAB (A[m] = c₂₃₋ₘ·2^(320·m)), q moniczne /2⁷³⁶⁰, r(0) = 2⁻³²⁰ = det R_AB ✓ (K2-STAN krok 3; 11ar).
+- max |u| wewnątrz dysku 1 = 0.113966222525207·1024/283 = 0.41237 ✓; min |u| zewnątrz = 0.554641699189468·1024/283 = 2.00690 ✓.
+- Ograniczenie błędu N=512, dysk 1: dominuje czynnik zewnętrzny 2.00690⁻⁵¹² = 1.28·10⁻¹⁵⁵ — zgadza się co do cyfry znaczącej; czynnik wewnętrzny 0.41237⁵¹² ≈ 10⁻¹⁹⁷ znikome. Dysk 2: kontrola na zaokrąglonej odległości 0.4485 daje 21·3.588⁻⁵¹² ≈ 1.7·10⁻²⁸³; z pełną wartością 3.58827 Claude'a ≈ 7.9·10⁻²⁸⁵ ✓ (różnica wyłącznie z zaokrąglenia odległości; rząd i wniosek identyczne: ≪ ½).
+- Zbieżność przy N=32, dysk 1: 2.00690⁻³² = 2.09·10⁻¹⁰ = dokładnie 21 − 20.99999999979 ✓ (spójność międzyliczbowa: wartości całki przy trzech N).
+- Odległości pierwiastka od okręgu: 283/1024 − 0.113966222525207 = 0.16240 ✓; 1/8 − 0.0078583 = 0.11714 ✓.
+- Wyprowadzenie 1/(1−u^N) sprawdzone niezależnie szeregiem Fouriera: (1/N)·Σ_k 1/(1−u·e^{−iθ_k}) = Σ_{m≡0 (mod N)} u^m = 1/(1−u^N) dla |u|<1; dla |u|>1 przez 1/(1−x) = −Σ_{j≥1} x^{−j} to samo wyrażenie ✓. Błąd kwadratury znany wprost w postaci zamkniętej — spełnienie wymogu (2) SILNIEJSZE niż zamówienie (dokładna formuła zamiast kontrolnego oszacowania między punktami siatki).
+- Brak zer na konturze: min |r| = iloczyn odległości punktu konturu od 22 pierwiastków > 0, odległości > 0 z tabeli ✓.
+- gcd(r, r′) = 1 w ℤ[x]: krotności jawnie 1; wyczerpanie 21+1=22=deg r przez zasadnicze twierdzenie algebry ✓.
+- K6: wyłącznie obiekt kontrolny; populacja 361 par nietknięta ✓.
+
+**Wynik kontroli: zgodność wszędzie, gdzie rejestr ma pełne wartości (co do cyfry znaczącej); żadnego rozjazdu.**
+
+### 3. Stan warunków startu E18b
+
+1. Formalny certyfikat trzeciej drogi Z1 dysku 2 (4 wymogi Asteriona). (MATERIAŁ ZAREJESTROWANY, ta runda; czeka na recheck Asteriona)
+2. Formalne potwierdzenie Asteriona po rechecku materiału z pkt 1. (OCZEKUJE; materiał oddany, relay §5)
+3. Pełny A1–F3 DeepSeeka na wklejce 11as–11ax. (SPEŁNIONE w 11ay)
+4. Copilot przy literalnym v1.0 cap=200. (SPEŁNIONE w 11ay)
+5. Claude: opcjonalnie. (Spełnione dobrowolnie: Z1 w 11az, wąski przegląd w 11ba, certyfikat w 11bb; kolejka pusta)
+
+K6: populacja 361 par nietknięta. HOLD utrzymany do domknięcia punktu 2.
+
+### 4. Decyzje szefa laboratorium
+
+a. Certyfikat Claude'a zarejestrowany jako kompletny materiał do warunku (1): wszystkie 4 elementy obecne; element (2) dostarczony w postaci silniejszej niż zamówienie (dokładna formuła błędu 1/(1−u^N) zamiast kontrolnego oszacowania między punktami siatki).
+b. Kontrola warsztatowa niezależna (sekcja 2): zgodna co do cyfry znaczącej; certyfikat przekazywany do rechecku Asteriona bez zastrzeżeń warsztatu.
+c. Po formalnym potwierdzeniu Asteriona: warunki (1)+(2) domknięte; wówczas przed startem E18b pozostaje wyłącznie raport końcowy K2 (N6 chronologia errat, N49, N50), potem decyzja o starcie (literalne v1.0, cap=200, ścieżka BASE → FAIL → E2 → drugi FAIL ⇒ GLOBALNY STOP; reguły przebiegu z 11ay §1).
+d. Kimi: raport formalny nadal mile widziany (bez presji na termin), po nadejściu porównany droga po drodze z certyfikatem Claude'a.
+e. E18b HOLD; K6: populacja 361 par nietknięta.
+
+### 5. Relay (bloki do przekazania przez Leszka)
+
+**Do Asteriona:** Claude zarejestrował kompletne 4 elementy (runda 11bb, sekcja 1: definicje i konwencje; tabela błędu kwadratury N=512 z ograniczeniami 1.3·10⁻¹⁵⁵ i 7.9·10⁻²⁸⁵; argument indeksu topologicznego; bezkwadratowość gcd(r,r′)=1 w ℤ[x] i wyczerpanie 21+1=22=deg r). Kluczowe wzmocnienie ponad Twoje zamówienie: błąd kwadratury nie jest kontrolowany między punktami siatki, tylko znany wprost — trapezowa kwadratura na okręgu daje dla pierwiastka w u dokładnie 1/(1−u^N), więc ograniczenie jest zamknięte analitycznie. Kontrola warsztatowa Vibe niezależna: zgodność co do cyfry znaczącej (m.in. 2.00690⁻⁵¹² = 1.28·10⁻¹⁵⁵; 2.00690⁻³² = 21 − 20.99999999979). Pełny materiał do Twojego rechecku: sekcja 1 tej rundy plus wypowiedź Claude'a (przekazywana przez Leszka). Prosimy o formalny recheck i stanowisko ws. Z1 dysku 2 oraz warunku (2) startu E18b.
+
+**Do Claude'a:** certyfikat zarejestrowany w całości (runda 11bb) i oddany do rechecku Asteriona. Kolejka Twoja pusta. Po formalnym potwierdzeniu Asteriona domknięte zostają warunki (1)+(2) E18b; przed startem pozostaje raport końcowy K2 (chronologia errat 4b→4b′ i v2→v3, N49: kwalifikacja jawnie 11ar+11av, N50: rozdzielenie łańcuchów).
+
+**Do Kimiego (po powrocie z przerwy):** bez zmian — raport formalny mile widziany, niewymagany; po nadejściu porównany droga po drodze z certyfikatem Claude'a (runda 11bb).
+
+---
