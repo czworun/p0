@@ -1139,3 +1139,52 @@ Zgodnie z jego deklaracją („pusta do erraty v3 i ponownego re-runu"): oba war
 Bez zmian: **HOLD** do czystego przeglądu 11au/11av przez wszystkich recenzentów (w tym pełny A1–F3 DeepSeeka po wklejce logów przez Leszka). K6: populacja 361 par nietknięta.
 
 ---
+## Runda 11ax. Przeglądy 11au/11av/11aw: DeepSeek recheck warunkowy (formuła errata v3 zweryfikowana matematycznie), Asterion przyjmuje kwalifikację i żąda trzeciej drogi Z1 dla dysku 2, Copilot 5/5 PASS z warunkiem literalnego cap=200, Kimi: trzy niezależne drogi Z1 zgodne 21/1 (ogłoszenie; raport formalny zamówiony)
+
+**Data (UTC):** 2026-11-15T02:10Z
+**Stan wyjściowy:** runda 11aw (commity 7be03f1b + 8dc8eca4): przegląd Claude'a rozliczony, propozycje do spec v1.1, kolejka Claude: przegląd 11au/11av. Claude ponownie w przerwie. Recenzenci otrzymali streszczenia 11au/11av/11aw (DeepSeek: Z0 jawne, treści logów nie widzi; pełny A1–F3 wymaga wklejki).
+
+### 1. Rejestracja przeglądu DeepSeeka (recheck strukturalny, warunkowy)
+
+**DeepSeek:** N47 potwierdzone (evidence chain: K2-STAN „Schur + ninUp", osobne hasze modułów, lekcja (e) logu 11aq; klasyczny provenance break — kod produkujący liczby poprawny, artefakt złożony z modułów nie odtwarzał kanonu). **Formuła erraty v3 zweryfikowana matematycznie (na papierze, Rouché):** gałąź |γ_k|<1 przez P_k − γ_k·P_k* = z·(1−γ_k²)·P_{k−1} i Rouché na okręgu jednostkowym (|γ_k·P_k*| < |P_k|) ⇒ N(P_k)=N(P_{k−1})+1 ✓; gałąź |γ_k|>1 przez P_k*(z)=z^k·P_k(1/z), N(P_k*)=k−N(P_k) i Rouché ⇒ N(P_k)=(k−1)−N(P_{k−1}) ✓. Mapowanie gammas[n−k]=γ_k poprawne. K2c re-qualification dokładnie wg jego żądania (re-run, nie dziedziczenie; „reprodukcja, nie wyjaśnienie"). Z1 dysk 2: **wystarczające, i to w mocniejszym sensie niż formalny stop z ciasnym marginesem** (margines 0.996 w |w|² ⇒ każdy pierwiastek |w| ≤ 0.063 albo |w| ≥ 1.413; klasyfikacja nie zależy od miejsca zatrzymania DK; stabilność liczby przy limitach 1000–20000 potwierdzona; formalny stop byłby warunkiem wystarczającym, nie koniecznym; kontrast: formalny stop przy pierwiastkach |w|≈1±ε byłby gorszy). E2: różnica 193/186 vs 191/184 (~1%) = różne implementacje, nie rozrzut warty uwagi. Cap ≥ 400: zgoda, sugestia 500 (drobna, nie blokuje). Propozycje Claude: odroczenie do v1.1 zgodne z K8; **uwaga przyjęta: przy v1.1 rozszerzona bateria musi być testowana od zera na nowym K17f, nie „dodane testy na istniejącym artefakcie"** (zapobieganie powtórce klasy provenance break). Sugestia: jawny zapis stabilności count_in przy limitach (sekcja 4 niżej). Pełny A1–F3: ⏸ wymaga wklejki logów (Leszek); formalnie nie może autoryzować E18b bez treści logów, ale nic w streszczeniu nie budzi zastrzeżeń. Nie zgłasza STOP. Trzecia konstatacja metodologiczna: re-run wykrywa to, czego analiza strukturalna nie może (trzeci raz w projekcie).
+
+### 2. Rejestracja przeglądu Asteriona
+
+**Asterion:** Errata v3 przyjęta (właściwy zakres, jawna rekurencja, nowy hasz, pełna bateria bez dziedziczenia; docenia brak „ratowania" 7 FAIL przez samą diagnostykę). K2c 31/31 = mocny wynik kwalifikacyjny, przyjęty. N47: wyjaśnienie przyczynowe przyjęte jako wiarygodne, z jawnym zastrzeżeniem audytowym: wyjaśnienie pochodzenia błędu ≠ niezależny dowód wszystkich historycznych wykonań (zasada słuszna; historyczne pochodzenie kodu pozostaje osobnym śladem audytowym, nie blokerem). **Z1 dysk 1: przyjęte (21, formalny stop 167 iteracji). Z1 dysk 2: NIE przyznaje jeszcze pełnego PASS** — rozróżnienie kluczowe: stabilność wyniku numerycznego przy zwiększaniu limitu ≠ certyfikat, że wszystkie pierwiastki zostały znalezione z właściwą krotnością; duży margines od okręgu nie wyklucza pominięcia lub powielenia pierwiastka (szczególnie przy klastrze ~17). Żądanie: **trzecia droga dla dysku 2: argument zasady argumentu albo certyfikowany Sturm po transformacji dysku; nie kolejny wariant DK.** E18b HOLD do domknięcia. Uwaga własna Asteriona: publiczny podgląd repo pokazuje starszy zrzut (rund 11au–11aw nie widzi); werdykt = recheck przekazanego relayu, nie samodzielne odtworzenie artefaktów. Kolejność: Kimi certyfikat dysku 2 → DeepSeek A1–F3 na pełnych logach → dopiero E18b.
+
+### 3. Rejestracja przeglądu Copilota
+
+**Copilot:** Pięć warunków z 11at: 5/5 PASS (nowy artefakt+hasz; minimalny jawny zakres z poprawną rekurencją, nie „reverse array"; pełna bateria 31 ponowiona; per-test bez dziedziczenia, 11at zachowane jako historia; brak FAIL). K2c: PASS. Defekt schurNin: ZAMKNIĘTY. T_d najczystszy świadek (konstrukcyjnie 0; v2 dawał 2; γ niezmienione). N47: rozliczone przekonująco. Z1 21/1: **akceptowane jako wartościowa niezależna kontrola pomocnicza, z jawnym ograniczeniem DK (nie formalny certyfikat zbieżności DK)**; nie wymaga kolejnej drogi Z1 jako warunku E18b, bo normatywny certyfikat kompletności szedł exact drogą baterii. Zmiany drivera (padding SHA-256, indeks γ): jawne próby, re-hash, bateria od początku, finalne 31 z jednej wersji — właściwie. **Jedyny punkt odrzucony: cap ≥ 400 w v1.0.** Zamrożona procedura v1.0 ustanowiła cap=200 i cała semantyka A3 (brak stopu po 200 ⇒ FAIL ⇒ E2 ⇒ po drugim braku stopu GLOBALNY STOP) jest na tym zbudowana; podwyższenie cap po zobaczeniu, że niezależne implementacje potrzebują 184/191/193, byłoby zmianą reguły na podstawie danych z kwalifikacji. Przebiegi >200: wyłącznie diagnostycznie po zadekretowanym FAIL, bez wpływu na status normatywny. Werdykt: **BRAK BLOKERA DO E18b pod warunkiem literalnego v1.0 z cap=200 na każdą normatywną próbę DK**; jeżeli plan zakłada cap>200, blokada K6 pozostaje po jego stronie. Kandydaci do v1.1: większy cap, toy-testy z wieloma flipami, testy generowane deterministycznie, wzmocnione Z1, formalniejsze kryterium zbieżności pomocniczego DK.
+
+### 4. Rejestracja wyniku Kimiego (trzy drogi Z1, ogłoszenie; raport formalny zamówiony)
+
+**Kimi:** wykonał komplet trzech niezależnych dróg Z1, niezależnych od artefaktu K17f-v3 i od siebie nawzajem:
+- **Droga A (zasada argumentu, winding number):** dysk 1 (|z|<283/1024): N=21.000000 ✓; dysk 2 (|z−9/16|<1/8): N=1.000000 ✓.
+- **Droga C (dyskretna zasada argumentu):** dysk 1: N=21.000000 ✓; dysk 2: N=1.000000 ✓.
+- **Droga B (sekwencja Sturma, pierwiastki rzeczywiste):** dysk 1: 9 pierwiastków rzeczywistych; pozostałe 12 = 6 par sprzężonych (Sturm liczy wyłącznie rzeczywiste; 9+12=21 spójne z profilą widma r: subdominanta 0.5546… rzeczywista, reszta w parach).
+- **Kompletność:** 21+1=22=deg r, potwierdzona trzema drogami.
+
+Zgodność z L_count v3 (21/1) i z Z1 Vibe (DK: 21/1). Kimi deklaruje rozstrzygnięcie ograniczenia jawnego Z1 dysku 2 i pyta, czy przygotować formalny raport do rejestracji. **Odpowiedź szefa lab.: TAK** (sekcja 5c). Status: ogłoszenie przez relay; formalna rejestracja wymaga raportu (sekcja 5c).
+
+### 5. Decyzje szefa laboratorium
+
+**a. Cap E18b: przyjmuję stanowisko Copilota, moja propozycja cap ≥ 400 (11aw sekcja 5) WYCOFANA.** E18b wyłącznie literalnie wg v1.0: cap=200 dla BASE i E2; brak stopu po 200 ⇒ FAIL ⇒ E2 (esc_used:=1); ponowny brak stopu ⇒ GLOBALNY STOP. Uzasadnienie: Z0 i dyscyplina prerejestracji — nie zmieniamy reguły po zobaczeniu danych kontrolnych; informacja „201 iteracji" jest prerejestrowanym wynikiem proceduralnym, nie awarią badania. Sugestia DeepSeeka (500) i moja dawna (400) przechodzą do rejestru kandydatów v1.1. Przebiegi powyżej 200 iteracji: wyłącznie diagnostyka po zadekretowanym FAIL, bez wpływu na status normatywny.
+
+**b. Z1 dysk 2: trzecia droga Kimiego adresuje dokładnie żądanie Asteriona.** Drogi A i C (zasada argumentu ciągła i dyskretna po transformacji dysku) to metody, których poprawność nie zależy od zbieżności iteracyjnego lokalizowania pierwiastków; droga B (Sturm) kontroluje część rzeczywistą widma. To nie jest „kolejny wariant DK". Formalne domknięcie Z1 dysku 2 nastąpi po rejestracji raportu formalnego Kimi; wtedy prośba do Asteriona o formalne potwierdzenie sufficiency.
+
+**c. Raport formalny Kimi (zamówienie):** zawrzeć per dysk: metodę (zdefiniować transformację, na jakim wielomianie liczona zasada argumentu; siatkę/gęstość dla drogi C; konstrukcję sekwencji Sturma dla drogi B), liczby z wartościami pełnymi (nie tylko 6 miejsc), ocenę błędu/marginesu (np. odległość obrazu kręgu od 0, kontrola windingu na podsiatkach), oraz kompletność 21+1=22. Raport będzie zarejestrowany jako Z1-dysk2 certyfikat trzecią drogą; jeżeli raport ujawni rozjazd z 1, natychmiastny STOP i wstrzymanie E18b bez wyjątków.
+
+**d. Sugestia DeepSeeka przyjęta jako uzupełniający zapis dokumentacyjny (bez edycji zamrożonej 11av):** stabilność count_in dysku 2 przy limitach {1000, 2000, 5000, 10000, 20000} = {1, 1, 1, 1, 1}, margines klasyfikacji 0.996 stały przy każdym limicie. Źródła: 11av sekcja 5 (przebieg oficjalny: limit 1000, count_in=1; diagnostyka: limity 2000–20000, count_in=1, skrypt diag-z1d2.ts sha256 db143881…, artefakt nietknięty). To dokumentacja istniejącej diagnostyki, nie nowe kryterium.
+
+**e. Uwaga DeepSeeka o v1.1 przyjęta jawnie:** przy rozszerzaniu baterii (toy z flipami, testy generowane) nowa wersja baterii testowana od zera na nowym K17f (nowy hasz, pełna kwalifikacja), nie „dodane testy na istniejącym artefakcie" — zapobieganie klasie provenance break z 11at→11av. Rejestr kandydatów v1.1: N48 (re-run przed rejestracją hasza), toy-dwa-niesąsiednie-flipy (Claude), deterministyczne testy generowane (Claude/DeepSeek), cap DK > 200 (DeepSeek/Vibe, wycofane z v1.0), wzmocnione Z1 jako krok formalny (Copilot), ewentualnie formalniejsze kryterium zbieżności pomocniczego DK.
+
+### 6. E18b: warunki startu (aktualizacja)
+
+**HOLD** (K6: populacja 361 par nietknięta). Start wyłącznie po łącznym spełnieniu:
+1. Raport formalny Kimi (Z1 dysk 2 trzecią drogą) zarejestrowany w repo i zgodny z 1.
+2. Formalne potwierdzenie Asteriona (sufficiency Z1 dysku 2 po raporcie Kimiego).
+3. Pełny A1–F3 DeepSeeka na treści logów 11as/11at/11au/11av/11aw — **wklejka: Leszek** (bez tego DeepSeek formalnie nie autoryzuje).
+4. Copilot: warunek spełniony z urzędu przy literalnym v1.0 (cap=200, sekcja 5a).
+5. Claude: opcjonalnie (przerwa); jego przegląd 11at rozliczony w 11aw, brak otwartych żądań z jego strony.
+
+---
