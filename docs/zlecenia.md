@@ -909,3 +909,104 @@ Agregacja poprawiona (iteracja od γ₁ w górę, flip (k−1)−nin) na NIEZMIE
 Pozostaje HOLD (K6: populacja 361 nietknięta). Warunki startu: przegląd 11as/11at przez recenzentów, errata v3 agregacji, ponowny re-run baterii z wynikiem 31/31 na nowym haszu, rozliczenie N47.
 
 ---
+
+## Runda 11au. Przeglądy 11at; N47 rozstrzygnięte; N48 rejestrowane; errata v3 agregacji schurNin: spec, hasz, prerejestracja re-runu
+
+**Data (UTC):** 2026-11-15T00:56Z
+**Stan wyjściowy:** runda 11at (re-run baterii S5 droga (a): 31 testów, PASS=24, FAIL=7, wszystkie FAIL w agregacji N_in przy flipach |γ_k|>1) wypchnięta i zweryfikowana (commit cd6491a5). Przeglądy recenzentów odebrane (relay Leszka). Claude nadal w przerwie.
+
+### 1. Rejestracja przeglądów 11at
+
+**Asterion:** 11at przyjęty jako prawidłowy re-run (wyniki jawne, przypisane do haszu, próby nieoficjalne odróżnione od przebiegu). K2c: FAIL, bez podstaw do PASS. Diagnoza potwierdzona niezależnie rozkładem na pierwiastki: T_a=(z−2)(3z−1)(4z−1) ma N_in=2, T_d=(z−2)(z−3)(z−4) ma N_in=0, S₃=(3z−4)(2z−1)² ma N_in=2; wyniki v2 (0, 2, 0) błędne — nie spór o konwencję indeksowania. Errata v3: zakres zatwierdzony (wyłącznie agregacja) z wymaganiami: (a) zmiana wyłącznie pętli agregacyjnej schurNin; (b) jednoznaczny zapis matematyczny rekurencji, z mapowaniem indeks stopnia ↔ kolejność γ, nie samo „odwracamy pętlę”; (c) nowy plik, nowy pełny SHA-256, prerejestracja kryteriów przed testami; (d) ponowienie całej baterii 31 testów (nie tylko 7); (e) niezależne Z1 najlepiej innym algorytmem liczącym pierwiastki z wielomianu źródłowego, nie kolejną implementacją tej samej pętli na tych samych γ, szczególnie oba L_count dla R_AB. Nie zakłada z góry 31/31; nie przenosi potwierdzenia kompletności K2c na wyniki 11ar; N47 jako osobne zagadnienie historyczne. Wymaganie do raportu końcowego K2: jawne odnośniki do pierwotnego FAIL 4b, formalnego zatrzymania kwalifikacji i rejestracji erraty 4b′ (domknięcie N6). E18b HOLD, K6 bezwzględne. Obserwacja metodologiczna: to, że przeglądy 11ar nie wykryły defektu a re-run 11at tak, to argument za utrzymaniem niezależnych testów wykonawczych obok przeglądów strukturalnych.
+
+**DeepSeek:** Z0 częściowe na treści logów (repo nieotwieralne dla niego; prosi o wklejkę 11as+11at przez Leszka do pełnego A1–F3). Merytorycznie: droga (a) właściwa, defekt realny. K2c wymaga formalnego powtórzenia na artefakcie (nie dziedziczenia), trzy powody: (i) Z0 — kwalifikowane musi być dokładnie to, co jest w artefakcie; kontrola root-cause kwalifikuje wyjaśnienie, nie artefakt; (ii) K17f wiąże hash z kodem dopiero po re-runie na finalnej wersji — inaczej nie wiadomo, co jest zamrożone; (iii) precedens N2 z 11m/11an: nie kodyfikować buga przez korektę do wyniku. Errata v3: zgoda z uwagą — jawna kolejność γ₁ w górę w treści erraty. N47 sklasyfikowane jako provenance chain break (wynik dobry, artefakt zły, wykrywalne tylko re-runem). Sugestia N48 (nowa): do K17f dodać krok „artefakt reprodukuje wyniki baterii z logu PRZED rejestracją hasza jako wiążącego”. Lekcja E40: przy PASS na artefakt numeryczny przegląd strukturalny musi jawnie zaznaczać, że nie weryfikuje zgodności implementacji ze specyfikacją. Rekomendacja: errata v3 → nowy artefakt → re-run 31 testów → nowy log → pełny A1–F3 po wklejce → dopiero E18b. Nie zgłasza STOP.
+
+**Copilot:** 24/31 = FAIL kwalifikacji utrzymany. Root cause przekonująco wyizolowany (rekurencja od N(P₀)=0 w górę stopni; transformacja flip w przeciwnym kierunku nieodwracalna tym samym wzorem). T_d czysty świadek błędu niezależny od R_AB/DK/tolerancji. Zakres v3 zaakceptowany (minimalna zmiana); po zmianie wymagany pełny re-run 31 testów (zmiana wspólna funkcja). Prerejestracja bez zapisu „oczekiwane 31/31” jako kryterium naprawy: poprawiamy udowodniony defekt, po czym pytamy niezmienioną baterię (Z0). A3 pozostaje zamknięte (gałąź DK niezależna). Warunki domknięcia (5): nowy pełny hash przed testami; jawny diff zakresu; pełny re-run tych samych 31; per-test bez dziedziczenia; jakikolwiek FAIL ⇒ E18b HOLD. Po czystym pełnym re-runie na jednym nowym haszu: brak dalszych blokerów do 361.
+
+**Kimi:** potwierdza stan, gotowość kontroli niezależnej (γ, symulacja poprawionej agregacji, analiza N47). Pytanie o priorytet — odpowiedź w sekcji 5 (Z1 niezależne) i relayu: priorytetem jest niezależne Z1 obu L_count na R_AB (wymaganie Asteriona), γ i N47 dodatkowo.
+
+**Claude:** nadal przerwa; kolejka bez zmian.
+
+### 2. N47 ROZSTRZYGNIĘTE (provenance; opcja (ii))
+
+Dowody (dwa niezależne źródła dokumentacyjne + wynik 11at):
+
+1. **K2-STAN.md (handoff do 11an/11aq):** „L_count: kompozycja afiniczna exact, potem Schur + ninUp” — agregacja N_in wykonywana przez OSOBNY moduł `ninUp` po stronie drivera; hasze narzędzi K2c-1 rejestrowane osobno per moduł („schurNin bb486f1d…, lcount 624a2dd2…”).
+2. **Log 11aq (w repo), Lekcje 11aq (e):** „Agregacja N_in wyłącznie w górę (k = 1..n); agregacja w dół daje wartości bez sensu.”
+3. **Wynik 11at:** artefakt K17f-v2 (f92f8152) faktycznie agreguje w dół — sprzecznie z lekcją (e).
+
+**Wniosek:** wartości kanoniczne 11an/11aq (T_a=2, T_d=0, L_count 21/1, kompletność 22) były liczone z agregacją W GÓRĘ po stronie drivera (ninUp), więc są matematycznie poprawne — potwierdza to kontrola root-cause 11at (poprawiona agregacja na niezmienionych γ z v2 odtwarza cały kanon). Defekt wszedł przy składaniu K17f-v2 w rundzie 11aq: agregację złożono do schurNin w błędnym kierunku, wbrew własnej lekcji (e). Adnotacja 11ar „narzędzia exact bajtowo bez zmian” była prawdziwa względem 11aq, ale sam 11aq już zawierał defekt; żadna przebudowa w 11ar nie zmieniła agregacji. Pliki 4170ef58 (wersja 11aq) i bb486f1d (schurNin 11an) nieodtwarzalne z dostępnej historii (zastąpione); dokumentacja powyżej stanowi zapis dowodowy.
+
+**Klasyfikacja (wg DeepSeeka):** provenance chain break — wynik dobry, artefakt kanoniczny zły; wykrywalny wyłącznie re-runem wykonawczym. To jest dokładnie luka S5, którą re-run 11at domknął. **N47 zamknięte jako rozliczone historycznie**; nie blokuje erraty v3.
+
+### 3. N48 rejestrowane (do spec v1.1)
+
+Wg sugestii DeepSeeka: do protokołu K17f (od v1.1) dodaje się obowiązkowy krok kwalifikacji: **artefakt musi odtworzyć wyniki baterii z logu PRZED rejestracją hasza jako wiążącego** (re-run pełnej baterii na artefakcie kandydackim, porównanie z wartościami z logu). Runda 11at wykonała ten krok dla 11an; od v1.1 krok formalny dla każdego K17f-x. Zarejestrowane do wdrożenia przy okazji następnej rewizji specyfikacji; nie zmienia wymagań bieżącej kwalifikacji (bieżąca runda wykonuje krok de facto).
+
+### 4. Errata v3: plik, hasz wiążący, jawny diff, spec rekurencji
+
+**Nowy plik:** `K17f-v3-narzedzia.ts` (repozytorium narzędzi K2). **SHA-256 (wiążący, policzony systemowo przy utworzeniu, PRZED testami):**
+
+```
+60504f95678221a8d56b26d4ef3cf80a9653d85c333849f78612045f4ed7da86
+```
+
+**Jawny diff względem f92f8152 (K17f-v2), pełny:**
+
+1. Tytuł pliku (linia 1): „K17f-v2 (rundy 11aq → 11ar)” → „K17f-v3 (rundy 11aq → 11ar → 11au), sesje 2026-11-13/14/15”.
+2. Nowy blok komentarza „ZMIANA 11au” (18 linii) po bloku ZMIANA 11ar: jawnie zapisana rekurencja (sekcja poniżej), opis defektu v2, świadkowie, rozstrzygnięcie N47, zakres zmiany.
+3. Pętla agregacyjna schurNin (jedyna zmiana kodu wykonywalnego):
+   - stara (v2): `for (let i = 0; i < gammas.length; i++) { const { n: gn, d: gd } = gammas[i]; ... if (cmp < 0) nin++; else if (cmp > 0) nin = i - nin; else { return { gammas, nin: -1, fail: true }; } }`
+   - nowa (v3): `for (let idx = gammas.length - 1; idx >= 0; idx--) { const { n: gn, d: gd } = gammas[idx]; const k = gammas.length - idx; ... if (a2 < gd2) nin++; else if (a2 > gd2) nin = (k - 1) - nin; else { return { gammas, nin: -1, fail: true }; } }` (gd2 = |gd|; linia komentarza „agregacja W GORE od P_0 (errata v3): gammas[n-k] = gamma_k, iteracja idx = n-1..0”).
+
+Wszystkie pozostałe bajty pliku bez zmian względem f92f8152: warstwa redukcji (sekwencje γ, push gammy przed checkem gc2), normalizacja gcd, wykrywanie singularności, arytmetyka BigInt, oraz moduły bgcd, composeDisk, deflate, dkDouble, dkDyadic, bigToNumber, roucheExact, roucheExactBigInt, faddeev, dyadic.
+
+**Spec rekurencji (wymaganie Asteriona; zapis jawny i jednoznaczny):** dla wielomianu P stopnia n, sekwencji redukcji P_n → P_{n−1} → … → P₀ z gamma_k = γ redukcji ze stopnia k (P_k → P_{k−1}):
+
+```
+N_in(P_0) = 0
+dla k = 1..n:
+  |gamma_k| < 1  =>  N_in(P_k) = N_in(P_{k-1}) + 1
+  |gamma_k| > 1  =>  N_in(P_k) = (k-1) - N_in(P_{k-1})
+  |gamma_k| = 1  =>  FAIL (przypadek singularny)
+```
+
+Mapowanie na strukturę danych: pętla redukcji biegnie k = n..1 i pcha γ_n PIERWSZĄ, więc w tablicy `gammas` zachodzi `gammas[n-k] = gamma_k`; agregacja iteruje tablicę od końca (idx = n−1..0), ze stopniem k = n − idx. Przy tej iteracji indeks tablicy i stopień spełniają i = k−1, co jest warunkiem poprawności formuły flip (w v2 formuła `nin = i − nin` była aplikowana przy iteracji od idx=0, gdzie i = n−k, stąd defekt przy flipach).
+
+**Kontrola wstępna świadków na v3 (jawna, wykonana przed prerejestracją; NIE JEST re-runem baterii i nie wpływa na wartości oczekiwane):** T_a=2, T_b=1, T_c=3, T_d=0; S₁: nin=3, fail=false; S₂: fail=true (γ₂=−1); S₃: nin=2, fail=false, γ₁=−65/61; S₄: fail=true (γ₂=1); (6c): (1/2,1/8)→2, (1/2,2)→3, (1/2,3/2)→FAIL (γ₁=−1); schurNin(r) na R_AB: nin=22, fail=false; L_count(r;0,283/1024)=21; L_count(r;9/16,1/8)=1. Pełny kanon 11an odtworzony przez artefakt v3. Zarejestrowane dla jawności (Z2); bateria 11av i tak liczy wszystkie te przypadki na nowo, per test, bez dziedziczenia.
+
+### 5. Prerejestracja re-runu (runda 11av)
+
+Zapis prerejestracyjny (wzorzec Copilota):
+
+```
+Zmiana dozwolona:
+wyłącznie agregacja N_in w schurNin (wykonana w K17f-v3, hasz 60504f95...).
+
+Bateria:
+identyczne 31 przypadków z 11at, te same wartości oczekiwane
+(kanon 11an, jak w prerejestracji 11as sekcja 4).
+
+Kryteria:
+identyczne jak w 11as/11at; status per test, bez dziedziczenia
+PASS z wcześniejszych rund.
+
+Jakikolwiek FAIL:
+kwalifikacja FAIL, E18b pozostaje HOLD.
+```
+
+Jawnie: nie prerejestruje się „oczekiwane 31/31” jako kryterium naprawy (uwaga Copilota, Z0). Poprawiono udowodniony defekt; baterię pytanie, nie wynik.
+
+**Wykonanie (B3):** driver run-11av.ts, import modułowy K17f-v3; hasz drivera rejestrowany systemowym sha256sum PRZED testami; w czasie wykonania driver weryfikuje zgodność haszu własnego pliku (argv) oraz haszu artefaktu (wewnętrznie, względem 60504f95…). Struktura baterii identyczna z 11at: sanity SHA-256 (8 wektorów), automat t1–t7, S₁–S₄, (6a)–(6c), (6d) na R_AB (parse cRAB, deflate, schurNin(r), γ cross-check 22/22, oba L_count, kompletność), 4a, 4b′ (ERRATA). Wartości oczekiwane: bez zmian względem 11as sekcja 4.
+
+**Z1 niezależne (wymaganie Asteriona, wdriverze 11av, oznaczone jako kontrola niezależna, poza baterią):** liczenie pierwiastków w obu dyskach R_AB algorytmem INNYM niż pętla Schura–Cohna: (a) transformacja afiniczna r(z) → B₁/B₂ liczona niezależnie w driverze (własna ekspansja dwumianowa na BigInt, bez composeDisk z artefaktu); (b) pierwiastki B₁/B₂ metodą dkDyadic (Weierstrass/Durand–Kerner na dyadach 256-bit — inna ścieżka numeryczna niż Schur); (c) licznik |root|² < 1 dokładnie na dyadach (kwadratura i porównanie dyadyczne z artefaktu); (d) porównanie z L_count v3. Kryterium Z1: zgodność obu liczb (oczekiwane kanonicznie 21 i 1; kryterium formalne: zgodność dwoma niezależnymi ścieżkami, nie sama zgodność z kanonem). Świadkowie niskowymiarowi (T_a, T_d, S₃) mają ponadto pierwiastki znane jawnie (Asterion: 2, 0, 2).
+
+### 6. Zapis do raportu końcowego K2 (wymaganie Asteriona §4, rejestracja zobowiązania)
+
+Raport końcowy kwalifikacji K2 zawrze jawne odnośniki chronologiczne: pierwotny FAIL 4b (runda 11ap) → formalne zatrzymanie kwalifikacji → ścieżka awaryjna i rejestracja erraty 4b′ (zamiana legalna przed pierwszą kwalifikacją N6/N2(b)) → PASS 4b′ w 11at. Domkniecie sporu N6 bez powrotu do interpretowania chronologii. Zobowiązanie zarejestrowane; wykonanie przy raporcie końcowym.
+
+### 7. E18b
+
+Pozostaje HOLD (K6: populacja 361 par nietknięta). Warunki startu po 11av: pełny wynik baterii na v3 (per test, bez dziedziczenia), wynik Z1 niezależnego, przegląd 11au/11av przez recenzentów (w tym pełny A1–F3 DeepSeeka po wklejce logów 11as/11at/11au/11av przez Leszka). Dopiero wtedy decyzja o starcie E18b.
+
+---
