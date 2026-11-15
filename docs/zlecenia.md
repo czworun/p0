@@ -1333,3 +1333,73 @@ K6: populacja 361 par nietknięta. HOLD utrzymany do domknięcia punktów 1–2.
 **Do Kimiego (po powrocie z przerwy):** zamówienie raportu formalnego aktualne (11ax §5c + wymagania Asteriona z 11ay §3). Dodatkowo: Claude złożył niezależny certyfikat 21 i 1 (polyroots 120 cyfr + zasada argumentu); Twój raport pozostaje zamówiony i będzie porównany droga po drodze.
 
 ---
+## Runda 11ba. Wąski przegląd Claude'a na wklejce: errata v3 i tabela 31/31 bez zarzutów (trzecie potwierdzenie tekstowe K2c); decyzja Asteriona: certyfikat Claude'a przyjęty jako droga Z1, raport Kimiego przestaje być warunkiem koniecznym („wymagam dowodu, nie konkretnego autora"); zamówione 4 elementy formalne przed PASS; warunek (1) E18b zreformułowany
+
+**Data (UTC):** 2026-11-15T11:25Z
+**Stan wyjściowy:** runda 11az (commit cecb0af6, md5 089499da): Z1 Claude'a zarejestrowane (dwie metody, 21/1, kompletność 22=deg r), pytanie do Asteriona w drodze (11az §6). Claude wykonał wąski przegląd na wklejce docs/wklejka-deepseek-11as-11ax.md (tekst wklejony, nie plik repo; bez rachunków na populacji, K6; haszy ani bajtów nie weryfikuje — zastrzeżenie jawne). Asterion odpowiedział na pytanie z 11az §6.
+
+### 1. Rejestracja wąskiego przeglądu Claude'a (errata v3 + tabela 31/31: PASS, bez zarzutów)
+
+**Errata v3:** ✅ mapowanie indeksów poprawne (gammas[idx] = γ_{n−idx}, γ_n pchane pierwsze; iteracja idx = n−1..0 przechodzi γ₁, γ₂, …, γ_n; k = gammas.length − idx = 1 dla γ₁); wzór flip (k−1) − nin ma dokładnie postać rekurencji N_in(P_k) = (k−1) − N_in(P_{k−1}); zakres zmiany (wyłącznie pętla agregacji) minimalny i właściwy. Rekurencja zgodna z jego wyprowadzeniem przez Rouché (P_k = γ_k·P_k* + z(1−γ_k²)·P_{k−1}) i z jego testami na 620 losowych wielomianach — poprawna niezależnie od implementacji. Sekwencje γ z 11aw §2 zgodne co do ułamka: T_a (−1/6, 59/70, −57/43), T_d (−24, 38/115, −41/51), S₃ (−1/3, 29/32, −65/61), S₁ (−1/8, 4/7, −10/11).
+
+**Tabela 31/31:** ✅ wartości zgodne z jego niezależnymi wynikami: (6a) 2/1/3/0, (6b) trzy odmowy singularne, (6c) 2/3/FAIL, (6d) 21/1/22 z γ₂₂ = 1/2³²⁰ exact; kryteria S₂ (γ₂ = −1) i S₄ (γ₂ = 1 po jednej redukcji, P₂ = (z−1)²) zgodne z jego kontrolami toy.
+
+**Marginesy Z1 z 11av §5 odtworzone z jego pierwiastków (120 cyfr):** dysk 2: jedyny wewnętrzny |w|² = 3.95·10⁻³ (margines 0.996 ✓), 21 zewnętrznych |w|² ∈ [12.9, 20.5] ✓; dysk 1: największy wewnętrzny (moduł 0.114) daje |w|² = 0.170, margines 0.830 ✓; opis „klaster ~17 pierwiastków mapuje się w okolice w ≈ −4.5" zgodny z geometrią (w = 8z − 9/2; transformacja dysku 2 (z − 9/16)/(1/8); Z2: dysk 1 liczony w μ).
+
+**Niezależna weryfikacja ogłoszenia Kimiego (11ax §4):** w dysku 1 jest 21 pierwiastków = 9 rzeczywistych + 12 zespolonych (6 par sprzężonych), dokładnie jak droga B (Sturm) Kimiego; wszystkich rzeczywistych pierwiastków r jest 10 (9 wewnątrz + subdominanta 0.5546). Winding 21.0/1.0 zgodny. Trzecia niezależna weryfikacja kompletności 21+1=22 (po L_count v3 i Kimim).
+
+**Cap:** zgoda z rozstrzygnięciem 11ax (cap=200 literalnie, semantyka A3). Z jego pomiarami 193 i 186 z 200 margines cienki; zarejestrowane jako ostrzeżenie wykonawcze: przy literalnym cap=200 STOP na limicie iteracji jest realnym wynikiem proceduralnym (spójne z regułami przebiegu E18b z 11ay §1).
+
+**Kolejka Claude'a:** pusta (po raporcie Kimiego i A1–F3 DeepSeeka może być pominięty w łańcuchu; jego Z1 zarejestrowane).
+
+**Wniosek warsztatowy:** trzecie potwierdzenie tekstowe erraty v3 i tabeli 31/31 (po formule DeepSeeka z 11ax/11ay i baterii 11av); K2c wzmocnione; bez zmian kwalifikacji (bateria zamrożona i PASS; przegląd tekstowy, nie bajtowy — zastrzeżenie Claude'a jawne).
+
+### 2. Rejestracja decyzji Asteriona (certyfikat Claude'a = droga Z1; Kimi niewymagany; 4 elementy przed PASS)
+
+**Rozstrzygnięcie pytania z 11az §6:** certyfikat Claude'a PRZYJĘTY jako niezależna droga Z1, która może domknąć wymóg trzeciej metody. Raport Kimiego PRZESTAJE być warunkiem koniecznym: „Wymagam dowodu, nie konkretnego autora"; raport pozostaje mile widzianym niezależnym potwierdzeniem, ale nie będzie na niego czekane tylko dlatego, że wcześniej został zamówiony.
+
+**Recheck certyfikatu Claude'a (Asterion):** rozłączność dysków ✅ potwierdzona arytmetycznie (7/16 = 0.4375; 283/1024 + 1/8 = 411/1024 ≈ 0.401367; różnica 7/16 − 411/1024 = 37/1024 ≈ 0.036133 > 0); zgodność z N7 ✅ deklarowana; pierwiastki mpmath 120 cyfr 🔍 mocna kontrola numeryczna; zasada argumentu 512 punktów 🔍 wymaga oszacowania błędu kwadratury; margines dysku 2 🔍 bardzo dobry numerycznie, ale numeryczna przekonującość nie jest certyfikatem liczby pierwiastków.
+
+**Formalny PASS Z1 dysku 2 wstrzymany do zarejestrowania 4 elementów:**
+1. Dokładna definicja wielomianu, transformacji i obu dysków (odtwarzalność obliczenia).
+2. Wykazanie, że 512-punktowa kwadratura daje poprawną liczbę obrotów: kontrola błędu między punktami siatki, oszacowanie zachowania obrazu konturu między punktami, gwarancja, że obraz konturu nie zawiera zera.
+3. Potwierdzenie, że 21 i 1 są całkowitymi indeksami topologicznymi, a nie zaokrąglonymi wynikami numerycznymi.
+4. Jawne uwzględnienie krotności i dowód, że suma 21+1=22 wyczerpuje stopień wielomianu.
+
+Konstatacja Asteriona: „120 cyfr precyzji i duże marginesy są bardzo dobrym materiałem numerycznym, ale nie zastępują certyfikatu błędu." Oraz: bez mnożenia rund — jeśli Claude ma już te elementy w materiale źródłowym, wystarczy je zarejestrować; nie zleca się obliczania od zera.
+
+**Stany Asteriona:** Z1 dysku 2 🔍 HOLD do sprawdzenia certyfikatu; E18b HOLD; K6 nietknięte.
+
+### 3. Inwentarz materiału wobec 4 wymogów (warsztatowy)
+
+- **Punkt 1** w przeważającej mierze domknięty rejestrem: r = q(μ)/(μ−1), q stopnia 23 z 24 współczynników exact (cRAB.txt, sha256 b15812f1…, konwencja LEAD-first: A[m] = c_{23−m} << 320·m; deflacja (μ−1); kontrole q(1)=0, r(0)=2⁻³²⁰); dyski (0, 283/1024) i (9/16, 1/8); transformacja dysku 2: w = (z − 9/16)/(1/8) = 8z − 9/2 (jawnie w przeglądzie Claude'a, sekcja 1). Od Claude'a wystarczy potwierdzenie, że liczył na tej samej definicji (z podaniem orientacji i normalizacji współczynników, które przyjął).
+- **Punkt 2:** do dostarczenia (części urojone rzędu 10⁻⁴¹ z 11az to materiał wyjściowy, nie certyfikat; potrzebny jawny zapis: błąd kwadratury, odległość obrazu konturu od zera, kontrola między punktami siatki).
+- **Punkt 3:** do dostarczenia w jawnym zapisie (rdzeń argumentu: wartość całki jest liczbą całkowitą, wynik 21.000…/1.000… z odchyłką ~10⁻⁴¹ ⇒ jednoznaczny indeks; wymaga sformułowania z wiązaniem błędu z punktu 2).
+- **Punkt 4:** częściowo dostarczony (21+1=22=deg r z 11az); do dostarczenia: krotności jawnie (przy polyroots z 120 cyframi krotności jako zbieżne klastry; alternatywnie stopnie po kolejnych deflacjiach) i dowód wyczerpania stopnia.
+
+### 4. Decyzje szefa laboratorium
+
+a. **Warunek startu (1) E18b zreformułowany** (skutek decyzji Asteriona): „Formalny certyfikat trzeciej drogi Z1 dysku 2 zarejestrowany i zgodny z 4 wymogami Asteriona" — autor: Claude albo Kimi; raport Kimiego mile widziany, niewymagany. Warunek (2) bez zmian: formalne potwierdzenie Asteriona po materiale z (1).
+b. **Zamówienie do Claude'a** (relay, sekcja 6): 4 elementy wg listy Asteriona, z inwentarzem §3 — punkt 1 w większości istnieje w rejestrze; bez obliczania od zera tam, gdzie wyniki już są zarejestrowane.
+c. Z1 dysku 2: status bez zmian z 11az (✅-kandydat, cztery niezależne drogi); formalne PASS po zarejestrowaniu materiału i rechecku Asteriona.
+d. E18b HOLD; K6: populacja 361 par nietknięta.
+
+### 5. E18b (HOLD, warunki po reformulacji)
+
+1. Formalny certyfikat trzeciej drogi Z1 dysku 2 (4 wymogi Asteriona; Claude lub Kimi). (OCZEKUJE; zamówienie do Claude'a w relayu §6)
+2. Formalne potwierdzenie Asteriona po materiale z pkt 1 (recheck: certyfikat błędu, indeksy topologiczne, krotności, kompletność). (OCZEKUJE)
+3. Pełny A1–F3 DeepSeeka na wklejce 11as–11ax. (SPEŁNIONE w 11ay)
+4. Copilot przy literalnym v1.0 cap=200. (SPEŁNIONE w 11ay)
+5. Claude: opcjonalnie. (Wąski przegląd zarejestrowany w 11ba; Z1 złożone w 11az)
+
+K6: populacja 361 par nietknięta. HOLD utrzymany do domknięcia punktów 1–2.
+
+### 6. Relay (bloki do przekazania przez Leszka)
+
+**Do Claude'a:** Asterion przyjął Twój certyfikat jako niezależną drogę Z1 i zdjął wymóg raportu Kimiego („wymagam dowodu, nie konkretnego autora"). Do formalnego PASS potrzebuje 4 elementów, bez obliczania od zera: (1) potwierdzenie dokładnej definicji: wielomian r = q(μ)/(μ−1) z 24 współczynników cRAB (konwencja LEAD-first, A[m] = c_{23−m} << 320·m), dyski (0, 283/1024) i (9/16, 1/8), transformacja w = 8z − 9/2; podaj orientację i normalizację, które przyjąłeś; (2) certyfikat zasady argumentu: oszacowanie błędu kwadratury 512-punktowej, odległość obrazu konturu od zera i kontrola między punktami siatki; (3) jawny argument, że 21 i 1 są indeksami topologicznymi (całkowitość wartości całki + wiązanie błędu), nie zaokrągleniami; (4) krotności jawnie i dowód, że 21+1=22 wyczerpuje deg r. Jeśli masz to w materiale źródłowym, wystarczy zarejestrować.
+
+**Do Kimiego (po powrocie z przerwy):** zamówienie raportu formalnego nadal mile widziane, ale decyzją Asteriona przestało być warunkiem koniecznym („wymagam dowodu, nie konkretnego autora"). Raport będzie zarejestrowany i porównany droga po drodze z certyfikatem Claude'a. Bez pośpiechu i bez presji na termin.
+
+**Do Asteriona:** decyzja zarejestrowana (runda 11ba): warunek (1) E18b zreformułowany na certyfikat trzeciej drogi (Claude albo Kimi) z Twoimi 4 wymogami; zamówienie przekazane Claude'owi z inwentarzem materiału już istniejącego w rejestrze; kolejność (1) → (2) bez zmian; E18b HOLD; K6 nietknięte. Po rejestracji materiału przez Claude'a oddajemy go do Twojego rechecku bez zbędnej rundy.
+
+---
