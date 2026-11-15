@@ -1010,3 +1010,91 @@ Raport końcowy kwalifikacji K2 zawrze jawne odnośniki chronologiczne: pierwotn
 Pozostaje HOLD (K6: populacja 361 par nietknięta). Warunki startu po 11av: pełny wynik baterii na v3 (per test, bez dziedziczenia), wynik Z1 niezależnego, przegląd 11au/11av przez recenzentów (w tym pełny A1–F3 DeepSeeka po wklejce logów 11as/11at/11au/11av przez Leszka). Dopiero wtedy decyzja o starcie E18b.
 
 ---
+## Runda 11av. Re-run baterii 31 testów na K17f-v3 (hasz 60504f95): 31/31 PASS, Z1 niezależne zgodne; nowa kwalifikacja K2c na v3
+
+**Data (UTC):** 2026-11-15T01:03:47.978Z (start przebiegu oficjalnego), 2026-11-15T01:03:54.090Z (koniec)
+**Stan wyjściowy:** runda 11au (commit 954fa40a, md5 01b326df617e987fc86ab88ffd4bb4c5): przeglądy 11at zarejestrowane, N47 rozstrzygnięte, N48 rejestrowane, errata v3 z jawnym diffem i rekurencją, prerejestracja re-runu wg wzorca Copilota. Bateria i kryteria identyczne z 11at (kanon 11an, prerejestracja 11as sekcja 4). Zmiana dozwolona: wyłącznie agregacja N_in w schurNin (wykonana w v3, hasz 60504f95678221a8d56b26d4ef3cf80a9653d85c333849f78612045f4ed7da86). Bez zapisu „oczekiwane 31/31” jako kryterium naprawy.
+
+### 1. Status formalny
+
+**K2c: nowa kwalifikacja na K17f-v3 PASS — 31 testów, PASS=31, FAIL=0, per test, bez dziedziczenia.** Runda 11at (24 PASS / 7 FAIL na v2) pozostaje w historii bez zmian; wyniki 11ar niezależne od schurNin zachowują swój status. Warunek prerejestracji 11au spełniony co do litera: jakikolwiek FAIL oznaczałby kwalifikację FAIL i E18b HOLD — nie wystąpił.
+
+### 2. Jawna rejestracja prób drivera (B3; żadna próba poza oficjalną nie jest podstawą kwalifikacji)
+
+Driver run-11av.ts ewoluował podczas uruchomień; artefakt K17f-v3 (60504f95…) był we wszystkich próbach nietknięty (import modułowy, weryfikacja haszu przy każdym uruchomieniu).
+
+1. **Próba 1, hasz drivera 159fc2a3…**: przerwana przez własny check B3 PRZED baterią. Przyczyna: bug implementacji SHA-256 w driverze (kolejność słów 64-bitowej długości w paddingu: LOW na bajtach 56–59 zamiast HIGH; wektor pusty przechodził, bo length=0). Poprawka: hi na total−8, lo na total−4. Defekt harnessu, nie artefaktu.
+2. **Próba 2, hasz drivera 2899e610…**: kompletna, 29 PASS / 2 FAIL. Oba FAIL (T_e, T_f) to defekt ODCZYTU γ₂ w driverze dla obiektów stopnia 2: odczyt gammas[1], podczas gdy γ singularne jest OSTATNIM wypchniętym elementem (schurNin przerywa pętlę zaraz po push przy gc2===0). Wyniki samego schurNin poprawne; Z1 dysk 2 bez formalnego stopu przy kanonicznym limicie 200.
+3. **Próba 3, hasz drivera 5cae1c05…**: kompletna, 26 PASS / 5 FAIL. Błędna „poprawka” indeksu (gammas[len−2]) zepsuła S2/S4/T_g (singularne γ = ostatni element). Potwierdzenie semantyki: wyniki matematyczne schurNin identyczne z próbą 2 (determinizm).
+4. **Próba 4, hasz drivera 9f02a462b1867df96ff55fe2761e3b8a6e1910d910e9f327a1ed2058a3e17274 = PRZEBIEG OFICJALNY**: odczyt γ z ostatniego elementu gammas; limit iteracji kontroli Z1 podniesiony do 1000 (parametr harnessu kontroli niezależnej; kanoniczny limit 200 dkDyadic w artefakcie bez zmian); dodany margines klasyfikacji Z1. 31/31 PASS + Z1 zgodne. Ten przebieg jest podstawą statusu w sekcji 1.
+
+We wszystkich pełnych próbach (2–4) wyniki matematyczne artefaktu (schurNin, composeDisk, deflate, DK) były identyczne; FAILy prób 2–3 to wyłącznie defekty harnessu (odczyt γ do raportu), nie artefaktu. Kontrola wstępna świadków v3 (11au sekcja 5) nie była re-runem i nie wpływa na powyższe statusy.
+
+### 3. Przebieg oficjalny (B3 zachowane)
+
+- Driver: run-11av.ts, sha256 9f02a462b1867df96ff55fe2761e3b8a6e1910d910e9f327a1ed2058a3e17274 (systemowy sha256sum PRZED testami; zgodność argv weryfikowana wewnętrznie przed baterią).
+- Artefakt: K17f-v3-narzedzia.ts, sha256 60504f95678221a8d56b26d4ef3cf80a9653d85c333849f78612045f4ed7da86 (weryfikowany wewnętrznie przy każdym uruchomieniu).
+- Artefakty wejściowe: cRAB.txt sha256 b15812f1e8008700b531c7e5f13fe174d9b9768181d22094f7a462d1545f7040; gammasRAB.txt sha256 a1688893677ef3cff2936400cc390d1cb03482e87e0ffbce99c3c279b34eb4ca (weryfikowane przed testami).
+- Bateria: identyczne 31 przypadków z 11at; wartości oczekiwane bez zmian (kanon 11an, 11as sekcja 4); status per test, bez dziedziczenia.
+
+### 4. Wyniki per test
+
+| # | Test | Obiekt kontrolny | Kryterium | Oczek. | Rzecz. | Status |
+|---|---|---|---|---|---|---|
+| 1 | sanity SHA-256 | 8 wektorów par. 1.10 (1) (TS w driverze; systemowy sha256sum potwierdza wektory) | 8/8 trafień | 8/8 | 8/8 | PASS |
+| 2 | t1 | A; FAIL nieeskalowalny | STOP, flaga A bez zmian | STOP,A=0 | STOP,A=0 | PASS |
+| 3 | t2 | A; FAIL eskalowalny, esc_used=0 | E2, esc_used:=1 | E2,A=1 | E2,A=1 | PASS |
+| 4 | t3 | A; FAIL eskalowalny, esc_used=1 | STOP | STOP | STOP | PASS |
+| 5 | t4 | A,B; E1 przy flagach 0 | globalny rerun, wszystkie flagi:=1 | RERUN_E1,A=1,B=1 | RERUN_E1,A=1,B=1 | PASS |
+| 6 | t5 | A; E1 po wcześniejszym E2 | brak E1, fallback 1.2(ii) | FALLBACK_1.2(ii) | FALLBACK_1.2(ii) | PASS |
+| 7 | t6 | A; po E1 FAIL eskalowalny | GLOBALNY STOP (C28) | GLOBAL_STOP | GLOBAL_STOP | PASS |
+| 8 | t7 | A,B; E2 na A, potem FAIL eskalowalny na B | E2 na B (niezależność flag) | E2,B=1 | E2,B=1 | PASS |
+| 9 | S1 | (2μ−1)³ [−1,6,−12,8] | nin=3, fail=false, γ(push)=[−1/8,4/7,−10/11] | nin=3, γ(push)=[−1/8,4/7,−10/11] | nin=3, fail=false, γ(push)=[−1/8,4/7,−10/11] | PASS |
+| 10 | S2 | (μ²−1)(μ−1/2)×2 [1,−2,−1,2] | fail=true, γ₂=−1/1 (singularne) | fail=true, γ₂=−1/1 | fail=true, γ₂=−1/1 | PASS |
+| 11 | S3 | (3μ−4)(2μ−1)² [−4,19,−28,12] | nin=2, fail=false, γ₁=−65/61 (flip) | nin=2, fail=false, γ₁=−65/61 | nin=2, fail=false, γ₁=−65/61 | PASS |
+| 12 | S4 | (μ−1)²(μ−1/2)×2 [−1,4,−5,2] | fail=true dekretowane przy γ₂=1/1 (P₂=(z−1)²) | fail=true, γ₂=1/1 | fail=true, γ₂=1/1 | PASS |
+| 13 | (6a) T_a | [−2,15,−31,12] | nin=2 | nin=2, fail=false | nin=2, fail=false | PASS |
+| 14 | (6a) T_b | [−6,29,−21,4] | nin=1 | nin=1, fail=false | nin=1, fail=false | PASS |
+| 15 | (6a) T_c | [−1,12,−47,60] | nin=3 | nin=3, fail=false | nin=3, fail=false | PASS |
+| 16 | (6a) T_d | [−24,26,−9,1] | nin=0 (naiwne 2) | nin=0, fail=false | nin=0, fail=false | PASS |
+| 17 | (6b) T_e | [2,−5,2] | FAIL (γ₂=1/1) | fail=true, γ₂=1/1 | fail=true, γ₂=1/1 | PASS |
+| 18 | (6b) T_f | [−1,0,1] | FAIL (γ₂=−1/1) | fail=true, γ₂=−1/1 | fail=true, γ₂=−1/1 | PASS |
+| 19 | (6b) T_g | [−2,9,−12,4] | FAIL (γ₂=1/1, P₂=T_e) | fail=true, γ₂=1/1 | fail=true, γ₂=1/1 | PASS |
+| 20 | (6c) L_count(T_g; 1/2, 1/8) | T_g, dysk (1/2,1/8) | 2 | nin=2, fail=false | nin=2, fail=false | PASS |
+| 21 | (6c) L_count(T_g; 1/2, 2) | T_g, dysk (1/2,2) | 3 | nin=3, fail=false | nin=3, fail=false | PASS |
+| 22 | (6c) L_count(T_g; 1/2, 3/2) | T_g, dysk (1/2,3/2) | FAIL (γ₁=−1/1 na stopniu 1) | fail=true, γ₁=−1/1 | fail=true, γ₁=−1/1 | PASS |
+| 23 | (6d) parse | cRAB.txt: A[m]=c₂₃₋ₘ·2^(320m) | A[23]=2^7360, 24 współczynników, c₀=1 | n=24, c0=1, A23=2^7360:true, A0=c23:true | n=24, c0=1, A23=2^7360:true, A0=c23:true | PASS |
+| 24 | (6d) deflate | q=(μ−1)r | reszta=0, deg r=22 | reszta=0:true, deg_r=22:true | reszta=0:true, deg_r=22:true | PASS |
+| 25 | (6d) schurNin(r) | r (unscaled, stopień 22) | nin=22, fail=false | nin=22, fail=false | nin=22, fail=false | PASS |
+| 26 | (6d) γ cross-check | gammasRAB.txt; gammas[i] ↔ γ₂₂₋ᵢ | 22/22 EQUAL (exact n1·d2=n2·d1) | 22/22 | 22/22 | PASS |
+| 27 | (6d) L_count(r; 0, 283/1024) | r, dysk (0,283/1024) [r_in] | 21 | nin=21, fail=false | nin=21, fail=false | PASS |
+| 28 | (6d) L_count(r; 9/16, 1/8) | r, dysk (9/16,1/8) [klaster subdominanty] | 1 | nin=1, fail=false | nin=1, fail=false | PASS |
+| 29 | (6d) kompletność | n_in + count(C) = deg r | 21+1=22=deg r | 21+1=22, deg_r=22 | 21+1=22, deg_r=22 | PASS |
+| 30 | 4a | μ²³−2⁻²³ (dkDouble, init 1.6) | stopped=true, iters=23, pass40 (maxErr<2⁻⁴⁰) | stopped=true, iters=23, pass40=true | stopped=true, iters=23, maxErr=5.0037e−16, pass40=true | PASS |
+| 31 | 4b′ (ERRATA) | Q5 deg 8 (errata proceduralna 4b→4b′) | stopped=true, iters=11, pass40 | stopped=true, iters=11, pass40=true | stopped=true, iters=11, maxErr=1.3878e−17, pass40=true | PASS |
+
+**Podsumowanie baterii: 31 testów, PASS=31, FAIL=0.**
+
+### 5. Z1 niezależne (wymaganie Asteriona, poza baterią; kryterium: zgodność liczb dwiema niezależnymi ścieżkami)
+
+Metoda (bez agregacji γ, bez schurNin): własna ekspansja dwumianowa BigInt w driverze (nie composeDisk) → dkDyadic (Weierstrass/Durand–Kerner na dyadach 256-bit) → licznik |w|²<1 exact na dyadach (sq2/gtSq) → porównanie z L_count v3 (Schur–Cohn).
+
+- **Dysk 1 (c=0, R=283/1024):** transform niezależny === composeDisk: true; dkDyadic stopped=true, iters=167, maxStep²=4.25e−32; liczba |w|<1 = **21**; L_count v3 = 21; zgodność: true; margines klasyfikacji min||w|²−1| = 8.2995e−1.
+- **Dysk 2 (c=9/16, R=1/8):** transform niezależny === composeDisk: true; dkDyadic stopped=false przy limicie kontroli Z1 1000, maxStep²=1.28e−10; liczba |w|<1 = **1**; L_count v3 = 1; zgodność: true; margines klasyfikacji min||w|²−1| = 9.9605e−1. Jeden pierwiastek wewnątrz: |w|² = 3.952e−3; 21 zewnętrznych: |w|² ∈ [12.87, 20.50].
+
+**Wynik Z1: ZGODNE (obie liczby, oba dyski).** Kryterium Z1 (zgodność liczby pierwiastków między niezależną ścieżką DK a L_count v3) spełnione w całości.
+
+**Jawna kwalifikacja ograniczenia formalnego dysku 2 (nie ukrywam):** dkDyadic NIE osiąga formalnego stopu 2⁻¹⁰⁴ (w kroku²) na dysku 2 w limicie kontroli. Przyczyna fizyczna: po transformacji dysku (9/16, 1/8) klaster ~17 drobnych pierwiastków źródłowych mapuje się do w≈−4.5 z separacjami rzędu 2⁻¹⁴·8 i mniejszymi; DK zbiega tam wolno. Diagnostyka uzupełniająca (poza przebiegiem oficjalnym, skrypt diag-z1d2.ts, sha256 db1438810fdbc7e180ce4d482fc77f525731f045e3939bf9af7b6c7c650eb3fd, artefakt bez zmian): limity 2000/5000/10000/20000 dają stopped=false przy podłodze maxStep² ∈ [1.1e−11, 8.6e−11] (niemonotoniczna, bez dalszej systematycznej poprawy), ale count_in=1 i margines 9.9605e−1 NIEZMIENNE przy każdym limicie. Klasyfikacja jest więc odporna na stan zbieżności: każdy punkt iteracyjny leży w |w|² odległym od 1 o co najmniej 0.996, a pojedynczy krok ≤ ~1e−5; zmiana przynależności IN/OUT jest wykluczona z marginesem >2 rzędów wielkości. Liczba 1 jest stabilna, nie „słodka”. Kryterium Z1 (zgodność liczb) nie wymagało formalnego stopu DK; ograniczenie rejestruję jawnie, decyzja o wystarczalności należy do recenzentów.
+
+### 6. N47, N48, N6, A3
+
+- **N47:** zamknięte w 11au (provenance chain break: agregacja w erze 11an po stronie drivera jako ninUp, przy składaniu K17f-v2 w 11aq zwinięta do schurNin w złym kierunku; odesłanie do 11au sekcja 2). Runda 11av nie zmienia tej analizy; potwierdza ją (v3 z agregacją w górę odtwarza kanon w całości).
+- **N48:** zarejestrowane w 11au do spec v1.1 (krok „artefakt reprodukuje wyniki baterii logu PRZED rejestracją hasza jako wiążącego”). Runda 11av jest pierwszą realizacją tej praktyki: pełna bateria na finalnym artefakcie przed uznaniem hasza za wiążący dla K2c.
+- **N6 / 4b→4b′:** zobowiązanie do raportu końcowego zarejestrowane w 11au sekcja 6; bez zmian.
+- **A3 (gałąź DK):** bez zmian, zamknięte (11ar/11at); testy DK objęte niniejszą baterią (4a, 4b′) PASS na v3.
+
+### 7. E18b
+
+Pozostaje **HOLD** (K6: populacja 361 par nietknięta). Warunki startu (11au sekcja 7): czysty przegląd 11au/11av przez recenzentów, w tym pełne A1–F3 DeepSeeka po wklejce logów 11as/11at/11au/11av przez Leszka; dopiero wtedy decyzja o starcie E18b.
+
+---
