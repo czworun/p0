@@ -28,6 +28,7 @@ Konwencja drzewa (tura 12): wiedza projektowa rośnie jak drzewo — korzenie �
 | P₀-Wave | Wave branch | korzeń: dynamika słów nad Σ={M₀,M₁,M₂,M₃,T}; przetrwanie relacyjne modów |λ|=1; kryteria projektora/wektora ✅, Lemat W-L ✅; stabilizator Σ w O(3) = S₄ — patrz docs/korzenie/ |
 | P₀-AI | AI program (gałąź w drzewie) | program ML testujący H-REL-1: reprezentacje relacyjne bez wartości absolutnych (REL-08..11); tożsamość P_cyc·D = 0 = architecture mismatch z M16/GDG (niezależnie dwa razy); REL-09 ✅ po Bonferronim, REL-10 ❌ — patrz docs/korzenie/ |
 | P₀-Defect | Defect branch | korzeń-filar łączący: defekt całkowalności w C¹(K₄) = Im(d) ⊕ V_cyc, V_cyc ≅ Λ²(V_ρ) ≅ 𝔰𝔬(V_ρ); podpisana reprezentacja V_std ⊗ sign; Tw. A (mₙ = 1, bracket Liego jedyny); wynik negatywny dla continuum; wchłonął Flow i Hilbert (§12A–§12H) — patrz docs/korzenie/ |
+| P₀-Estrada | Estrada comparative program | zewnętrzny program porównawczy P₀: GDG (geometria emergentna z relacyjnej dynamiki) vs struktura relacyjna; odczyt edge-native F_W, rząd 6 w 720/720; dowód R-1a; S₄-splot znak/bez znaku 480/480; H-P₀E2 „antykul"; v0.8 (v0.7 w historii repo) — patrz docs/korzenie/ |
 | dokument warsztatowy | working document | żywy dokument rejestru prowadzony w warsztacie (raport replikacji, lattice, dziennik) |
 | SSOT | single source of truth | pień; dokument FOUNDATION jest podzbiorem-bramką pnia |
 
