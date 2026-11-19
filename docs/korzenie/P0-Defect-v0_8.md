@@ -52,7 +52,7 @@ Defekt całkowalności relacji: D ∈ C¹(K₄) ≅ ℝ⁶ jest exact, gdy istni
 
 ## Statusy: mapa legendy na konwencje warsztatu
 
-Legenda identyczna z Alchemy/Wave/P₀-AI (✅ Dowiedzione · 📚 Klasyczne · 🔍 Zweryfikowane numerycznie lub symbolicznie · 💡 Przypuszczenie · ❌ Sfalsyfikowane). Mapowanie na Z1: większość „✅" tego dokumentu to w większości twierdzenia z jawnymi dowodami algebraicznymi (rachunek charakterów, pseudoodwrotność, tożsamości operatorowe) — pełnoprawne kandydaty do niezależnej replikacji warsztatowej; wyniki „✅" czysto numeryczne (Fraction n ≤ 20, 270/270) traktować jako mocne 🔍 warsztatowe do ponownienia; minimum (√2−1)δ ma własny status 🔍 jawny; §13 i tabela §15 sumują, co wynikiem a co hipotezą — wzorcowa samoświadomość dokumentu.
+Legenda identyczna z Alchemy/Wave/P₀-AI (✅ Dowiedzione · 📚 Klasyczne · 🔍 Zweryfikowane numerycznie lub symbolicznie · 💡 Przypuszczenie · ❌ Sfalsyfikowane). Mapowanie na Z1: większość „✅" tego dokumentu to twierdzenia z jawnymi dowodami algebraicznymi (rachunek charakterów, pseudoodwrotność, tożsamości operatorowe) — pełnoprawne kandydaty do niezależnej replikacji warsztatowej; wyniki „✅" czysto numeryczne (Fraction n ≤ 20, 270/270) traktować jako mocne 🔍 warsztatowe do ponownienia; minimum (√2−1)δ ma własny status 🔍 jawny; §13 i tabela §15 sumują, co wynikiem a co hipotezą — wzorcowa samoświadomość dokumentu.
 
 P₀-Defect v0.8
 
