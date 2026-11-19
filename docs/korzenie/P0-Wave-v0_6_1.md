@@ -44,7 +44,7 @@ Zmianę paradygmatu: fundamentalnym obiektem nie jest operator, lecz **słowo** 
 
 ## Statusy: mapa legendy na konwencje warsztatu
 
-Legenda identyczna z Alchemy (✅ Dowiedzone · 📚 Klasyczne · 🔍 Zweryfikowane · 💡 Przypuszczenie · ❌ Sfalsyfikowane) i te same zasady redakcyjna oraz niezależności; historia wersji §9 z wycofanym dowodem v0.5 i wyraźnym erratum to wzorzec uczciwej erraty sprzed warsztatu (tautologia nazwana tautologią, konstrukcja podana, statusy cofnięte do 🔍). Mapowanie na Z1: dowody = twierdzenia (do niezależnej replikacji); „zweryfikowane dokładnie" z pojedynczego kodu = 🔍 warsztatowe.
+Legenda identyczna z Alchemy (✅ Dowiedzone · 📚 Klasyczne · 🔍 Zweryfikowane · 💡 Przypuszczenie · ❌ Sfalsyfikowane) oraz te same zasady redakcyjne i niezależności; historia wersji §9 z wycofanym dowodem v0.5 i wyraźnym erratum to wzorzec uczciwej erraty sprzed warsztatu (tautologia nazwana tautologią, konstrukcja podana, statusy cofnięte do 🔍). Mapowanie na Z1: dowody = twierdzenia (do niezależnej replikacji); „zweryfikowane dokładnie" z pojedynczego kodu = 🔍 warsztatowe.
 
 ## Dokument verbatim (v0.6.1, bez zmian)
 
