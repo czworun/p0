@@ -1,4 +1,3 @@
-
 # Glosariusz P₀ (PL → EN)
 
 Konwencja drzewa (tura 12): wiedza projektowa rośnie jak drzewo — korzenie → pień → gałęzie. Soki w górę niosą hipotezy i pytania; soki w dół — wyniki i erraty.
