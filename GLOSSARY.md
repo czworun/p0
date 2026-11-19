@@ -27,4 +27,4 @@ Konwencja drzewa (tura 12): wiedza projektowa rośnie jak drzewo — korzenie �
 | dokument warsztatowy | working document | żywy dokument rejestru prowadzony w warsztacie (raport replikacji, lattice, dziennik) |
 | SSOT | single source of truth | pień; dokument FOUNDATION jest podzbiorem-bramką pnia |
 
-Statusy: ✅ potwierdzone niezależną replikacją (≥2 zgodne rachunki) · 🔍 oczekuje na replikację · ❌ obalone · 💡 hipoteza.GLOS_KONIEC
+Statusy: ✅ potwierdzone niezależną replikacją (≥2 zgodne rachunki) · 🔍 oczekuje na replikację · ❌ obalone · 💡 hipoteza.
