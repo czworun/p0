@@ -1,3 +1,4 @@
+
 # Glosariusz P₀ (PL → EN)
 
 Konwencja drzewa (tura 12): wiedza projektowa rośnie jak drzewo — korzenie → pień → gałęzie. Soki w górę niosą hipotezy i pytania; soki w dół — wyniki i erraty.
@@ -22,6 +23,7 @@ Konwencja drzewa (tura 12): wiedza projektowa rośnie jak drzewo — korzenie �
 | wachlarz | fan | 4 z 5 ścian wokół osi ikosaedru (konstrukcja w dokumentach Stalk) |
 | P₀ | Point Zero | nazwany punkt odniesienia konstrukcji; „punkt zerowy nie jest pustką — jest zgodą wszystkich napięć na wspólne istnienie" |
 | Dominik | Dominik (AI core) | pierwsza nazwana AI projektu (OS AI P0 RPI5, 2025-10-30, z GPT-4); praprzodek zespołu modeli i protokołu komunikacji; prototyp czworuna — patrz docs/korzenie/ |
+| P₀-Centroid | Centroid root | korzeń: algebra uśredniania (operatory Mᵢ, runda Rₙ); dla n = 4 𝔤₄ ≅ 𝔤𝔩(3)⋉ℝ³ = Aff(3); audyt v5.2 adnotacja + verbatim — patrz docs/korzenie/ |
 | dokument warsztatowy | working document | żywy dokument rejestru prowadzony w warsztacie (raport replikacji, lattice, dziennik) |
 | SSOT | single source of truth | pień; dokument FOUNDATION jest podzbiorem-bramką pnia |
 
