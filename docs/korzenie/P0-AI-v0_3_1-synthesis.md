@@ -47,7 +47,7 @@ Hipotezę **H-REL-1:** dla niektórych zadań istnieje reprezentacja relacyjna, 
 
 ## Statusy: mapa legendy na konwencje warsztatu
 
-Legenda dokumentu: ✅ Dowiedzione · 📚 Klasyczne · 🔍 Zweryfikowane numerycznie lub symbolicznie · 💡 Przypuszczenie / program · ❌ Sfalsyfikowane, rozszerzona o 🟡 Mieszany (REL-11) — symbol spoza legendy warsztatu, zachowany jako własność dokumentu. Mapowanie na Z1: „✅" dokumentu to wyniki pojedynczego aparatu kodowego → w warsztacie 🔍 (do niezależnej replikacji); jedyna pełna teza = tożsamość P_cyc·D = 0 (twierdzenie, do replikacji Z1); REL-09/10/11 to pojedyncze seedy i jeden aparat → 🔍 warsztatowe przy przenoszeniu do pnia; H-REL-1 jako całość = 🔍 częściowo wsparta. Zasada redakcyjna §0 to anticipacja zasady „status w prozie nie przewyższa statusu twierdzenia" (Z2). Dokument zamyka cykl i deklaruje punkt wyjścia dla dalszych eksperymentów: REL-12 / REL-08b / REL-10b.
+Legenda dokumentu: ✅ Dowiedzione · 📚 Klasyczne · 🔍 Zweryfikowane numerycznie lub symbolicznie · 💡 Przypuszczenie / program · ❌ Sfalsyfikowane, rozszerzona o 🟡 Mieszany (REL-11) — symbol spoza legendy warsztatu, zachowany jako własność dokumentu. Mapowanie na Z1: „✅" dokumentu to wyniki pojedynczego aparatu kodowego → w warsztacie 🔍 (do niezależnej replikacji); jedyna pełna teza = tożsamość P_cyc·D = 0 (twierdzenie, do replikacji Z1); REL-09/10/11 to pojedyncze seedy i jeden aparat → 🔍 warsztatowe przy przenoszeniu do pnia; H-REL-1 jako całość = 🔍 częściowo wsparta. Zasada redakcyjna §0 to antycypacja zasady „status w prozie nie przewyższa statusu twierdzenia" (Z2). Dokument zamyka cykl i deklaruje punkt wyjścia dla dalszych eksperymentów: REL-12 / REL-08b / REL-10b.
 
 ## Dokument verbatim (v0.3.1-synthesis, bez zmian)
 
