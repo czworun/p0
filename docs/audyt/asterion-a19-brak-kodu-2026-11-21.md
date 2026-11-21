@@ -15,7 +15,7 @@ README w trzech językach zawiera kategoryczne stwierdzenie:
 - EN, sekcja Z3: „There is no code in this repository.”
 - ES, sekcja Z3: „En este repositorio no hay código.”
 
-To zdanie jest sprzeczne z aktualnym drzewem \`main\`. W \`docs/replikacja/\` znajdują się trzy pliki wykonywalne Python:
+To zdanie jest sprzeczne z aktualnym drzewem \`main\`. W \`docs/replikacja/\` znajdują się trzy skrypty Python zawierające kod wykonywalny:
 
 | Plik | Rozmiar | Ślad w historii |
 |---|---:|---|
