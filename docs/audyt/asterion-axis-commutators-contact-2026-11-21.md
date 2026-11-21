@@ -121,3 +121,76 @@ Jeżeli oryginalny `P0-AXIS-01` dopuszcza dodatkowe stopnie swobody (np. nierów
 4. Zdefiniować funkcję celu i pełny zbiór więzów, jeśli teza ma dotyczyć minimum energii, a nie wyłącznie rozwiązania równań kontaktu.
 
 Najważniejszy rezultat: Axis zawiera bardzo dobry zalążek geometrycznej realizacji skręconej reprezentacji `S4`, ale §16ter.4 ma niezamknięte mapowanie parametru skali i niespójne liczby liniowe. Nie należy scalać tych kwestii w jeden status „zweryfikowane”.
+
+
+## H. Uzupełnienie: jawny splotnik Axis ↔ Defect (wynik dokładny)
+
+Po odczytaniu pełnej definicji sektorów w `P0-Defect v0.8` skonstruowano jawny splotnik. Niniejsza sekcja uzupełnia i zastępuje zastrzeżenie w §C, że nie skonstruowano jeszcze konkretnej mapy.
+
+### H.1. Konwencja orientacji
+
+Krawędzie `01,02,03,12,13,23` mają orientację od mniejszego do większego indeksu. Wiersze macierzy `C` są czterema brzegami zorientowanych trójkątów `012,013,023,123`:
+```
+C = [ 1 -1  0  1  0  0
+      1  0 -1  0  1  0
+      0  1 -1  0  0  1
+      0  0  0  1 -1  1 ]
+```
+Zależność między wierszami: `-C_012 + C_013 - C_023 + C_123 = 0`. Jej wektor współczynników to `s=(-1,1,-1,1)`.
+
+### H.2. Mapa do osi Axis
+
+Definiujemy:
+```
+T = [  1 -1 -1  1
+       1  1  1  1
+      -1 -1  1  1 ]
+
+A = (1/4) T C
+```
+Wtedy:
+```
+A = [  0  -1/2  1/2  1/2  -1/2   0
+       1/2  0   -1/2  1/2   0    1/2
+      -1/2  1/2  0    0    -1/2  1/2 ]
+```
+
+Rachunek dokładny daje:
+```
+A A^T = I_3
+A^T A = P_cyc
+A d = 0
+rank(A) = 3
+```
+Druga tożsamość oznacza, że `A` jest izometrią na sektorze `V_cyc` i zeruje dokładnie sektor exact. Nie jest tylko dowolnym izomorfizmem trzech przestrzeni o tym samym wymiarze.
+
+### H.3. Równoważność S₄ dla wszystkich 24 elementów
+
+Niech `E(π)` będzie podpisaną macierzą działania permutacji wierzchołków na zorientowanych krawędziach, `Q(π)` — analogiczną macierzą na zorientowanych trójkątach, a `P(π)` — zwykłą macierzą permutacji na czterech wierzchołkach.
+
+Niech `U` ma jako wiersze trzy wektory osiowe z Axis:
+`u_X=(1,1,-1,-1)/2`,
+`u_Y=(1,-1,1,-1)/2`,
+`u_Z=(1,-1,-1,1)/2`.
+
+Dla każdej z 24 permutacji, z dokładnością do przyjętej orientacji:
+```
+C E(π) = Q(π) C
+T Q(π) = R(π) T
+R(π) = sign(π) U P(π) U^T
+A E(π) = R(π) A
+```
+Wszystkie równości sprawdzono symbolicznie dla 24 elementów, nie przez próbkę ani przybliżenie numeryczne.
+
+Ostatnia postać pokazuje, że działanie na przestrzeni osiowej jest standardową reprezentacją (V_\rho) skręconą znakiem. Z kolei obraz operatora cykli `C` jest nośnikiem tej samej reprezentacji `V_cyc = V_std ⊗ sign`.
+
+### H.4. Odpowiedź na pytanie Axis §25.3
+
+Tak — istnieje jawny splotnik skręcony znakiem. W konwencji powyżej jest nim odwrotność izometrii `A|_{V_cyc}`; jako mapa z osiowego `V_\rho` do `V_cyc` można zapisać `A^T`, z warunkiem:
+`A^T R(π) = E(π) A^T` na obrazie `R^3`, gdzie `R(π)=sign(π)ρ_\text{std}(π)`.
+
+Operator `C` sam w sobie mapuje krawędzie do współrzędnych cykli trójkątowych. Dopiero `T` identyfikuje ten obraz z bazą osiową Axis. Zatem poprawna odpowiedź brzmi: **C daje naturalny nośnik skrętu; jawny most do osi powstaje przez kompozycję `A=(1/4)TC`.**
+
+Unikalność jest tylko z dokładnością do skalaru/ortogonalnej zmiany bazy i konwencji orientacji, zgodnie z lematem Schura. Nie ma jednej wyróżnionej macierzy niezależnej od etykiet i orientacji, ale jest kanoniczna klasa izomorfizmu.
+
+**Status:** jawna konstrukcja splotnika skręconego — ✅; zgodność dla wszystkich 24 elementów — ✅; niezależność od konwencji zapisu macierzowego — nie należy jej twierdzić (zmiana orientacji/etykiet sprzęga macierze, nie zmienia reprezentacji).
