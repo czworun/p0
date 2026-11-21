@@ -19,7 +19,7 @@ Statusy w tym indeksie opisują stan audytu, nie statusy matematyczne P₀. Żad
 | A-02 | Metadane \`docs/wyniki.md\`: deklarowany snapshot do tury 38 nie odpowiada całemu późniejszemu korpusowi wpisów | 🔍 otwarte | Ustalić datę/zakres snapshotu i zsynchronizować nagłówek |
 | A-03 | `PILLARS-TABLE-1.md` jako historyczny, niepełny indeks | 🔍 potwierdzone | `docs/korzenie/PILLARS-TABLE-1.md` | Opracować aktualny indeks; nie traktować tabeli 1 jako kompletnego stanu bieżącego |
 | A-04 | Niespójna klasyfikacja Alchemy: filar / gałąź | 🔍 otwarte | `GLOSSARY.md`, adnotacja korzenia Alchemy, `PILLARS-TABLE-1.md`, verbatim źródła | Ujednolicić pojęcie architektoniczne decyzją właściciela korpusu |
-| A-05 | Błędne odnośniki do `docs/korzenie/PILLARS-TABLE.md` | 🔍 potwierdzone | Linki w co najmniej sześciu korzeniach; właściwy plik to `PILLARS-TABLE-1.md` | Poprawić odnośniki w osobnej, zatwierdzonej zmianie |
+| A-05 | Błędne odnośniki do `docs/korzenie/PILLARS-TABLE.md` | 🔍 potwierdzone | Osiem aktywnych linków w sześciu korzeniach; właściwy plik to `PILLARS-TABLE-1.md` | Poprawić odnośniki w osobnej, zatwierdzonej zmianie |
 | A-06 | Niejednoznaczny zakres terminu SSOT | 🔍 otwarte | README, tabela filarów, rejestr wyników i dokumenty korzeni | Nazwać osobno SSOT dla pnia formalnego, architektury/wersji i wyników |
 | A-07 | Szablony GitHub Issues nie pokrywają wymaganych pól metodyki | 🔍 otwarte | `.github/ISSUE_TEMPLATE/zgloszenie-replikacji.md`, `errata-pytanie.md`, `docs/replikacja.md`, `docs/metodyka.md` | Dodać źródło specyfikacji (plik + §) i status weryfikacji erraty |
 | A-08 | Treść wcześniejszego znaleziska niedostępna | ⚪ nieodtworzone | Odzyskać z poprzedniego indeksu/dziennika |
@@ -44,6 +44,9 @@ Statusy w tym indeksie opisują stan audytu, nie statusy matematyczne P₀. Żad
 
 
 ## Podstawa indeksu
+
+- [A-01 — README i skrypty PROXY](asterion-a01-readme-proxy-2026-11-21.md) — rozwinięcie pierwotnego A-01; kwalifikacja Z3 pozostaje otwarta.
+- [A-05 — błędne odnośniki do tabeli filarów](asterion-a05-bledne-odnosniki-2026-11-21.md) — osiem aktywnych odnośników w sześciu korzeniach.
 
 Pierwotny indeks A-01–A-19 z 2026-11-20 (commit `97ed0e313a46a407cfabd49b297e3525948c6129`) jest źródłem zachowanej numeracji. Cztery raporty poniżej znajdują się na osobnych gałęziach audytowych (nie są scalone z gałęzią tego indeksu):
 
