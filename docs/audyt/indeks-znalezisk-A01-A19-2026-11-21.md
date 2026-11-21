@@ -44,11 +44,13 @@ Statusy w tym indeksie opisują stan audytu, nie statusy matematyczne P₀. Żad
 
 ## Podstawa indeksu
 
-- \`docs/audyt/asterion-continuation-2026-11-20.md\` — A-16, A-17, A-18 oraz aktualizacje A-02/A-13, A-09, A-14, A-15.
-- \`docs/audyt/asterion-defect-flow-hilbert-2026-11-20.md\` — kontrola matematyczna i źródłowa Defect/Flow/Hilbert.
-- \`docs/audyt/asterion-net-memory-2026-11-20.md\` — spójność definicji Net/Memory i testowalność H-MEM-1.
-- \`docs/audyt/asterion-scalar-centroid-tau-2026-11-20.md\` — mosty operatorowe Scalar/Centroid/TAU.
-- \`docs/audyt/asterion-orient02a-2026-11-20.md\` — odtworzenie widma ORIENT-02-A.
-- \`docs/audyt/asterion-a19-brak-kodu-2026-11-21.md\` — A-19.
+Cztery raporty poniżej znajdują się na osobnych gałęziach audytowych (nie są scalone z gałęzią tego indeksu):
+
+- [Kontynuacja — A-16, A-17, A-18 oraz aktualizacje A-02/A-13, A-09, A-14, A-15](https://github.com/czworun/p0/blob/audit/asterion-continuation-2026-11-20/docs/audyt/asterion-continuation-2026-11-20.md)
+- [Defect ↔ Flow ↔ Hilbert — audyt matematyczny i źródłowy](https://github.com/czworun/p0/blob/audit/asterion-defect-flow-hilbert-2026-11-20/docs/audyt/asterion-defect-flow-hilbert-2026-11-20.md)
+- [Net ↔ Memory — spójność definicji i testowalność H-MEM-1](https://github.com/czworun/p0/blob/audit/asterion-net-memory-2026-11-20/docs/audyt/asterion-net-memory-2026-11-20.md)
+- [Scalar ↔ Centroid ↔ TAU — mosty operatorowe i asymptotyka](https://github.com/czworun/p0/blob/audit/asterion-scalar-centroid-tau-2026-11-20/docs/audyt/asterion-scalar-centroid-tau-2026-11-20.md)
+- [ORIENT-02-A — audyt kompresji kanonicznej](https://github.com/czworun/p0/blob/audit/asterion-orient02a-2026-11-20/docs/audyt/asterion-orient02a-2026-11-20.md)
+- [A-19 — sprzeczność deklaracji o braku kodu](https://github.com/czworun/p0/blob/audit/asterion-continuation-2026-11-20/docs/audyt/asterion-a19-brak-kodu-2026-11-21.md)
 
 **Ograniczenie:** A-01, A-03–A-08 i A-10–A-12 są jawnie oznaczone jako nieodtworzone. Ten indeks nie udaje kompletnej rekonstrukcji ich treści. Po odzyskaniu wcześniejszego indeksu należy podmienić te placeholdery, zachowując identyfikatory i historię statusów.
