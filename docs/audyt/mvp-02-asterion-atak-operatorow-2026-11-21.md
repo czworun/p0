@@ -45,7 +45,7 @@ Wprost zapisać mapowanie indeksów lokalnych na globalne etykiety: lokalne 0=v�
 Dla podanego operatora lokalnego wyznacznik wynosi 1/4. Cztery aktualizacje w jednej tetrze dają wyznacznik 1/256. Dwadzieścia tetr w rundzie daje:
 `det(R_node) = (1/256)^20 = 256^-20 = 2^-160`.
 
-To zgadza się z obiema specyfikacjami. Jest to kontrola strukturalna, nie wynik nowego rachunku transportowego. Należy tylko dopisać, że wszystkie osiemdziesiąt aktualizacji jest liczonych z krotnością, także gdy ta sama globalna współrzędna występuje w wielu tetr ach.
+To zgadza się z obiema specyfikacjami. Jest to kontrola strukturalna, nie wynik nowego rachunku transportowego. Należy tylko dopisać, że wszystkie osiemdziesiąt aktualizacji jest liczonych z krotnością, także gdy ta sama globalna współrzędna występuje w wielu tetrach.
 
 ### A4. Osadzenie lokalnego K4 w przestrzeni 13 punktów: brak jawnego przepisu — BLOKER
 
