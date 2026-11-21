@@ -194,3 +194,38 @@ Operator `C` sam w sobie mapuje krawędzie do współrzędnych cykli trójkątow
 Unikalność jest tylko z dokładnością do skalaru/ortogonalnej zmiany bazy i konwencji orientacji, zgodnie z lematem Schura. Nie ma jednej wyróżnionej macierzy niezależnej od etykiet i orientacji, ale jest kanoniczna klasa izomorfizmu.
 
 **Status:** jawna konstrukcja splotnika skręconego — ✅; zgodność dla wszystkich 24 elementów — ✅; niezależność od konwencji zapisu macierzowego — nie należy jej twierdzić (zmiana orientacji/etykiet sprzęga macierze, nie zmienia reprezentacji).
+
+
+## I. Doprecyzowanie kanoniczności Axis: graf Laplace'a i układ korzeniowy
+
+Pierwsza uwaga audytu („sama kombinatoryka trzech par nie daje ortogonalności”) wymaga doprecyzowania. Nie należy jej czytać jako zarzutu, że Axis musi zakładać zewnętrzne `R³`. Istnieje konstrukcja wewnętrzna dla grafu `K₄`.
+
+### I.1. Przestrzeń i metryka wynikają z grafu
+
+Niech `W=R^V` będzie formalną przestrzenią funkcji na czterech wierzchołkach, a `1` funkcją stałą. Przestrzeń relacyjna może być zdefiniowana jako `V_rho = 1^⊥` (równoważnie `W/<1>` po kanonicznym wyborze reprezentanta o średniej zero).
+
+Laplacjan grafu pełnego:
+`L(K₄)=4I−J=G₄`.
+Jest on wyznaczony przez sam graf, ponieważ
+`x^T G₄ y = Σ_{i<j}(x_i−x_j)(y_i−y_j)`.
+Na `V_rho` forma jest dodatnio określona. Zatem metryka relacyjna nie musi być arbitralnym dodatkiem: można ją otrzymać jako kanoniczną energię Dirichleta grafu.
+
+Wektory `u_X,u_Y,u_Z` wyprowadzone z trzech par przeciwległych krawędzi są parami ortogonalne względem tej formy i mają kwadrat normy 4. Po normalizacji przez 1/2 otrzymujemy bazę G₄-ortonormalną.
+
+**Korekta zakresu tezy:** Axis nie wyprowadza przestrzeni z samej abstrakcyjnej listy krawędzi bez żadnej dodatkowej struktury matematycznej. Wyprowadza ją z `K₄` po kanonicznej realnej linearyzacji grafu i użyciu jego Laplacjanu. Nie zakłada natomiast uprzednio osadzenia w `R³` ani kartezjańskiego XYZ.
+
+### I.2. Co jest kanoniczne, a co zależy od etykiet
+
+Trzy pary przeciwległych krawędzi są kanonicznym, nieuporządkowanym zbiorem. Nie ma jednak kanonicznego wyboru nazw X/Y/Z ani orientacji każdego wektora osiowego. Automorfizmy `K₄` permutują trzy osie i mogą zmieniać ich znaki. Kanonicznym obiektem jest więc ortogonalna trójka prostych (ramka bez orientacji i bez kolejności), nie pojedyncza oznakowana baza.
+
+### I.3. Sześć osi komutatorów jako układ korzeni D₃ ≅ A₃
+
+Po zapisaniu w bazie osiowej sześć prostych wyznaczonych przez `K_ij` ma kierunki:
+`±e_1±e_2`, `±e_1±e_3`, `±e_2±e_3` (z identyfikacją wektorów przeciwnych na każdej prostej).
+To 12 wektorów układu korzeniowego `D₃`, izomorficznego z `A₃`. Grupa Weyla tego układu jest izomorficzna z `S₄`.
+
+Dla jednostkowego korzenia `n` odbicie Weyla ma postać `s_n=I−2nn^T`. Półobrót wokół osi `n` ma postać:
+`R_n=2nn^T−I=−s_n`.
+Dla transpozycji `τ∈S₄`, `sign(τ)=−1`, więc przejście od odbicia `s_n` do półobrotu `R_n` jest dokładnie skręceniem generatora przez znak. To wyjaśnia algebraicznie, dlaczego półobroty z §B realizują trójwymiarową reprezentację `standard ⊗ sign`, czyli `V_cyc`.
+
+To doprecyzowuje związek między §B, §C i §H: nie jest to przypadkowa grupa rzędu 24, tylko znakowo skręcona realizacja grupy Weyla `D₃≅A₃`.
