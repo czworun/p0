@@ -39,10 +39,9 @@ Statusy w tym indeksie opisują stan audytu, nie statusy matematyczne P₀. Żad
 
 1. **A-02 i A-13 są powiązane, ale nie tożsame.** A-02 dotyczy metadanych i zakresu samego snapshotu \`docs/wyniki.md\`; A-13 dotyczy szerszej, wielojęzycznej prezentacji zawartości repo.
 2. **A-09 nie rozstrzyga się przez liczenie dokumentów.** Należy rozdzielić przejęcie treści, przejęcie wyników i zmianę klasyfikacji architektonicznej.
-3. **A-16, A-17, A-19 i A-20 są odrębnymi problemami: dziennik, kompletność specyfikacji, notebook STALK i skrypty PROXY.** A-16 dotyczy publiczności dziennika, A-17 — kompletności specyfikacji, A-19 — faktycznej obecności kodu i jego klasyfikacji.
-4. **A-20 nie jest automatycznie stwierdzeniem naruszenia Z3.** Potwierdzony jest fakt obecności skryptów; decyzji wymaga ich metodologia przekazania i status archiwalny.
+3. **A-16, A-17 i A-19 są odrębnymi problemami: publiczność dziennika, kompletność specyfikacji i status notebooka STALK. A-01 dotyczy opisu skryptów PROXY.** A-16 dotyczy publiczności dziennika, A-17 — kompletności specyfikacji, A-19 — faktycznej obecności kodu i jego klasyfikacji.
+4. **A-01 nie jest automatycznie stwierdzeniem naruszenia Z3.** Potwierdzony jest fakt obecności skryptów; decyzji wymaga ich metodologia przekazania i status archiwalny.
 
-| A-20 | README PL/EN/ES kategorycznie stwierdza brak kodu, choć repo zawiera trzy skrypty Python PROXY; rozbieżność opisu z faktyczną zawartością repo | 🔍 potwierdzona dokumentacyjnie; kwalifikacja względem Z3 otwarta | README PL/EN/ES; `docs/replikacja/estrada-proxy-deepseek-v1.py`, `estrada-proxy-deepseek-v2.py`, `tau10-proxy-deepseek-v1.py`; `docs/metodyka.md` | Rozstrzygnąć, czy PROXY jest wyjątkiem archiwalnym i doprecyzować README oraz konwencję „szopy” |
 
 ## Podstawa indeksu
 
@@ -53,6 +52,6 @@ Pierwotny indeks A-01–A-19 z 2026-11-20 (commit `97ed0e313a46a407cfabd49b297e3
 - [Net ↔ Memory — spójność definicji i testowalność H-MEM-1](https://github.com/czworun/p0/blob/audit/asterion-net-memory-2026-11-20/docs/audyt/asterion-net-memory-2026-11-20.md)
 - [Scalar ↔ Centroid ↔ TAU — mosty operatorowe i asymptotyka](https://github.com/czworun/p0/blob/audit/asterion-scalar-centroid-tau-2026-11-20/docs/audyt/asterion-scalar-centroid-tau-2026-11-20.md)
 - [ORIENT-02-A — audyt kompresji kanonicznej](https://github.com/czworun/p0/blob/audit/asterion-orient02a-2026-11-20/docs/audyt/asterion-orient02a-2026-11-20.md)
-- [A-20 — sprzeczność deklaracji o braku kodu](https://github.com/czworun/p0/blob/audit/asterion-continuation-2026-11-20/docs/audyt/asterion-a19-brak-kodu-2026-11-21.md)
+- [A-01 — README: deklaracja o braku kodu a obecność skryptów PROXY](https://github.com/czworun/p0/blob/audit/asterion-continuation-2026-11-20/docs/audyt/asterion-a19-brak-kodu-2026-11-21.md)
 
 **Ograniczenie:** A-08 pozostaje jawnie oznaczony jako „do identyfikacji”, zgodnie z pierwotnym indeksem z 2026-11-20. Nie rekonstruuję go przez domysł. Po odzyskaniu wcześniejszego indeksu należy podmienić te placeholdery, zachowując identyfikatory i historię statusów.
