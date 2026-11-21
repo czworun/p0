@@ -95,3 +95,36 @@ Minimalny pakiet źródłowy:
 Nie potwierdzono jeszcze, że wzór skali wynika z geometrii kontaktu symetrycznego w modelu Axis, ani że łączy się z algebrą Centroid. Nie potwierdzono także dwóch deklarowanych obliczeń solverowych. To są właściwe otwarte punkty, nie powód do odrzucenia samego rachunku kątowego.
 
 **Decyzja audytowa:** zachować deficyt kątowy jako ✅; współczynnik skali jako poprawny rachunek warunkowy; status geometrycznej interpretacji `r_scale` i mostu Axis↔Centroid pozostawić 🔍/otwarte do odzyskania źródła.
+
+
+## 9. Most geometryczny, który można już wyprowadzić: Gram K₄ i holonomia
+
+Istnieje ścisły most między macierzą `G₄ = 4I - J` z Centroid a geometrią foremnego czworościanu — na poziomie metryki, nie dynamiki.
+
+Niech `v₁,…,v₄ ∈ R³` będą wierzchołkami foremnego czworościanu o krawędzi długości `a`, przesuniętymi tak, aby `Σᵢ vᵢ = 0`. Symetria daje wspólną wartość diagonalną `q = vᵢ·vᵢ` i wspólną wartość pozadiagonalną `p = vᵢ·vⱼ`. Z `Σᵢ vᵢ = 0` wynika `q + 3p = 0`; z `||vᵢ-vⱼ||² = a²` wynika `2(q-p)=a²`. Rozwiązanie: `q=3a²/8`, `p=-a²/8`. Zatem macierz Grama jest dokładnie
+
+`H = (a²/8)(4I-J) = (a²/8)G₄`.
+
+Wynik:
+- `rank(H)=3`;
+- `ker(H)=span{1}`;
+- na `1^⊥` macierz H działa jako `(a²/2)I`;
+- `G₄` jest więc, z dokładnością do skali `a²/8`, macierzą Grama regularnego czworościanu.
+
+To daje konkretny geometryczny sens tej samej macierzy, która pojawia się w Centroid. Nie identyfikuje jednak automatycznie operatora dynamiki Centroid z operatorem metrycznym: identyfikuje formę Grama na przestrzeni wycentrowanej.
+
+### Holonomia pięciu czworościanów
+
+Przekraczając kolejno pięć ścian wokół wspólnej krawędzi, każda regularna tetraedryczna komórka wnosi obrót o kąt dwuścienny `theta_d` wokół tej osi. Iloczyn pięciu obrotów wokół tej samej osi jest obrotem o `5*theta_d`; modulo pełny obrót pozostaje deficyt `delta = 2*pi - 5*theta_d`. Ponieważ `delta ≠ 0`, holonomia nie jest identycznością. To jest geometryczny zapis braku domknięcia.
+
+### Konsekwencja dla interpretacji skali
+
+Jednorodne (izotropowe) przeskalowanie foremnego czworościanu nie zmienia jego kąta dwuściennego. Nie może zatem usunąć deficytu kątowego pięciu regularnych czworościanów. Jeżeli `r_scale` ma opisywać kontakt/domknięcie, musi dotyczyć konkretnej zmiany anizotropowej, projekcji albo innej wielkości geometrycznej — nie samej podobności foremnego czworościanu.
+
+Podany wzór `r_scale = tan(theta_d/2)/tan(pi/5)` jest stosunkiem dwóch tangensów kątów połówkowych. Sam rachunek jest poprawny; jego nazwanie „skurczem krawędzi” wymaga wskazania trójkąta przekroju, przyjętej wielkości stałej i krawędzi mierzonej. Bez tych danych nie wolno wyciągać wniosku, że skurcz ten zamyka pięć regularnych czworościanów.
+
+## 10. Zaktualizowany wniosek
+
+Most Axis↔Centroid nie jest pusty: `G₄` jest dokładnie (z czynnikiem skali) macierzą Grama foremnego czworościanu. Z kolei pięciokrotna kompozycja lokalnych obrotów tetraedrycznych daje niezerową holonomię `delta`. To są dwa niezależne, ścisłe fakty geometryczno-algebraiczne.
+
+Nie ma jeszcze dowodu, że współczynnik `r_scale` jest skurczem konkretnej krawędzi wynikającym z tej holonomii, ani że jest parametrem dynamiki Centroid. Co więcej, jednorodne skalowanie nie może zmienić kąta dwuściennego. Następny krok wymaga odzyskania Axis §8.5.9 i zapisania konstrukcji w jawnych współrzędnych/więzach.
