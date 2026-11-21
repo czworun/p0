@@ -128,3 +128,35 @@ Podany wzór `r_scale = tan(theta_d/2)/tan(pi/5)` jest stosunkiem dwóch tangens
 Most Axis↔Centroid nie jest pusty: `G₄` jest dokładnie (z czynnikiem skali) macierzą Grama foremnego czworościanu. Z kolei pięciokrotna kompozycja lokalnych obrotów tetraedrycznych daje niezerową holonomię `delta`. To są dwa niezależne, ścisłe fakty geometryczno-algebraiczne.
 
 Nie ma jeszcze dowodu, że współczynnik `r_scale` jest skurczem konkretnej krawędzi wynikającym z tej holonomii, ani że jest parametrem dynamiki Centroid. Co więcej, jednorodne skalowanie nie może zmienić kąta dwuściennego. Następny krok wymaga odzyskania Axis §8.5.9 i zapisania konstrukcji w jawnych współrzędnych/więzach.
+
+
+## 11. Niezależne wyprowadzenie reprezentacji Centroid i pełnego `so(3))
+
+Z definicji Centroid (dla `n=4`):
+`M_i = I + e_i c_i^T`, gdzie `c_i = (1/4)1 - e_i`.
+Niech `P = I - (1/4)11^T` będzie rzutem ortogonalnym na `V_ρ = 1^⊥), a `u_i = P e_i`.
+
+Dla `x ∈ V_ρ` mamy `c_i^T x = -x_i`, zatem
+`M_i x = x - x_i e_i`.
+Po identyfikacji ilorazu `R⁴/span{1}` z `V_ρ` przez rzut P:
+`ρ_B(M_i)x = P M_i x = x - (u_i^T x)u_i`,
+czyli
+`A_i := ρ_B(M_i) = I_{V_ρ} - u_i u_i^T`.
+
+To od razu daje:
+- `A_i` jest symetryczna;
+- `||u_i||² = 3/4), więc widmo `A_i` to `{1,1,1/4}`;
+- `u_i^T u_j = δ_ij - 1/4), więc dla `i ≠ j`, `u_i^T u_j = -1/4).
+
+Komutator ma postać
+`[A_i,A_j] = (u_i^T u_j)(u_i u_j^T - u_j u_i^T) = -(1/4)(u_i u_j^T-u_j u_i^T)`.
+Jest więc antysymetryczny, a zatem należy do `so(V_ρ)`.
+
+Co ważniejsze, nie tylko należy: komutatory rozpinają całe `so(3)`. Wektory `u₁,u₂,u₃` są liniowo niezależne, bo ich macierz Grama ma postać `I₃-(1/4)J₃` i wyznacznik `1/4 > 0`. Wobec tego `u₁∧u₂, u₁∧u₃, u₂∧u₃` tworzą bazę `Λ²V_ρ`. Odwzorowanie
+`u∧v ↦ uv^T-vu^T`
+jest izomorfizmem `Λ²V_ρ ≅ so(V_ρ)` w wymiarze 3. Stąd trzy komutatory `[A₁,A₂]`, `[A₁,A₃]`, `[A₂,A₃]` są liniowo niezależne i
+`span{[A_i,A_j] : i<j} = so(V_ρ) ≅ so(3)`.
+
+**Wniosek:** jeśli `ρ_B` w źródle Centroid jest tą naturalną reprezentacją ilorazową (co jest zgodne z podanymi w adnotacji symetrią i widmem `{1,1,1/4}`), to zdanie o rotacyjnej algebrze nie wymaga wyłącznie argumentu „antysymetryczne, więc należą do so(3)”: można dowieść mocniejszego wyniku, że komutatory generatorów rozpinają całe `so(3)`.
+
+**Ograniczenie:** oryginalna definicja bazy B i konwencja zapisu `ρ_B` nie są w repozytorium. Wyprowadzenie jest kompletne dla naturalnej identyfikacji ilorazu z `1^⊥`; przed oznaczeniem zgodności z konkretną tabelą osi w §8.5.8 należy porównać macierze przez zmianę bazy/ortogonalne sprzężenie z oryginalnym źródłem.
