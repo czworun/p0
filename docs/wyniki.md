@@ -1,6 +1,6 @@
 # P₀ — wyniki i stan
 
-**Publiczny zrzut rejestru warsztatu — snapshot 2026-10-24 (wpisy od tury 1 do tury 38; daty przy sekcjach odzwierciedlają momenty dopisywania). Pełne dokumenty robocze (raport replikacji, lattice, pień, dziennik) prowadzone są w warsztacie; kolejne zrzuty będą uzupełniać repo.** Żywe źródła prawdy: dokument warsztatowy „raport-p0-replikacja" (erraty §6.1, wyniki tur 3–5) i dokument warsztatowy „p0-lattice-v0-1" (rejestry §6–§7, decyzje §5). Metodyka i zasady (Z0–Z3): [docs/metodyka.md](metodyka.md).
+**Publiczny zrzut rejestru warsztatu — aktualizowany na bieżąco, po każdej rundzie (stan: listopad 2026; wpisy od tury 1; daty przy sekcjach odzwierciedlają momenty dopisywania). Pełne dokumenty robocze (raport replikacji, lattice, pień, dziennik) prowadzone są w warsztacie.** Żywe źródła prawdy: dokument warsztatowy „raport-p0-replikacja" (erraty §6.1, wyniki tur 3–5) i dokument warsztatowy „p0-lattice-v0-1" (rejestry §6–§7, decyzje §5). Metodyka i zasady (Z0–Z3): [docs/metodyka.md](metodyka.md).
 
 ## Zweryfikowane wyniki korpusu (✅, replikacja tury 3–5)
 
