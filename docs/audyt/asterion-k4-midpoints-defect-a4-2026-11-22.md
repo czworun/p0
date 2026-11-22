@@ -182,10 +182,70 @@ Dla \(g\in A_4\) znak jest równy \(+1\), więc \(J\) jest zwykłym splotnikiem 
 
 - ✅ **Dowiedzione algebraicznie:** sześć środków tworzy ośmiościan; \(BB^*=\frac12I_W\); \(P_{\rm mid}=2B^*B\) jest projektorem rangi 3; bezpośrednia macierz \(B^*B\) nie jest \(P_{\rm cyc}\); brak zwykłego \(S_4\)-splotnika wynika z nieizomorficzności reprezentacji.
 - ✅ **Dowiedzione konstrukcyjnie:** po wyborze orientacji istnieje częściowa izometria \(J\) z \(J^*J=P_{\rm mid}\) oraz \(JJ^*=P_{\rm cyc}\); jest \(A_4\)-ekwiwariantna i skręcona znakiem pod \(S_4\).
-- 🔍 **Do niezależnej replikacji w rygorze Z1:** odtworzenie konstrukcji \(J\) z jawnych macierzy operatora \(C\) z Axis/Defect, bez używania abstrakcyjnej identyfikacji \(V_{\rm cyc}\cong\Lambda^2W\). Rachunek projekcji jest dokładny, lecz konstrukcję trzeba jeszcze odtworzyć z jawnych macierzy źródłowych.
+- ✅ **Most macierzowy:** jawna macierz \(J\) z Axis/Defect spełnia dokładnie oba równania projektorowe i skręcony warunek dla wszystkich 24 permutacji. 🔍 Pozostaje niezależna replikacja Z1 przez drugiego wykonawcę.
 - 💡 **Hipoteza interpretacyjna:** orientacja może być matematycznym przełącznikiem między opisem osiowym i cyklicznym. Nie wynika stąd jeszcze materia, pole fizyczne ani ontologia relacja→materia.
 - ❌ **Odrzucone:** utożsamianie \(V_\rho\) z \(V_{\rm cyc}\) jako reprezentacji \(S_4\), utożsamianie \(B^*B\) z \(P_{\rm cyc}\), oraz wniosek „ten sam wymiar 3, zatem ta sama przestrzeń”.
 
-## 8. Następny test rdzenia
+## 8. Most w bazach źródłowych Axis/Defect — test rozstrzygnięty
 
-Następny test to przepisać \(J\) wyłącznie przez jawne macierze Axis/Defect — w szczególności przez operator złożony z mapy brzegów 2-komórek \(C\) i macierzy \(T\) — i sprawdzić znakowy warunek splotnika dla wszystkich 24 permutacji. To rozstrzygnie, czy abstrakcyjny most Hodge’a jest dokładnie tym samym obiektem co most macierzowy obecny w korzeniu Axis, czy też obie konstrukcje różnią się dodatkową konwencją.
+Nie trzeba pozostawać przy abstrakcyjnym Hodge-star. W bazie osiowej Axis v0.3 weźmy mapę współrzędnych \(\Psi:W\to\mathbb R^3\), której wierszami są \(u_X^\top,u_Y^\top,u_Z^\top\). Dla mapy \(B\) z §3 zachodzi
+$
+\Psi B=\frac12 H,\qquad
+H=
+\begin{pmatrix}
+1&0&0&0&0&-1\\
+0&1&0&0&-1&0\\
+0&0&1&-1&0&0
+\end{pmatrix}.
+$
+
+Niech \(C\) będzie macierzą brzegów trójkątów, a \(T\) macierzą osiową z Axis. Operator źródłowy Axis ma postać
+$
+A=\frac14TC=
+\begin{pmatrix}
+0&-\frac12&\frac12&\frac12&-\frac12&0\\
+\frac12&0&-\frac12&\frac12&0&\frac12\\
+-\frac12&\frac12&0&0&-\frac12&\frac12
+\end{pmatrix},
+$
+z dokładnymi tożsamościami \(AA^*=I_3\) i \(A^*A=P_{\rm cyc}\).
+
+Złożenie
+$
+J=\sqrt2\,A^*\Psi B=\frac1{\sqrt2}A^*H
+$
+daje jawnie
+$
+\boxed{
+J=\frac1{2\sqrt2}
+\begin{pmatrix}
+0&1&-1&1&-1&0\\
+-1&0&1&-1&0&1\\
+1&-1&0&0&1&-1\\
+1&1&0&0&-1&-1\\
+-1&0&-1&1&0&1\\
+0&1&1&-1&-1&0
+\end{pmatrix}.
+}
+$
+
+Rachunek dokładny daje
+$
+J^*J=P_{\rm mid},\qquad JJ^*=P_{\rm cyc}.
+$
+Nie jest to jedynie zgodność wymiarów: obie strony są dokładnie właściwymi projektorami.
+
+Sprawdziłem również działanie grupy na macierzach, a nie tylko charaktery. Niech \(U(\pi)\) permutuje sześć nieukierunkowanych krawędzi, a \(E(\pi)\) działa na sześciu krawędziach ukierunkowanych z dodatkowym minusem, gdy permutacja odwraca orientację danej krawędzi. Dla każdej z 24 permutacji \(S_4\) zachodzi dokładnie
+$
+\boxed{E(\pi)J=\operatorname{sgn}(\pi)\,J\,U(\pi).}
+$
+W szczególności dla wszystkich 12 permutacji parzystych:
+$
+E(\pi)J=JU(\pi).
+$
+
+**Rozstrzygnięcie:** operator zbudowany abstrakcyjnie z orientacyjnego Hodge-star jest, w bazie Axis, dokładnie realizowany przez \(A^*\Psi B\) z normalizacją \(\sqrt2\). To jest konkretny skręcony splotnik postulowany w Axis v0.3, a nie drugi, konkurencyjny most. Zmiana orientacji odwraca \(J\), ale pozostawia oba projektory niezmienione.
+
+## 9. Następny test rdzenia
+
+Podstawowe pytanie nie brzmi już, czy most istnieje — to jest rozstrzygnięte. Następny test powinien ustalić, czy orientacja użyta do konstrukcji (J) jest wyprowadzalna z dalszej struktury P₀, czy pozostaje dodatkowym wyborem. Przy pełnej symetrii (S_4) nie da się jej wybrać niezmienniczo; każda próba takiego wyboru musi jawnie ograniczyć symetrię albo dodać dane orientujące. To jest właściwa granica obecnego wyniku.
