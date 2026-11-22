@@ -33,7 +33,7 @@ f17: 3 2 3 2 1 4 2 3 4 5 1 3 2 3 4 3 2 0 1 2
 f18: 4 3 3 2 2 5 3 4 3 4 2 3 2 2 3 2 1 1 0 1
 f19: 5 4 4 3 3 4 3 3 3 3 2 2 1 2 2 1 2 2 1 0
 
-## 3. Tabele wag per orbita (reprezentant = najmniejsza uporządkowana para leksykograficznie; wszystkie transfery orbity przyjmują te wartości; częstości omega1 do omega5 z sektorami T1g, H_u, G_g, G_u, T2g
+## 3. Tabele wag per orbita (reprezentant = najmniejsza uporządkowana para leksykograficznie; wszystkie transfery orbity przyjmują te wartości; częstości omega1 do omega5 z sektorami T1g, H_u, G_g, G_u, T2g)
 
 ORBITA d1 (reprezentant (f0 do f1); 60 uporządkowanych par)
 - POWIERZCHNIA wagi: g1 = 0.1177, g2 = 0.08772, g3 = 0, g4 = −0.1404, g5 = −0.1177
@@ -65,7 +65,7 @@ ORBITA d4 (reprezentant (f0 do f12); 60 uporządkowanych par)
 - POWIERZCHNIA kontrola wycieku: suma wag = −0.05263 (wartość dokładna −1/19), kwadrat = 0.00277 (wartość dokładna 1/361 = 0.002770)
 - WNĘTRZE wagi: g1,int = −0.02847, g2,int = 0.05556, g3,int = 0, g4,int = −0.2222, g5,int = 0.1951
 - WNĘTRZE współczynniki (symetryzowane, 15): c(1,1) = 0.0008105, c(1,2) = −0.003163, c(1,3) = 0, c(1,4) = 0.01265, c(1,5) = −0.01111, c(2,2) = 0.003086, c(2,3) = 0, c(2,4) = −0.02469, c(2,5) = 0.02168, c(3,3) = 0, c(3,4) = 0, c(3,5) = 0, c(4,4) = 0.04938, c(4,5) = −0.08673, c(5,5) = 0.03808
-- WNĘTRZE kontrola wycieku: suma wag = −0 (wartość dokładna 0 dla dystansów 2 do 5)
+- WNĘTRZE kontrola wycieku: suma wag = 0 (wartość dokładna 0 dla dystansów 2 do 5)
 
 ORBITA d5 (reprezentant (f0 do f19); 20 uporządkowanych par)
 - POWIERZCHNIA wagi: g1 = −0.1579, g2 = 0.2632, g3 = −0.2105, g4 = 0.2105, g5 = −0.1579
@@ -79,7 +79,7 @@ ORBITA d5 (reprezentant (f0 do f19); 20 uporządkowanych par)
 
 - ślad L_dod = 60 (60) ✓; krotności klastrów dokładnie 1, 3, 5, 4, 4, 3 ✓; suma projektorów = tożsamość (odchylenie max 3.33e−15) ✓
 - wycieki: powierzchnia, wszystkie orbity: suma wag = −1/19, kwadrat 1/361 = 0.0028 ✓; wnętrze d1: kwadrat 1/9 = 0.1111 ✓; wnętrze d2 do d5: 0 (residuum < 10^-14) ✓ (zgodność ze §2.3 i A.5 v0.3)
-- stałość orbitowa: druga pary każdej orbity vs reprezentant, maksymalna różnica wag = 3.87e−15 ✓; symetria kierunku (h do f vs f do h): maksymalna różnica = 1.33e−15 ✓
+- stałość orbitowa: druga para każdej orbity vs reprezentant, maksymalna różnica wag = 3.87e−15 ✓; symetria kierunku (h do f vs f do h): maksymalna różnica = 1.33e−15 ✓
 - kontrola B-05 (niezerowość wag, próg 10^-9): ZERA: d1 powierzchnia g3; d1 wnetrze g3; d4 powierzchnia g3; d4 wnetrze g3 (wejścia ze zredukowaną liczbą częstości na wskazanych orbitach/kanałach; protokoły A.3 i A.4 bez zmian)
 
 ## 5. Noty
