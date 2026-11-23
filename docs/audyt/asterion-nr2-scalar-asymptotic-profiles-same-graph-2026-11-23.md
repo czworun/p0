@@ -45,7 +45,7 @@ G_\epsilon(x)=G_\epsilon(y)
 }
 \]
 
-To samo drzewopodobne otoczenie: wierzchołek 0 jest połączony z 1, 2, 3, a 2 i 3 są dodatkowo połączone. Różnica dotyczy wyłącznie marginesu \(d_{01}\):
+To samo otoczenie: trójkąt (0-2-3) z liściem 1 dołączonym do wierzchołka 0. Różnica dotyczy wyłącznie marginesu \(d_{01}\):
 
 \[
 d_{01}(x)=\frac9{10},
