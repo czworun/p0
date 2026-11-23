@@ -371,7 +371,7 @@ To jest wspólna **konstrukcja behawioralna**, a nie jeszcze wspólna ontologia 
 
 - Wave mierzy przetrwanie relacyjnego modu w widmie produktu. Dopuszczalność może pojawić się dopiero po dalszej sekwencji.
 - Centroid mierzy przetrwanie lewych obserwabli. Dla dodatnich słów profil jest dokładnie kodowany przez zbiór nieużytych generatorów.
-- Scalar ma statyczne profile jako partycje równości, ale wszystkie stabilne konfiguracje są nieruchome pod każdym aktem. Co więcej, stabilności nie da się osiągnąć z niestabilnego stanu w skończonej liczbie aktów. Nietrywialne profile dynamiczne trzeba więc szukać w zachowaniu asymptotycznym, nie w skończonych słowach.
+- Scalar ma statyczne profile jako partycje równości, ale wszystkie stabilne konfiguracje są nieruchome pod każdym aktem. Stabilności nie da się osiągnąć z niestabilnego stanu w skończonej liczbie aktów. Dla dynamiki nieskończonej istnieje dokładna energia \(\Phi_\epsilon=\sum_{i<j}\min\{(x_i-x_j)^2,\epsilon^2\}\), która obniża się o co najmniej \((|N_i|+2)\Delta_i^2\) przy każdym akcie. Stąd ruchy pojedyncze zanikają i globalne ekstrema mają granice; pełna zbieżność trajektorii pozostaje do udowodnienia przy zmiennej topologii.
 
 Nie ma podstaw, aby utożsamić:
 \[
@@ -416,6 +416,7 @@ Nie jest to jednak jeszcze prawo P₀ — to zapis miejsca, w którym prawo musi
 - **✅** Każda stabilna konfiguracja Scalar A2 jest nieruchoma pod każdym lokalnym aktem.
 - **✅** Kryterium samego utrzymania jakiejkolwiek niebanalnej stabilnej partycji daje w Scalar język \(A^*\).
 - **✅** Dla kryterium osiągnięcia stabilności w skończonym czasie język Scalar jest dokładnie \(A^*\) dla stanu stabilnego i \(\varnothing\) dla niestabilnego; żadne skończone słowo nie stabilizuje niestabilnej konfiguracji.
+- **✅** Energia \(\Phi_\epsilon\) Scalar ma globalny spadek przy każdym lokalnym akcie; suma kwadratów ruchów jest skończona dla każdego harmonogramu.
 - **✅** Sam graf progowy nie wyznacza następnego grafu ani asymptotycznego profilu Scalar.
 - **✅** Dwie konfiguracje o tym samym początkowym grafie i tym samym okresowym harmonogramie mogą dojść do różnych granicznych partycji.
 - **✅** Dla tego samego stanu początkowego zmiana permutacji aktualizacji może zmienić graniczną partycję; przykłady z granicami \(9/16\), \(-9/10\) oraz \(279/800\) podano w [raporcie o asymptotycznych profilach Scalar](asterion-nr2-scalar-asymptotic-profiles-same-graph-2026-11-23.md).- **❌** Nie ma obecnie podstaw do utożsamienia profili Wave, Centroidu i Scalar jako tych samych obiektów matematycznych.
@@ -425,7 +426,7 @@ Nie jest to jednak jeszcze prawo P₀ — to zapis miejsca, w którym prawo musi
 
 Nie należy teraz szukać liczby cztery w liczbie stanów automatu — wynik Centroidu pokazuje, że liczność zależy od przyjętego języka, a nie wynika z samej konstrukcji resztkowej.
 
-Następny krok powinien dotyczyć nieskończonych harmonogramów A2: ustalić, czy trajektorie zbiegają do stabilnych partycji dla ogólnych konfiguracji, jak granica zależy od porządku aktualizacji i czy istnieje wspólna redukcja profili asymptotycznych Scalar–Centroid–Wave.
+Następny krok powinien dotyczyć skończoności zmian grafu progowego pod uczciwym harmonogramem. Jeśli topologia ustala się na stałe, przy ograniczonej uczciwości zbieżność do partycji składowych jest dowiedziona. Problemem pozostaje możliwość nieskończonego przełączania krawędzi mimo zaniku pojedynczych ruchów; trzeba znaleźć dowód niemożliwości albo kontrprzykład.
 
 ## 9. Integralność zakresu
 
