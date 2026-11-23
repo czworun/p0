@@ -345,6 +345,7 @@ Język skończonego osiągnięcia stabilności jest więc \(A^*\) dla stanu już
 
 Oddzielnie pozostaje prawdziwe, że graf progowy nie jest wystarczającym stanem do przewidywania wszystkich przyszłych grafów relacji: aktualizacja zależy od ilościowych marginesów. Zob. [kontrprzykład dla mieszanego grafu progowego](asterion-nr2-scalar-threshold-graph-insufficient-mixed-2026-11-23.md).
 
+
 ### 4.7. Dodatkowe domknięcie geometryczne: partycja składowych Scalar
 
 Dla ścisłej reguły progu \(<\epsilon\) przedziały wypukłe różnych składowych grafu progowego na prostej są oddalone o co najmniej \(\epsilon\). Każdy lokalny akt jest średnią wartości należących do jednej składowej, więc pozostaje w jej dotychczasowym przedziale wypukłym. Różne składowe nie mogą się ponownie połączyć.
@@ -446,7 +447,7 @@ Nie jest to jednak jeszcze prawo P₀ — to zapis miejsca, w którym prawo musi
 
 Nie należy teraz szukać liczby cztery w liczbie stanów automatu — wynik Centroidu pokazuje, że liczność zależy od przyjętego języka, a nie wynika z samej konstrukcji resztkowej.
 
-Następny krok powinien dotyczyć skończoności zmian grafu progowego pod uczciwym harmonogramem. Jeśli topologia ustala się na stałe, przy ograniczonej uczciwości zbieżność do partycji składowych jest dowiedziona. Problemem pozostaje możliwość nieskończonego przełączania krawędzi mimo zaniku pojedynczych ruchów; trzeba znaleźć dowód niemożliwości albo kontrprzykład.
+Następny krok dotyczy już tylko wnętrza każdej końcowej składowej: czy ciągła spójność grafu w każdej chwili oraz ograniczona uczciwość aktualizacji wymuszają konsensus, nawet gdy konkretne krawędzie zmieniają się w czasie? Jeśli nie, należy skonstruować dokładny kontrprzykład.
 
 ## 9. Integralność zakresu
 
