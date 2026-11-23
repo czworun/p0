@@ -190,7 +190,11 @@ G_\epsilon(x^t)=G^\ast
 
 Wtedy każdy akt \(C_i\) od chwili T jest już stałym liniowym operatorem wierszowo-stochastycznym: aktualizuje wiersz i do średniej z i oraz jego sąsiadów w \(G^\ast\). Każda waga na zamkniętym sąsiedztwie jest co najmniej \(1/n\).
 
-Jeśli harmonogram jest ograniczenie uczciwy — istnieje B takie, że każdy indeks jest aktualizowany co najmniej raz w każdych B kolejnych aktach — to powtarzane aktualizacje propagują wpływ wzdłuż każdej ścieżki \(G^\ast\). Ponieważ graf jest skończony, w bloku o długości ograniczonej przez \(nB\) każdy wiersz produktu otrzymuje dodatni wpływ od wszystkich wierzchołków swojej składowej. Otrzymujemy jednolitą kontrakcję średnicy w składowych.
+Załóżmy, że \(G^\ast\) ma składową \(C\) o \(m\) wierzchołkach. Każdy aktualizowany wiersz ma wagę co najmniej \(\alpha=1/n\) na sobie i na każdym sąsiedzie. W dowolnych kolejnych \(B\) aktywacjach każdy wierzchołek jest aktualizowany przynajmniej raz.
+
+Weźmy blok \(mB\) aktywacji i podzielmy go na \(m\) kolejnych podbloków długości B. Dla dowolnego źródłowego wierzchołka \(j\), jego własny wiersz zachowuje dodatni wpływ na początkową wartość \(x_j\), ponieważ każda aktualizacja zachowuje co najmniej współczynnik \(\alpha\) przy własnej dotychczasowej wartości. W każdym kolejnym podbloku wpływ ten może przejść o co najmniej jedną krawędź dalej: w danym podbloku aktualizowany jest każdy wierzchołek, a aktualizacja sąsiada wprowadza do jego wiersza co najmniej \(\alpha\) aktualnego wpływu poprzednika. Po najwyżej \(m-1\) podblokach wpływ źródła dociera do każdego wierzchołka C; w pozostałych aktualizacjach nie znika, bo współczynnik własny jest dodatni.
+
+Wobec tego iloczyn macierzy aktualizacji w takim bloku jest wierszowo-stochastyczny i każdy jego wpis w obrębie C jest co najmniej \(\alpha^{mB}\). Współczynnik ergodyczny tego iloczynu jest więc ściśle mniejszy od 1, a średnica opinii w C kurczy się geometrycznie po kolejnych blokach długości \(mB\). Ponieważ każdy lokalny ruch jest nie większy od bieżącej średnicy C, suma bezwzględnych przesunięć w C jest skończona i każda współrzędna w C ma granicę.
 
 W konsekwencji:
 - każda składowa spójności \(G^\ast\) zbiega do jednej wspólnej wartości;
