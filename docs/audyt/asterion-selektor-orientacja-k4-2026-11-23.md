@@ -6,9 +6,9 @@
 
 ## 0. Źródła i konwencje
 
-Korzenie odczytane z gałęzi **main** w repozytorium \`czworun/p0\`, commit:
+Korzenie odczytane z gałęzi **main** w repozytorium `czworun/p0`, commit:
 
-\`e4ac4a6d64c4a69983d7378bc5e82d961bb49f5c\`
+`e4ac4a6d64c4a69983d7378bc5e82d961bb49f5c`
 
 Odczytane dokumenty: P₀-Centroid v5.2 (adnotacja i lista zmian), P₀-Axis v0.3, P₀-Defect v0.8, P₀-TAU v1.7.2, P₀-Wave v0.6.1 i P₀-Net v0.6.1. Raport zapisano na gałęzi audytowej, nie na **main**.
 
