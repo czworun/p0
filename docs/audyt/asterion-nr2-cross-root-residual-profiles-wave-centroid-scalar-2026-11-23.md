@@ -345,6 +345,14 @@ Język skończonego osiągnięcia stabilności jest więc \(A^*\) dla stanu już
 
 Oddzielnie pozostaje prawdziwe, że graf progowy nie jest wystarczającym stanem do przewidywania wszystkich przyszłych grafów relacji: aktualizacja zależy od ilościowych marginesów. Zob. [kontrprzykład dla mieszanego grafu progowego](asterion-nr2-scalar-threshold-graph-insufficient-mixed-2026-11-23.md).
 
+### 4.7. Dodatkowe domknięcie geometryczne: partycja składowych Scalar
+
+Dla ścisłej reguły progu \(<\epsilon\) przedziały wypukłe różnych składowych grafu progowego na prostej są oddalone o co najmniej \(\epsilon\). Każdy lokalny akt jest średnią wartości należących do jednej składowej, więc pozostaje w jej dotychczasowym przedziale wypukłym. Różne składowe nie mogą się ponownie połączyć.
+
+Stąd partycja indeksów na składowe spójności tylko się rozdrabnia i stabilizuje po najwyżej \(n-c_0\) ścisłych podziałach, niezależnie od harmonogramu.
+
+To nie zamraża wszystkich krawędzi wewnątrz końcowych bloków. Każdy taki blok pozostaje spójny w każdej chwili, ale jego wewnętrzna topologia może nadal się zmieniać. Dowód i dokładna granica wniosku: [monotoniczne rozdrabnianie partycji składowych Scalar](asterion-nr2-scalar-component-partition-monotone-refinement-2026-11-23.md).
+
 ### 4.6. Kontrola literatury: asymptotyka Scalar nie jest pustym polem
 
 Należy odnotować, że część pytań o asynchroniczne A2 ma już wyniki w modelu Hegselmanna–Krausego.
@@ -427,9 +435,11 @@ Nie jest to jednak jeszcze prawo P₀ — to zapis miejsca, w którym prawo musi
 - **✅** Kryterium samego utrzymania jakiejkolwiek niebanalnej stabilnej partycji daje w Scalar język \(A^*\).
 - **✅** Dla kryterium osiągnięcia stabilności w skończonym czasie język Scalar jest dokładnie \(A^*\) dla stanu stabilnego i \(\varnothing\) dla niestabilnego; żadne skończone słowo nie stabilizuje niestabilnej konfiguracji.
 - **✅** Energia \(\Phi_\epsilon\) Scalar ma globalny spadek przy każdym lokalnym akcie; suma kwadratów ruchów jest skończona dla każdego harmonogramu.
+- **✅** Partycja na składowe grafu progowego Scalar może się tylko rozdrabniać i ustala się po skończonej liczbie podziałów, niezależnie od harmonogramu.
 - **✅** Sam graf progowy nie wyznacza następnego grafu ani asymptotycznego profilu Scalar.
 - **✅** Dwie konfiguracje o tym samym początkowym grafie i tym samym okresowym harmonogramie mogą dojść do różnych granicznych partycji.
-- **✅** Dla tego samego stanu początkowego zmiana permutacji aktualizacji może zmienić graniczną partycję; przykłady z granicami \(9/16\), \(-9/10\) oraz \(279/800\) podano w [raporcie o asymptotycznych profilach Scalar](asterion-nr2-scalar-asymptotic-profiles-same-graph-2026-11-23.md).- **❌** Nie ma obecnie podstaw do utożsamienia profili Wave, Centroidu i Scalar jako tych samych obiektów matematycznych.
+- **✅** Dla tego samego stanu początkowego zmiana permutacji aktualizacji może zmienić graniczną partycję; przykłady z granicami \(9/16\), \(-9/10\) oraz \(279/800\) podano w [raporcie o asymptotycznych profilach Scalar](asterion-nr2-scalar-asymptotic-profiles-same-graph-2026-11-23.md).
+- **❌** Nie ma obecnie podstaw do utożsamienia profili Wave, Centroidu i Scalar jako tych samych obiektów matematycznych.
 - **💡** Wszystkie trzy można traktować jako realizacje ogólnego automatu przyszłych kontynuacji, jeśli P₀ dostarczy niezależnego prawa określającego, które historie są żywe i propagacyjne.
 
 ## 8. Następny test
