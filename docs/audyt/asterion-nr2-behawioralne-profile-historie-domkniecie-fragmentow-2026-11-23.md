@@ -165,7 +165,7 @@ Wartość klasy iloczynu jest więc jednoznaczna.
 
 dokładnie wtedy, gdy \(uvw\in\mathcal L\).
 
-**Wynik ✅:** domknięty na fragmenty język historii wraz z równoważnością kontekstową daje obiektowo-bezpostaciowy, silnie łączny semigroupoid profili — bez jawnie podanej listy obiektów i bez źródeł/celów.
+**Wynik ✅:** domknięty na fragmenty język historii wraz z równoważnością kontekstową daje obiektowo-bezpostaciowy, silnie łączny częściowy półgrupowy układ profili — bez jawnie podanej listy obiektów i bez źródeł/celów.
 
 Jeżeli do A⁺ dodamy słowo puste, otrzymamy globalną jednostkę. W tej konstrukcji jej nie dodajemy, więc nie zakładamy nawet globalnej identyczności.
 
