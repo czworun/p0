@@ -67,7 +67,7 @@ qquad
 ]
 Ponieważ wyznacznik inwolucji musi wynosić (+1) lub (-1), żadne niepuste słowo dodatnie w tych generatorach nie jest inwolucją.
 
-Dopuszczenie odwrotności osłabia ten prosty test: słowo z równą algebraiczną liczbą generatorów i odwrotności może mieć wyznacznik 1. To nie dowodzi, że nie istnieją w grupie słowa będące inwolucjami. Wymagałoby to osobnej klasyfikacji. Sprawdzony reprezentatywny komutator grupowy
+Dopuszczenie odwrotności osłabia ten prosty test: słowo z równą algebraiczną liczbą generatorów i odwrotności może mieć wyznacznik 1. To nie dowodzi, że nie istnieją w grupie słowa będące inwolucjami. Wymagałoby to osobnej klasyfikacji. Niech \(\bar M_i\) oznacza operator Centroidu zapisany na wycentrowanej przestrzeni \(V_\rho\) (w bazie osiowej Axis), a nie surową macierz aktualizacji na całym \(\mathbb R^4\). Sprawdzony reprezentatywny komutator grupowy
 [
 C_{01}=\bar M_0\bar M_1\bar M_0^{-1}\bar M_1^{-1}
 ]
