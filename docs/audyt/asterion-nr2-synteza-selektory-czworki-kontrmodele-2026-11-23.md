@@ -207,7 +207,7 @@ Recenzja Vibe'a deklaruje także dokładną weryfikację ułamkową komutatorów
 1. **Nie szukać szóstego selektora tylko dlatego, że pięć istnieje.** Najpierw trzeba sprawdzić, czy którykolwiek z nich jest konsekwencją niezmienników już obecnych w korzeniach P₀.
 2. **Najmocniejszy test konstrukcyjny:** szukać dwóch kanonicznych, niezależnych inwolucji w aparacie Centroid–Axis–Defect bez odwołania do K₄, a następnie sprawdzić komutowanie i regularność działania. Dodatnie słowa Centroidu nie mogą ich dostarczyć: każde ma wyznacznik \(4^{-k}\), więc nie jest inwolucją ani idempotentem. Trzeba osobno sklasyfikować słowa z odwrotnościami lub rozszerzyć klasę operacji z niezależnym uzasadnieniem.
 3. **Świadek trójkowy:** spróbować zrealizować minimalną strukturę z raportu o śladach bez nośnika na konkretnym materiale P₀. Bez tego no-go ma mocną część negatywną, lecz brak pozytywnego następcy.
-4. **Scalar:** kontynuować dowód dla deterministycznego harmonogramu ograniczenie uczciwego, nie myląc stabilizacji partycji składowych ze stabilizacją wszystkich krawędzi.
+4. **Scalar:** kontynuować dowód dla deterministycznego harmonogramu o ograniczonej uczciwości, nie myląc stabilizacji partycji składowych ze stabilizacją wszystkich krawędzi.
 5. **Replikowalność:** dołączyć skrypty dokładne do \(\chi_W\), komutatorów i kontrprzykładu lewych niezmienników.
 
 ## 7. Werdykt N-R2
