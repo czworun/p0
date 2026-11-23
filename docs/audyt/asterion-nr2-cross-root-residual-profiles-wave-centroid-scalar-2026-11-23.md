@@ -209,7 +209,27 @@ C_i(r)=r
 
 Każda stabilna konfiguracja jest więc punktowo nieruchoma pod każdym aktem, a nie tylko pod pełną rundą.
 
-### 4.1. Kryterium samego utrzymania jest trywialne
+### 4.1. Statyczne profile Scalar tworzą kratę podziałów
+
+Każda partycja zbioru indeksów \(A\) jest realizowalnym profilem stabilnym. Dla partycji \(\Pi=\{B_1,\ldots,B_m\}\) wybierzmy wartości \(z_1,\ldots,z_m\) tak, aby:
+
+\[
+|z_a-z_b|\ge\epsilon\qquad(a\ne b),
+\]
+
+i ustawmy \(x_i=z_a\) dla \(i\in B_a\). Wtedy równość współrzędnych wyznacza dokładnie partycję \(\Pi\), a konfiguracja należy do \(\mathcal S_\epsilon\).
+
+Odwrotnie, każda konfiguracja z \(\mathcal S_\epsilon\) wyznacza partycję przez relację \(i\sim j\iff x_i=x_j\). Statyczne profile Scalar są zatem dokładnie elementami kraty podziałów \(\Pi_A\), a ich liczba jest równa liczbie Bella \(B_n\).
+
+Dla \(n=4\):
+
+\[
+|\Pi_4|=B_4=15.
+\]
+
+To nie jest liczba profili resztkowych historii, lecz liczba możliwych stabilnych relacji równości. Rozróżnienie jest istotne: Centroid daje dla \(n=4\) 11 żywych profili przyszłości, Scalar daje 15 statycznych profili partycyjnych, ale same akty Scalar nie rozróżniają ich przez test utrzymania — wszystkie są punktowo nieruchome.
+
+### 4.2. Kryterium samego utrzymania jest trywialne
 
 Gdyby przyjąć:
 
@@ -228,7 +248,7 @@ to — o ile istnieje przynajmniej jedna niebanalna stabilna partycja — otrzym
 
 Każde słowo zachowuje każdą stabilną konfigurację. Wszystkie historie mają ten sam profil \(A^*\). Kryterium utrzymania gotowych domen nie różnicuje historii.
 
-### 4.2. Kryterium osiągnięcia stabilności zależy od stanu początkowego
+### 4.3. Kryterium osiągnięcia stabilności zależy od stanu początkowego
 
 Można spróbować zdefiniować bardziej dynamiczny język, ale wtedy trzeba jawnie podać konfigurację początkową \(x\):
 
@@ -274,7 +294,7 @@ W tych dwóch dopuszczalnych reżimach Scalar daje odpowiednio język \(A^*\) lu
 **Wniosek 🔍:** Scalar nie dostarcza jednego, niezależnego od konfiguracji początkowej języka dopuszczalnych historii. Statyczny zbiór punktów stałych wyznacza partycje, ale nie wybiera prawa przyszłych kontynuacji. Potrzebny jest dodatkowy warunek początkowy oraz rozstrzygnięcie, czy chodzi o osiągnięcie stabilności w skończonym czasie, czy o stabilność asymptotyczną.
 
 
-### 4.3. Cała rodzina początkowych klastrów daje ten sam skrajny wynik
+### 4.4. Cała rodzina początkowych klastrów daje ten sam skrajny wynik
 
 Powyższy argument rozszerza się na konfiguracje, których początkowy graf progowy jest rozłączną sumą klik. Niech bloki \(B_1,\ldots,B_m\) spełniają:
 
