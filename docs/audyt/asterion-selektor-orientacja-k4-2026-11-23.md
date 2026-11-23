@@ -72,13 +72,13 @@ To jest ogólne kryterium dopuszczalności wyboru.
 
 Wynik ma dwie ważne konsekwencje.
 
-**Po pierwsze: orientacja nie wystarcza do wskazania kolejnego wierzchołka.** Grupa \(A_4\) zachowuje orientację, ale działa przechodnio na czterech wierzchołkach. Stan o stabilizatorze dokładnie \(A_4\) może wybrać chirialność, lecz nadal nie wyróżnia jednego wierzchołka.
+**Po pierwsze: orientacja nie wystarcza do wskazania kolejnego wierzchołka.** Grupa \(A_4\) zachowuje orientację, ale działa przechodnio na czterech wierzchołkach. Stan o stabilizatorze dokładnie \(A_4\) może wybrać chiralność, lecz nadal nie wyróżnia jednego wierzchołka.
 
 **Po drugie: samo wskazanie wierzchołka nie wystarcza do orientacji.** Stabilizator wyróżnionego wierzchołka to \(S_3\), który zawiera permutacje nieparzyste. Pozostaje więc symetria odwracająca orientację.
 
 Do równoczesnego wskazania wierzchołka i orientacji potrzeba zejścia co najmniej do \(C_3\). Pełny uporządkowany harmonogram ma stabilizator trywialny.
 
-Minimalny stan orientacyjny można zatem opisać jako dwie możliwe chirialności, zamieniane przez \(S_4/A_4\cong C_2\). To jest jeden bit typu znakowego. Nie jest on jednak selektorem wierzchołka.
+Minimalny stan orientacyjny można zatem opisać jako dwie możliwe chiralności, zamieniane przez \(S_4/A_4\cong C_2\). To jest jeden bit typu znakowego. Nie jest on jednak selektorem wierzchołka.
 
 ## 3. Co Axis rzeczywiście wyprowadza z K₄
 
