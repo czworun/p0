@@ -345,6 +345,16 @@ Język skończonego osiągnięcia stabilności jest więc \(A^*\) dla stanu już
 
 Oddzielnie pozostaje prawdziwe, że graf progowy nie jest wystarczającym stanem do przewidywania wszystkich przyszłych grafów relacji: aktualizacja zależy od ilościowych marginesów. Zob. [kontrprzykład dla mieszanego grafu progowego](asterion-nr2-scalar-threshold-graph-insufficient-mixed-2026-11-23.md).
 
+### 4.6. Kontrola literatury: asymptotyka Scalar nie jest pustym polem
+
+Należy odnotować, że część pytań o asynchroniczne A2 ma już wyniki w modelu Hegselmanna–Krausego.
+
+Etesami–Başar (2015, [arXiv:1412.6546](https://arxiv.org/abs/1412.6546), twierdzenie 6) dowodzą, że dla niezależnego, jednostajnego aktywowania jednego agenta oczekiwana liczba zmian topologii jest ograniczona przez \(16n^9\). W szczególności topologia ustala się po skończonej liczbie zmian z prawdopodobieństwem 1.
+
+Berenbrink i współautorzy (2024, [DOI: 10.1007/s00446-024-00467-3](https://doi.org/10.1007/s00446-024-00467-3)) dowodzą oczekiwanego ograniczenia czasu do stanu \(\delta\)-stabilnego dla asynchronicznej dynamiki na dowolnej ustalonej sieci społecznej, przy losowym wyborze aktywowanego agenta.
+
+Nie są to jednak twierdzenia dla każdego deterministycznego harmonogramu ograniczenie uczciwego. Wynik losowy i wynik dla harmonogramu adversarialnego mają różne kwantyfikatory. Dodatkowo publikacje używają standardowej konwencji \(\le\epsilon\), a P₀-Scalar — \(<\epsilon\); przypadki dokładnie na progu wymagają osobnego przeniesienia dowodu.
+
 ## 5. Porównanie trzech korzeni
 
 | Własność | Wave | Centroid | Scalar A2 |
@@ -371,7 +381,7 @@ To jest wspólna **konstrukcja behawioralna**, a nie jeszcze wspólna ontologia 
 
 - Wave mierzy przetrwanie relacyjnego modu w widmie produktu. Dopuszczalność może pojawić się dopiero po dalszej sekwencji.
 - Centroid mierzy przetrwanie lewych obserwabli. Dla dodatnich słów profil jest dokładnie kodowany przez zbiór nieużytych generatorów.
-- Scalar ma statyczne profile jako partycje równości, ale wszystkie stabilne konfiguracje są nieruchome pod każdym aktem. Stabilności nie da się osiągnąć z niestabilnego stanu w skończonej liczbie aktów. Dla dynamiki nieskończonej istnieje dokładna energia \(\Phi_\epsilon=\sum_{i<j}\min\{(x_i-x_j)^2,\epsilon^2\}\), która obniża się o co najmniej \((|N_i|+2)\Delta_i^2\) przy każdym akcie. Stąd ruchy pojedyncze zanikają i globalne ekstrema mają granice; pełna zbieżność trajektorii pozostaje do udowodnienia przy zmiennej topologii. Szczegóły: [globalna energia Lyapunova i harmonogramy uczciwe](asterion-nr2-scalar-global-lyapunov-fair-schedules-2026-11-23.md).
+- Scalar ma statyczne profile jako partycje równości, ale wszystkie stabilne konfiguracje są nieruchome pod każdym aktem. Stabilności nie da się osiągnąć z niestabilnego stanu w skończonej liczbie aktów. Dla dynamiki nieskończonej używamy znanej z literatury obciętej energii \(\Phi_\epsilon\), a dla P₀-A2 mamy jawny spadek co najmniej \((|N_i|+2)\Delta_i^2\) przy każdym akcie. Stąd ruchy pojedyncze zanikają i globalne ekstrema mają granice. Literatura dowodzi też skończonej liczby zmian topologii dla jednostajnie losowego aktywowania; deterministyczny harmonogram ograniczenie uczciwy pozostaje osobnym pytaniem. Szczegóły: [globalna energia i stan literatury](asterion-nr2-scalar-global-lyapunov-fair-schedules-2026-11-23.md).
 
 Nie ma podstaw, aby utożsamić:
 \[
