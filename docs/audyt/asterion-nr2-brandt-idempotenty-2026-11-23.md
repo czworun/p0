@@ -231,13 +231,13 @@ Po odzyskaniu czterech idempotentów można dopiero zlinearyzować ich zbiór. P
 \cong \mathbf1\oplus V_\rho.
 \]
 
-Wektor równomierny
+Niech \(\delta_i\) oznacza formalny wektor bazowy odpowiadający idempotentowi \(e_{ii}\). Wtedy wektor równomierny w module permutacyjnym ma postać
 
 \[
-p_0=\frac14\sum_{i=1}^4 e_{ii}
+p_0=\frac14(\delta_1+\delta_2+\delta_3+\delta_4).
 \]
 
-jest niezmienniczy względem \(S_4\). Po ustaleniu sumy współrzędnych część standardowa \(V_\rho\) opisuje różnice między czterema odzyskanymi węzłami.
+Jest niezmienniczy względem \(S_4\). To jest wektor przestrzeni amplitud, nie element półgrupy ani jej absorbujące zero. Po ustaleniu sumy współrzędnych część standardowa \(V_\rho\) opisuje różnice między czterema odzyskanymi węzłami.
 
 To daje naturalny most do Centroidu, ale tylko po linearyzacji i wyborze amplitud. Sam Brandtowski obiekt relacyjny nie dostarcza jeszcze metryki \(G_4=4I-J\), operatorów \(M_i\), ani dynamiki kompensacyjnej. Te struktury trzeba wyprowadzić osobno, nie dopisywać ich do algebry przez interpretację.
 
