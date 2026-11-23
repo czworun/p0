@@ -222,7 +222,37 @@ To jest zgodne z naszym rozdzieleniem:
 
 Uwaga techniczna: literatura często przyjmuje warunek sąsiedztwa \(\le\epsilon\), podczas gdy P₀-Scalar używa \(<\epsilon\). Różnica dotyczy dokładnie przypadków na progu i musi pozostać jawna w porównaniach.
 
-## 7. Nowe rozróżnienie harmonogramów
+## 7. Kontrola pierwszeństwa i stan literatury
+
+Ważna korekta interpretacyjna: energia
+
+\[
+\Phi_\epsilon(x)=\sum_{i<j}\min\{(x_i-x_j)^2,\epsilon^2\}
+\]
+
+nie jest nową funkcją Lyapunova wprowadzoną przez ten audyt. Ten sam obcięty potencjał kwadratowy występuje w literaturze asynchronicznego modelu Hegselmanna–Krausego.
+
+Etesami i Başar, *Game-Theoretic Analysis of the Hegselmann-Krause Model for Opinion Dynamics in Finite Dimensions* (IEEE Transactions on Automatic Control 60(7), 2015; [arXiv:1412.6546](https://arxiv.org/abs/1412.6546)), ujmują asynchroniczne aktualizacje jako najlepsze odpowiedzi w grze potencjałowej. Ich twierdzenie 6 daje:
+
+\[
+\mathbb E[\#\text{ zmian topologii}]\le16n^9
+\]
+
+dla niezależnego, jednostajnego losowania jednego aktywowanego indeksu na krok. Ponieważ liczba zmian jest nieujemną zmienną całkowitą o skończonej wartości oczekiwanej, wynika stąd również, że topologia zmienia się tylko skończenie wiele razy z prawdopodobieństwem 1.
+
+Berenbrink i współautorzy, *Asynchronous Opinion Dynamics in Social Networks* (Distributed Computing 37, 2024; [DOI: 10.1007/s00446-024-00467-3](https://doi.org/10.1007/s00446-024-00467-3)), rozszerzają analizę losowych asynchronicznych aktywacji na dowolną ustaloną sieć społeczną i podają ograniczenia oczekiwanego czasu osiągnięcia stanu \(\delta\)-stabilnego. Dla grafu pełnego podają osobne ostrzejsze ograniczenie.
+
+**Co pozostaje wkładem tego audytu:**
+1. jawny, samodzielny dowód nierówności spadku dla dokładnej reguły A2 używanej w P₀;
+2. bezwarunkowy wniosek \(\sum_t\Delta_t^2<\infty\) dla każdego harmonogramu, także deterministycznego i nieuczciwego;
+3. warunkowy dowód zbieżności przy ustalonej topologii i ograniczonej uczciwości harmonogramu;
+4. wyraźne oddzielenie tego, co wynika z energii dla wszystkich harmonogramów, od tego, co wymaga założenia losowości.
+
+**Czego literatura przywołana powyżej nie rozstrzyga:** skończoności zmian topologii dla każdego deterministycznego harmonogramu ograniczenie uczciwego. Ograniczenie oczekiwanej liczby zmian przy losowym wyborze nie implikuje takiego twierdzenia dla każdej sekwencji aktywacji.
+
+**Konwencja progu:** przywołane modele standardowo używają warunku sąsiedztwa \(\le\epsilon\), natomiast P₀-Scalar v0.3.5 używa \(<\epsilon\). Wyniki trzeba przenieść z jawną kontrolą przypadków dokładnie na progu; nie zakładam automatycznej identyczności tych konwencji.
+
+## 8. Nowe rozróżnienie harmonogramów
 
 W dalszym audycie nie należy używać jednego słowa „uczciwy” na określenie różnych warunków:
 
@@ -232,26 +262,24 @@ W dalszym audycie nie należy używać jednego słowa „uczciwy” na określen
 
 Poprzednie dwa przykłady miały harmonogramy okresowe, czyli należą do klasy uczciwości ograniczonej. Nie uzasadniają same przez się wniosku dla każdego zwykłego harmonogramu uczciwego.
 
-## 8. Werdykt
+## 9. Werdykt
 
-- **✅** Istnieje dokładna energia \(\Phi_\epsilon\), która nie rośnie przy żadnym pojedynczym akcie A2.
+- **✅** Dla reguły P₀-A2 istnieje jawny spadek energii \(\Phi_\epsilon\); sama postać tej energii jest znana wcześniej z literatury asynchronicznego HK.
 - **✅** Każdy akt obniża ją co najmniej o \((|N_i|+2)\Delta_i^2\).
 - **✅** Suma kwadratów wszystkich przesunięć jest ograniczona przez \(\binom n2\epsilon^2/2\); stąd każdy pojedynczy ruch dąży do zera.
 - **✅** Globalne minimum jest niemalejące, maksimum nierosnące; oba mają granice.
 - **✅/warunkowo** Jeśli topologia progowa ustali się na stałe, a harmonogram jest ograniczenie uczciwy, dynamika zbiega do stabilnej partycji składowych.
-- **🔍** Nie wykazano, że topologia progowa ustala się na stałe dla dowolnego uczciwego harmonogramu.
+- **✅** Dla niezależnego losowania jednostajnego literatura dowodzi skończonej liczby zmian topologii z prawdopodobieństwem 1.
+- **🔍** Nie wykazano, że topologia progowa ustala się na stałe dla każdego deterministycznego harmonogramu ograniczenie uczciwego.
 - **🔍** Nie wykazano jeszcze zbieżności każdego wektora trajektorii dla dowolnego zwykłego harmonogramu uczciwego.
 - **❌** Z samego zaniku pojedynczych przesunięć nie wolno wnioskować o zbieżności całego wektora.
 
-## 9. Następny test
+## 10. Następny test
 
-Najważniejszym otwartym problemem jest teraz skończoność zmian grafu progowego:
-- czy graf \(G_\epsilon(x^t)\) może zmieniać się nieskończenie wiele razy przy harmonogramie okresowym;
-- czy może to nastąpić przy harmonogramie ograniczenie uczciwym;
-- jeśli tak, czy mimo tego wartości współrzędnych zawsze zbiegają, czy istnieje kontrprzykład.
+Najważniejszym otwartym problemem jest teraz deterministyczny harmonogram ograniczenie uczciwy. Wynik losowy Etesami–Başara nie wystarcza, by wykluczyć nieskończenie wiele przełączeń pod adversarialną sekwencją. Trzeba albo uzyskać blokowy argument spadku potencjału dla każdego harmonogramu ograniczenie uczciwego, albo skonstruować dokładny kontrprzykład.
 
 To jest właściwy test przed budowaniem asymptotycznego automatu Scalar.
 
-## 10. Integralność zakresu
+## 11. Integralność zakresu
 
 Analiza dotyczy matematycznych korzeni N-R2. MVP-02 nie było otwierane ani modyfikowane. Zapis wyłącznie na gałęzi audytowej; bez merge/rebase z main.
