@@ -83,7 +83,7 @@ F_\varepsilon=\mathcal L_C.
 
 Dla \(n\ge3\) profil początkowy jest niepusty i różny od profili po niepustych historiach, ponieważ nie zawiera \(\varepsilon\), podczas gdy każdy profil po historii z \(\mathcal L_C\) zawiera \(\varepsilon\).
 
-Profile odpowiadające różnym podzbiorom \(S,T\) o liczności nie większej niż \(n-2\) są różne. Jeśli na przykład \(S\setminus T\ne\varnothing\), można dobrać kontynuację, której nośnik zawiera \(S\) i ma dokładnie \(n-2\) elementów. Jest ona dopuszczalna po \(S\), ale niedopuszczalna po \(T\), ponieważ suma zbiorów ma wtedy co najmniej \(n-1\) elementów.
+Profile odpowiadające różnym podzbiorom \(S,T\) o liczności nie większej niż \(n-2\) są różne. Po ewentualnej zamianie ról wybierz \(x\in S\setminus T\). Dobierz zbiór \(Z\) tak, aby \(T\subseteq Z\), \(|Z|=n-2\) oraz \(x\notin Z\). Taki wybór jest możliwy: do \(T\) trzeba dodać \(n-2-|T|\) indeksów, a poza \(T\cup\{x\}\) pozostaje \(n-|T|-1\) indeksów. Dla słowa \(z\) o nośniku \(Z\), kontynuacja jest dopuszczalna po \(T\), bo \(|T\cup Z|=n-2\), ale niedopuszczalna po \(S\), bo \(x\in S\setminus Z\) daje \(|S\cup Z|\ge n-1\).
 
 Otrzymujemy dokładną reprezentację profili przez podzbiory:
 
