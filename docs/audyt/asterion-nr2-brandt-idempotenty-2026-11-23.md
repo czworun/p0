@@ -134,6 +134,31 @@ Wynikowy graf prosty jest pełnym grafem \(K_n\).
 
 **Dowód.** Idempotenty zostały wyliczone wyżej. Każdy niezerowy element ma postać \(e_{ij}\), a jego dwa idempotenty nośne są odpowiednio \(e_{ii}\) i \(e_{jj}\). Reguła mnożenia daje dokładnie jeden element o danej uporządkowanej parze nośników. Po utożsamieniu pary elementów odwrotnych \(e_{ij}\sim e_{ji}\) otrzymujemy dokładnie jedną krawędź dla każdej pary różnych idempotentów. \(\square\)
 
+### Charakterystyka algebraiczna — nie tylko przykład z etykietami
+
+Ten wynik można zapisać bez indeksowania (1,ldots,4). Niech (S) będzie odwrotną półgrupą z zerem, a (P) zbiorem jej niezerowych idempotentów pierwotnych. Przyjmijmy:
+
+1. (P) ma dokładnie cztery elementy;
+2. dla każdego (a
+eq0), oba idempotenty nośne (aa^*) i (a^*a) należą do (P);
+3. dla każdej uporządkowanej pary ((p,q)in P^2) istnieje dokładnie jeden element (a_{pq}) spełniający (aa^*=p) oraz (a^*a=q).
+
+Wtedy mnożenie jest wymuszone:
+
+[
+a_{pq}a_{rs}=
+egin{cases}
+a_{ps},&q=r,\
+0,&q
+eq r.
+end{cases}
+]
+
+Dla (q=r) produkt jest niezerowy i ma nośniki (p,s), więc z jednoznaczności musi być równy (a_{ps}). Dla (q
+eq r) idempotenty (q,r) są różne i pierwotne, a zatem ortogonalne; wtedy (a_{pq}a_{rs}=0). Ponadto (a_{pp}=p) i (a_{pq}^*=a_{qp}). Otrzymujemy więc izomorfizm (S\cong B_4^0).
+
+To jest użyteczne doprecyzowanie: **jeśli** te trzy warunki są spełnione, algebra relacji jest jednoznaczna do izomorfizmu. Nie są one jednak wyprowadzone z aksjomatów P₀. Pierwszy z nich nadal postuluje cztery idempotenty, a drugi i trzeci postulują pełną, cienką łączność każdej pary.
+
 ## 5. Przypadek \(n=4\): dokładne odzyskanie K₄
 
 Dla \(n=4\):
