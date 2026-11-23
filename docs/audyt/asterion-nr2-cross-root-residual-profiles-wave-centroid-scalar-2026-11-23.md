@@ -346,14 +346,6 @@ Język skończonego osiągnięcia stabilności jest więc \(A^*\) dla stanu już
 Oddzielnie pozostaje prawdziwe, że graf progowy nie jest wystarczającym stanem do przewidywania wszystkich przyszłych grafów relacji: aktualizacja zależy od ilościowych marginesów. Zob. [kontrprzykład dla mieszanego grafu progowego](asterion-nr2-scalar-threshold-graph-insufficient-mixed-2026-11-23.md).
 
 
-### 4.7. Dodatkowe domknięcie geometryczne: partycja składowych Scalar
-
-Dla ścisłej reguły progu \(<\epsilon\) przedziały wypukłe różnych składowych grafu progowego na prostej są oddalone o co najmniej \(\epsilon\). Każdy lokalny akt jest średnią wartości należących do jednej składowej, więc pozostaje w jej dotychczasowym przedziale wypukłym. Różne składowe nie mogą się ponownie połączyć.
-
-Stąd partycja indeksów na składowe spójności tylko się rozdrabnia i stabilizuje po najwyżej \(n-c_0\) ścisłych podziałach, niezależnie od harmonogramu.
-
-To nie zamraża wszystkich krawędzi wewnątrz końcowych bloków. Każdy taki blok pozostaje spójny w każdej chwili, ale jego wewnętrzna topologia może nadal się zmieniać. Dowód i dokładna granica wniosku: [monotoniczne rozdrabnianie partycji składowych Scalar](asterion-nr2-scalar-component-partition-monotone-refinement-2026-11-23.md).
-
 ### 4.6. Kontrola literatury: asymptotyka Scalar nie jest pustym polem
 
 Należy odnotować, że część pytań o asynchroniczne A2 ma już wyniki w modelu Hegselmanna–Krausego.
@@ -363,6 +355,15 @@ Etesami–Başar (2015, [arXiv:1412.6546](https://arxiv.org/abs/1412.6546), twie
 Berenbrink i współautorzy (2024, [DOI: 10.1007/s00446-024-00467-3](https://doi.org/10.1007/s00446-024-00467-3)) dowodzą oczekiwanego ograniczenia czasu do stanu \(\delta\)-stabilnego dla asynchronicznej dynamiki na dowolnej ustalonej sieci społecznej, przy losowym wyborze aktywowanego agenta.
 
 Nie są to jednak twierdzenia dla każdego deterministycznego harmonogramu ograniczenie uczciwego. Wynik losowy i wynik dla harmonogramu adversarialnego mają różne kwantyfikatory. Dodatkowo publikacje używają standardowej konwencji \(\le\epsilon\), a P₀-Scalar — \(<\epsilon\); przypadki dokładnie na progu wymagają osobnego przeniesienia dowodu.
+
+
+### 4.7. Dodatkowe domknięcie geometryczne: partycja składowych Scalar
+
+Dla ścisłej reguły progu \(<\epsilon\) przedziały wypukłe różnych składowych grafu progowego na prostej są oddalone o co najmniej \(\epsilon\). Każdy lokalny akt jest średnią wartości należących do jednej składowej, więc pozostaje w jej dotychczasowym przedziale wypukłym. Różne składowe nie mogą się ponownie połączyć.
+
+Stąd partycja indeksów na składowe spójności tylko się rozdrabnia i stabilizuje po najwyżej \(n-c_0\) ścisłych podziałach, niezależnie od harmonogramu.
+
+To nie zamraża wszystkich krawędzi wewnątrz końcowych bloków. Każdy taki blok pozostaje spójny w każdej chwili, ale jego wewnętrzna topologia może nadal się zmieniać. Dowód i dokładna granica wniosku: [monotoniczne rozdrabnianie partycji składowych Scalar](asterion-nr2-scalar-component-partition-monotone-refinement-2026-11-23.md).
 
 ## 5. Porównanie trzech korzeni
 
