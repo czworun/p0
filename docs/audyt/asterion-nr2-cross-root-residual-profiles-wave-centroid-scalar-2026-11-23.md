@@ -423,7 +423,7 @@ Nie jest to jednak jeszcze prawo P₀ — to zapis miejsca, w którym prawo musi
 
 Nie należy teraz szukać liczby cztery w liczbie stanów automatu — wynik Centroidu pokazuje, że liczność zależy od przyjętego języka, a nie wynika z samej konstrukcji resztkowej.
 
-Następny krok powinien dotyczyć Scalar: sprawdzić, czy dla konfiguracji początkowej o mieszanej strukturze progowej język \(\mathcal L_{S,x}\) ma nietrywialne profile resztkowe, oraz czy da się je opisać wyłącznie przez relacje progowe, bez zachowywania pełnych wartości liczbowych. Dopiero potem można zapytać o wspólną redukcję Scalar–Centroid–Wave.
+Następny krok powinien dotyczyć nieskończonych harmonogramów A2: ustalić, czy trajektorie zbiegają do stabilnych partycji dla ogólnych konfiguracji, jak granica zależy od porządku aktualizacji i czy istnieje wspólna redukcja profili asymptotycznych Scalar–Centroid–Wave.
 
 ## 9. Integralność zakresu
 
