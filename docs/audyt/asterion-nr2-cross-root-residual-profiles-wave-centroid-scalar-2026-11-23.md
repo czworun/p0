@@ -323,6 +323,28 @@ A^*,&\text{jeżeli każdy blok jest już stały},\\
 
 To wzmacnia wniosek: osiąganie stabilności w skończonej liczbie aktów nie daje bogatego, uniwersalnego automatu Scalar w obszarze konfiguracji, w którym graf progowy jest już rozłożony na oddzielone klastry. Dla bardziej ogólnych grafów progowych pozostaje osobny test.
 
+### 4.5. Twierdzenie ogólne: stabilności nie da się osiągnąć w skończonej sekwencji
+
+Późniejszy dowód zamyka wcześniejszą otwartą kwestię dla wszystkich grafów progowych, nie tylko dla jednej kliki czy rozłącznej sumy klik. Dla każdego lokalnego aktu:
+
+\[
+C_i^{-1}(\mathcal S_\epsilon)=\mathcal S_\epsilon.
+\]
+
+Jeśli po akcie \(C_i\) stan jest stabilny, to aktualizowana współrzędna musiała już mieć tę samą wartość co po aktualizacji. W przeciwnym razie stabilność końcowa wymusza, by wszyscy jej progowi sąsiedzi leżeli po tej samej stronie wartości końcowej, co uniemożliwia uzyskanie tej wartości przez ich średnią z aktualizowaną współrzędną.
+
+Wobec tego dla dowolnego skończonego słowa \(w\):
+
+\[
+T_w(x)\in\mathcal S_\epsilon
+\iff
+x\in\mathcal S_\epsilon.
+\]
+
+Język skończonego osiągnięcia stabilności jest więc \(A^*\) dla stanu już stabilnego i pusty dla stanu niestabilnego. Nie ma żywego profilu nieakceptowanego w tym kryterium. Szczegóły dowodu: [raport o zakazie skończonego osiągnięcia stabilności A2](asterion-nr2-scalar-finite-time-stability-no-go-2026-11-23.md).
+
+Oddzielnie pozostaje prawdziwe, że graf progowy nie jest wystarczającym stanem do przewidywania wszystkich przyszłych grafów relacji: aktualizacja zależy od ilościowych marginesów. Zob. [kontrprzykład dla mieszanego grafu progowego](asterion-nr2-scalar-threshold-graph-insufficient-mixed-2026-11-23.md).
+
 ## 5. Porównanie trzech korzeni
 
 | Własność | Wave | Centroid | Scalar A2 |
@@ -349,7 +371,7 @@ To jest wspólna **konstrukcja behawioralna**, a nie jeszcze wspólna ontologia 
 
 - Wave mierzy przetrwanie relacyjnego modu w widmie produktu. Dopuszczalność może pojawić się dopiero po dalszej sekwencji.
 - Centroid mierzy przetrwanie lewych obserwabli. Dla dodatnich słów profil jest dokładnie kodowany przez zbiór nieużytych generatorów.
-- Scalar mierzy stabilne klasy wartości. Wszystkie gotowe stabilne konfiguracje są nieruchome pod każdym aktem; dopiero warunek osiągnięcia stabilności z określonego stanu może nadać historiom zróżnicowane przyszłości.
+- Scalar ma statyczne profile jako partycje równości, ale wszystkie stabilne konfiguracje są nieruchome pod każdym aktem. Co więcej, stabilności nie da się osiągnąć z niestabilnego stanu w skończonej liczbie aktów. Nietrywialne profile dynamiczne trzeba więc szukać w zachowaniu asymptotycznym, nie w skończonych słowach.
 
 Nie ma podstaw, aby utożsamić:
 \[
