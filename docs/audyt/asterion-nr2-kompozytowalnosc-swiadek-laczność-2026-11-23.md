@@ -2,7 +2,7 @@
 
 **Data:** 2026-11-23  
 **Zakres:** matematyczne korzenie P₀; N-R2. Bez zmian w MVP-02.  
-**Gałąź docelowa:** `audit/asterion-continuation-2026-11-20`  
+**Gałąź docelowa:** \`audit/asterion-continuation-2026-11-20\`  
 **Punkt wyjścia:** P₀-Relacje v0.3 §§1–8, N-R2; raport Asteriona o rekonstrukcji profili z semigroupoidu (2026-11-23).  
 **Status:** no-go dla kompozytowalności z gołego zbioru atomów ✅; łączne prawo niepustej kompozycji relacji binarnych na wspólnym nośniku ✅; wyprowadzenie wspólnego nośnika z relacji P₀ 💡/otwarte; wybór n=4 ❌/niewynikający.
 
@@ -41,27 +41,25 @@ To jest ograniczenie strukturalne, a nie problem braku sprytnej definicji.
 
 Warunkowo przyjmijmy wspólny zbiór X. Relacje A,B są podzbiorami X×X. Definiujemy zwykły iloczyn relacyjny:
 
-[
-Astar B={(x,z)in X^2:exists yin X, (x,y)in Aland(y,z)in B}.
-]
+\[
+A\star B=\{(x,z)\in X^2:\exists y\in X,\ (x,y)\in A\land(y,z)\in B\}.
+\]
 
 Przy konwencji „najpierw A, potem B” jest to złożenie ścieżek A→B. Nie definiujemy jednak dopuszczalności przez wcześniej nazwane źródło i cel relacji. Definiujemy ją przez istnienie wewnętrznego świadka y:
 
-[
-C(A,B)iff Astar B
-earnothing.
-]
+\[
+C(A,B)\iff A\star B\ne\varnothing.
+\]
 
 Częściowe działanie:
 
-[
-Adiamond B=
-egin{cases}
-Astar B,& Astar B
-earnothing,\
-	ext{nieokreślone},& Astar B=arnothing.
-end{cases}
-]
+\[
+A\diamond B=
+\begin{cases}
+A\star B,& A\star B\ne\varnothing,\\
+\text{nieokreślone},& A\star B=\varnothing.
+\end{cases}
+\]
 
 Dziedziną działania są niepuste relacje binarne. Iloczyn może być pusty, a wtedy para nie jest kompozytowalna w tym częściowym działaniu.
 
@@ -71,34 +69,34 @@ To jest sensowny kandydat na „zgodność samych relacji”: zgodność zachodz
 
 Dla dowolnych relacji A,B,C⊆X×X zachodzi:
 
-[
-(Astar B)star C=Astar(Bstar C).
-]
+\[
+(A\star B)\star C=A\star(B\star C).
+\]
 
 Dowód elementowy:
 
-[
-(x,w)in(Astar B)star C
-]
+\[
+(x,w)\in(A\star B)\star C
+\]
 
 wtedy i tylko wtedy, gdy istnieją y,z takie, że:
 
-[
-(x,y)in A,quad(y,z)in B,quad(z,w)in C.
-]
+\[
+(x,y)\in A,\quad(y,z)\in B,\quad(z,w)\in C.
+\]
 
 To jest równoważne temu, że:
 
-[
-(x,w)in Astar(Bstar C).
-]
+\[
+(x,w)\in A\star(B\star C).
+\]
 
 W konsekwencji:
 - (A⋆B)⋆C jest niepuste wtedy i tylko wtedy, gdy A⋆(B⋆C) jest niepuste;
 - lewa strona częściowej kompozycji jest określona dokładnie wtedy, gdy prawa jest określona;
 - jeżeli są określone, mają tę samą wartość.
 
-Zatem ◆ jest łącznym działaniem częściowym w mocnym sensie: dla trójki A,B,C obie strony są określone równocześnie i są równe.
+Zatem ◇ jest łącznym działaniem częściowym w mocnym sensie: dla trójki A,B,C obie strony są określone równocześnie i są równe.
 
 **Status: ✅ twierdzenie algebraiczne.**
 
@@ -126,11 +124,11 @@ Jeżeli X ma być zbiorem wyłonionym z relacji, trzeba najpierw zdefiniować, c
 
 Możemy sprawdzić konteksty kompozycji dla niepustych relacji binarnych:
 
-[
-L(A)={Q:Qdiamond A	ext{ określone}},
-quad
-R(A)={Q:Adiamond Q	ext{ określone}}.
-]
+\[
+L(A)=\{Q:Q\diamond A\text{ określone}\},
+\quad
+R(A)=\{Q:A\diamond Q\text{ określone}\}.
+\]
 
 Dla zwykłych relacji binarnych:
 - Q⋆A≠∅ wtedy i tylko wtedy, gdy obraz Q przecina dziedzinę A;
