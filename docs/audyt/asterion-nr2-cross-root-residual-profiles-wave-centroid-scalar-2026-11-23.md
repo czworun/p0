@@ -371,7 +371,7 @@ To jest wspólna **konstrukcja behawioralna**, a nie jeszcze wspólna ontologia 
 
 - Wave mierzy przetrwanie relacyjnego modu w widmie produktu. Dopuszczalność może pojawić się dopiero po dalszej sekwencji.
 - Centroid mierzy przetrwanie lewych obserwabli. Dla dodatnich słów profil jest dokładnie kodowany przez zbiór nieużytych generatorów.
-- Scalar ma statyczne profile jako partycje równości, ale wszystkie stabilne konfiguracje są nieruchome pod każdym aktem. Stabilności nie da się osiągnąć z niestabilnego stanu w skończonej liczbie aktów. Dla dynamiki nieskończonej istnieje dokładna energia \(\Phi_\epsilon=\sum_{i<j}\min\{(x_i-x_j)^2,\epsilon^2\}\), która obniża się o co najmniej \((|N_i|+2)\Delta_i^2\) przy każdym akcie. Stąd ruchy pojedyncze zanikają i globalne ekstrema mają granice; pełna zbieżność trajektorii pozostaje do udowodnienia przy zmiennej topologii.
+- Scalar ma statyczne profile jako partycje równości, ale wszystkie stabilne konfiguracje są nieruchome pod każdym aktem. Stabilności nie da się osiągnąć z niestabilnego stanu w skończonej liczbie aktów. Dla dynamiki nieskończonej istnieje dokładna energia \(\Phi_\epsilon=\sum_{i<j}\min\{(x_i-x_j)^2,\epsilon^2\}\), która obniża się o co najmniej \((|N_i|+2)\Delta_i^2\) przy każdym akcie. Stąd ruchy pojedyncze zanikają i globalne ekstrema mają granice; pełna zbieżność trajektorii pozostaje do udowodnienia przy zmiennej topologii. Szczegóły: [globalna energia Lyapunova i harmonogramy uczciwe](asterion-nr2-scalar-global-lyapunov-fair-schedules-2026-11-23.md).
 
 Nie ma podstaw, aby utożsamić:
 \[
