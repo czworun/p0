@@ -305,6 +305,104 @@ To dowodzi, że asymptotyczny profil Scalar nie jest funkcją samego początkowe
 
 Różnicę powoduje ilościowy margines \(d_{01}\): w pierwszej konfiguracji aktualizacja przesuwa 0 na tyle daleko od 1, że relacja progowa znika; w drugiej odległość pozostaje poniżej progu, po czym cały graf staje się kliką.
 
+### 6.1. Ten sam stan początkowy, inny harmonogram, inna granica
+
+Zmieniamy teraz tylko kolejność aktualizacji, pozostawiając ten sam stan początkowy:
+
+\[
+x=\left(0,-\frac9{10},\frac9{10},\frac9{10}\right).
+\]
+
+Porównujemy dwa okresowe harmonogramy:
+
+\[
+\sigma_A=(0,1,2,3)^\omega,
+\qquad
+\sigma_B=(1,0,2,3)^\omega.
+\]
+
+Dla \(\sigma_A\) wykazano już:
+
+\[
+x^{(m)}\longrightarrow
+\left(\frac9{16},-\frac9{10},\frac9{16},\frac9{16}\right),
+\]
+
+czyli graniczną partycję \(\{\{1\},\{0,2,3\}\}\).
+
+Dla \(\sigma_B\) pierwsza runda daje kolejno:
+
+\[
+\begin{aligned}
+C_1(x)&=\left(0,-\frac9{20},\frac9{10},\frac9{10}\right),\\
+C_0C_1(x)&=\left(\frac{27}{80},-\frac9{20},\frac9{10},\frac9{10}\right),\\
+C_2C_0C_1(x)&=\left(\frac{27}{80},-\frac9{20},\frac{57}{80},\frac9{10}\right),\\
+C_3C_2C_0C_1(x)&=\left(\frac{27}{80},-\frac9{20},\frac{57}{80},\frac{13}{20}\right).
+\end{aligned}
+\]
+
+Na początku drugiej rundy akt \(C_1\) ma jedynego sąsiada 0 i zmienia współrzędną 1 na:
+
+\[
+r_1=\frac12\left(-\frac9{20}+\frac{27}{80}\right)
+=-\frac9{160}.
+\]
+
+Po tym kroku rozstęp konfiguracji jest równy:
+
+\[
+\frac{57}{80}+\frac9{160}=\frac{123}{160}<1.
+\]
+
+Graf staje się pełną kliką \(K_4\). Ponieważ dalsze aktualizacje są średnimi współrzędnych w przedziale o średnicy mniejszej niż 1, klika pozostaje pełna.
+
+Od tego momentu można grupować kolejne akty w cykl o kolejności \(0,2,3,1\). Macierz takiego cyklu na pełnym grafie to:
+
+\[
+Q'=
+\begin{pmatrix}
+1/4&1/4&1/4&1/4\\
+25/256&125/256&45/256&61/256\\
+1/16&5/16&5/16&5/16\\
+5/64&25/64&9/64&25/64
+\end{pmatrix}.
+\]
+
+Jest dodatnia i stochastyczna. Jej rozkład stacjonarny wynosi:
+
+\[
+\pi_B=\left(\frac1{10},\frac25,\frac15,\frac3{10}\right).
+\]
+
+Zastosowanie go do stanu po drugim akcie \(C_1\),
+
+\[
+u=\left(\frac{27}{80},-\frac9{160},\frac{57}{80},\frac{13}{20}\right),
+\]
+
+daje granicę:
+
+\[
+\pi_Bu=\frac{279}{800}.
+\]
+
+A zatem:
+
+\[
+\boxed{
+x_{\sigma_B}^{(m)}
+\longrightarrow
+\left(\frac{279}{800},\frac{279}{800},
+\frac{279}{800},\frac{279}{800}\right).
+}
+\]
+
+Ten sam stan początkowy daje więc:
+- pod \(\sigma_A\): dwa klastry graniczne;
+- pod \(\sigma_B\): jeden klaster, pełny konsensus.
+
+**Wynik ✅:** graniczny profil Scalar zależy nie tylko od ilościowych marginesów początkowych, lecz także od kolejności aktów. Oba harmonogramy są okresowe i aktualizują każdy indeks raz na okres.
+
 ## 7. Związek z zakazem skończonej stabilizacji
 
 Poprzedni lemat wykazał:
@@ -344,15 +442,14 @@ Nie wynika stąd żaden selektor liczby cztery.
 - **✅** Dla konfiguracji y granica jest pełnym konsensusem \(1589/3600\).
 - **✅** Obie granice wynikają z dodatnich macierzy stochastycznych, więc zbieżność jest ścisła, nie jest jedynie obserwacją numeryczną.
 - **✅** Asymptotyczny profil wymaga ilościowych marginesów odległości; sam graf progowy nie wystarcza.
+- **✅** Dla tego samego stanu początkowego dwa uczciwe harmonogramy okresowe mogą dać różne graniczne partycje.
 - **🔍** Ogólne kryteria zbieżności dla wszystkich uczciwych harmonogramów A2 pozostają poza tym przykładem.
 - **❌** Nie można zdefiniować dokładnego asymptotycznego profilu Scalar wyłącznie jako funkcji początkowej partycji progowej.
 - **💡** W P₀ warto szukać relacyjnego odpowiednika marginesu: informacji o tym, jak daleko para relacji znajduje się od granicy kompatybilności, bez zakładania z góry euklidesowej metryki.
 
 ## 10. Następny test
 
-Następnie należy sprawdzić, czy dla ustalonego okresowego harmonogramu A2 granica istnieje dla każdej konfiguracji początkowej, czy tylko dla badanych klas. Osobno trzeba zbadać zależność wyniku od kolejności harmonogramu: czy ta sama konfiguracja i inna permutacja pełnej rundy mogą wybrać inną graniczną partycję.
-
-To rozdzieli trzy źródła informacji: początkowy graf, ilościowe marginesy i kolejność aktów.
+Następnie należy ustalić, czy każda trajektoria A2 pod dowolnym uczciwym harmonogramem zbiega, oraz scharakteryzować możliwe graniczne partycje i ich baseny. Przykład rozdziela już trzy źródła informacji: początkowy graf, ilościowe marginesy i kolejność aktów; otwarty jest ich ogólny opis.
 
 ## 11. Integralność zakresu
 
