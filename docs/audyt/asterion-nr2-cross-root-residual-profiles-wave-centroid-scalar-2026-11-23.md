@@ -415,8 +415,10 @@ Nie jest to jednak jeszcze prawo P₀ — to zapis miejsca, w którym prawo musi
 - **✅** Wave i Centroid nie są izomorficzne jako automaty oznaczone językiem akceptacji: Wave ma nieakceptowaną, lecz żywą historię, Centroid jest factorialny.
 - **✅** Każda stabilna konfiguracja Scalar A2 jest nieruchoma pod każdym lokalnym aktem.
 - **✅** Kryterium samego utrzymania jakiejkolwiek niebanalnej stabilnej partycji daje w Scalar język \(A^*\).
-- **✅** Dla kryterium osiągnięcia stabilności w skończonym czasie język Scalar zależy od konfiguracji początkowej; pokazano dokładne przypadki \(A^*\) i \(\varnothing\).
-- **❌** Nie ma obecnie podstaw do utożsamienia profili Wave, Centroidu i Scalar jako tych samych obiektów matematycznych.
+- **✅** Dla kryterium osiągnięcia stabilności w skończonym czasie język Scalar jest dokładnie \(A^*\) dla stanu stabilnego i \(\varnothing\) dla niestabilnego; żadne skończone słowo nie stabilizuje niestabilnej konfiguracji.
+- **✅** Sam graf progowy nie wyznacza następnego grafu ani asymptotycznego profilu Scalar.
+- **✅** Dwie konfiguracje o tym samym początkowym grafie i tym samym okresowym harmonogramie mogą dojść do różnych granicznych partycji.
+- **✅** Dla tego samego stanu początkowego zmiana permutacji aktualizacji może zmienić graniczną partycję; przykłady z granicami \(9/16\), \(-9/10\) oraz \(279/800\) podano w [raporcie o asymptotycznych profilach Scalar](asterion-nr2-scalar-asymptotic-profiles-same-graph-2026-11-23.md).- **❌** Nie ma obecnie podstaw do utożsamienia profili Wave, Centroidu i Scalar jako tych samych obiektów matematycznych.
 - **💡** Wszystkie trzy można traktować jako realizacje ogólnego automatu przyszłych kontynuacji, jeśli P₀ dostarczy niezależnego prawa określającego, które historie są żywe i propagacyjne.
 
 ## 8. Następny test
