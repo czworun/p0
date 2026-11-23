@@ -350,10 +350,10 @@ Oddzielnie pozostaje prawdziwe, że graf progowy nie jest wystarczającym stanem
 | Własność | Wave | Centroid | Scalar A2 |
 |---|---|---|---|
 | Kryterium akceptacji | niebanalny mod jednostkowy | niezerowy niezmiennik po słowie | osiągnięcie / utrzymanie stabilnej partycji |
-| Domknięcie na fragmenty | nie | tak | zależne od warunku początkowego |
-| Profil nieakceptowany, ale żywy | tak — \(02T\) | nie | możliwy do zbadania dopiero po ustaleniu \(x\) |
-| Liczność profili | nieustalona | dokładna: \(\sum_{r=0}^{n-2}\binom nr\) | trywialna dla dwóch skrajnych reżimów; ogólnie zależna od \(x\) |
-| Nośnik profilu | przyszłe kontynuacje słów | zbiory zachowanych indeksów / niezmienniki | klasy równości wartości i trajektoria stanu |
+| Domknięcie na fragmenty | nie | tak | tak dla skończonego testu stabilności (\(A^*\) albo \(\varnothing\)) |
+| Profil nieakceptowany, ale żywy | tak — \(02T\) | nie | nie dla skończonej stabilizacji; asymptotyczne otwarte |
+| Liczność profili | nieustalona | dokładna: \(\sum_{r=0}^{n-2}\binom nr\) | przy skończonej stabilizacji: \(A^*\) lub \(\varnothing\); asymptotycznie zależna od marginesów |
+| Nośnik profilu | przyszłe kontynuacje słów | zbiory zachowanych indeksów / niezmienniki | graniczna partycja zależna od marginesów i harmonogramu |
 
 ### 5.1. Co jest wspólne?
 
