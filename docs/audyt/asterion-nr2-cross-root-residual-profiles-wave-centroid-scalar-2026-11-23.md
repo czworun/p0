@@ -95,7 +95,7 @@ Otrzymujemy dokładną reprezentację profili przez podzbiory:
 }
 \]
 
-Liczba żywych profili, z profilem początkowym włącznie, wynosi:
+Dla (n\ge3) liczba żywych profili, z profilem początkowym włącznie, wynosi:
 
 \[
 \boxed{
@@ -127,7 +127,7 @@ N_C(4)=\binom40+\binom41+\binom42=1+4+6=11.
 
 Jest więc jeden profil początkowy, cztery profile po użyciu jednego generatora i sześć po użyciu dwóch różnych generatorów. Po pojawieniu się trzeciego różnego generatora przyszły profil jest pusty.
 
-Dla porównania \(N_C(3)=1+3=4\). Ta liczba cztery pojawia się dla \(n=3\), a nie \(n=4\), i jest wyłącznie liczbą węzłów obciętej kraty. Nie jest selektorem wymiaru ani argumentem na rzecz \(K_4\).
+Dla (n=2) język \(\mathcal L_C\) jest pusty, więc nie ma żywych profili. Dla porównania \(N_C(3)=1+3=4\). Ta liczba cztery pojawia się dla \(n=3\), a nie \(n=4\), i jest wyłącznie liczbą węzłów obciętej kraty. Nie jest selektorem wymiaru ani argumentem na rzecz \(K_4\).
 
 **Wynik ✅:** język Centroidu i jego żywy automat resztkowy są dokładnie wyznaczone przez liczbę różnych aktywnych generatorów.
 
@@ -272,6 +272,36 @@ Każdy skończony produkt tych kroków jest odwracalny i zachowuje linię konsen
 W tych dwóch dopuszczalnych reżimach Scalar daje odpowiednio język \(A^*\) lub język pusty. Profile resztkowe są w każdym przypadku trywialne, ale z przeciwnych przyczyn.
 
 **Wniosek 🔍:** Scalar nie dostarcza jednego, niezależnego od konfiguracji początkowej języka dopuszczalnych historii. Statyczny zbiór punktów stałych wyznacza partycje, ale nie wybiera prawa przyszłych kontynuacji. Potrzebny jest dodatkowy warunek początkowy oraz rozstrzygnięcie, czy chodzi o osiągnięcie stabilności w skończonym czasie, czy o stabilność asymptotyczną.
+
+
+### 4.3. Cała rodzina początkowych klastrów daje ten sam skrajny wynik
+
+Powyższy argument rozszerza się na konfiguracje, których początkowy graf progowy jest rozłączną sumą klik. Niech bloki \(B_1,\ldots,B_m\) spełniają:
+
+\[
+\max_{i,j\in B_a}|x_i-x_j|<\epsilon,
+\qquad
+|x_i-x_j|\ge\epsilon\quad
+(i\in B_a,\ j\in B_b,\ a\ne b).
+\]
+
+Każdy blok jest więc wewnętrznie pełnym klastrem, a bloki są od siebie oddzielone progiem.
+
+Lokalna aktualizacja wewnątrz bloku jest średnią wszystkich współrzędnych tego bloku. Nowa wartość pozostaje w jego początkowym przedziale wypukłym. Średnica bloku nie rośnie, a odległości między blokami nie maleją poniżej progu. Podział na bloki pozostaje zatem niezmienny podczas dowolnej sekwencji lokalnych aktów.
+
+Na bloku o liczności \(m_a\) każdy akt ma postać macierzy \(M_i^{(m_a)}\) o wyznaczniku \(1/m_a\) (dla bloku jednoelementowego akt jest identycznością). Każdy skończony produkt jest odwracalny i zachowuje linię stałą bloku. Nie może więc przekształcić nieconstantowej konfiguracji bloku w wektor stały. Ponieważ wszystkie pary w obrębie bloku pozostają w odległości mniejszej niż \(\epsilon\), stabilność wymagałaby właśnie takiego wyrównania.
+
+W konsekwencji, dla tej całej klasy początkowych konfiguracji:
+
+\[
+\mathcal L_{S,x}=
+\begin{cases}
+A^*,&\text{jeżeli każdy blok jest już stały},\\
+\varnothing,&\text{jeżeli przynajmniej jeden blok jest nieconstantowy}.
+\end{cases}
+\]
+
+To wzmacnia wniosek: finite-time reachability nie daje bogatego, uniwersalnego automatu Scalar w obszarze konfiguracji, w którym graf progowy jest już rozłożony na oddzielone klastry. Dla bardziej ogólnych grafów progowych pozostaje osobny test.
 
 ## 5. Porównanie trzech korzeni
 
