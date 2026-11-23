@@ -85,7 +85,7 @@ Dla \(n\ge3\) profil początkowy jest niepusty i różny od profili po niepustyc
 
 Profile odpowiadające różnym podzbiorom \(S,T\) o liczności nie większej niż \(n-2\) są różne. Po ewentualnej zamianie ról wybierz \(x\in S\setminus T\). Dobierz zbiór \(Z\) tak, aby \(T\subseteq Z\), \(|Z|=n-2\) oraz \(x\notin Z\). Taki wybór jest możliwy: do \(T\) trzeba dodać \(n-2-|T|\) indeksów, a poza \(T\cup\{x\}\) pozostaje \(n-|T|-1\) indeksów. Dla słowa \(z\) o nośniku \(Z\), kontynuacja jest dopuszczalna po \(T\), bo \(|T\cup Z|=n-2\), ale niedopuszczalna po \(S\), bo \(x\in S\setminus Z\) daje \(|S\cup Z|\ge n-1\).
 
-Otrzymujemy dokładną reprezentację profili przez podzbiory:
+Dla \(n\ge3\) otrzymujemy dokładną reprezentację żywych profili przez podzbiory:
 
 \[
 \boxed{
@@ -95,7 +95,7 @@ Otrzymujemy dokładną reprezentację profili przez podzbiory:
 }
 \]
 
-Dla (n\ge3) liczba żywych profili, z profilem początkowym włącznie, wynosi:
+Dla \(n\ge3\) liczba żywych profili, z profilem początkowym włącznie, wynosi:
 
 \[
 \boxed{
@@ -127,7 +127,7 @@ N_C(4)=\binom40+\binom41+\binom42=1+4+6=11.
 
 Jest więc jeden profil początkowy, cztery profile po użyciu jednego generatora i sześć po użyciu dwóch różnych generatorów. Po pojawieniu się trzeciego różnego generatora przyszły profil jest pusty.
 
-Dla (n=2) język \(\mathcal L_C\) jest pusty, więc nie ma żywych profili. Dla porównania \(N_C(3)=1+3=4\). Ta liczba cztery pojawia się dla \(n=3\), a nie \(n=4\), i jest wyłącznie liczbą węzłów obciętej kraty. Nie jest selektorem wymiaru ani argumentem na rzecz \(K_4\).
+Dla \(n=2\) język \(\mathcal L_C\) jest pusty, więc nie ma żywych profili. Dla porównania \(N_C(3)=1+3=4\). Ta liczba cztery pojawia się dla \(n=3\), a nie \(n=4\), i jest wyłącznie liczbą węzłów obciętej kraty. Nie jest selektorem wymiaru ani argumentem na rzecz \(K_4\).
 
 **Wynik ✅:** język Centroidu i jego żywy automat resztkowy są dokładnie wyznaczone przez liczbę różnych aktywnych generatorów.
 
@@ -289,7 +289,7 @@ Każdy blok jest więc wewnętrznie pełnym klastrem, a bloki są od siebie oddz
 
 Lokalna aktualizacja wewnątrz bloku jest średnią wszystkich współrzędnych tego bloku. Nowa wartość pozostaje w jego początkowym przedziale wypukłym. Średnica bloku nie rośnie, a odległości między blokami nie maleją poniżej progu. Podział na bloki pozostaje zatem niezmienny podczas dowolnej sekwencji lokalnych aktów.
 
-Na bloku o liczności \(m_a\) każdy akt ma postać macierzy \(M_i^{(m_a)}\) o wyznaczniku \(1/m_a\) (dla bloku jednoelementowego akt jest identycznością). Każdy skończony produkt jest odwracalny i zachowuje linię stałą bloku. Nie może więc przekształcić nieconstantowej konfiguracji bloku w wektor stały. Ponieważ wszystkie pary w obrębie bloku pozostają w odległości mniejszej niż \(\epsilon\), stabilność wymagałaby właśnie takiego wyrównania.
+Na bloku o liczności \(m_a\) każdy akt ma postać macierzy \(M_i^{(m_a)}\) o wyznaczniku \(1/m_a\) (dla bloku jednoelementowego akt jest identycznością). Każdy skończony produkt jest odwracalny i zachowuje linię stałą bloku. Nie może więc przekształcić niejednakowej konfiguracji bloku w wektor stały. Ponieważ wszystkie pary w obrębie bloku pozostają w odległości mniejszej niż \(\epsilon\), stabilność wymagałaby właśnie takiego wyrównania.
 
 W konsekwencji, dla tej całej klasy początkowych konfiguracji:
 
@@ -297,11 +297,11 @@ W konsekwencji, dla tej całej klasy początkowych konfiguracji:
 \mathcal L_{S,x}=
 \begin{cases}
 A^*,&\text{jeżeli każdy blok jest już stały},\\
-\varnothing,&\text{jeżeli przynajmniej jeden blok jest nieconstantowy}.
+\varnothing,&\text{jeżeli przynajmniej jeden blok nie ma stałej wartości}.
 \end{cases}
 \]
 
-To wzmacnia wniosek: finite-time reachability nie daje bogatego, uniwersalnego automatu Scalar w obszarze konfiguracji, w którym graf progowy jest już rozłożony na oddzielone klastry. Dla bardziej ogólnych grafów progowych pozostaje osobny test.
+To wzmacnia wniosek: osiąganie stabilności w skończonej liczbie aktów nie daje bogatego, uniwersalnego automatu Scalar w obszarze konfiguracji, w którym graf progowy jest już rozłożony na oddzielone klastry. Dla bardziej ogólnych grafów progowych pozostaje osobny test.
 
 ## 5. Porównanie trzech korzeni
 
