@@ -248,7 +248,7 @@ więc (V_\rho) i (V_{\rm cyc}) są nieizomorficznymi reprezentacjami (S_4). Nie 
 
 **Twierdzenie 3 — ✅ warunkowo.** W klasie pełnych grafów (K_n) aksjomat równowagi (dim(	ext{różnice})=dim(	ext{cykle})) wymusza (n=4).
 
-**Status zasady równowagi — 💡.** Korzenie pokazują zgodność wymiarów dla K₄, ale nie postulują, że dwa sektory muszą mieć tyle samo stopni swobody. P₀-Axis §16bis/§21 stawia pytanie, czy równość wymiarów (V_\rho) i (V_{\rm cyc}) jest zbiegiem wymiarowym, czy głębszą zgodnością. Nie wolno zmienić tego pytania w aksjomat bez osobnego uzasadnienia.
+**Status zasady równowagi — 💡.** Korzenie pokazują zgodność wymiarów dla K₄, ale nie postulują, że dwa sektory muszą mieć tyle samo stopni swobody. P₀-Axis §16bis stawia pytanie, czy równość wymiarów (V_\rho) i (V_{\rm cyc}) jest zbiegiem wymiarowym, czy głębszą zgodnością. Nie wolno zmienić tego pytania w aksjomat bez osobnego uzasadnienia.
 
 ## 5. Kontrola pozornie krótszej drogi: dwa idempotentne generatory
 
