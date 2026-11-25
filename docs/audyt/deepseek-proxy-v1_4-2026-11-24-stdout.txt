@@ -1,0 +1,61 @@
+ ================================================================================
+PROXY v1.4 (wersja 2) — MVP-02 rachunek zerowy — DeepSeek 2026-11-24
+mpmath dps=60; start: 2026-11-24T18:27:51Z
+T_SK = 7.18873560197723
+================================================================================
+
+[A] Sanity H_t (referencyjne per (aq), 20 cyfr):
+  (1, 'surface'): ref=2.7799256086419015599 comp=2.77992560864190155994 dev=3.98e-20 OK
+  (1, 'interior'): ref=4.4638931847741486532 comp=4.463893184774148653203 dev=3.25e-21 OK
+  (2, 'surface'): ref=1.2627661133724648589 comp=1.262766113372464858931 dev=3.09e-20 OK
+  (2, 'interior'): ref=1.4077207528728531348 comp=1.407720752872853134777 dev=2.3e-20 OK
+  (3, 'surface'): ref=1.2627661133724648589 comp=1.262766113372464858931 dev=3.09e-20 OK
+  (3, 'interior'): ref=1.4077207528728531348 comp=1.407720752872853134777 dev=2.3e-20 OK
+  (4, 'surface'): ref=2.7799256086419015599 comp=2.77992560864190155994 dev=3.98e-20 OK
+  (4, 'interior'): ref=4.4638931847741486532 comp=4.463893184774148653203 dev=3.25e-21 OK
+  (5, 'surface'): ref=12.142544504890295249 comp=12.14254450489029524878 dev=2.24e-19 OK
+  (5, 'interior'): ref=15.682603751680600089 comp=15.68260375168060008856 dev=4.39e-19 OK
+
+[B] Regresja 7 bracketow STAB diag v1.1:
+  (1, 'surface'): computed=[2.43215143734,2.43220759933] expected=[2.43215,2.43221] OK
+  (1, 'interior'): computed=[1.11414169431,1.11419785631] expected=[1.11414,1.1142] OK
+  (2, 'surface'): computed=[3.6645702971,3.6646264591] expected=[3.66457,3.66463] OK
+  (2, 'interior'): computed=[3.72449514778,3.72455130978] expected=[3.7245,3.72455] OK
+  (3, 'interior'): computed=[26.9367539206,26.9368100826] expected=[26.9368,26.9368] OK
+  (4, 'surface'): computed=[28.2692534588,28.2693096208] expected=[28.2693,28.2693] OK
+  (5, 'surface'): computed=[30.8733729306,30.8734290926] expected=[30.8734,30.8734] OK
+
+[C] Pelny A.4 wszystkie 10 config (half):
+  d1 surface : RESOLVED mult=1 tau=[2.4321514373377, 2.4322075993346] flags=[]
+  d1 interior: RESOLVED mult=1 tau=[1.1141416943127, 1.1141978563096] flags=[]
+  d2 surface : RESOLVED mult=1 tau=[3.6645702971017, 3.6646264590986] flags=[]
+  d2 interior: RESOLVED mult=1 tau=[3.7244951477838, 3.7245513097807] flags=[]
+  d3 surface : RESOLVED mult=4 tau=[27.045932842533, 27.04598900453] flags=[]
+  d3 interior: RESOLVED mult=4 tau=[26.936753920578, 26.936810082574] flags=[]
+  d4 surface : RESOLVED mult=4 tau=[28.2692534588, 28.269309620797] flags=[]
+  d4 interior: RESOLVED mult=4 tau=[28.428135748003, 28.42819191] flags=[]
+  d5 surface : RESOLVED mult=8 tau=[30.873372930617, 30.873429092613] flags=[]
+  d5 interior: RESOLVED mult=8 tau=[30.897241779295, 30.897297941292] flags=[]
+
+[D] U_b interwaly per (ao):
+  U_b(d1) = [2.1828721205706, 2.1830325637665]
+  U_b(d2) = [0.98389577490274, 0.98392569024534]
+  U_b(d3) = [1.0040510646815, 1.0040552430435]
+  U_b(d4) = [0.99440912557143, 0.99441306568204]
+  U_b(d5) = [0.9992256600975, 0.99922929409519]
+
+[KILL] = WYNIK TYPOWY
+
+[F_r] = {'F_r': 1.0, 'Q3': mpf('27.04596092353107375888806066174035135203240133748745018567022'), 'M': 2, 'null_size': 8}
+
+[E] Wrazliwosc theta'=sup/3, 2*sup/3 (deskryptywnie):
+  factor=third: kill = NIESPRAWIEDLIWIONE
+  factor=twothirds: kill = NIEROZSTRZYGALNY-PARCJALNY
+
+End: 2026-11-24T18:32:55Z | elapsed=304.6s
+Attribution: code and analysis = DeepSeek; proxy execution = warsztat.
+An exception has occurred, use %tb to see the full traceback.
+
+SystemExit: 0
+/usr/local/lib/python3.13/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.
+  warn("To exit the kernel, use 'exit', 'quit', or Ctrl-D.", stacklevel=1)
