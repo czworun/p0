@@ -1,3 +1,5 @@
+> **STATUS (wpis porządkowy 2026-11-25):** rejestr ZAMROŻONY na erze 11cs (2026-11-19); nie jest aktualizowany bieżąco. Aktualna mapa prac, w tym zamknięcie MVP-02 (K3 = ✅): [INDEKS.md](INDEKS.md)
+
 # P₀ — wyniki i stan
 
 **Publiczny zrzut rejestru warsztatu — aktualizowany na bieżąco, po każdej rundzie (stan: listopad 2026; wpisy od tury 1; daty przy sekcjach odzwierciedlają momenty dopisywania). Pełne dokumenty robocze (raport replikacji, lattice, pień, dziennik) prowadzone są w warsztacie.** Żywe źródła prawdy: dokument warsztatowy „raport-p0-replikacja" (erraty §6.1, wyniki tur 3–5) i dokument warsztatowy „p0-lattice-v0-1" (rejestry §6–§7, decyzje §5). Metodyka i zasady (Z0–Z3): [docs/metodyka.md](metodyka.md).
