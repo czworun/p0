@@ -83,4 +83,3 @@ Dana (użytkownik): P₀ nie może być jednocześnie w 20 miejscach ikosaedru p
 - Reguła „zębatkowa” (po wierzchołkach; w drugim takcie wierzchołek i jego antypod jednocześnie): para antypodyczna znosi holonomię dokładnie, więc cały cykl 6 par daje tożsamość niezależnie od kolejności par, wobec 0–6,13° (mediana 1,55°) dla przypadkowych kolejności pojedynczych obrotów. 💡 Zgodne z regułą antypodów; związek (aktualizacja kontra holonomia) jest hipotezą.
 - O (fałszywe P₀) = styk 12 linii defektu; tam skupia się nieprzemienna reszta holonomii. 💡
 Otwarte: odczyt „dopełnienia”; czy orbita = obieg pierścienia 5 K₄, czy dowolna zamknięta droga.
-

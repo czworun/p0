@@ -48,4 +48,3 @@ Preguntas, seminarios y discusión abierta: la pestaña **Discussions**. Las err
 Contenidos: [CC BY 4.0](LICENSE). © Leszek Papiernik (Punto Cero).
 
 Sitio del proyecto: **[serc.pl](https://serc.pl)** — nota: la lengua de trabajo del taller es el polaco.
-

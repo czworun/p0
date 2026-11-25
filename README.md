@@ -48,4 +48,3 @@ Pytania, seminaria i swobodna dyskusja: zakładka **Discussions**. Erraty i repl
 Treści repozytorium: [CC BY 4.0](LICENSE). © Leszek Papiernik (Punkt Zerowy).
 
 Strona projektu: **[serc.pl](https://serc.pl)**
-

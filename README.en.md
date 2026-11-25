@@ -48,4 +48,3 @@ Questions, seminars, and open discussion: the **Discussions** tab. Errata and re
 Contents: [CC BY 4.0](LICENSE). © Leszek Papiernik (Point Zero).
 
 Project site: **[serc.pl](https://serc.pl)** — note: the working language of the workshop is Polish.
-

@@ -48,4 +48,3 @@ Reguła nazewnicza: audit/\<wykonawca\>-\<linia\>-\<temat lub bind\>-\<RRRR-MM-D
 2. Wersje specek to księga bindów, nie duplikaty do czyszczenia.
 3. Pliki wykonawców wpijamy verbatim, bez redakcji.
 4. Ten INDEKS aktualizujemy po każdej rundzie warsztatu.
-
