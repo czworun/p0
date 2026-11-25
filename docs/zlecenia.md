@@ -1,3 +1,5 @@
+> **STATUS (wpis porządkowy 2026-11-25):** rejestr ZAMROŻONY na erze 11cs (2026-11-19). Kolejki z ery 11cs są częściowo rozliczone (np. T15-1, T15-2); przed podjęciem tematu sprawdź aktualny stan prac: [INDEKS.md](INDEKS.md)
+
 # Zlecenia i kierunki (bank nasion)
 
 > „Z każdego sęku zawsze może puścić nowa odnoga." — zasada odnóg, tura 39. Rejestr sęków to bank uśpionych kierunków.
