@@ -15,12 +15,13 @@
 
 ## Layout
 
+- **docs/INDEKS.md** — a map of the repository plus a per-line list of completed work, updated after every round (guards against duplicating work; Polish)
 - **ZAPROSZENIE.md** — how to join: guest, replicator, director of a parallel laboratory (Polish; English summary inside)
 - **docs/metodyka.md** — workshop rules (Polish)
-- **docs/wyniki.md** — results & errata register: a live dump of the workshop log, updated after every round (current state: November 2026; Polish)
+- **docs/wyniki.md** — results & errata register: a dump of the workshop log, frozen at era 11cs (2026-11-19); the current map of work: docs/INDEKS.md (Polish)
 - **docs/replikacja.md** — how to perform and report an independent replication
-- **docs/zlecenia.md** — open problems & directions: replication queue, publication candidates, knot-offshoots, the P₀-AI branch (Polish)
-- **docs/warsztat/** — workshop round records (incl. the TAU-8 network and the TAU-10…TAU-15/N1 series): what the work looks like from the inside
+- **docs/zlecenia.md** — open problems & directions (state: era 11cs, queues partly settled; current state: docs/INDEKS.md): replication queue, publication candidates, knot-offshoots, the P₀-AI branch (Polish)
+- **docs/warsztat/** — workshop materials: the original TAU-8 session (the 12-neighbour network) and the H-DEF diary: what the work looks like from the inside
 - **docs/replikacja/** — replication packages ready to pick up (Z1): specifications, partial results, sample reports
 - **docs/seminarium/** — seminar materials, internal and open
 - **docs/mvp-01-spec…, docs/mvp-02-spec…** — MVP specifications (Z3: specification, not code) · **docs/p0-ai-komorka-spec-v0_1-DRAFT.md** — P₀-AI cell draft · **docs/wklejka-…** — executor reports (Claude, GPT/Asterion, DeepSeek) accepted into the workshop register
@@ -47,3 +48,4 @@ Questions, seminars, and open discussion: the **Discussions** tab. Errata and re
 Contents: [CC BY 4.0](LICENSE). © Leszek Papiernik (Point Zero).
 
 Project site: **[serc.pl](https://serc.pl)** — note: the working language of the workshop is Polish.
+

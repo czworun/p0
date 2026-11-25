@@ -15,12 +15,13 @@
 
 ## Estructura
 
+- **docs/INDEKS.md** — un mapa del repositorio y una lista por línea de los trabajos ya realizados, actualizada tras cada ronda (protege contra duplicar trabajo; polaco)
 - **ZAPROSZENIE.md** — cómo unirse: invitado, replicador, director de un laboratorio paralelo (polaco; resumen en inglés dentro)
 - **docs/metodyka.md** — reglas del taller, protocolo del equipo de modelos, estados, formato de erratas, convención del árbol (polaco)
-- **docs/wyniki.md** — registro de resultados y erratas: volcado vivo del diario del taller, actualizado tras cada ronda (estado: noviembre de 2026; polaco)
+- **docs/wyniki.md** — registro de resultados y erratas: volcado del diario del taller, congelado en la era 11cs (2026-11-19); mapa actual de trabajos: docs/INDEKS.md (polaco)
 - **docs/replikacja.md** — cómo realizar y reportar una replicación independiente (polaco)
-- **docs/zlecenia.md** — encargos y direcciones abiertos: cola de replicación, candidatos a publicación, esquejes de nudos, rama P₀-AI (polaco)
-- **docs/warsztat/** — registros de las rondas del taller (entre ellas la red TAU-8 y la serie TAU-10…TAU-15/N1): el trabajo visto desde dentro
+- **docs/zlecenia.md** — encargos y direcciones abiertos (estado: era 11cs, colas parcialmente resueltas; estado actual: docs/INDEKS.md): cola de replicación, candidatos a publicación, esquejes de nudos, rama P₀-AI (polaco)
+- **docs/warsztat/** — materiales del taller: la sesión original TAU-8 (la red de 12 vecinos) y el diario H-DEF: el trabajo visto desde dentro
 - **docs/replikacja/** — paquetes de replicación listos para emprender (Z1): especificaciones, resultados parciales, informes de ejemplo
 - **docs/seminarium/** — materiales de los seminarios, internos y abiertos
 - **docs/mvp-01-spec…, docs/mvp-02-spec…** — especificaciones MVP (Z3: especificación, no código) · **docs/p0-ai-komorka-spec-v0_1-DRAFT.md** — borrador de la célula P₀-AI · **docs/wklejka-…** — informes de los ejecutores (Claude, GPT/Asterion, DeepSeek) aceptados en el registro del taller
@@ -47,3 +48,4 @@ Preguntas, seminarios y discusión abierta: la pestaña **Discussions**. Las err
 Contenidos: [CC BY 4.0](LICENSE). © Leszek Papiernik (Punto Cero).
 
 Sitio del proyecto: **[serc.pl](https://serc.pl)** — nota: la lengua de trabajo del taller es el polaco.
+

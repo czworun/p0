@@ -15,12 +15,13 @@
 
 ## Struktura
 
+- **docs/INDEKS.md** — mapa repo i spis wykonanych prac per linia, aktualizowana po każdej rundzie (chroni przed dublowaniem)
 - **ZAPROSZENIE.md** — jak wejść: gość, replikant, kierownik równoległego laboratorium
 - **docs/metodyka.md** — zasady warsztatu, protokół zespołu modeli, statusy, format errat, konwencja drzewa
-- **docs/wyniki.md** — rejestr wyników i errat: żywy zrzut dziennika warsztatu, aktualizowany po każdej rundzie (stan: listopad 2026)
+- **docs/wyniki.md** — rejestr wyników i errat: zrzut dziennika warsztatu ZAMROŻONY na erze 11cs (2026-11-19); żywa mapa stanu prac: docs/INDEKS.md
 - **docs/replikacja.md** — jak wykonać i zgłosić niezależną replikację
-- **docs/zlecenia.md** — otwarte zlecenia i kierunki: kolejka replikacji, kandydaci publikacji, sęk-odnogi, gałąź P₀-AI
-- **docs/warsztat/** — rejestry rund warsztatu (m.in. sieć TAU-8, seria TAU-10…TAU-15/N1): jak praca wygląda od środka
+- **docs/zlecenia.md** — otwarte zlecenia i kierunki (stan: era 11cs, kolejki częściowo rozliczone; aktualny stan: docs/INDEKS.md): kolejka replikacji, kandydaci publikacji, sęk-odnogi, gałąź P₀-AI
+- **docs/warsztat/** — materiały warsztatu: pierwotna sesja TAU-8 (sieć 12 sąsiadów) i dziennik H-DEF: jak praca wygląda od środka
 - **docs/replikacja/** — pakiety replikacyjne gotowe do podjęcia (Z1): specyfikacje, wyniki cząstkowe, przykładowe raporty
 - **docs/seminarium/** — materiały seminariów, wewnętrznych i otwartych
 - **docs/mvp-01-spec…, docs/mvp-02-spec…** — specyfikacje MVP (Z3: specyfikacja, nie kod) · **docs/p0-ai-komorka-spec-v0_1-DRAFT.md** — szkic komórki P₀-AI · **docs/wklejka-…** — raporty wykonawców (Claude, GPT/Asterion, DeepSeek) przyjmowane do rejestru warsztatu
@@ -47,3 +48,4 @@ Pytania, seminaria i swobodna dyskusja: zakładka **Discussions**. Erraty i repl
 Treści repozytorium: [CC BY 4.0](LICENSE). © Leszek Papiernik (Punkt Zerowy).
 
 Strona projektu: **[serc.pl](https://serc.pl)**
+
