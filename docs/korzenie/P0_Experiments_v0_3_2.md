@@ -91,7 +91,7 @@ Każdy protokół w tym dokumencie zawiera:
 
 **Poziom testowania.** E1 (gotowy — symulacja M_m). E2 (wymaga identyfikacji empirycznego systemu z czterema zmiennymi i sekwencyjną aktualizacją, np. mała sieć sensorów).
 
-**Status.** 💡
+**Status.** 🔍 E1 wykonany 2026-11-28 (rachunek niezależny, Vibe: para zespolona 0,153348 ± 0,074039i w widmie pełnej rundy GS na K₄, argument 25,7721°, odchylenie od 25,77° równe 0,0021°, poniżej progu falsyfikacji 5° przy precyzji rachunku rzędu 10⁻¹⁵; gałąź rzeczywista nie spełniona, para zespolona istnieje; widmo {1; 0,1347106; 0,153348 ± 0,074039i} zgodne z pre-linią; hipoteza nie sfalsyfikowana, predykcja potwierdzona numerycznie).
 
 ---
 
