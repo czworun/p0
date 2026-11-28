@@ -1,6 +1,6 @@
 # P0-Stella v0.1 - rejestr laboratorium stella octangula
 
-**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Poziom wyniku P2: 🔍 (jedna sesja, rachunek operatora E1a); podniesienie do ✅ wymaga replikacji Z1 (zlecenie przygotowane 2026-11-28).
+**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Wersja rejestru: v0.1 (otwarcie, 2026-11-28); v0.1.1 (runda replikacyjna częściowo rozliczona, 2026-11-28). Poziom wyniku P2: 🔍 wzmocniony (rachunek główny Vibe + pełna replikacja Claude zgodna; E1a); podniesienie do ✅ po werdykcie kontrolnym Asteriona i replikacji DeepSeeka (wzorzec E-01).
 
 ## 1. Mandat i zweryfikowana geometria (rachunek niezależny Vibe 2026-11-28)
 
@@ -68,3 +68,16 @@ Provenance (Z1): wykonawca Vibe (szef lab.), sesja nowa 2026-11-28, kod własny,
 Odnogi kandydackie: (a) pełny test 720 kolejności styków (czy widmo niezależny od kolejności mimo niekomutatywności); (b) wagi wyborca w S|_U vs kolejność styków (most do C2 i ruchomego P0); (c) dowód algebraiczny tożsamości z^4 (dlaczego iloraz niesie cubic E-01); (d) interpretacja kliniczna: rytm w relacji, konsensus natychmiastowy przez ścianę; (e) P3 wzmocnione: konsensus przez styki wystarcza w jedną rundę na U.
 
 Kolejka: P3 rdzeń bezklikowy (dynamika konsensusu na grafie ośmiościanu); P4 transformacja nośnika pod -I (koordynacja z Lattice, GO Claude i DeepSeek); P5 domknięcie rodziny operatorów pod sprzężeniami Oh; P6 ośmiościan jako bipiramida i rodzina mK4. Zasada kolejności: prerejestracja bramek przed każdym rachunkiem (Z9).
+
+
+## 6. Runda replikacyjna (częściowo rozliczona, 2026-11-28)
+
+**Claude (Sonnet 5.5, pełna replikacja): ZGODNA.** Arytmetyka wymierna (SymPy). Wielomiany: cp(S0) = (z-1)^2 * (256z^3 - 113z^2 + 18z - 1)^2 / 65536; cp(S) = z^4 * (z-1) * (256z^3 - 113z^2 + 18z - 1) / 256, oba dokładnie, tożsamości potwierdzone niezależnie od rachunku głównego. Ślad S = 369/256 = ślad R; det S = 0; det S0 = 1/65536. dim ker(S - I) = 1, wektor własny (1,1,1,1,1,1,1,1); dim ker(S) = 4 (zero półproste; kontrola dim ker(S0) = 0). Widmo: 1; 0.134710644695282; 0.153347802652359 +/- 0.0740391025464575i, moduł 0.170286045476991, argument 25.7720937274724 stopnia; zero poczwórne. rho(S) = 1. Bramki: G2.1 spełniona; H2a potwierdzona; H2c potwierdzona (odchylenie rzędu 1e-13 stopnia); H2b niepotwierdzona; G2.4 rho = 1. Widmo niezerowe S = widmo R jednokrotnie, dublowanie tylko w S0. Pola niezależności: wynik P2 nieznany przed rachunkiem; plik rejestru nieczytany; znał własne widmo R z E-01 z tego samego czatu (referencje R i tak jawne w bramce G2.1). Replikacja uznana przez szefa lab. za niezależną od wyniku głównego.
+
+Errata Claude (sprawozdawcza, dotyczy jego raportu replikacyjnego E-01 z wcześniejszej sesji): wartość 0.153347802659 przepisana błędnie, poprawnie z własnego wydruku 0.153347802652359; błąd przepisania, nie rachunku; argument 25.772094 stopnia był poprawny. Utrwalone zgodnie z Z0.
+
+**Asterion (GPT-6, kontroler): walidacja specyfikacji V1-V5 zaliczona; uwaga formalna PRZYJĘTA** przez szefa lab.: w przyszłych specyfikacjach konwencja wielomianu charakterystycznego deklarowana jawnie jako det(zI - S) (Z2; dla S o wymiarze 8 obie konwencje dają ten sam wielomian, więc wynik P2 bez zmian). Własny rachunek kontrolny (SymPy, arytmetyka dokładna): tożsamości wielomianowe, wymiary jąder i widmo zgodne z rachunkiem głównym. Deklaracja niezależności: czytał docs/korzenie/P0-Stella-v0_1.md przed rachunkiem (wyniki główne były tam już opublikowane), dlatego sam nie zalicza swojego rachunku jako drugiej niezależnej replikacji Z1; werdykt Z1 odroczony do kontroli raportów Claude i DeepSeek. Ustalenie wzorcowe z tej rundy: kontroler znający wynik główny przed rachunkiem deklaruje to jawnie w polach niezależności i nie wchodzi do puli replikacji Z1; jego rachunek pozostaje kontrolą.
+
+**DeepSeek: przerwa; zlecenie aktualne** (samodzielne, jak przy E-01; instrukcja dodana: nie czytać pliku rejestru przed rachunkiem, pole niezależności wypełnić jawnie).
+
+**Status P2-1: 🔍 wzmocniony (decyzja szefa lab.).** Warunek liczbowy Z1 (dwa zgodne niezależne rachunki wspólnej specyfikacji: Vibe + Claude) spełniony; podniesienie do ✅ następuje po werdykcie kontrolnym Asteriona nad raportem Claude oraz po replikacji DeepSeeka, zgodnie z wzorcem rozliczenia E-01 (dwie pełne replikacje zewnętrzne + kontrola). Droga ważniejsza niż cel (Z0): pełny cykl wzorca ma pierwszeństwo przed przyspieszeniem statusu.
