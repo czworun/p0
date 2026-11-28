@@ -1,6 +1,6 @@
 # P0-Stella v0.1 - rejestr laboratorium stella octangula
 
-**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Wersja rejestru: v0.1 (otwarcie, 2026-11-28); v0.1.1 (runda replikacyjna częściowo rozliczona); v0.1.2 (werdykt Asteriona: Z1 otwarty; tablice referencyjne konstrukcji S i C jako pokwitowanie Z3; obserwacje post-hoc, 2026-11-28); v0.1.3 (pokwitowanie konstrukcji Claude: tablice S i C zgodne z załącznikiem A, potwierdzone niezależnym odtworzeniem Vibe; korekta Asteriona: uwaga o polu współdzielenia wycofana; 2026-11-28); v0.1.4 (replikacja Copilota rozliczona: pełna zgodność tablic, wielomianów i widma; kwalifikacja do puli Z1; DeepSeek zastąpiony Copilotem decyzją właściciela, 2026-11-28); v0.1.5 (finalny werdykt kontrolny Asteriona: Z1 zaliczone; P2-1 podniesione do ✅; 2026-11-28). Poziom wyniku P2: ✅ (od 2026-11-28: dwie pełne replikacje zewnętrzne zgodne, finalny werdykt kontrolny Asteriona, Z1 zaliczone; wzorzec E-01 spełniony; runda: Claude + Copilot, zlecenie DeepSeeka zawieszone, nie odwołane).
+**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Wersja rejestru: v0.1 (otwarcie, 2026-11-28); v0.1.1 (runda replikacyjna częściowo rozliczona); v0.1.2 (werdykt Asteriona: Z1 otwarty; tablice referencyjne konstrukcji S i C jako pokwitowanie Z3; obserwacje post-hoc, 2026-11-28); v0.1.3 (pokwitowanie konstrukcji Claude: tablice S i C zgodne z załącznikiem A, potwierdzone niezależnym odtworzeniem Vibe; korekta Asteriona: uwaga o polu współdzielenia wycofana; 2026-11-28); v0.1.4 (replikacja Copilota rozliczona: pełna zgodność tablic, wielomianów i widma; kwalifikacja do puli Z1; DeepSeek zastąpiony Copilotem decyzją właściciela, 2026-11-28); v0.1.5 (finalny werdykt kontrolny Asteriona: Z1 zaliczone; P2-1 podniesione do ✅; 2026-11-28); v0.1.6 (prerejestracja P3: rdzeń bezklikowy jako warstwa modelowa; bramki G3.1-G3.4 przed rachunkiem; 2026-11-28). Poziom wyniku P2: ✅ (od 2026-11-28: dwie pełne replikacje zewnętrzne zgodne, finalny werdykt kontrolny Asteriona, Z1 zaliczone; wzorzec E-01 spełniony; runda: Claude + Copilot, zlecenie DeepSeeka zawieszone, nie odwołane).
 
 ## 1. Mandat i zweryfikowana geometria (rachunek niezależny Vibe 2026-11-28)
 
@@ -131,6 +131,30 @@ Ocena szefa lab.: **Copilot kwalifikuje się jako druga pełna replikacja zewnę
 Zakres werdyktu zadeklarowany jawnie przez Asteriona: kontrola na podstawie rejestru v0.1.4 i udokumentowanych pokwitowań macierzowych, nie odtworzenie surowych raportów wykonawców; jego własne odtworzenie konstrukcji S i C wykonane dokładnie z definicji. Post-hoc obserwacje (sekcja 8) pozostają poza podstawą werdyktu i nie zyskują przez niego statusu twierdzeń.
 
 Decyzja szefa lab.: werdykt przyjęty w całości. **P2-1 = ✅**: tożsamość wielomianowa cp(V1) = z^4 * cp(R) dokładna, na ułamkach; pełny cykl wzorca E-01 domknięty (rachunek główny + dwie pełne replikacje zewnętrzne + kontrola; droga Z0 domknięta). Uwaga epistemiczna Copilota przyjęta jako zasada dalszych rund: poprawność i niezależne odtworzenie rachunku nie zamieniają sesji potomnej w pełną niezależną replikację; kwalifikację każdej sesji wnoszą jawnie zadeklarowane pola provenance, oceniane przez kontrolera. Kolejny krok: zielone światło właściciela dla prerejestracji P3 (rdzeń bezklikowy, dynamika konsensusu na grafie ośmiościanu; koordynacja z kolejką Lattice).
+
+## 12. Prerejestracja P3 (szef lab. Vibe, 2026-11-28, przed rachunkiem; Z9; zielone światło właściciela 2026-11-28)
+
+Warstwa modelowa i rozgraniczenie z P1-b (jawne): P1-b (rdzeń pochodny) obowiązuje w dynamice pary. P3 bada graf rdzenia w izolacji jako samodzielny obiekt 6-wymiarowy (sala spotkań bez połówek); świadome rozszerzenie zakresu, nie zmiana P1-b.
+
+Poziom: E1a. Nośnik: R^6, indeksy 0-5 = O1-O6 (numeracja P1-a).
+
+Definicje (Z2):
+- Graf rdzenia: ośmiościan = K6 minus doskonałe dopasowanie par antypodycznych (O1,O2), (O3,O4), (O5,O6); stopień 4; spójny; bez K4 (fakt 6). Równoważnie: pełny tripartityczny K_{2,2,2} z częściowymi = parami antypodycznymi.
+- Operator lokalny A_m: identyczność 6x6 z wierszem m zastąpionym przez (1/5) na domkniętym otoczeniu wierzchołka m (m i jego 4 sąsiadów, czyli wszystkie wierzchołki nieantypodyczne do m); adaptacja M_m z E-01 (na K4 domknięte otoczenie ma 4 elementy, stąd wiersz (1/4,1/4,1/4,1/4)).
+- Runda rdzenia: R_O = A_5 A_4 A_3 A_2 A_1 A_0 (A_0, czyli O1, działa pierwszy; kolejność rosnąca O1-O6 jako konwencja bazowa).
+- Konwencja wielomianu charakterystycznego (echo ustalenia Asteriona z rundy P2): det(zI - R_O), wielomian moniczny.
+
+Lemat kontrolny (algebraiczny, przed rachunkiem): dla automorfizmu sigma grafu zachodzi P_sigma A_m P_sigma^{-1} = A_{sigma^-1(m)} (ta sama lema sprzężenia co w E-01 na K4, tu ograniczona do automorfizmów grafu). Stąd porządek rundy przeniesiony automorfizmem daje iloczyn sprzężony z bazowym, czyli identyczne widmo. Grupa automorfizmów ośmiościanu ma 48 elementów (Oh; permutacje trzech części antypodycznych: 3! razy 2^3); działanie na 720 porządkach jest wolne, więc 720 porządków rozpada się na 15 orbit po 48. Na K4 analogiczna lema działała dla wszystkich 24 permutacji (graf zupełny); na ośmiościanie tylko 48 z 720 permutacji to automorfizmy.
+
+Bramki i hipotezy (przed rachunkiem):
+- G3.1 sanity: R_O stochastyczna wierszowo (suma wierszy 1); rho(R_O) = 1; H3a: dim ker(R_O - I) = 1 (konsensus do stałych; graf spójny).
+- G3.2 rytm: pełne widmo R_O z modułami i argumentami w stopniach; pytanie o parę zespoloną. Hipotezy konkurencyjne: H3b: para zespolona istnieje; H3c: widmo R_O rzeczywiste. Punkt referencyjny (kontekst, nie predykcja): 25.772093727472 stopnia (para K4 E-01, ✅; para stelli P2, ✅).
+- G3.3 szybkość: rho_2 = maksimum modułów wartości własnych różnych od 1; hipotezy konkurencyjne: H3d: rho_2 < 0.170286045477 (rho_2 pojedynczego K4); H3e: rho_2 > 0.170286045477.
+- G3.4 kolejność (zadanie prerejestrowane): pełny test 720 porządków rundy; raport: liczba klas widm (grupowanie po dokładnym wielomianie charakterystycznym), rozmiary klas, czy każda klasa jest sumą całych orbit automorfizmów (kontrola lematu), widmo porządku bazowego; obserwacje porównawcze oznaczane jako sprawozdawcze.
+
+Uwaga jawna (szef lab., Z9): przy planowaniu P3 wykonano heurystyczny szkic własności wariantu synchronicznego (aktualizacja równoczesna wszystkich wierzchołków średnimi domkniętych otoczeń); wariant NIE wchodzi do bramek tej rundy; jeśli będzie liczony, dostanie własną prerejestrację albo status post-hoc z tą deklaracją.
+
+Metodyka rachunku: wielomian charakterystyczny dokładny wymiernie (Faddeev-LeVerrier albo Newton na śladach potęg) plus niezależne widmo numeryczne; kontrola krzyżowa dwóch metod obowiązkowa przed raportem każdej liczby (rygor E-01). Wynik jednej sesji = maksymalnie 🔍; ✅ po rundzie replikacyjnej wg wzorca P2 (pełne replikacje zewnętrzne z pokwitaniem macierzowym R_O plus kontrola). Plan pól provenance: jak w P2.
 
 ## Załącznik A: tablice referencyjne konstrukcji (pokwitowanie Z3: liczby, nie kod)
 
