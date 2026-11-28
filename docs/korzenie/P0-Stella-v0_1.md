@@ -1,6 +1,6 @@
 # P0-Stella v0.1 - rejestr laboratorium stella octangula
 
-**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Wersja rejestru: v0.1 (otwarcie, 2026-11-28); v0.1.1 (runda replikacyjna częściowo rozliczona); v0.1.2 (werdykt Asteriona: Z1 otwarty; tablice referencyjne konstrukcji S i C jako pokwitowanie Z3; obserwacje post-hoc, 2026-11-28). Poziom wyniku P2: 🔍 wzmocniony; podniesienie do ✅ po finalnej kontroli konstrukcji i werdykcie Asteriona oraz po replikacji DeepSeeka (wzorzec E-01).
+**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Wersja rejestru: v0.1 (otwarcie, 2026-11-28); v0.1.1 (runda replikacyjna częściowo rozliczona); v0.1.2 (werdykt Asteriona: Z1 otwarty; tablice referencyjne konstrukcji S i C jako pokwitowanie Z3; obserwacje post-hoc, 2026-11-28); v0.1.3 (pokwitowanie konstrukcji Claude: tablice S i C zgodne z załącznikiem A, potwierdzone niezależnym odtworzeniem Vibe; korekta Asteriona: uwaga o polu współdzielenia wycofana; 2026-11-28). Poziom wyniku P2: 🔍 wzmocniony; podniesienie do ✅ po finalnej kontroli konstrukcji i werdykcie Asteriona oraz po replikacji DeepSeeka (wzorzec E-01).
 
 ## 1. Mandat i zweryfikowana geometria (rachunek niezależny Vibe 2026-11-28)
 
@@ -91,6 +91,8 @@ Koncesja Vibe (Z0): pole "współdzielenie kodu: brak" było wprost w raporcie C
 
 Odpowiedź laboratorium na lukę kontroli konstrukcji: pokwitowaniem konstrukcji nie jest kod (Z3), lecz jawna macierz. Tablice referencyjne S i C (załącznik A) wpisywane do rejestru; Claude i DeepSeek dostają prośbę o własne tablice S i C do porównania; dopiero porównanie macierzy, nie tylko liczb, zamknie kontrolę konstrukcji.
 
+Korekta Asteriona (przekaz Leszka, 2026-11-28): uwaga o braku pola współdzielenia kodu w raporcie Claude WYCOFANA; pole znajdowało się w raporcie, luka powstała w retransmisji podsumowania, nie w dokumentacji Claude. Asterion przyjmuje kryterium pokwitowania: jawna macierz wystarcza, kod niewymagany; porówna zgodność wpisów macierzowych z załącznikiem A, nie tylko wielomianów i widma. Obserwacje z sekcji 8 przyjmuje jako wskazówki do kontroli struktury (postać domknięta C, rzutowość, komutacja, warstwowość osi rdzenia), a test 720/48 jako wynik post-hoc nienależący do kryteriów zaliczenia; bez zmian prerejestracji i bramek. Status P2-1 pozostaje 🔍; po raporcie DeepSeeka porównanie tablic S i C wszystkich wykonawców i finalny werdykt Z1.
+
 ## 8. Obserwacje post-hoc (sprawozdawcze; znalezione PO wyniku głównym, podczas przygotowania tablic konstrukcji; NIEprerejestrowane; do własnej replikacji przed jakimkolwiek statusem)
 
 Wszystkie tożsamości dokładne, arytmetyka wymierna, metody Faddeev-LeVerrier i Newton zgodne:
@@ -99,6 +101,14 @@ Wszystkie tożsamości dokładne, arytmetyka wymierna, metody Faddeev-LeVerrier 
 - Komutacja z wymianą połówek: P*S*P = S dla P zamieniającego bloki A i B (echo faktu 1: operator pary szanuje symetrię -I).
 - Struktura warstwowa styków: 6 kierunków v_p rozpada się na 3 pary antypodyczne ORTOGONALNE ((O1,O2), (O3,O4), (O5,O6) = 3 osie rdzenia ośmiościanu); rzuty w obrębie pary komutują (rozłączne nośniki); rzuty warstwowe P1 = W2*W1, P2 = W4*W3, P3 = W6*W5 idempotentne i parami komutujące; C = P3*P2*P1 = iloczyn warstw w dowolnej kolejności.
 - Pełny test 720 kolejności styków (odnoga (a) rozstrzygnięta post-hoc): dokładnie 48 porządków zachowuje cp(S) = z^4*cp(R) i są to dokładnie porządki blokowo-warstwowe (3! * 2^3 = 48); pozostałe 672 porządków przeplatanych daje inne wielomiany charakterystyczne. Konwencja prerejestracji (O1..O6) jest porządkiem warstwowym, więc leży w klasie niezmienniczej. Echo C2 potwierdzone na stelli: porządek styków ma znaczenie, a klasa niezmiennicza ma strukturę geometryczną osi rdzenia.
+
+## 9. Pokwitanie konstrukcji Claude (rozliczenie, 2026-11-28)
+
+Claude dostarczył jawne tablice C = N/4 i S = M/1024 wiersz po wierszu, wymiernie, bez kodu (zgodnie z prośbą lab. i Z3). Kontrola Vibe: niezależne odtworzenie od definicji (M_m z E-01, R = M3*M2*M1*M0, D = diag(R,R), W_p = I - v_p v_p^T, C = W6 W5 W4 W3 W2 W1, S = C*D, arytmetyka wymierna): obie tablice Claude IDENTYCZNE z załącznikiem A, co do ułamka we wszystkich 64 + 64 pozycjach; przy okazji odtworzone i potwierdzone dokładnie: cp(S) = z^4 * cp(R), dim ker(S - I) = 1, dim ker(S) = 4, P*S*P = S. Ustalenie: kontrola konstrukcji Claude zamknięta co do tablic; do zamknięcia całej kontroli konstrukcji czeka na tablice DeepSeeka.
+
+Dodatkowe twierdzenia Claude, potwierdzone rachunkiem kontrolnym Vibe (dokładnie, wymiernie): C symetryczna i C^2 = C (rzut ortogonalny); ranga C = 4, ślad C = 4; C = I - P_z dla rzutu ortogonalnego P_z na rozpiętość {v_1,...,v_6}, gdzie rząd macierzy Grama kierunków wynosi 4, więc Im C ma wymiar 4; pojedyncze W_p mają rangę 7; sumy wierszy C i S równe 1 (spójne z (1,...,1) w ker(S - I)).
+
+Sprostowanie sprawozdawcze do raportu Claude (Z9, znalezione przy kontroli, oznaczane jawno jako post-hoc): zdanie, że operatory W_p "nie komutują ze sobą", jest nieprecyzyjne. Dokładnie: 12 z 15 par nie komutuje, ale 3 pary antypodyczne (O1,O2), (O3,O4), (O5,O6) KOMUTUJĄ, bo kierunki v_p w parze antypodycznej są ortogonalne, a rzuty na ortogonalne kierunki komutują. To spójne ze strukturą warstwową (sekcja 8): warstwa = para antypodyczna = oś rdzenia. Twierdzenie główne Claude (iloczyn W6...W1 jest rzutem mimo niekomutatywności czynników; wynik rachunku, nie założenie) pozostaje w mocy i wzmacnia się: warstwy P1 = W2W1, P2 = W4W3, P3 = W6W5 komutują parami, więc C = P3P2P1 rzutem wynika także z dekompozycji warstwowej.
 
 ## Załącznik A: tablice referencyjne konstrukcji (pokwitowanie Z3: liczby, nie kod)
 
