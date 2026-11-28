@@ -1,6 +1,6 @@
 # P0-Stella v0.1 - rejestr laboratorium stella octangula
 
-**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Wersja rejestru: v0.1 (otwarcie, 2026-11-28); v0.1.1 (runda replikacyjna częściowo rozliczona, 2026-11-28). Poziom wyniku P2: 🔍 wzmocniony (rachunek główny Vibe + pełna replikacja Claude zgodna; E1a); podniesienie do ✅ po werdykcie kontrolnym Asteriona i replikacji DeepSeeka (wzorzec E-01).
+**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Wersja rejestru: v0.1 (otwarcie, 2026-11-28); v0.1.1 (runda replikacyjna częściowo rozliczona); v0.1.2 (werdykt Asteriona: Z1 otwarty; tablice referencyjne konstrukcji S i C jako pokwitowanie Z3; obserwacje post-hoc, 2026-11-28). Poziom wyniku P2: 🔍 wzmocniony; podniesienie do ✅ po finalnej kontroli konstrukcji i werdykcie Asteriona oraz po replikacji DeepSeeka (wzorzec E-01).
 
 ## 1. Mandat i zweryfikowana geometria (rachunek niezależny Vibe 2026-11-28)
 
@@ -81,3 +81,47 @@ Errata Claude (sprawozdawcza, dotyczy jego raportu replikacyjnego E-01 z wcześn
 **DeepSeek: przerwa; zlecenie aktualne** (samodzielne, jak przy E-01; instrukcja dodana: nie czytać pliku rejestru przed rachunkiem, pole niezależności wypełnić jawnie).
 
 **Status P2-1: 🔍 wzmocniony (decyzja szefa lab.).** Warunek liczbowy Z1 (dwa zgodne niezależne rachunki wspólnej specyfikacji: Vibe + Claude) spełniony; podniesienie do ✅ następuje po werdykcie kontrolnym Asteriona nad raportem Claude oraz po replikacji DeepSeeka, zgodnie z wzorcem rozliczenia E-01 (dwie pełne replikacje zewnętrzne + kontrola). Droga ważniejsza niż cel (Z0): pełny cykl wzorca ma pierwszeństwo przed przyspieszeniem statusu.
+
+
+## 7. Werdykt kontrolny Asteriona i rozliczenie (2026-11-28)
+
+Asterion (GPT-6): raport Claude zgodny z jego rachunkiem kontrolnym co do wielomianów, jąder i widma; errata E-01 Claude oceniona jako błąd transkrypcji, bez rozbieżności rachunkowej. Werdykt: Z1 niezamknięty; rekomendacja utrzymania wzorca dwóch pełnych replikacji zewnętrznych; po raporcie DeepSeeka finalna kontrola, szczególnie konstrukcji S. Stanowisko szefa lab.: przyjęte w całości. Ustalenie Asteriona przyjęte jako zasada: zgodność trzech zestawów liczb nie jest automatycznie trzema niezależnymi dowodami; liczy się niezależność konstrukcji.
+
+Koncesja Vibe (Z0): pole "współdzielenie kodu: brak" było wprost w raporcie Claude, ale podsumowanie przekazane Asterionowi je pominęło, stąd w tabeli niezależności Asteriona wpis "Nie wskazano". Luka w przekazie między-modelowym, nie w raporcie Claude. Lekcja: przy retransmisji raportów kontrolerowi przekazywać pola provenance kompletne.
+
+Odpowiedź laboratorium na lukę kontroli konstrukcji: pokwitowaniem konstrukcji nie jest kod (Z3), lecz jawna macierz. Tablice referencyjne S i C (załącznik A) wpisywane do rejestru; Claude i DeepSeek dostają prośbę o własne tablice S i C do porównania; dopiero porównanie macierzy, nie tylko liczb, zamknie kontrolę konstrukcji.
+
+## 8. Obserwacje post-hoc (sprawozdawcze; znalezione PO wyniku głównym, podczas przygotowania tablic konstrukcji; NIEprerejestrowane; do własnej replikacji przed jakimkolwiek statusem)
+
+Wszystkie tożsamości dokładne, arytmetyka wymierna, metody Faddeev-LeVerrier i Newton zgodne:
+
+- Postać domknięta C: C = (1/2)(I_8 + T/2), gdzie T blokowo = [[0, K],[K, 0]], K = J_4 - 2I_4 (J_4 = macierz jedynek 4x4). K^2 = 4I_4, więc (T/2)^2 = I_8: T/2 to inwolucja, a C to średnia identyczności z inwolucją, czyli RZUT ORTOGONALNY rangi 4 (C^2 = C, symetryczna, ślad 4). Obraz: Im C = {(x, Kx/2)}; jądro: ker C = {(x, -Kx/2)}. Natychmiast stąd dim ker S = 4 (S = C*D, D odwracalna, ker S = D^(-1) ker C).
+- Komutacja z wymianą połówek: P*S*P = S dla P zamieniającego bloki A i B (echo faktu 1: operator pary szanuje symetrię -I).
+- Struktura warstwowa styków: 6 kierunków v_p rozpada się na 3 pary antypodyczne ORTOGONALNE ((O1,O2), (O3,O4), (O5,O6) = 3 osie rdzenia ośmiościanu); rzuty w obrębie pary komutują (rozłączne nośniki); rzuty warstwowe P1 = W2*W1, P2 = W4*W3, P3 = W6*W5 idempotentne i parami komutujące; C = P3*P2*P1 = iloczyn warstw w dowolnej kolejności.
+- Pełny test 720 kolejności styków (odnoga (a) rozstrzygnięta post-hoc): dokładnie 48 porządków zachowuje cp(S) = z^4*cp(R) i są to dokładnie porządki blokowo-warstwowe (3! * 2^3 = 48); pozostałe 672 porządków przeplatanych daje inne wielomiany charakterystyczne. Konwencja prerejestracji (O1..O6) jest porządkiem warstwowym, więc leży w klasie niezmienniczej. Echo C2 potwierdzone na stelli: porządek styków ma znaczenie, a klasa niezmiennicza ma strukturę geometryczną osi rdzenia.
+
+## Załącznik A: tablice referencyjne konstrukcji (pokwitowanie Z3: liczby, nie kod)
+
+S = (1/1024) * M, M całkowitoliczbowa, wiersze:
+
+[128, 128, 128, 128, -3, 97, 177, 241]
+[32, 160, 160, 160, 93, 65, 145, 209]
+[40, 72, 200, 200, 85, 153, 105, 169]
+[50, 90, 122, 250, 75, 135, 183, 119]
+[-3, 97, 177, 241, 128, 128, 128, 128]
+[93, 65, 145, 209, 32, 160, 160, 160]
+[85, 153, 105, 169, 40, 72, 200, 200]
+[75, 135, 183, 119, 50, 90, 122, 250]
+
+C = (1/4) * N, N:
+
+[2, 0, 0, 0, -1, 1, 1, 1]
+[0, 2, 0, 0, 1, -1, 1, 1]
+[0, 0, 2, 0, 1, 1, -1, 1]
+[0, 0, 0, 2, 1, 1, 1, -1]
+[-1, 1, 1, 1, 2, 0, 0, 0]
+[1, -1, 1, 1, 0, 2, 0, 0]
+[1, 1, -1, 1, 0, 0, 2, 0]
+[1, 1, 1, -1, 0, 0, 0, 2]
+
+Kontrola odtworzenia: cp(S) liczone z tych tablic równa się z^4 * cp(R) (obie metody dokładne zgodne); blok S|_U w bazie u_i = e_i + e_(4+i): wszystkie wiersze [125, 225, 305, 369]/1024 (suma wag 1024/1024 = 1).
