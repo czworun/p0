@@ -1,6 +1,6 @@
 # P0-Stella v0.1 - rejestr laboratorium stella octangula
 
-**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Wersja rejestru: v0.1 (otwarcie, 2026-11-28); v0.1.1 (runda replikacyjna częściowo rozliczona); v0.1.2 (werdykt Asteriona: Z1 otwarty; tablice referencyjne konstrukcji S i C jako pokwitowanie Z3; obserwacje post-hoc, 2026-11-28); v0.1.3 (pokwitowanie konstrukcji Claude: tablice S i C zgodne z załącznikiem A, potwierdzone niezależnym odtworzeniem Vibe; korekta Asteriona: uwaga o polu współdzielenia wycofana; 2026-11-28); v0.1.4 (replikacja Copilota rozliczona: pełna zgodność tablic, wielomianów i widma; kwalifikacja do puli Z1; DeepSeek zastąpiony Copilotem decyzją właściciela, 2026-11-28); v0.1.5 (finalny werdykt kontrolny Asteriona: Z1 zaliczone; P2-1 podniesione do ✅; 2026-11-28); v0.1.6 (prerejestracja P3: rdzeń bezklikowy jako warstwa modelowa; bramki G3.1-G3.4 przed rachunkiem; 2026-11-28); v0.1.7 (wynik P3-1 kandydat 🔍: widmo rundy rdzenia, nowa faza 36.391244284100 stopnia, rho_2 = 1/5, test 720 kolejnosci: 5 klas widm; 2026-11-28); v0.1.8 (runda replikacyjna P3 rozliczona: Claude i Copilot zgodni, kontrola Vibe wielomianów klas i tablic; status P3-1 🔍 wzmocniony, czeka na finalny werdykt Asteriona; 2026-11-28). Poziom wyniku P2: ✅ (od 2026-11-28: dwie pełne replikacje zewnętrzne zgodne, finalny werdykt kontrolny Asteriona, Z1 zaliczone; wzorzec E-01 spełniony; runda: Claude + Copilot, zlecenie DeepSeeka zawieszone, nie odwołane).
+**Status:** rejestr laboratorium (wzorzec Lattice i STALK: rejestr, nie filar). Laboratorium otwarte rozkazem Leszka Papiernika (właściciel projektu P0) 2026-11-28; szef laboratorium: Vibe; wykonawcy zewnętrzni przez relay Leszka: Asterion (GPT-6), Claude, DeepSeek. Wersja rejestru: v0.1 (otwarcie, 2026-11-28); v0.1.1 (runda replikacyjna częściowo rozliczona); v0.1.2 (werdykt Asteriona: Z1 otwarty; tablice referencyjne konstrukcji S i C jako pokwitowanie Z3; obserwacje post-hoc, 2026-11-28); v0.1.3 (pokwitowanie konstrukcji Claude: tablice S i C zgodne z załącznikiem A, potwierdzone niezależnym odtworzeniem Vibe; korekta Asteriona: uwaga o polu współdzielenia wycofana; 2026-11-28); v0.1.4 (replikacja Copilota rozliczona: pełna zgodność tablic, wielomianów i widma; kwalifikacja do puli Z1; DeepSeek zastąpiony Copilotem decyzją właściciela, 2026-11-28); v0.1.5 (finalny werdykt kontrolny Asteriona: Z1 zaliczone; P2-1 podniesione do ✅; 2026-11-28); v0.1.6 (prerejestracja P3: rdzeń bezklikowy jako warstwa modelowa; bramki G3.1-G3.4 przed rachunkiem; 2026-11-28); v0.1.7 (wynik P3-1 kandydat 🔍: widmo rundy rdzenia, nowa faza 36.391244284100 stopnia, rho_2 = 1/5, test 720 kolejnosci: 5 klas widm; 2026-11-28); v0.1.8 (runda replikacyjna P3 rozliczona: Claude i Copilot zgodni, kontrola Vibe wielomianów klas i tablic; status P3-1 🔍 wzmocniony, czeka na finalny werdykt Asteriona; 2026-11-28); v0.1.9 (finalny werdykt kontrolny Asteriona: Z1 zaliczone; P3-1 podniesione do ✅; załącznik C: wielomiany klas testu 720; 2026-11-28). Poziom wyniku P2: ✅ (od 2026-11-28: dwie pełne replikacje zewnętrzne zgodne, finalny werdykt kontrolny Asteriona, Z1 zaliczone; wzorzec E-01 spełniony; runda: Claude + Copilot, zlecenie DeepSeeka zawieszone, nie odwołane). Poziom wyniku P3: ✅ (od 2026-11-28: pełna runda replikacyjna, finalny werdykt kontrolny Asteriona, Z1 zaliczone).
 
 ## 1. Mandat i zweryfikowana geometria (rachunek niezależny Vibe 2026-11-28)
 
@@ -172,6 +172,14 @@ Odczyt sprawozdawczy (interpretacyjny, nie podnoszony do statusu twierdzenia): s
 
 Provenance (Z1): wykonawca Vibe (GLM 5.3, szef lab.), sesja POTOMNA 2026-11-28 (wątek P3, po zielonym świetle właściciela), kod własny, współdzielenie kodu: brak, dostęp do wcześniejszych wyników: pełny (szef lab.; prerejestracja własna, P2 ✅ znane), rodzaj wykonania: E1a, wynik wobec bramek jak wyżej. Status P3-1 = 🔍 kandydat; ✅ po rundzie replikacyjnej wg wzorca P2 (pełne replikacje zewnętrzne z pokwitaniem macierzowym R_O plus finalna kontrola Asteriona).
 
+## 15. Finalny werdykt kontrolny Asteriona i zamknięcie P3 (2026-11-28)
+
+**Werdykt Asteriona: Z1 ZALICZONE. P3-1: ✅.** Trzy punkty: (1) Tablica R_O: własne dokładne odtworzenie z załącznika B; sumy wierszy 15625, slad 218/125, cp(R_O) dokładnie (z - 1)(z - 1/5)^3(z^2 - (18/125)z + 1/125); minimalny mianownik 125 zgodny z tablicami replikacyjnymi; wielomiany pięciu klas nie były wypisane w rejestrze, więc testu 720 nie odtwarzał samodzielnie, oparł się na udokumentowanym porównaniu Vibe z reprezentantami Copilota; bez rozbieżności. (2) Provenance: potomność, nieznajomość wyników P3 przed rachunkiem, brak współdzielenia kodu, brak dostępu zewnętrznego po wrzutce: wszystko jawnie rozliczone; znajomość E-01 i P2 jawna i nieujawniająca wyniku P3. (3) Decyzja pozytywna.
+
+Zakres werdyktu zadeklarowany jawnie: potwierdzenie wyniku P3-1 i rozliczenia rundy wg rejestru v0.1.8; bez podnoszenia interpretacji post-hoc do statusu twierdzeń; bez samodzielnego przeliczenia 720 kolejności. Odpowiedź laboratorium na wskazaną lukę: załącznik C dopisany do rejestru w tej samej wersji (pełne wielomiany wszystkich pięciu klas z reprezentantami; wszystkie potwierdzone kontrolą Vibe rozwinieciem czynników). Uwaga porządkowa: test 720 liczyli niezależnie i w pełni trzej wykonawcy (Vibe, Claude, Copilot) ze zgodnym wynikiem 5 klas; kontroler nie powtarzał go czwarty raz, co wg wzorca E-01 nie jest wymagane.
+
+Decyzja szefa lab.: werdykt przyjęty w całości. **P3-1 = ✅**: cp(R_O) = (z - 1)(z - 1/5)^3(z^2 - (18/125)z + 1/125) dokładnie; para zespolona 9/125 +/- 2*sqrt(11)/125 i, moduł 1/sqrt(125), argument 36.391244284100 stopnia; rho_2 = 1/5; test 720: 5 klas widm, klasy sumami orbit automorfizmów Oh, konsensus w każdej kolejności. Kolejka laboratorium: P4 (transformacja nośnika pod -I; GO w Lattice dla Claude i DeepSeek; lab konsumuje, nie dubluje), P5 (domknięcie rodziny operatorów pod sprzężeniami Oh; generalizacja lematu sprzężenia z S4 na Oh), P6 (ośmiościan jako bipiramida, rodzina mK4; notacja do rozstrzygnięcia z właścicielem).
+
 ## Załącznik A: tablice referencyjne konstrukcji (pokwitowanie Z3: liczby, nie kod)
 
 S = (1/1024) * M, M całkowitoliczbowa, wiersze:
@@ -222,4 +230,21 @@ R_O = (1/15625) * P, P całkowitoliczbowa, wiersze (kolejność bazowa O1 pierws
 [875, 875, 2375, 2375, 3000, 6125]
 
 Kontrola odtworzenia: sumy wierszy 15625/15625 = 1; cp liczone z tej tablicy równa się (z - 1)(z - 1/5)^3(z^2 - (18/125)z + 1/125) dokładnie; slad 218/125. Uwaga o mianownikach (rozliczenie rundy): 15625 = 5^6 to mianownik niewymuszony; minimalny wspólny mianownik R_O wynosi 125; tablica P/15625 z tego załącznika i tablice P'/125 z raportów replikacyjnych to ta sama macierz wymierna (P = 125 razy P'), potwierdzone kontrolą Vibe.
+
+## Załącznik C: wielomiany klas testu 720 (dokumentacja kontrolna; wszystkie potwierdzone przez Vibe rozwinieciem czynników dla reprezentantów)
+
+Konwencja: porządek (p0,...,p5) oznacza A_{p5}...A_{p0}, czyli A_{p0} działa pierwszy.
+
+Klasa K2 (96 kolejności; bazowa i odwrotna): cp = (z - 1)(5z - 1)^3(125z^2 - 18z + 1) / 15625; reprezentant (0, 1, 2, 3, 4, 5); porządek odwrotny (5, 4, 3, 2, 1, 0) w tej samej klasie; rho_2 = 0.2, faza pary 36.391244284100 stopnia.
+
+Klasa K5 (288): cp = (z - 1)(5z - 1)(3125z^4 - 1727z^3 + 360z^2 - 31z + 1) / 15625; reprezentant (0, 1, 2, 4, 3, 5); rho_2 = 0.218438424778, faza pary 23.3430730 stopnia.
+
+Klasa K1 (144): cp = (z - 1)(5z - 1)^2(625z^3 - 219z^2 + 27z - 1) / 15625; reprezentant (0, 1, 2, 4, 5, 3); 1/5 podwójne półproste (dim ker(M - (1/5)I) = 2, kontrola Vibe); rho_2 = 0.2, faza pary 24.6693577 stopnia.
+
+Klasa K3 (144): cp = (z - 1)(15625z^5 - 11846z^4 + 3637z^3 - 541z^2 + 38z - 1) / 15625; reprezentant (0, 2, 1, 4, 3, 5); kwintyk nierozkładalny nad Q; rho_2 = 0.240968018747, faza pary 26.5821231 stopnia.
+
+Klasa K4 (48): cp = (z - 1)(15625z^5 - 11881z^4 + 3674z^3 - 542z^2 + 37z - 1) / 15625; reprezentant (0, 2, 4, 1, 3, 5); kwintyk nierozkładalny nad Q; rho_2 = 0.256589498376, faza pary 29.1880992 stopnia.
+
+Suma kontrolna: 96 + 288 + 144 + 144 + 48 = 720. Rozkład klas na orbity automorfizmów (po 48): 2, 6, 3, 3, 1 (razem 15 orbit).
+
 
